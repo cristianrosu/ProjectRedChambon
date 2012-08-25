@@ -11,8 +11,8 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body  style="padding-top: 60px;"> <!-- Compensate the height of the navbar -->
-  <div class="navbar navbar-inverse navbar-fixed-top">
+<body>
+  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -23,12 +23,6 @@
         </a>
         <a class="brand" href="#">Seedbit</a>
 
-        <ul class="nav">
-            <li><%= link_to "Explore", events_path %></li>
-            <li><%= link_to "Brands" %></li>
-            <li><%= link_to "People" %></li>
-            <li><%= link_to "Map" %></li>           
-          </ul>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
             <li class="dropdown">
@@ -50,7 +44,12 @@
         </ul>
 
         <div class="nav-collapse">
-           
+           <ul class="nav">
+            <li><%= link_to "Explore", events_path %></li>
+            <li><%= link_to "Brands" %></li>
+            <li><%= link_to "People" %></li>
+            <li><%= link_to "Map" %></li>           
+          </ul>
         </div>
       </div>
     </div>
