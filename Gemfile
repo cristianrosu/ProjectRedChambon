@@ -8,7 +8,7 @@ gem 'rails', '3.2.7'
 gem 'pg'
 gem 'devise'
 gem 'omniauth-facebook'
-  gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
