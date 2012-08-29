@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
+  before_filter :authenticate_user!, except: [:index]
   def index
     @events = Event.all
 
@@ -14,7 +15,6 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -41,6 +41,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
+    @event.user_id = current_user.id
 
     respond_to do |format|
       if @event.save

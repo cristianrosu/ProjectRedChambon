@@ -1,6 +1,7 @@
 ProjectRedChambon::Application.routes.draw do
 
   resources :events
+  resources :admin
 
   get "home/index"
 
