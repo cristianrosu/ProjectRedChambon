@@ -1,67 +1,11 @@
-<%= form_for(@event, :html => {:class =>'form-horizontal'}) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<%= simple_form_for(@event, :html => {:class => 'form-horizontal'}) do |f| %>
 
-      <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= f.input :title %>
+    <%= f.input :description, input_html: {rows: 3} %>
+    <%= f.input :date_start, as: :string %>
+    <%= f.input :date_end, as: :string%>
+    <%= f.input :location %>
+    <%= f.association :industry, collection: Industry.all(order: 'name'), as: :select, prompt: "Choose event industry"  %>
+    <%= f.button :submit %>
 
-  <div class="control-group">
-    <%= f.label :title , :class =>'control-label'%>
-    <div class='controls'>
-      <%= f.text_field :title %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :description, :class =>'control-label' %>
-    <div class='controls'>
-    <%= f.text_area :description %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :date_start, :class =>'control-label' %>
-    <div class='controls'>
-      <%= f.date_select :date_start %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :date_end, :class =>'control-label' %>
-    <div class='controls'>
-      <%= f.date_select :date_end %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :location, :class =>'control-label' %>
-    <div class='controls'>
-      <%= f.text_field :location %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :rating, :class =>'control-label' %>
-    <div class='controls'>
-    <%= f.number_field :rating %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :industry_id, :class =>'control-label' %>
-    <div class='controls'>
-    <%= f.text_field :industry_id %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :user_id, :class =>'control-label' %>
-    <div class='controls'>
-      <%= f.number_field :user_id %>
-    </div>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
