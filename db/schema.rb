@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120825170107) do
+ActiveRecord::Schema.define(:version => 20120829181649) do
+
+  create_table "blocks", :force => true do |t|
+    t.integer  "section_id"
+    t.integer  "type_id"
+    t.text     "content"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -28,6 +37,15 @@ ActiveRecord::Schema.define(:version => 20120825170107) do
 
   create_table "industries", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sections", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "name"
+    t.integer  "type_id"
+    t.integer  "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

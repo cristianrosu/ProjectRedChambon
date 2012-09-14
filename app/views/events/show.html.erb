@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<% if false %>
+    <% (0..9).to_a.each do |i| %>
+        <%= render :partial => "section", :locals => { :j => i } %>
+    <% end %>
+<% end %>
+
+
+
 <p>
   <b>Title:</b>
   <%= @event.title %>
@@ -40,6 +48,12 @@
   <%= @event.user_id %>
 </p>
 
+<% @sections.each do |section| %>
+      <%= render :partial => "section", :locals => { :section => section } %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+
+

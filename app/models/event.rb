@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :industry
+  has_many :sections
 
   attr_accessible :date_end, :date_start, :description, :industry_id, :location, :rating, :title, :user_id
 
