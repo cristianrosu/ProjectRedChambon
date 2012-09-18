@@ -1,17 +1,61 @@
-<h2>Sign in</h2>
+<style type="text/css">
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+.sv_btn_oauth {
+border: 0;
+display: block;
+padding-left: 70px;
+padding-top: 14px;
+color: white;
+font-size: 17px;
+font-weight: bold;
+-webkit-font-smoothing: antialiased;
+cursor: pointer;
+-webkit-box-shadow: 0 0 3px #888;
+-moz-box-shadow: 0 0 3px #888;
+box-shadow: 0 0 3px #888;
+background-repeat: no-repeat;
+}
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+.sv_btn_oauth.facebook {
+	background-color: #385699;
+	margin: 0 0 10px 0;
+}
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+.sv_btn_oauth.twitter {
+	background-color: #59AAE1;
+	margin: 0 0 10px 0;
+}
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+</style>
+
+<div class="row">
+	<div class="span4 offset1">
+		<header>
+	    <h2>Login or Register with <br>Facebook or Twitter</h2>
+	  </header>
+
+	  <a style="background-image: url(<%= asset_path 'facebook.png'%>); " class="sv_btn_oauth facebook" data-requires-credential="facebook" href="/connect/facebook?popup=false&amp;redirect_url=/register/account"><span>Connect with Facebook</span></a>
+	  <a style="background-image: url(<%= asset_path 'twitter.png'%>); " class="sv_btn_oauth twitter" data-requires-credential="twitter" href="/connect/twitter?popup=false&amp;redirect_url=/register/account"><span>Connect with Twitter</span></a>
+	</div> 
+	<div class="span offset1">
+		<h2>Sign in</h2>
+
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		  <div><%= f.label :email %><br />
+		  <%= f.email_field :email %></div>
+
+		  <div><%= f.label :password %><br />
+		  <%= f.password_field :password %></div>
+
+		  <% if devise_mapping.rememberable? -%>
+		    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+		  <% end -%>
+
+		  <div><%= f.submit "Sign in" %></div>
+		<% end %>
+
+		<%= render "devise/shared/links" %>
+	</div>
+</div>
+

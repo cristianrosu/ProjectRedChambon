@@ -1,19 +1,21 @@
 ProjectRedChambon::Application.routes.draw do
 
-  resources :events
-  resources :admin
 
-  get "home/index"
+resources :events
 
-  get "home/about"
+get "home/index"
+get "home/contact"
+get "home/about"
+match "home" => "home#index"
 
-  get "home/contact"
+get "admin/index"
+match "admin" => "admin#index"
+
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
                      controllers: {omniauth_callbacks: "oauth_callbacks"}
 
-   #have to do this in order for the 'Logout' link to perform correctly, in the dropdown-menu from the navbar
-   #match 'users/logout' => 'devise#destroy'
+
 
   root :to => "home#index"
   # The priority is based upon order of creation:

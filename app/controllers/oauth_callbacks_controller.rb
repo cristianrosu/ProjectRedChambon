@@ -1,4 +1,4 @@
-class OauthCallbacksController < Devise::OmniauthCallbacksController
+ class OauthCallbacksController < Devise::OmniauthCallbacksController
 	
 	def all
 	    user = User.from_omniauth(request.env["omniauth.auth"])

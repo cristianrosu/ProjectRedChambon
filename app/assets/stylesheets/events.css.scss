@@ -1,3 +1,157 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//body{margin-top:-60px;} //compensate for the space the navbar replaces on large screens
+/* Landscape phones and down */
+
+
+	#head_line { 
+		height:6px;
+		background:#E1704B;
+	}
+
+	.presenter {
+		padding: 4.25em 0;
+		background-position:0 -12em;
+		background-size:cover;
+		background-repeat:no-repeat;
+		overflow:hidden;
+		height:10.50em;
+
+
+	}
+
+	.lite {
+		border:1px 0px 1px 0px solid #d4d4d4; // initial era border: 1px solid #D4D4D4;
+		border-left:0px;
+		border-right:0px;
+		-webkit-border-radius: 0px; //4px
+		-moz-border-radius: 0px;
+		border-radius: 0px;
+		-webkit-border-radius: 0px;
+		-moz-border-radius: 0px;
+
+		min-height:50px;
+		height:50px; 
+		background-color:#fefefe;
+		background-image:none;	
+	}
+
+	.transp{
+		border:0px;
+		-webkit-border-radius: 0px; 
+		-moz-border-radius: 0px;
+		border-radius: 0px;
+		-webkit-border-radius: 0px;
+		-moz-border-radius: 0px;
+		background:transparent;
+		background-image:none;
+		min-height:76px;
+		height:76px;
+
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow:none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+
+	} 
+
+ 	.transp li{
+ 		 height:70px; 
+ 		 border-right:1px solid #fcfcfc;
+		 border-left:1px solid #ccc;
+ 		 
+ 	}
+
+ 	#no_left { border-left:0px; }
+ 	#no_right { border-right:0px; }
+ 	#no_border { border:0px; }
+
+ 	.section{
+ 		height:76px; 
+ 		width:145px;
+ 		padding-right:15px;
+ 	}
+
+	.numbers {
+		border-bottom:1px solid #fff;
+		margin-bottom:0px; 
+		position:relative;
+		z-index:49;
+		//height:76px;
+		padding-top:20px;	
+
+	}
+
+	 .pull-center {
+        text-align: center;
+    }
+    .pull-center > .nav {
+        float:none;
+        display:inline-block;
+        *display: inline; *zoom: 1;
+        height: 32px;
+    }
+
+    .arrow-up {
+		width: 0; 
+		height: 0;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+	
+		border-bottom: 10px solid black;
+		position: relative;top:0px;left:20px;
+	}
+
+	.preview_container {
+		position:relative;
+		z-index:45;
+		height:66px;
+		border-bottom:1px solid #fff;
+		 -moz-box-shadow: inset 0px 4px 9px rgba(0,0,0,.7);
+		 -webkit-box-shadow: inset 0px 4px 9x rgba(0,0,0,.7);
+		 box-shadow:inset 0px 4px 9px rgba(0,0,0,.7);
+	}
+
+	.preview_element {}
+
+
+
+	/* Landscape phones and down */
+	@media (min-width: 480px) 
+	{
+
+	}
+	 
+	/* Landscape phone to portrait tablet */
+	@media (max-width: 767px) 
+	{ 
+		//body{padding:0} ///daca nu pun asta, apare padding la body la device uri mici (peste tot)
+		.presenter { padding-bottom:0px; height:5.25em;}
+	}
+	 
+	/* Portrait tablet to landscape and desktop */
+	@media (min-width: 768px) and (max-width: 979px) 
+	{ 
+		.event_head { margin-top:0px; }
+		.presenter { padding-bottom:0px; height:9.00em;}
+	}
+
+	@media (min-width: 979px)
+	{
+	.event_head { margin-top:-60px; }
+
+	}
+	 
+	/* Large desktop */
+	@media (min-width: 1200px) 
+	{ 
+		.event_head { margin-top:-60px; }
+		
+	}
+	
+
+
