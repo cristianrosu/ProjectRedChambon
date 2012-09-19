@@ -3,12 +3,12 @@ class EventsController < ApplicationController
   # GET /events.json
   before_filter :authenticate_user!, except: [:index]
   def index
-    @events = Event.all
+    @events = Event.order().page(params[:page]).per_page(2)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-    end
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render json: @events }
+    # end
   end
 
   # GET /events/1
