@@ -12,6 +12,7 @@ gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem 'hirb'
 gem 'will_paginate'
+gem 'paperclip'
 
 
 # Gems used only for assets and not required
