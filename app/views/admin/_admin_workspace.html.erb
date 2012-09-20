@@ -1,7 +1,9 @@
-<div style="padding-top:80px;color:white;z-index:-1; position:absolute; width:100%; top:0; bottom:0;left:80px;background-image: url(<%= asset_path 'pattern.png'%>);">
-	<div style="position:fixed; left:260px">	
+<div style="padding-top:80px;color:white;z-index:-2; position:absolute; width:100%; top:0; bottom:0;left:80px;background-image: url(<%= asset_path 'pattern.png'%>);">
+	<div style="height:100%;width:500px;position:absolute;right:0; bottom:0;background-image: url(<%= asset_path 'white.png'%>);">
+	</div>
+	<div style="position:fixed; left:160px">	
 		<div class="row">
-			<div class="span10">
+			<div class="span11">
 				<%= yield %>
 			</div>
 		</div>
