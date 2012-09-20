@@ -13,28 +13,35 @@
 </head>
 <body>
 
-  <% unless @current_controller=="events" && @current_action=="show" %>
+  <% unless @current_controller=="events" && @current_action=="show" || @current_controller=="admin" %>
+    <!-- no need for menu_bar in this cases -->
     <%= render "menu_bar" %>
   <%end%>
+
   <!-- Only display header of the event in the event details page.(did this so that the header isn't included in the fluid layout of bootstrap) -->
   <% if @current_controller == "events" && @current_action == "show" %>
       <%= render "events/header_event" %>
   <% end %>
 
-  <div class="container-fluid">
-    <% flash.each do |name, msg| %>
-      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-        <a class="close" data-dismiss="alert">×</a>
-        <%= msg %>
-      </div>
-    <% end %>
+  <% if @current_controller=="admin" %>
+    <%= render "admin/admin_layout" %>
 
-<!-- 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>  -->
+    <%else%>
 
-    <%= yield %>
-  </div>
+      <div class="container-fluid">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+          <a class="close" data-dismiss="alert">×</a>
+          <%= msg %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div> 
 
+  <%end%>
+
+  <!-- 
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>  -->
 </body>
 </html>

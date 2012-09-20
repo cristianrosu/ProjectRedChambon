@@ -1,18 +1,28 @@
 ProjectRedChambon::Application.routes.draw do
 
+ 
 
-resources :events
+ match "events/new" => "admin#new"
+ match "events/:id/edit" => "admin#edit"
+ resources :events 
+
+
 
 get "home/index"
 get "home/contact"
 get "home/about"
-match "home" => "home#index"
+
+
 
 get "admin/index"
+get "admin/new"
+
+match "home" => "home#index"
+match "events" => "events#index"
 match "admin" => "admin#index"
 
 
-  get "admin/index"
+
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
                      controllers: {omniauth_callbacks: "oauth_callbacks"}
