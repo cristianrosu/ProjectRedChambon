@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920004648) do
+ActiveRecord::Schema.define(:version => 20120920184350) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "section_id"
@@ -31,12 +31,9 @@ ActiveRecord::Schema.define(:version => 20120920004648) do
     t.integer  "rating"
     t.integer  "industry_id"
     t.integer  "user_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "image"
   end
 
   create_table "industries", :force => true do |t|

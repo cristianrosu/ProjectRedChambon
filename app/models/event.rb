@@ -5,8 +5,8 @@ class Event < ActiveRecord::Base
   has_many :sections
 
   attr_accessible :date_end, :date_start, :description, :industry_id, :location, :rating, :title, :user_id, :image
-
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  
+  mount_uploader :image, ImageUploader
 
   validate :date_cannot_be_in_the_past
   validates :title, :presence => true

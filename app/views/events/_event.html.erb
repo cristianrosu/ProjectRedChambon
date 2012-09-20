@@ -13,8 +13,8 @@
 	    </div>
 		<div style= "position:relative">
 		    <div  class="white-triangle-pointer-item"></div>
-	        <img style="height:150px; width:auto" src="http://www.oregonscenics.com/s-n-p-ci-wide.jpg" alt="">
-					<!--%= image_tag @event.image.url %-->
+	        <!--img style="height:150px; width:auto" src="http://www.oregonscenics.com/s-n-p-ci-wide.jpg" alt="" @event.image.url -->
+					<%= image_tag event.image_url(:thumb).to_s, size: "260x150" %>
 	        <div class="when">
 	        <h4 class="pull-right" style="font-size:16px;margin:0;line-height:6px;">23-24<small style="color:white;"> Jul, 2012</small></h4>
 	    </div>
