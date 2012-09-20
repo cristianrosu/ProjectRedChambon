@@ -30,3 +30,77 @@ body {
 //
 // Example:
 // @linkColor: #ff0000;
+
+//text-box imput design change:
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+
+	height: 36px;
+	font-size: 18px;
+	line-height: 20px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	border: 1px solid #ccc;
+}
+
+
+body {
+	background:#F6F6F6;
+}
+
+.thumbnail{
+	background-color:#fff;
+	border:none;
+	padding: 0;
+
+	-webkit-border-radius: 3px 3px 0 0;
+	-moz-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+	-webkit-border-radius: 3px 3px 0 0;
+	-moz-border-radius: 3px 3px 0 0;
+
+	box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+	-moz-box-shadow: 0 1px 2px rgba(34,25,25,0.4);
+	-webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+	
+}
+
+.thumbnail:hover {
+	box-shadow: 0 1px 3px 1px #999;
+	-moz-box-shadow: 0 1px 3px 1px #999;
+	-webkit-box-shadow: 0 1px 3px 1px #999;
+}
+
+@media (min-width: 1200px) {
+	.row-fluid [class*="span"]:first-child {
+    margin-left: 2.564102564102564%;
+  }
+}
+
+@media (min-width: 979px) and (max-width: 1200px){
+	.row-fluid [class*="span"]:first-child {
+    margin-left: 2.213102564102564%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .row-fluid [class*="span"]:first-child {
+    margin-left: 2.7624309392265194%;
+  }
+}
+
+@media (max-width: 767px) {
+  [class*="span"], .row-fluid [class*="span"] {
+  float:left;
+  margin-left: 2.7624309392265194%;
+  }
+  }
+
+
+
+
+
+
+
+

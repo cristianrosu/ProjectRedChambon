@@ -1,20 +1,48 @@
-<h2>Sign up</h2>
+<div class="row">
+	<div class="span offset2" style="max-width:270px;">
+		<header>
+	    	<h2>Become a member</h2><br />
+	    </header>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+		  	<div>
+			  <%= f.email_field :email, :placeholder => "Your email", :style => "width:260px" %>
+			</div>
 
-  <% if f.object.password_required? %>
-	  <div><%= f.label :password %><br />
-	  <%= f.password_field :password %></div>
+		  	<% if f.object.password_required? %>
+			  <div>
+			  <%= f.password_field :password, :placeholder => "Password", :style => "width:260px" %>
+			</div>
 
-	  <div><%= f.label :password_confirmation %><br />
-	  <%= f.password_field :password_confirmation %></div>
-	<% end %>
+			<div>
+			  <%= f.password_field :password_confirmation, :placeholder => "Confirm password", :style => "width:260px" %></div>
+			<% end %>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+			<%- if controller_name != 'sessions' %>
+			  <p style="float:right">Have an account? <%= link_to "Sign in", new_session_path(resource_name)%> </p>
+			<% end -%>
 
-<%= render "devise/shared/links" %>
+		  	<div><%= f.submit "Sign up" , :class => "btn" %></div>
+		<% end %>
+		<!-- <%= render "devise/shared/links" %> -->
+	</div>
+
+
+	<div class="span offset2">
+		<header>
+		    <h3>Sign up with <br>Facebook or Twitter</h3>
+		  </header>
+
+		 <%- if devise_mapping.omniauthable? %>
+		  <%- resource_class.omniauth_providers.each do |provider| %>
+		    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), :class => "sdb_btn_oauth facebook", :style => "background-image: url( #{asset_path  'facebook.png'})" %><br />
+		  	<% end -%>
+		<% end -%>
+	  	<!-- Codul de mai sus o sa apara si twitter cand o sa fie bagat la providers-->
+
+		<a style="background-image: url(<%= asset_path 'twitter.png'%>); " class="sdb_btn_oauth twitter" href="#"><span>Connect with Twitter</span></a> 
+
+	</div>
+</div>

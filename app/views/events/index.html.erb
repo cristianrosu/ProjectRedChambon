@@ -1,10 +1,11 @@
 <h1>Listing events</h1>
+ <div id="events" class="row-fluid">
+    <ul class="thumbnails">
 
-<div id="events">
     <%= render @events %>
-    <!--%= render :partial => "event_thumbnail", :collection => @events %-->
-</div>
 
+    </ul>
+</div>
 
 <br />
 <br />
@@ -12,17 +13,3 @@
 
 
 <%= link_to 'New Event', new_event_path, :class => 'btn btn-primary' %>
-
-
-
-
-<% if false %>
-	<% @events.each do |event| %>
-	 <%= render :partial => "event_thumbnail", :locals => { :event => event } %>
-
-	<% end %> 
-<% end %> 
-
-
-
-
