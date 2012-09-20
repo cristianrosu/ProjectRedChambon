@@ -6,6 +6,34 @@
 /* Landscape phones and down */
 
 
+.white-triangle-pointer-item {
+	width: 37px;
+	height: 19px;
+	position: absolute;
+	left: 15px;
+	top: -4px;
+	//background: url('../images/white_triangle_pointer.png') no-repeat center top;
+	background-image: url('/assets/white_triangle_pointer.png');
+	background-repeat: no-repeat;
+}
+
+.when {
+	position:absolute;
+	background: rgba(0, 0, 0, 0.6);
+	top:15px;
+	left:0;
+	color:white;
+	padding:6px 10px 6px 25px;
+}
+
+#over:hover{
+	background:#ccc;
+}
+
+
+
+
+//de aici vine event_header
 	#head_line { 
 		height:6px;
 		background:#E1704B;

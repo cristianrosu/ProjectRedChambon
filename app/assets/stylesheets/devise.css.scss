@@ -1,0 +1,33 @@
+.sdb_btn_oauth {
+border: 0;
+display: block;
+padding-left: 70px;
+padding-top: 14px;
+color: white;
+font-size: 18px;
+font-weight: bold;
+-webkit-font-smoothing: antialiased;
+cursor: pointer;
+-webkit-box-shadow: 0 0 3px #888;
+-moz-box-shadow: 0 0 3px #888;
+box-shadow: 0 0 3px #888;
+background-repeat: no-repeat;
+
+height: 36px;
+width:220px;
+}
+
+.sdb_btn_oauth:hover {
+color: white;
+text-decoration: none;
+}
+
+.sdb_btn_oauth.facebook {
+	background-color: #385699;
+	margin: 0 0 10px 0;
+}
+
+.sdb_btn_oauth.twitter {
+	background-color: #59AAE1;
+	margin: 0 0 10px 0;
+}
