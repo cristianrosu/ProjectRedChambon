@@ -2,7 +2,7 @@ ProjectRedChambon::Application.routes.draw do
 
  
 
- match "events/new" => "admin#new"
+ #match "events/new" => "admin#new"
  match "events/:id/edit" => "admin#edit"
  resources :events 
 
