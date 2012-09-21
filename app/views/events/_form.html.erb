@@ -8,5 +8,6 @@
     <%= f.file_field :image %>
     <%= f.association :industry, collection: Industry.all(order: 'name'), as: :select, prompt: "Choose event industry"  %>
     <%= f.button :submit %>
+    <a class="btn" id="save">save</a>
 
 <% end %>

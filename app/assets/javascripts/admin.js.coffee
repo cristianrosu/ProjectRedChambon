@@ -4,3 +4,10 @@
 
 jQuery ->
 	$.getScript("/events/new")
+
+	$("#save").live("click", ->
+		alert "l-am oprit"
+		$.post("/events", $("#new_event").serialize(), (data) -> 
+			alert(data) 
+		)
+	)

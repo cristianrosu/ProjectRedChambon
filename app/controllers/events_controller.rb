@@ -46,8 +46,9 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { render partial: "test" } #{ redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
+        format.js { render "test" }
       else
         format.html { render action: "new" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -82,4 +83,11 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def test
+    respond_to do |format|
+      format.js { render :partial => "menu" }
+    end
+  end
+
 end
