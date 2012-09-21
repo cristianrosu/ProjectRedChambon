@@ -30,8 +30,26 @@
 	background:#ccc;
 }
 
-
-
+//custom image uploader button
+.file-wrapper {
+  cursor: pointer;
+  display: inline-block;
+  overflow: visible;
+  position: relative;
+}
+.file-wrapper input {
+  cursor: pointer;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.file-wrapper input {
+  filter: alpha(opacity=1);
+  -moz-opacity: 0.01;
+  opacity: 0.01;
+}
+//---pana aici---custom image uploader button
 
 //de aici vine event_header
 	#head_line { 

@@ -4,7 +4,9 @@ class Event < ActiveRecord::Base
   belongs_to :industry
   has_many :sections
 
-  attr_accessible :date_end, :date_start, :description, :industry_id, :location, :rating, :title, :user_id
+  attr_accessible :date_end, :date_start, :description, :industry_id, :location, :rating, :title, :user_id, :image
+  
+  mount_uploader :image, ImageUploader
 
   validate :date_cannot_be_in_the_past
   validates :title, :presence => true

@@ -1,14 +1,15 @@
 <h1>Listing events</h1>
-
  <div class="row-fluid">
-    <ul class="thumbnails">
-        <% @events.each do |event| %>
-            <%= render :partial => "event", :locals => { :event => event } %>
-        <% end %>
-    </ul>
+    <ul  id="events" class="thumbnails">
 
+    <%= render @events %>
+
+    </ul>
 </div>
 
 <br />
+<br />
+<%= will_paginate @events %>
+
 
 <%= link_to 'New Event', new_event_path, :class => 'btn btn-primary' %>

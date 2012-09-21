@@ -1,10 +1,15 @@
-<%= simple_form_for(@event, :html => {:class => 'form-horizontal'}) do |f| %>
+<%= simple_form_for(@event, :html => {:class => 'form-horizontal', :multipart => true}) do |f| %>
 
     <%= f.input :title %>
     <%= f.input :description, input_html: {rows: 3} %>
     <%= f.input :date_start, as: :string %>
     <%= f.input :date_end, as: :string%>
     <%= f.input :location %>
+    <span class="file-wrapper controls">
+	  <%= f.file_field :image %>
+	  <span class="btn btn-large btnx btnx-blue">Choose Cover Photo</span>
+	</span>
+    
     <%= f.association :industry, collection: Industry.all(order: 'name'), as: :select, prompt: "Choose event industry"  %>
     <%= f.button :submit %>
 

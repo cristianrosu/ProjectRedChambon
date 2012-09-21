@@ -13,7 +13,8 @@
 	    </div>
 		<div style= "position:relative">
 		    <div  class="white-triangle-pointer-item"></div>
-	        <img style="height:150px; width:auto" src="http://www.oregonscenics.com/s-n-p-ci-wide.jpg" alt="">
+	        <!--img style="height:150px; width:auto" src="http://www.oregonscenics.com/s-n-p-ci-wide.jpg" alt="" @event.image.url -->
+					<%= image_tag event.image_url(:thumb).to_s, size: "260x150" %>
 	        <div class="when">
 	        <h4 class="pull-right" style="font-size:16px;margin:0;line-height:6px;">23-24<small style="color:white;"> Jul, 2012</small></h4>
 	    </div>
@@ -26,10 +27,10 @@
 		</div>
 		
 		<!-- work with every event -->
-		  <div style="; height:30px;background-color:#f0f0f0;border-top: 1px solid #D8D8D8; border-bottom: 1px solid #D8D8D8;">
+		  <!-- <div style="; height:30px;background-color:#f0f0f0;border-top: 1px solid #D8D8D8; border-bottom: 1px solid #D8D8D8;">
 			<%= link_to 'Show', event, :class => 'btn btn-mini' %>
             <%= link_to 'Edit', edit_event_path(event), :class => 'btn btn-mini' %>
-        	<%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn btn-mini btn-danger' %>
+        	<%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn btn-mini btn-danger' %> -->
 		</div>
     </div>
   </li>
