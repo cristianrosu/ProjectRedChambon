@@ -5,7 +5,8 @@
    <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
-  <%= stylesheet_link_tag "bootstrap-responsive", :media => "all"%>
+  <%= stylesheet_link_tag  "MyFontsWebfontsKit", :media => "all" %>
+  <%= stylesheet_link_tag  "bootstrap-responsive", :media => "all"%>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -19,9 +20,9 @@
   <%end%>
 
   <!-- Only display header of the event in the event details page.(did this so that the header isn't included in the fluid layout of bootstrap) -->
-  <% if @current_controller == "events" && @current_action == "show" %>
-      <%= render "events/header_event" %>
-  <% end %>
+ 
+  <div id="event_head"><%= content_for?(:header_event) ? yield(:header_event) : yield %></div>
+ 
 
   <% if @current_controller=="admin" %>
     <%= render "admin/admin_layout" %>

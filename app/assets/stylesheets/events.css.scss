@@ -52,13 +52,16 @@
 //---pana aici---custom image uploader button
 
 //de aici vine event_header
+	.event_head{margin-bottom:50px;}
+ 
+
 	#head_line { 
 		height:6px;
 		background:#E1704B;
 	}
 
 	.presenter {
-		padding: 4.25em 0;
+		padding: 10.25em 0;
 		background-position:0 -12em;
 		background-size:cover;
 		background-repeat:no-repeat;
@@ -66,6 +69,10 @@
 		height:10.50em;
 
 
+	}
+
+	.event-menu{
+		 background-image: url('/assets/images/body_noise_media.png');
 	}
 
 	.lite {
@@ -84,7 +91,10 @@
 		background-image:none;	
 	}
 
+	
 	.transp{
+		min-height:76px;
+		height:76px;
 		border:0px;
 		-webkit-border-radius: 0px; 
 		-moz-border-radius: 0px;
@@ -93,8 +103,6 @@
 		-moz-border-radius: 0px;
 		background:transparent;
 		background-image:none;
-		min-height:76px;
-		height:76px;
 
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
@@ -102,22 +110,53 @@
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
 		box-shadow: none;
-
 	} 
 
- 	.transp li{
- 		 height:70px; 
- 		 border-right:1px solid #fcfcfc;
-		 border-left:1px solid #ccc;
- 		 
- 	}
+ 	.preview_container{
+		margin-bottom:0px;
+		text-shadow: 1px 1px 1px #000;
+		background-image: url('/assets/pattern.png');
+		color:white;
 
- 	#no_left { border-left:0px; }
- 	#no_right { border-right:0px; }
- 	#no_border { border:0px; }
+	}
+
+	.preview_container .navbar-inner >ul > li img{
+		float:left;
+		margin-right:15px;
+		margin-top:8px;
+		height:50px; 
+		width:50px;
+
+	}
+
+	.preview_container .navbar-inner header{
+		display:block;
+		float:left;
+		margin-top:8px;
+		margin-right:20px;
+	}
+
+	.preview_container .navbar-inner header > h3{
+		margin: 10px 0 0 0;
+		text-align:left;
+	    font-weight: 500;
+	    font-size: 1.5em;
+	    line-height: 1.15em;
+	    max-width:190px;
+	    overflow: hidden;white-space:nowrap;
+	}
+	.preview_container .navbar-inner header > p{
+		text-align:left;
+	    font-weight: 500;
+	    font-size: 1.2em;
+	    line-height: 1.1em;
+	    margin: 8px 0 0 0;
+	    max-width:195px;
+	    overflow: hidden;white-space:nowrap;text-overflow:ellipsis;
+	}
 
  	.section{
- 		height:76px; 
+ 		/*height:76px; */
  		width:145px;
  		padding-right:15px;
  	}
@@ -127,9 +166,24 @@
 		margin-bottom:0px; 
 		position:relative;
 		z-index:49;
-		//height:76px;
-		padding-top:20px;	
+		padding-top:20px;
+		text-align:right;	
 
+	}
+	.numbers h1 {
+	    font-size: 3.6em;
+	    line-height: 1.008em;
+	    font-weight: 500;
+	    text-align:right;
+	    /*text-shadow: rgba(0, 0, 0, 0.15) 0 3px;*/
+	    margin: 5px 0 0 0;
+	    color:#E1704B;
+	}
+	.numbers p {
+	    font-size: 1.7em;
+	    line-height: 1.294;
+	    text-align:right;
+	    margin-bottom: 5px;
 	}
 
 	 .pull-center {
@@ -147,19 +201,20 @@
 		height: 0;
 		border-left: 10px solid transparent;
 		border-right: 10px solid transparent;
-	
 		border-bottom: 10px solid black;
-		position: relative;top:0px;left:20px;
+		position: relative;top:0;left:115px;
 	}
 
 	.preview_container {
+		margin-bottom:50px;
 		position:relative;
 		z-index:45;
 		height:66px;
 		border-bottom:1px solid #fff;
-		 -moz-box-shadow: inset 0px 4px 9px rgba(0,0,0,.7);
-		 -webkit-box-shadow: inset 0px 4px 9x rgba(0,0,0,.7);
-		 box-shadow:inset 0px 4px 9px rgba(0,0,0,.7);
+		border-top: 1px solid #fff;
+		 -moz-box-shadow: inset 0px 1px 12px 1px rgba(0,0,0,.7);
+		 -webkit-box-shadow: inset 0px 1px 12px 1px rgba(0,0,0,.7);
+		 box-shadow:inset 0px 1px 12px 1px rgba(0,0,0,.7);
 	}
 
 	.preview_element {}
@@ -172,7 +227,7 @@
 
 	}
 	 
-	/* Landscape phone to portrait tablet */
+	 /* Landscape phone to portrait tablet */
 	@media (max-width: 767px) 
 	{ 
 		//body{padding:0} ///daca nu pun asta, apare padding la body la device uri mici (peste tot)
@@ -198,6 +253,9 @@
 		.event_head { margin-top:-60px; }
 		
 	}
-	
 
+//pana aici event header
+
+
+//event section
 
