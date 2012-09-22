@@ -1,4 +1,4 @@
-<%= simple_form_for(@event, :html => {:class => 'form-horizontal', :multipart => true}) do |f| %>
+<%= simple_form_for(@event, :html => {:class => 'form-horizontal form-events', :multipart => true}) do |f| %>
 
     <%= f.input :title %>
     <%= f.input :description, input_html: {rows: 3} %>
@@ -6,12 +6,13 @@
     <%= f.input :date_end, as: :string%>
     <%= f.input :location %>
     <span class="file-wrapper controls">
-	  <%= f.file_field :image %>
+	  <!-- %= f.file_field :image, data: { url: "/events/9/upload" } % -->
+      <input id="event_image" type="file" name="event[image]" >
 	  <span class="btn btn-large btnx btnx-blue">Choose Cover Photo</span>
 	</span>
-    
+
     <%= f.association :industry, collection: Industry.all(order: 'name'), as: :select, prompt: "Choose event industry"  %>
     <%= f.button :submit %>
-    <a class="btn" id="save">save</a>
+
 
 <% end %>

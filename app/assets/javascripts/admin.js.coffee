@@ -4,6 +4,7 @@
 
 jQuery ->
 
+
 	$("#save").live("click", ->
 		alert "l-am oprit"
 		$.post("/events", $("#new_event").serialize(), (data) -> 
@@ -11,9 +12,24 @@ jQuery ->
 		)
 	)
 
+	$(".form-events").live("submit", (event)->
+		url = $(this).attr("action")
+		data = $(this).serialize()
+		$.post(url, data, (response) ->
+			updateWorkspace(response)
+		)
+		return false
+	)
+
 	$(".new_event").live("click", ->
 		$.getJSON("/events/new", (response) ->
-			$("#workspace").html(response.body)
+			updateWorkspace(response)
+		)
+	)
+
+	$(".edit_event").live("click", ->
+		$.getJSON("/events/9/edit", (response) ->
+			updateWorkspace(response)
 		)
 	)
 
@@ -23,3 +39,20 @@ jQuery ->
 
 	$(".home_admin").click ->
 		$.getScript("/admin/index")
+
+
+updateWorkspace = (response) ->
+
+	$("#workspace").html(response.workspace)
+
+	$("#event_image").fileupload({
+		dataType: 'json',
+		done: (e, data) -> 
+			updateWorkspace(data.result)
+	})
+	
+	$( "#event_date_start" ).datepicker({ dateFormat: 'yy-mm-dd' });
+	$( "#event_date_end" ).datepicker({ dateFormat: 'yy-mm-dd' });
+
+
+	

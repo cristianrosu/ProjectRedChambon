@@ -3,7 +3,7 @@ ProjectRedChambon::Application.routes.draw do
  
 
  #match "events/new" => "admin#new"
- match "events/:id/edit" => "admin#edit"
+ #match "events/:id/edit" => "admin#edit"
  resources :events 
 
 
@@ -21,6 +21,8 @@ match "home" => "home#index"
 match "events" => "events#index"
 match "admin" => "admin#index"
 
+#post 'events/:id/upload' => 'events#upload'
+#post 'events/:id' => 'events#update'
 
 
 

@@ -26,13 +26,13 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
-    
+
      respond_to do |format|
     #   format.html # new.html.erb
        #format.json { render partial: "new.json" } #render json: @event
        format.json { render json: {
             'mata' => 'test',
-            'body' => render_to_string(partial: "new.html", locals: {event: @event})
+            'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
           }
         }
      end
@@ -41,6 +41,13 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+    respond_to do |format|
+      format.json { render json: {
+          'mata' => 'test',
+          'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
+        }
+      }
+    end
   end
 
   # POST /events
@@ -51,12 +58,17 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { render partial: "test" } #{ redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
-        format.js { render "test" }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+      #   format.html { render partial: "test" } #{ redirect_to @event, notice: 'Event was successfully created.' }
+      #   format.json { render json: @event, status: :created, location: @event }
+      #   format.js { render "test" }
+      # else
+      #   format.html { render action: "new" }
+      #   format.json { render json: @event.errors, status: :unprocessable_entity }       format.json { render json: {
+        format.json { render json: {
+              'mata' => 'test',
+              'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
+            }
+          }
       end
     end
   end
@@ -67,15 +79,29 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     respond_to do |format|
-      if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+      #if
+      @event.update_attributes(params[:event])
+        format.json { render json: {
+            'mata' => 'test',
+            'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
+          }
+        }
+      # else
+      #   format.json { render json: @event.errors, status: :unprocessable_entity }
+      # end
     end
   end
+
+  # def upload
+  #   @event = Event.find(params[:id])
+  #   respond_to do |format|
+  #     if @event.update_attributes(params[:image])
+  #       format.html { render text: @event.image_url(:thumb) }
+  #     else
+  #       format.html { render text: "am belit-o" }
+  #     end
+  #   end
+  # end
 
   # DELETE /events/1
   # DELETE /events/1.json
@@ -86,12 +112,6 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
-    end
-  end
-
-  def test
-    respond_to do |format|
-      format.js { render :partial => "menu" }
     end
   end
 
