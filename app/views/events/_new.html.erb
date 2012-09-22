@@ -1,5 +1,13 @@
 <h1>New event</h1>
 
-<%= render 'form' %>
+<div class="row">
 
-<%= link_to 'Back', events_path, :class => 'btn btn-primary' %>
+	<div class="span">
+		<%= render(partial: 'form.html', locals: { event: event }) %>
+	</div>
+
+	<div class="span offset2">
+		<%= render(partial: 'event.html', locals: { event: event }) %>
+	</div>
+
+</div>

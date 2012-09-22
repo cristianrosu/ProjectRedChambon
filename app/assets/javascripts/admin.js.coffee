@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-	$.getScript("/events/new")
 
 	$("#save").live("click", ->
 		alert "l-am oprit"
@@ -11,3 +10,16 @@ jQuery ->
 			alert(data) 
 		)
 	)
+
+	$(".new_event").live("click", ->
+		$.getJSON("/events/new", (response) ->
+			$("#workspace").html(response.body)
+		)
+	)
+
+	$("#event_title").live("keyup change", ->
+		$("#_event_title").html(this.value)
+	)
+
+	$(".home_admin").click ->
+		$.getScript("/admin/index")

@@ -6,7 +6,7 @@
 			    <h5 style="margin:0; margin-bottom:5px;"><small><i class="icon-tag"></i> CATEGORY <%= event.industry_id %></small></h5>
 			
 	    		<div style="max-width:220px">
-		    		<h5 style="margin:0; "><%= event.title %></h5>
+		    		<h5 style="margin:0;color:#181818" id="_event_title"><%= event.title %></h5>
 			
 			</div>
 
@@ -25,12 +25,6 @@
 			<p style="margin-bottom:0px;margin-left:10px" class="pull-right"><small><i class="icon-thumbs-up icon-white"></i>19</small> </p>
 			<p style="margin-bottom:0px;"> <small><i class="icon-user icon-white"></i>3453 </small> </p>
 		</div>
-		
-		<!-- work with every event -->
-		  <div style="; height:30px;background-color:#f0f0f0;border-top: 1px solid #D8D8D8; border-bottom: 1px solid #D8D8D8;">
-			<%= link_to 'Show', event, :class => 'btn btn-mini' %>
-            <%= link_to 'Edit', edit_event_path(event), :class => 'btn btn-mini' %>
-        	<%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn btn-mini btn-danger' %>
 		</div>
     </div>
   </li>
