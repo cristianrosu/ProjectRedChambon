@@ -1,10 +1,10 @@
-<div class="event_head" >
+<div class="event_head">
 	<div id="head_line"></div>
-	<div class="presenter" style="background-image: url(<%= asset_path 'header.jpeg' %>);">
+	<div class="presenter" style="background-image: url(<%= @event.image_url.to_s %>);">
 	</div>
-</div>
 
-<div class="navbar" style="margin-bottom:0px;position:relative; z-index:50">
+
+<div class="navbar event-menu" style="margin-bottom:0px;position:relative; z-index:50">
     <div class="navbar-inner lite pull-center" >
 		<ul class="nav" style="margin-top:5px;">
             <li><%= link_to "Details", root_path %></li>
@@ -17,37 +17,38 @@
     </div>
 </div>
 
-<div class="navbar numbers"  style="background-image: url(<%= asset_path 'body_noise_media.png'%>); ">
+
+<div class="navbar numbers">
 	<div class="navbar-inner transp pull-center" > 
 	 	<ul class="nav">
-			<li id="no_left">
+			<li>
 				<div class="section">
-					<h1 style="color:#E1704B;margin-top:5px;margin-bottom:0px;text-align:right"> 30 </h1>
-					<p style="margin-bottom:2px;text-align:right;"><i class="icon-star"></i> Sponsors </p>
+					<h1> 30 </h1>
+					<p><i class="icon-star"></i> Sponsors </p>
 					<div class="arrow-up"></div>
 				</div>
 			</li>
 
 			<li>
 				<div class="section">
-					<h1 style="color:#E1704B;margin-top:5px;margin-bottom:0px;text-align:right"> 240 </h1>
-					<p style="margin-bottom:2px;text-align:right;"><i class="icon-user"></i> Participants </p>
+					<h1> 240 </h1>
+					<p><i class="icon-user"></i> Participants </p>
 					<!-- <div class="arrow-up"></div> -->
 				</div>
 			</li>
 
 			<li>
 				<div class="section">
-					<h1 style="color:#E1704B;margin-top:5px;margin-bottom:0px;text-align:right"> 9 </h1>
-					<p style="margin-bottom:2px;text-align:right;"><i class="icon-bullhorn"></i> Speakers </p>
+					<h1> 9 </h1>
+					<p><i class="icon-bullhorn"></i> Speakers </p>
 					<!-- <div class="arrow-up"></div> -->
 				</div>
 			</li>
 
-			<li id="no_right">
+			<li>
 				<div class="section">
-					<h1 style="color:#E1704B;margin-top:5px;margin-bottom:0px;text-align:right"> 9 </h1>
-					<p style="margin-bottom:2px;text-align:right;"><i class="icon-bullhorn"></i> Speakers </p>
+					<h1> 9 </h1>
+					<p><i class="icon-bullhorn"></i> Speakers </p>
 					<!-- <div class="arrow-up"></div> -->
 				</div>
 			</li>
@@ -56,53 +57,33 @@
 </div>
 
 
-<div class="navbar preview_container" style="margin-bottom:0px;text-shadow: 1px 1px 1px #000;background-image: url(<%= asset_path 'pattern.png'%>);">
+<div class="navbar preview_container">
 	<div class="navbar-inner transp pull-center" >
 		<ul class="nav">
-
-			<li id="no_border" style="margin-right:20px;">
-					<div class="row">
-						<div class="span">
-							<div style="margin-top:6px;height:54px; width:54px; background-image: url(<%= asset_path '1.png' %>);"></div>
-						</div>
-						<div class="span" style="margin-left:10px;">
-							<p style="text-align:left;margin-top:10px;margin-bottom:0px;font-weight:bold;color:#fff;">Andreea Mihalcea</p>
-							<p style="text-align:left;color:#fff;">Fucking Genius </p>
-						</div>
-					</row>
-				
+			<li>
+				<img src=" <%= asset_path '1.png' %>">	
+				<header>
+					<h3>Gabriel Bondor Emilian</h3>
+					<p>CEO, Square inc.com </p>
+				</header>		
 			</li>
 
-			<li id="no_border" style="margin-right:20px;">
-					<div class="row">
-						<div class="span">
-							<div style="margin-top:6px;height:54px; width:54px; background-image: url(<%= asset_path '2.png' %>);"></div>
-						</div>
-						<div class="span" style="margin-left:10px;">
-							<p style="text-align:left;margin-top:10px;margin-bottom:0px;font-weight:bold;color:#fff;">Rosu Cristi</p>
-							<p style="text-align:left;color:#fff;">CEO at Drinkcelerator </p>
-						</div>
-					</row>
-				
+			<li>
+				<img src=" <%= asset_path '2.png' %>">	
+				<header>
+					<h3>Vlad Marian Stan</h3>
+					<p>CEO, Geekcelerator </p>
+				</header>
 			</li>
-
-			<li id="no_border" style="margin-right:20px;">
-					<div class="row">
-						<div class="span">
-							<div style="margin-top:6px;height:54px; width:54px; background-image: url(<%= asset_path '4.png' %>);"></div>
-						</div>
-						<div class="span" style="margin-left:10px;">
-							<p style="text-align:left;margin-top:10px;margin-bottom:0px;font-weight:bold;color:#fff;">Ionut Bizau</p>
-							<p style="text-align:left;color:#fff;">Freelancer </p>
-						</div>
-					</row>
-				
+			<li>
+				<img src=" <%= asset_path '3.png' %>">	
+				<header>
+					<h3>Adelina Peltearu Maria</h3>
+					<p>Redactor Sef, Decat o Revista </p>
+				</header>
 			</li>
 		</ul>
 
 	</div>
-	
 </div>
-
-<div class="content" style="position:relative;z-index:49;height:30em; background-image: url(<%= asset_path 'body_noise_media.png'%>);">
-</div> 
+</div>

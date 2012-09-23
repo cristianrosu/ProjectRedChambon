@@ -22,13 +22,13 @@ jQuery ->
 	)
 
 	$(".new_event").live("click", ->
-		$.getJSON("/events/new", (response) ->
+		$.getJSON("/events/new", (response)->
 			updateWorkspace(response)
 		)
 	)
 
 	$(".edit_event").live("click", ->
-		$.getJSON("/events/9/edit", (response) ->
+		$.getJSON("/events/9/edit_step2", (response)->
 			updateWorkspace(response)
 		)
 	)

@@ -25,7 +25,9 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    @event = Event.new
+    @event = Event.new #(title: "Awesome event", description: "tralala", sections: {Section.new(), Section.new()})
+#Event.find(6, :include => [{:sections => :blocks}, :sections])
+
 
      respond_to do |format|
     #   format.html # new.html.erb
@@ -45,6 +47,17 @@ class EventsController < ApplicationController
       format.json { render json: {
           'mata' => 'test',
           'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
+        }
+      }
+    end
+  end
+
+  def edit_step2
+    @event = Event.find(params[:id])
+    respond_to do |format|
+      format.json { render json: {
+          'mata' => 'test',
+          'workspace' => render_to_string(partial: "preview.html", locals: {event: @event})
         }
       }
     end
