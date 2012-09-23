@@ -1,4 +1,4 @@
-  <li class="span4" >
+<!--   <li class="span4" >
     <div class="thumbnail" >
     	<div style="padding:6px 10px; height:60px">
     		<p style="margin-bottom:0px;" class="pull-right"><i class="icon-map-marker"></i><small><%= event.location %></small></p>
@@ -13,7 +13,6 @@
 	    </div>
 		<div style= "position:relative">
 		    <div  class="white-triangle-pointer-item"></div>
-	        <!--img style="height:150px; width:auto" src="http://www.oregonscenics.com/s-n-p-ci-wide.jpg" alt="" @event.image.url -->
 					<%= image_tag event.image_url(:thumb).to_s, size: "260x150" %>
 	        <div class="when">
 	        <h4 class="pull-right" style="font-size:16px;margin:0;line-height:6px;">23-24<small style="color:white;"> Jul, 2012</small></h4>
@@ -25,12 +24,18 @@
 			<p style="margin-bottom:0px;margin-left:10px" class="pull-right"><small><i class="icon-thumbs-up icon-white"></i>19</small> </p>
 			<p style="margin-bottom:0px;"> <small><i class="icon-user icon-white"></i>3453 </small> </p>
 		</div>
-		
-		<!-- work with every event -->
-		 <!--  <div style="height:30px;background-color:#f0f0f0;border-top: 1px solid #D8D8D8; border-bottom: 1px solid #D8D8D8;">
-			<%= link_to 'Show', event, :class => 'btn btn-mini' %>
-            <%= link_to 'Edit', edit_event_path(event), :class => 'btn btn-mini' %>
-        	<%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn btn-mini btn-danger' %>
-		</div> -->
     </div>
-  </li>
+  </li> -->
+
+<li class="span4" >
+    <div class="thumbnail">
+    		<!-- <img style="max-height:280px" src="http://placehold.it/800x500" alt=""> -->
+    		<%= image_tag event.image_url(:thumb).to_s, size: "460x300" %>
+    		<div class="caption">
+    			<center><h3>The European Pirate Summit - Cologne, Germany Australia Madrid</h3></center>
+    		</div>
+    		<div class="caption" style="background-color:#222B30;opacity:0.98; color:white; background-image: url(<%= asset_path 'dotgrid-pattern-xlight.png'%>); box-shadow: inset rgba(31, 39, 43, 0.5) 0px 20px 20px -20px, inset rgba(34, 42, 48, 0.5) 0px -20px 20px -20px;">
+    			<p style="font-size:13px;">The European Pirate Summit Cologne</p>
+    		</div>
+    </div>
+</li>

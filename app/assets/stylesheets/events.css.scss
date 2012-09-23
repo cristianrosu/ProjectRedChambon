@@ -211,7 +211,7 @@
 	 /* Landscape phone to portrait tablet */
 	@media (max-width: 767px) 
 	{ 
-		//body{padding:0} ///daca nu pun asta, apare padding la body la device uri mici (peste tot)
+		/*body{padding:0} daca nu pun asta, apare padding la body la device uri mici (peste tot)*/
 		.presenter { padding-bottom:0px; height:5.25em;}
 	}
 	 
@@ -235,8 +235,5 @@
 		
 	}
 
-//pana aici event header
-
-
-//event section
+/*pana aici event header*/
 
