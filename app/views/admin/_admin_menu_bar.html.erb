@@ -1,17 +1,16 @@
-<div style="	padding: 10px 0px;
+<div style="	padding: 5px 0px;
 				width:100%;
 				top: 0px;
 				color:white;
 				position:fixed;
 				display:block;
-				border-bottom:3px dashed #ccc;
-				background-image: url(<%= asset_path 'pattern.png' %>);">
+				background-color:#181818">
 	<!-- butoanele de sus  -->	
 	<div class="pull-left" style="margin-left:90px"	>
-			<a class="new_event btn btn-large btn-blue " style="margin-top:5px;margin-left:30px"><i class="icon-calendar icon-white"></i>&nbsp; Create Event</a>	
-			<a class="btn btn-large btn-orange" style="margin-top:5px;margin-left:30px"><i class="icon-bullhorn icon-white"></i>&nbsp; Promote event</a>	
+			<a class="new_event btn btn-large btn-blue " style="margin-top:8px;margin-left:30px"><i class="icon-calendar icon-white"></i>&nbsp; Create Event</a>	
+			<a class="btn btn-large btn-orange" style="margin-top:8px;margin-left:30px"><i class="icon-bullhorn icon-white"></i>&nbsp; Promote event</a>	
 
-			<a class="btn btn-large btn-purple " style="margin-top:5px;margin-left:30px"><i class="icon-bullhorn icon-white"></i>&nbsp; Promote Event</a>
+			<a class="btn btn-large btn-purple " style="margin-top:8px;margin-left:30px"><i class="icon-bullhorn icon-white"></i>&nbsp; Promote Event</a>
 	</div>
 		
 		<!-- right side -->
@@ -37,50 +36,25 @@
 </div>
 
 	<!-- left side -->
-	<div style="bottom: 0px;
-				top: 0px;
-				left: 0px;
-				position:fixed;
-				background-color: #181818;
-				width: 80px;
-				display:block"> 
-
-			<a href="#" class="home_admin">
-				<div class="xx"  style="
-										margin-top: 40px;
-										z-index: 2;
-										background: #181818;
-										height:70px;
-										width:100%;
-										background: transparent none center center no-repeat;
-										background-image: url(<%= asset_path 'icon-preview-32-light.png' %>);
+	<div class="admin-menu"> 
+			<a href="#">
+				<div style="background-image: url(<%= asset_path 'icon-preview-32-light.png' %>);
 										">
-
-				</div>
-			</a>
-			<a href="#" class="new_event">
-				<div class="xx"  style="margin-top: 40px;
-									z-index: 2;
-									background: #181818;
-									height:70px;
-									width:100%;
-									background: transparent none center center no-repeat;
-									background-image: url(<%= asset_path 'icon-content-32-light.png' %>);
-									">
+					<p>Home</p>	
 				</div>
 			</a>
 			<a href="#">
-				<div class="xx"  style="margin-top: 40px;
-									z-index: 2;
-									background: #181818;
-									height:70px;
-									width:100%;
-									background: transparent none center center no-repeat;
-									background-image: url(<%= asset_path 'icon-settings-32-light.png' %>);
+				<div style="background-image: url(<%= asset_path 'icon-content-32-light.png' %>);
 									">
+					<p>My Events</p>
+				</div>
+			</a>
+			<a href="#">
+				<div style="background-image: url(<%= asset_path 'icon-settings-32-light.png' %>);
+									">
+					<p>Settings</p>
 				</div>
 			</a>
 
 	</div>
-</ul>
 </div>

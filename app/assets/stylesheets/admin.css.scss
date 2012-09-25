@@ -2,10 +2,50 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.xx:hover{
-	border-left:5px solid #cdcdcd;
+.admin-menu{
+  display:block;
+  position:fixed;
+  bottom: 0px;
+  top: 0px;
+  left: 0px;
+  background-color: #181818;
+  width:70px;
 }
 
-.xx:active {
-	border-left:5px solid #cdcdcd;
+.admin-menu div{
+  margin-top: 60px;
+  z-index: 2;
+  background: #181818;
+  height:70px;
+  width:100%;
+  background: transparent none center center no-repeat;
+}
+
+.admin-menu div p{
+   text-align:center;
+   padding-top:50px;
+   color:white;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 13px;
+
+}
+
+.admin-menu div:hover{
+	border-left:4px solid #cdcdcd;
+}
+
+.admin-menu div:active {
+	border-left:4px solid #cdcdcd;
+}
+
+
+.dropdown-menu:after {
+  position: absolute;
+  top: -6px;
+  left: 35px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: '';
 }
