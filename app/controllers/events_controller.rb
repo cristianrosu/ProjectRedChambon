@@ -53,7 +53,7 @@ class EventsController < ApplicationController
   end
 
   def edit_step2
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:id], :include => [{:sections => :blocks}, :sections])
     respond_to do |format|
       format.json { render json: {
           'mata' => 'test',
