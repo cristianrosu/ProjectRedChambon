@@ -25,4 +25,31 @@ module EventsHelper
 	  return t
 	end
 
+	#details is a hash of toggles
+	#ex: {"align"=>"align-justify"} 
+	#calling with type="align"
+	#will render: data-field="align" data-value="align-center"
+	def data_toggle_decode(block, type)
+		if block.nil? || block.details.nil? || type.nil?
+			return
+		end
+
+		block.details.has_key?(type) ? "data-field=\"#{type}\" data-value=\"#{block.details[type]}\"".html_safe : ""
+	end
+
+	def add_class_data_toggle(block)
+		if block.nil? || block.details.nil? 
+			return
+		end
+
+		_block_type = block_type(block.type_id)
+		class_text = " "
+
+		block.details.each do |key, value|
+			class_text << "#{_block_type}-#{value} "
+		end
+
+		return class_text.html_safe
+	end
+
 end

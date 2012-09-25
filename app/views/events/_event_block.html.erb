@@ -4,7 +4,7 @@
 
 	<%= render partial: "event_block_edit_toolbox.html", locals: { block: block } %>
 
-	<textarea id="bk<%= block.id %>-body" class="" style="display: none;" >
+	<textarea id="bk<%= block.id %>-body" class="<%= add_class_data_toggle(block) %>" style="display: none;" >
 		<%= block_content(block) %>
 	</textarea>
 	<script type="text/javascript">
@@ -15,7 +15,7 @@
 
 <% else %>
 
-	<div id="bk<%= block.id %>_body" class="" >
+	<div id="bk<%= block.id %>_body" class="<%= add_class_data_toggle(block) %>" >
 		<%= block_content(block) %>
 	</div>
 

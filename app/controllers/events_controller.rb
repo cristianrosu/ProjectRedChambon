@@ -13,9 +13,15 @@ class EventsController < ApplicationController
 
   # GET /events/1
   # GET /events/1.json
-  def show
-    @event = Event.find(params[:id])
-    @sections = Section.find_all_by_event_id(params[:id])
+  def show    
+    @event = Event.find(params[:id], :include => [{:sections => :blocks}, :sections])
+
+    @event.sections.each do |section|
+      section.blocks.each do |block|
+        block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+      end
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -54,6 +60,13 @@ class EventsController < ApplicationController
 
   def edit_step2
     @event = Event.find(params[:id], :include => [{:sections => :blocks}, :sections])
+
+    @event.sections.each do |section|
+      section.blocks.each do |block|
+        block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+      end
+    end
+
     respond_to do |format|
       format.json { render json: {
           'mata' => 'test',
