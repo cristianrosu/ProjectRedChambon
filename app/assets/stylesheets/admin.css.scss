@@ -9,3 +9,295 @@
 .xx:active {
 	border-left:5px solid #cdcdcd;
 }
+
+
+
+/*_______ Element Edit-Mode _______ */
+
+div.element-edit {
+	display: none;
+	position: absolute;
+	z-index: 2;
+	/*width: 698px; --edit: */
+	padding-top: 0;
+	/* background: rgba(255,0,0, 0.2); */
+}
+
+	/* Header Layering Fix */
+	li.header div.element-edit,
+	li.text div.element-edit,
+	li.list div.element-edit,
+	li.button div.element-edit {
+		min-height: 75px;
+	}
+	
+	/*TODO: adaugat alte elemente*/
+	li.header:hover .redactor_box,
+	li.text:hover .redactor_box,
+	li.list:hover .redactor_box,
+	li.button:hover .button_show,
+	li.button:hover .button_holder {
+		position: relative;
+		z-index: 2;
+		padding: 0;
+		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
+	}
+
+/*	li.header:hover,
+	li.text:hover,
+	li.list:hover,
+	li.button:hover {
+		z-index: -1;
+	}
+	*/
+	body.logged_out li.button:hover div.button_show {
+		z-index: inherit;
+		margin: 0;
+		width: auto;
+	}
+
+	
+	/* Header Layering Fix v2 
+	div.page li.header:hover { padding-bottom: 25px; position: relative; z-index: 2 }
+	div.page li.header:hover + li.element { margin-top: -25px; position: relative; z-index: 1; }
+	*/
+
+
+.redactor_box .redactor_editor, body.logged_out li.header div {
+	border: 2px dashed transparent;
+}
+	
+.element:hover .redactor_box .redactor_editor, .element:hover div.element-edit + .redactor_box .redactor_editor,
+.element.hover .redactor_box .redactor_editor, .element.hover div.element-edit + .redactor_box .redactor_editor,
+.onfocus-editing .redactor_box .redactor_editor {
+	border: 2px dashed #ccc;
+}
+	
+
+ul.sortable li:hover div.element-edit,
+ul.sortable li.hover div.element-edit {
+	display: block;
+}
+
+div.element-edit * {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+
+
+/*_______ Element: Add Mini _______ */
+
+div.element-add_mini {
+	display: block;
+	width: 26px;
+	height: 26px;
+	position: absolute;
+	z-index: 7;
+	margin: 0 0 0 10px;
+	background: url(/assets/add_content-mini.png) no-repeat 0 0;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+
+div.element-add_mini:active {
+	background-position: 0 -26px;
+}
+
+
+
+/*_______ Element: Position Switch _______ */
+
+div.element-position {
+	display: block;
+	width: 26px;
+	height: 44px;
+	position: absolute;
+	z-index: 7;
+	margin: 30px 0 0 10px;
+}
+
+div.element-position div {
+	display: block;
+	width: 26px;
+	height: 22px;
+	background-image: url(/assets/position_switches.png);
+	background-repeat: no-repeat;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+
+	div.element-position div.position-grip {
+		height: 18px;
+		cursor: move;
+		border-top: 1px solid #222222;
+		background-color: #2a2a2a;
+		display: none;
+	}
+	
+	div.position-up { background-position: 0 0; border-bottom: 1px solid #2a2a2a; }
+	div.position-up:active { background-position: -26px 0; }
+	div.position-down { background-position: -52px 0; }
+	div.position-down:active { background-position: -78px 0; }
+	div.position-grip { background-position: -104px center; }
+
+
+
+/*_______ Element: Toolbar _______ */
+
+div.element-toolbar {
+	display: block;
+	width: 62px;
+	min-height: 30px;
+	position: absolute;
+	z-index: 7;
+ /* margin: 0 0 0 655px; */
+	margin: 0 0 0 650px;
+	padding: 4px;
+	background: rgba(176, 176, 176, 0.75) !important;
+	background-color: #c4c4c4;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+	.element div.one_tool {
+		width: 31px;
+	}
+
+div.element-toolbar:before {
+       content: url("/assets/toolbar-carrot.png");
+       display: block;
+       position: absolute;
+       top: 10px;
+       left: -9px;
+  }
+
+div.element-toolbar ul, ul.sortable li.text div.element-toolbar ul {
+	display: block;
+	width: 60px;
+	padding: 0;
+	min-height: 28px;
+	border: 1px solid #2a2a2a;
+	border-bottom: none;
+	background: #424242;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	overflow: hidden;
+}
+	.element div.one_tool ul {
+		width: 29px;
+	}
+
+ul.sortable div.element-toolbar li {
+	display: block;
+	float: left;
+	width: 29px;
+	height: 27px;
+	padding: 0;
+	margin: 0;
+	text-indent: -9999px;
+	cursor: pointer;
+	border-top: 1px solid #525252;
+	border-bottom: 1px solid #2a2a2a;
+	border-right: 1px solid #525252;
+	background-color: #424242;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(66, 66, 66)), to(rgb(55, 55, 55)));
+	background-image: -webkit-linear-gradient(top, rgb(66, 66, 66), rgb(55, 55, 55));
+	background-image: -moz-linear-gradient(top, rgb(66, 66, 66), rgb(55, 55, 55));
+	background-image: -o-linear-gradient(top, rgb(66, 66, 66), rgb(55, 55, 55));
+	background-image: -ms-linear-gradient(top, rgb(66, 66, 66), rgb(55, 55, 55));
+	background-image: linear-gradient(top, rgb(66, 66, 66), rgb(55, 55, 55));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#424242', EndColorStr='#373737');
+}
+
+	ul.sortable div.element-toolbar li:nth-child(even) {
+		float: right;
+		border-right: none;
+		border-left: 1px solid #2a2a2a;
+	}
+	
+
+ul.sortable div.element-toolbar li:hover {
+	background-color: #474747;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(71, 71, 71)), to(rgb(61, 61, 61)));
+	background-image: -webkit-linear-gradient(top, rgb(71, 71, 71), rgb(61, 61, 61));
+	background-image: -moz-linear-gradient(top, rgb(71, 71, 71), rgb(61, 61, 61));
+	background-image: -o-linear-gradient(top, rgb(71, 71, 71), rgb(61, 61, 61));
+	background-image: -ms-linear-gradient(top, rgb(71, 71, 71), rgb(61, 61, 61));
+	background-image: linear-gradient(top, rgb(71, 71, 71), rgb(61, 61, 61));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#474747', EndColorStr='#3d3d3d');
+}
+
+ul.sortable div.element-toolbar li:active {
+	border-top: none;
+	padding-top: 1px;
+	background-color: #383838;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(56, 56, 56)), to(rgb(66, 66, 66)));
+	background-image: -webkit-linear-gradient(top, rgb(56, 56, 56), rgb(66, 66, 66));
+	background-image: -moz-linear-gradient(top, rgb(56, 56, 56), rgb(66, 66, 66));
+	background-image: -o-linear-gradient(top, rgb(56, 56, 56), rgb(66, 66, 66));
+	background-image: -ms-linear-gradient(top, rgb(56, 56, 56), rgb(66, 66, 66));
+	background-image: linear-gradient(top, rgb(56, 56, 56), rgb(66, 66, 66));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#383838', EndColorStr='#424242');
+    -webkit-box-shadow: inset 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 1px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+	ul.sortable div.element-toolbar li:nth-child(odd):active {
+		border-right: none;
+		padding-right: 1px;
+	}
+
+ul.sortable div.element-toolbar li a {
+	display: block;
+	width: 29px;
+	height: 27px;
+	line-height: 0;
+}
+
+ul.sortable div.element-toolbar li span {
+	display: block;
+	width: 29px;
+	height: 27px;
+	background-image: url("/assets/element-tools.png");
+	background-repeat: no-repeat;
+}
+
+	ul.sortable div.element-toolbar li:active span {
+		height: 25px;
+		margin-top: 1px;
+	}
+	
+	li.tool-remove span 		{ background-position: 0 0; }
+	
+	li.tool-size-large span		{ background-position: -29px 0; }
+	li.tool-size-medium span 	{ background-position: -58px 0; }
+	li.tool-size-small span 	{ background-position: -87px 0; }
+	
+	li.tool-align-left span 	{ background-position: -116px 0; }
+	li.tool-align-center span 	{ background-position: -145px 0; }
+	li.tool-align-right span 	{ background-position: -174px 0; }
+	li.tool-align-justify span 	{ background-position: -203px 0; }
+
+	li.tool-column-one span 	{ background-position: -203px 0; }  /* align-justify & column-one are the same icon */
+	li.tool-column-two span 	{ background-position: -232px 0; }
+
+	li.tool-style-bullet span 	{ background-position: -261px 0; }
+	li.tool-style-number span 	{ background-position: -290px 0; }
+		
+	li.tool-text-bold span 		{ background-position: -319px 0; }
+	li.tool-text-italic span	{ background-position: -348px 0; }
+	li.tool-text-underline span	{ background-position: -377px 0; }
+	li.tool-text-link span		{ background-position: -406px 0; }
+	li.tool-text-undo span		{ background-position: -435px 0; }
+	li.tool-text-redo span		{ background-position: -464px 0; }
+
+	li.tool-photo-config span	{ background-position: -493px 0; }
+	li.tool-photo-rotate span	{ background-position: -522px 0; }
+	li.tool-photo-download span	{ background-position: -551px 0; }
+	li.tool-photo-grid span		{ background-position: -580px 0; }
+
+	li.tool-edit span 			{ background-position: -609px 0; }
+	

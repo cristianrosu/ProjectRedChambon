@@ -105,6 +105,17 @@ class EventsController < ApplicationController
     end
   end
 
+  def save_block
+    @block = Block.find(params[:id])
+    @block.update_attributes({
+              content: params[:content], 
+              position: params[:position],
+              details: params[:details]})
+    respond_to do |format|
+      format.json { render json: @block }
+    end
+  end
+
   # def upload
   #   @event = Event.find(params[:id])
   #   respond_to do |format|

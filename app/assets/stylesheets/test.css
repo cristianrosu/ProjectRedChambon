@@ -2,9 +2,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, hr, p, bl
     margin: 0;
     /*padding: 0;*/
     border: 0;
-    font-size: 100%;
+    /*font-size: 100%;*/
     vertical-align: baseline;
 }
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
 }
@@ -27,15 +28,6 @@ a {
 .fs-img {
     font-family: "image-set( url(%7Bsrc%7D/index.html) 1x,  url(%7Bdirectory%7D%7Bfilename%7D_2x.%7Bext%7D) 2x)";
     display: none;
-}
-body {
-    font-family: "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    font-size: 0.625em;
-    line-height: 1.8em;
-    color: #353534;
-    background: #fbfaf7 url(../images/bg-pattern.png) repeat center top;
-    background-color:#ccc;
 }
 h1, h2, h3, h4 {
     font-family: "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -63,6 +55,7 @@ section[role="main"] {
     margin-top: 20px;
 }
  /* buttons */
+ /*
 .btn {
     display: block;
     padding: 16px 0;
@@ -101,7 +94,7 @@ section[role="main"] {
     margin: -2px 0;
     background: #09889f;
 }
-
+*/
 hr {
     clear: both;
     width: auto;
@@ -296,7 +289,7 @@ nav.menu ul li a {
     
     padding-left: 60px;
     padding-right: 0;
-    width: 100%;
+    /*width: 100%;*/
     text-align: left;
     overflow: hidden;
     background: url('timeline-item-bg-flipped.png') no-repeat left 34px;
@@ -552,9 +545,15 @@ nav.menu ul li a {
     line-height: 1.111em;
 }
 .timeline article.update section, .timeline article.news section, .timeline-detail article.update section, .timeline-detail article.news section {
-    padding: 40px;
+    padding: 0px;
     overflow: hidden;
     background: #fff;
+}
+/*asta ca sa aiba li u margin nu sectionu padding*/
+.article-content li.element .redactor_editor,
+.article-content li.element .block-content
+{
+    margin: 0 40px;
 }
 .timeline article.update section img, .timeline article.news section img, .timeline-detail article.update section img, .timeline-detail article.news section img {
     float: left;
@@ -563,7 +562,7 @@ nav.menu ul li a {
 .timeline article.update section .article-content, .timeline article.news section .article-content, .timeline-detail article.update section .article-content, .timeline-detail article.news section .article-content {
     margin-top: 14px;
 }
-.row_x
+/*.row_x
 . {
     overflow: hidden;
     width: 100%}
@@ -627,7 +626,7 @@ nav.menu ul li a {
 }
 #main-footer nav ul li a {
     font-size: 1.4em;
-}
+}*/
 #expertise .expertise-lists {
     margin-left: -2%}
 #expertise .three-col {

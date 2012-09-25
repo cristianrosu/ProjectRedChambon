@@ -19,9 +19,10 @@
     <%= render "menu_bar" %>
   <%end%>
 
-  <!-- Only display header of the event in the event details page.(did this so that the header isn't included in the fluid layout of bootstrap) -->
- 
-  <div id="event_head"><%= content_for?(:header_event) ? yield(:header_event) : yield %></div>
+  <% if @current_controller=="events" && @current_action=="show" %>
+    <!-- Only display header of the event in the event details page.(did this so that the header isn't included in the fluid layout of bootstrap) -->
+    <%= content_for?(:header_event) ? yield(:header_event) : yield %>
+  <% end %>
  
 
   <% if @current_controller=="admin" %>

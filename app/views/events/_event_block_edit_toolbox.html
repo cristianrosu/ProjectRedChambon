@@ -1,5 +1,42 @@
-	<div class="element-edit">
-		<div class="element-add_mini" title="Add Stuff Above"></div>					
-		<div class="element-position"></div>												
-		<div class="element-toolbar"></div>
-	</div><!-- end: div.element-edit -->
+
+<div class="element-edit">
+
+	<div class="element-add_mini" title="Add Stuff Above"><span>Add Stuff Above</span></div>
+
+	<div class="element-position">
+		<div class="position-up" title="Move Up">Up</div>
+		<div class="position-grip" title="Click + Drag">Grip</div>
+		<div class="position-down" title="Move Down">Down</div>
+	</div>
+							
+	<div class="element-toolbar">
+		<ul>
+			<li class="toggle tool-align-center" title="Alignment" data-field="align" data-value="align-center"><span class="title">Alignment</span></li>
+			<li class="tool-remove" title="Remove" onclick="removeElement( 'bk<%= block.id %>', true );"><span>Remove</span></li>
+
+			<% if block.type_id == 1 %>
+				<li class="toggle tool-size-medium" title="Size" data-field="size" data-value="size-medium"><span class="title">Size</span></li>
+				<li class="tool-text-undo" title="Undo" onclick="$('#bk<%= block.id %>-body').execCommand('undo'); saveRedactor('bk<%= block.id %>', 'header');"><span>Undo</span></li>
+			<% end %>
+
+			<% if block.type_id == 2 %>
+				<li class="tool-text-underline" title="Underline">
+					<a href="javascript:void(null);"><span>Underline</span></a>
+				</li>
+				<li class="tool-text-link" title="Link" >
+					<a href="javascript:void(null);" onclick="showLinkBox('bk<%= block.id %>');"><span>Link</span></a>
+				</li>
+				<li class="tool-text-bold" title="Bold">
+					<a href="javascript:void(null);" onclick="$('#bk<%= block.id %>-body').execCommand('bold'); saveRedactor('bk<%= block.id %>', 'text');"><span>Bold</span></a>
+				</li>
+				<li class="tool-text-italic" title="Italic">
+					<a href="javascript:void(null);" onclick="$('#bk<%= block.id %>-body').execCommand('italic'); saveRedactor('bk<%= block.id %>', 'text');"><span>Italic</span></a>
+				</li>
+				<li class="tool-text-undo" title="Undo" onclick="$('#bk<%= block.id %>-body').execCommand('undo'); saveRedactor('bk<%= block.id %>', 'text');"><span>Undo</span></li>
+				<li class="tool-text-redo" title="Redo" onclick="$('#bk<%= block.id %>-body').execCommand('redo'); saveRedactor('bk<%= block.id %>', 'text');"><span>Redo</span></li>
+			<% end %>
+
+		</ul>
+	</div>
+	
+</div><!-- end: div.element-edit -->

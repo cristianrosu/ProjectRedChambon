@@ -14,10 +14,12 @@
 		</aside>
 		<div class="article-content">
 			<%= "edit mode: #{edit_mode}" %>
-      <% event_section.blocks.each do |block| %>
-        <%= block_tag block, edit_mode %>
-      <% end %>
-
+			<ul class="sortable layout">
+	      <% event_section.blocks.each do |block| %>
+	      	<%= render partial: "event_block.html", locals: { block: block, edit_mode: edit_mode } %>
+	        <!-- %= block_tag block, edit_mode %  -->
+	      <% end %>
+      </ul>
 			<!-- <a class="read-more" href="#">See who is coming</a> -->
 		</div>
 	</section>

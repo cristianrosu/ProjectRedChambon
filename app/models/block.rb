@@ -2,7 +2,7 @@ class Block < ActiveRecord::Base
 
   belongs_to :section
 
-  attr_accessible :content, :position, :section_id, :type_id
+  attr_accessible :content, :position, :section_id, :type_id, :details
 
 end
 

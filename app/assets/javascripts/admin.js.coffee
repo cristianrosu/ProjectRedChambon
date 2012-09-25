@@ -53,6 +53,7 @@ updateWorkspace = (response) ->
 	
 	$( "#event_date_start" ).datepicker({ dateFormat: 'yy-mm-dd' });
 	$( "#event_date_end" ).datepicker({ dateFormat: 'yy-mm-dd' });
+	initializeEvent()
 
 
 	

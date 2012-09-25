@@ -31,8 +31,21 @@ body {
 // Example:
 // @linkColor: #ff0000;
 
-//text-box imput design change:
 
+body {
+    font-family: "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 0.625em;
+    line-height: 1.8em;
+    color: #353534;
+    background: #fbfaf7 url(../images/bg-pattern.png) repeat center top;
+    background-color:#ccc;
+}
+
+//default font pe butoane 
+
+
+//text-box imput design change:
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
 
 	height: 30px;
@@ -83,60 +96,138 @@ body {
 }
 
 
-//custom buttons deffinition
-.btnx{
-	color: white;
+/*custom button deffinition*/
+.btn{color: white;
 	text-shadow: rgba(0, 0, 0, 0.2) 0px -1px;
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 0px 5px;
-}
+	border-radius:0px;
+    font-size: 16px;
+    font-weight:300;
+    background-image:none;}
+.btn-large{font-size: 18px;}
 
-.btnx:hover{
+
+
+.btn:hover{
 	color:white;	
 }
 
-.btnx:active{
+.btn:active{
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 0px 4px;
 }
 
-.btnx-blue{
-	background: #3887BE;	
+.btn-blue{
+	background:#0099B5;	
 }
 
-.btnx-blue:hover{
-	//background:#3bb2d0; aici ar trebui schimbata culoarea
+.btn-blue:hover{
 	background:#3887BE;
 }
 
-.btnx-purple{
+.btn-purple{
 	background:#442359;
 }
 
-.btnx-purple:hover{
-	//background:#3bb2d0; aici ar trebui schimbata culoarea
+.btn-purple:hover{
+	/*background:#3bb2d0; aici ar trebui schimbata culoarea*/
 	background:#8A8ACB;	
 }
 
+.btn-orange{
+	background:#f4512f;	
+}
 
-.btnx-orange{
+.btn-orange:hover{
+	/*background:#3bb2d0; aici ar trebui schimbata culoarea*/
 	background:#ef8a65;	
 }
 
-.btnx-orange:hover{
-	//background:#3bb2d0; aici ar trebui schimbata culoarea
-	background:#ef8a65;	
-}
-
-.btnx-green{
+.btn-green{
 	background:#8bc53f;
 }
 
-.btnx-green:hover{
-	//background:#3bb2d0; aici ar trebui schimbata culoarea
+.btn-green:hover{
+	/*background:#3bb2d0; aici ar trebui schimbata culoarea*/
 	background:#8bc53f;	
 }
 
 
 
+/*/////// MENU BAR ///////*/
+
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: inset none;
+}
+
+
+.navbar-fixed-top  div{
+	height:60px;
+	 /*background-color:#fff;*/
+	 background-image:none;
+ min-height:60px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  min-height:60px;
+  height:60px;
+
+}
+
+.transp{
+	border:0px;
+	-webkit-border-radius: 0px; 
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	background:transparent;
+	background-image:none;
+
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+} 
+
+/* Alinieri date de wysiwyg  */
+.header-align-left			{ text-align: left }
+.header-align-center		{ text-align: center }
+.header-align-right			{ text-align: right }
+
+/* .header-size-small h1		{ font-size: 24px }
+.header-size-medium h1		{ font-size: 40px }
+.header-size-large h1		{ font-size: 60px } */
+
+.text-align-left			{ text-align: left }
+.text-align-center			{ text-align: center }
+.text-align-right			{ text-align: right }
+.text-align-justify			{ text-align: justify }
+
+.list-align-left			{ text-align: left }
+.list-align-center			{ text-align: center }
+.list-align-right			{ text-align: right }
+
+.page .list .list-column-one li 		{ float: none; width: auto }
+.page .list .list-column-two li			{ float: left; width: 238px }
+
+.page .list .list-style-bullet ul,
+.page .list .list-style-bullet li		{ list-style-type: square }
+.page .list .list-style-number ul,
+.page .list .list-style-number li		{ list-style-type: decimal }
+
+.button-align-left			{ text-align: left }
+.button-align-center		{ text-align: center }
+.button-align-right			{ text-align: right }
 
 
 

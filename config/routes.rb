@@ -5,6 +5,7 @@ ProjectRedChambon::Application.routes.draw do
  #match "events/new" => "admin#new"
  #match "events/:id/edit" => "admin#edit"
  get "events/:id/edit_step2" => "events#edit_step2"
+ post "event/:id/save_block" => "events#save_block"
  resources :events 
 
 get "home/index"
