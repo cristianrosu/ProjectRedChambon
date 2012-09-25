@@ -1,30 +1,30 @@
-  <li class="span4" style="min-width:240px; max-width:260px;">
-    <div class="thumbnail" >
-    	<div style="padding:6px 10px; height:60px">
-    		<p style="margin-bottom:0px;" class="pull-right"><i class="icon-map-marker"></i><small><%= event.location %></small></p>
-    		
-			    <h5 style="margin:0; margin-bottom:5px;"><small><i class="icon-tag"></i> CATEGORY <%= event.industry_id %></small></h5>
+<li class="span4">
+    <div class="thumbnail thumbnail-first">	 
 			
-	    		<div style="max-width:220px">
-		    		<h5 style="margin:0;color:#181818" id="_event_title"><%= event.title %></h5>
-			
-			</div>
+           <img style="width:460px;" src="<%= event.image_url(:thumb).to_s %>">
+                <div class="mask">
+                    <h4>Conference / Technology</h4>
+                    <p> Hey! I have something going on and need a developer to team up with for a fun project. if you know wordpress, paypal, jquery and care about design and web tr...</p> 
+                     <h4 class="pull-left"><i class="icon icon-map-marker"></i>Cluj Napoca, Ro</h4>
+            </div>  
+            </img>
 
-	    </div>
-		<div style= "position:relative">
-		    <div  class="white-triangle-pointer-item"></div>
-	        <!--img style="height:150px; width:auto" src="http://www.oregonscenics.com/s-n-p-ci-wide.jpg" alt="" @event.image.url -->
-					<%= image_tag event.image_url(:thumb).to_s, size: "260x150" %>
-	        <div class="when">
-	        <h4 class="pull-right" style="font-size:16px;margin:0;line-height:6px;">23-24<small style="color:white;"> Jul, 2012</small></h4>
-	    </div>
-		</div>
-        <div style="padding:8px 10px; background-color:#222B30;opacity:0.98; color:white; background-image: url(<%= asset_path 'dotgrid-pattern-xlight.png'%>); box-shadow: inset rgba(31, 39, 43, 0.5) 0px 20px 20px -20px, inset rgba(34, 42, 48, 0.5) 0px -20px 20px -20px;">
-			<p style="margin-bottom:0px;margin-left:10px" class="pull-right"><small><i class="icon-heart icon-white"></i>345</small> </p>
-			<p style="margin-bottom:0px;margin-left:10px" class="pull-right"> <small><i class="icon-star icon-white"></i>439</small> </p>
-			<p style="margin-bottom:0px;margin-left:10px" class="pull-right"><small><i class="icon-thumbs-up icon-white"></i>19</small> </p>
-			<p style="margin-bottom:0px;"> <small><i class="icon-user icon-white"></i>3453 </small> </p>
-		</div>
-		</div>
+		   <div class="when">
+                <img src="http://www.nationaltraveller.com/templates/traveler/images/demo-02_fb.png"></img>
+                <img src="http://www.nationaltraveller.com/templates/traveler/images/demo-02_tw.png"></img>
+                <img src="http://www.nationaltraveller.com/templates/traveler/images/demo-02_pinterest.png"></img>   
+            </div>
+
+    		<div class="caption">
+    			<h2>The European Pirate Summit - 2012 / Cologne Germany</h2>
+                <h3 class="pull-right"><i class="icon icon-calendar"></i>20-22 <small>Sep, 2012</small></h3>
+               <!--  <h3 class="pull-left"><small><i class="icon icon-map-marker"></i>Cluj Napoca, Ro</small></h3> -->
+
+    		</div>	 
     </div>
-  </li>
+    <div class="thumbnail-info">
+        <h6> <i class="icon-user icon-white"></i>3453</h6>
+        <h6> <i class="icon-eye-open icon-white"></i>34</h6>
+        <h6> <i class="icon-tag icon-white"></i>3453</h6>
+    </div>
+</li>

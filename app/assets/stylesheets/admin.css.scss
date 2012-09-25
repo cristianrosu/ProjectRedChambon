@@ -2,15 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.xx:hover{
-	border-left:5px solid #cdcdcd;
+.admin-menu{
+  display:block;
+  position:fixed;
+  bottom: 0px;
+  top: 0px;
+  left: 0px;
+  background-color: #181818;
+  width:70px;
 }
 
-.xx:active {
-	border-left:5px solid #cdcdcd;
+.admin-menu div{
+  margin-top: 60px;
+  z-index: 2;
+  background: #181818;
+  height:70px;
+  width:100%;
+  background: transparent none center center no-repeat;
 }
 
+.admin-menu div p{
+   text-align:center;
+   padding-top:50px;
+   color:white;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 13px;
+}
+.admin-menu div:hover{
+	border-left:4px solid #cdcdcd;}
 
+.admin-menu div:active {
+	border-left:4px solid #cdcdcd;
+}
 
 /*_______ Element Edit-Mode _______ */
 
@@ -300,4 +323,213 @@ ul.sortable div.element-toolbar li span {
 	li.tool-photo-grid span		{ background-position: -580px 0; }
 
 	li.tool-edit span 			{ background-position: -609px 0; }
+	div.element-edit {
+  	display: none;
+  	position: absolute;
+  	z-index: 2;
+  	/*width: 698px; --edit: */
+  	padding-top: 0;
+  	/* background: rgba(255,0,0, 0.2); */
+}
+
+	/* Header Layering Fix */
+	li.header div.element-edit,
+	li.text div.element-edit,
+	li.list div.element-edit,
+	li.button div.element-edit {
+		min-height: 75px;
+	}
 	
+	/*TODO: adaugat alte elemente*/
+	li.header:hover .redactor_box,
+	li.text:hover .redactor_box,
+	li.list:hover .redactor_box,
+	li.button:hover .button_show,
+	li.button:hover .button_holder {
+		position: relative;
+		z-index: 2;
+		padding: 0;
+		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
+	}
+
+/*	li.header:hover,
+	li.text:hover,
+	li.list:hover,
+	li.button:hover {
+		z-index: -1;
+	}
+	*/
+	body.logged_out li.button:hover div.button_show {
+		z-index: inherit;
+		margin: 0;
+		width: auto;
+	}
+
+	
+	/* Header Layering Fix v2 
+	div.page li.header:hover { padding-bottom: 25px; position: relative; z-index: 2 }
+	div.page li.header:hover + li.element { margin-top: -25px; position: relative; z-index: 1; }
+	*/
+
+
+.redactor_box .redactor_editor, body.logged_out li.header div {
+	border: 2px dashed transparent;
+}
+	
+.element:hover .redactor_box .redactor_editor, .element:hover div.element-edit + .redactor_box .redactor_editor,
+.element.hover .redactor_box .redactor_editor, .element.hover div.element-edit + .redactor_box .redactor_editor,
+.onfocus-editing .redactor_box .redactor_editor {
+	border: 2px dashed #ccc;
+}
+	
+
+ul.sortable li:hover div.element-edit,
+ul.sortable li.hover div.element-edit {
+	display: block;
+}
+
+div.element-edit * {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+
+
+/*_______ Element: Add Mini _______ */
+
+div.element-add_mini {
+	display: block;
+	width: 26px;
+	height: 26px;
+	position: absolute;
+	z-index: 7;
+	margin: 0 0 0 10px;
+	background: url(/assets/add_content-mini.png) no-repeat 0 0;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+
+div.element-add_mini:active {
+	background-position: 0 -26px;
+}
+
+
+
+/*_______ Element: Position Switch _______ */
+
+div.element-position {
+	display: block;
+	width: 26px;
+	height: 44px;
+	position: absolute;
+	z-index: 7;
+	margin: 30px 0 0 10px;
+}
+	/* Header Layering Fix */
+	li.header div.element-edit,
+	li.text div.element-edit,
+	li.list div.element-edit,
+	li.button div.element-edit {
+		min-height: 75px;
+	}
+	
+	/*TODO: adaugat alte elemente*/
+	li.header:hover .redactor_box,
+	li.text:hover .redactor_box,
+	li.list:hover .redactor_box,
+	li.button:hover .button_show,
+	li.button:hover .button_holder {
+		position: relative;
+		z-index: 2;
+		padding: 0;
+		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
+	}
+
+	/* Header Layering Fix */
+	li.header div.element-edit,
+	li.text div.element-edit,
+	li.list div.element-edit,
+	li.button div.element-edit {
+		min-height: 75px;
+	}
+	
+	/*TODO: adaugat alte elemente*/
+	li.header:hover .redactor_box,
+	li.text:hover .redactor_box,
+	li.list:hover .redactor_box,
+	li.button:hover .button_show,
+	li.button:hover .button_holder {
+		position: relative;
+		z-index: 2;
+		padding: 0;
+		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
+	}
+
+/*	li.header:hover,
+	li.text:hover,
+	li.list:hover,
+	li.button:hover {
+		z-index: -1;
+	}
+	*/
+	body.logged_out li.button:hover div.button_show {
+		z-index: inherit;
+		margin: 0;
+		width: auto;
+	}
+
+	
+	/* Header Layering Fix v2 
+	div.page li.header:hover { padding-bottom: 25px; position: relative; z-index: 2 }
+	div.page li.header:hover + li.element { margin-top: -25px; position: relative; z-index: 1; }
+	*/
+
+
+.redactor_box .redactor_editor, body.logged_out li.header div {
+	border: 2px dashed transparent;
+}
+	
+.element:hover .redactor_box .redactor_editor, .element:hover div.element-edit + .redactor_box .redactor_editor,
+.element.hover .redactor_box .redactor_editor, .element.hover div.element-edit + .redactor_box .redactor_editor,
+.onfocus-editing .redactor_box .redactor_editor {
+	border: 2px dashed #ccc;
+}
+	
+
+ul.sortable li:hover div.element-edit,
+ul.sortable li.hover div.element-edit {
+	display: block;
+}
+
+div.element-edit * {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+
+
+/*_______ Element: Add Mini _______ */
+
+div.element-add_mini {
+	display: block;
+	width: 26px;
+	height: 26px;
+	position: absolute;
+	z-index: 7;
+	margin: 0 0 0 10px;
+	background: url(/assets/add_content-mini.png) no-repeat 0 0;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+.dropdown-menu:after {
+  position: absolute;
+  top: -6px;
+  left: 35px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: '';
+}

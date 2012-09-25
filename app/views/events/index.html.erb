@@ -1,15 +1,14 @@
-<h1>Listing events</h1>
- <div class="row-fluid">
-    <ul  id="events" class="thumbnails">
+<div id="wrapper">
+		<h1>Listing events</h1>
+	    <div class="row-fluid">
+	        <ul  id="events" class="thumbnails">
+	   		  <%= render @events %>
+	    	</ul>
+ 	</div>
 
-    <%= render @events %>
+	<br />
+	<br />
+	<%= will_paginate @events %>
 
-    </ul>
 </div>
-
-<br />
-<br />
-<%= will_paginate @events %>
-
-
-<%= link_to 'New Event', new_event_path, :class => 'btn btn-primary' %>
+	<%= link_to 'New Event', new_event_path, :class => 'btn btn-primary' %> 

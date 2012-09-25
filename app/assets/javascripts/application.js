@@ -9,3 +9,15 @@
 //= require jquery.ui.datepicker
 //= require twitter/bootstrap
 //= require_tree .
+
+
+    $("div.thumbnail-first").live({
+        mouseenter: function () {
+            $(".mask", this).fadeIn("fast");
+            
+        },
+        mouseleave: function () {
+            $(".mask", this).fadeOut("fast");
+        }
+    });
+

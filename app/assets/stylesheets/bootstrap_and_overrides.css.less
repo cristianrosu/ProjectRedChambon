@@ -21,7 +21,6 @@ body {
 @import "fontawesome";
 
 // Your custom LESS stylesheets goes here
-//
 // Since bootstrap was imported above you have access to its mixins which
 // you may use and inherit here
 //
@@ -38,14 +37,11 @@ body {
     font-size: 0.625em;
     line-height: 1.8em;
     color: #353534;
-    background: #fbfaf7 url(../images/bg-pattern.png) repeat center top;
-    background-color:#ccc;
+    /*background: #fbfaf7 url(../images/bg-pattern.png) repeat center top;*/
+    background-color:#e0e0e0;
 }
 
-//default font pe butoane 
-
-
-//text-box imput design change:
+//text-box imput design change
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
 
 	height: 30px;
@@ -56,28 +52,27 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	border: 1px solid #ccc;
 }
 
-
-body {
-	background:#F6F6F6;
-}
-
-
 .navbar .nav >li a {
-	    color: #353534;
-	    font-size: 1.42em;
-	    font-weight: 300;
+		margin-top:10px;
+	    color: #777;
+	    font-size: 16px;
+	    text-transform:uppercase;
+	    font-weight: normal;
 	    text-shadow: rgba(255, 255, 255, 0.3) 0 1px;
+	    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	}
 
 
 //For explore events page (arrangement of thumbnails)
 
-.thumbnail{
+
+.thumbnail{ 
 	background-color:#fff;
 	border:none;
+	border-radius:0;
 	padding: 0;
 
-	-webkit-border-radius: 3px 3px 0 0;
+	/*-webkit-border-radius: 3px 3px 0 0;
 	-moz-border-radius: 3px 3px 0 0;
 	border-radius: 3px 3px 0 0;
 	-webkit-border-radius: 3px 3px 0 0;
@@ -85,35 +80,32 @@ body {
 
 	box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
 	-moz-box-shadow: 0 1px 2px rgba(34,25,25,0.4);
-	-webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+	-webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);*/
 	
 }
 
 .thumbnail:hover {
-	box-shadow: 0 1px 3px 1px #999;
+/*	box-shadow: 0 1px 3px 1px #999;
 	-moz-box-shadow: 0 1px 3px 1px #999;
-	-webkit-box-shadow: 0 1px 3px 1px #999;
+	-webkit-box-shadow: 0 1px 3px 1px #999;*/
 }
 
 
-/*custom button deffinition*/
-.btn{color: white;
-	text-shadow: rgba(0, 0, 0, 0.2) 0px -1px;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 0px 5px;
+//custom button deffinition
+.btn{
+	color: white;
 	border-radius:0px;
-    font-size: 16px;
+    /*font-size: 14px;*/
     font-weight:300;
-    background-image:none;}
-.btn-large{font-size: 18px;}
+    background-image:none;
+    border:0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-
+.btn-large{font-size: 18px;line-height: 15px}
 
 .btn:hover{
 	color:white;	
-}
-
-.btn:active{
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 0px 4px;
 }
 
 .btn-blue{
@@ -129,7 +121,6 @@ body {
 }
 
 .btn-purple:hover{
-	/*background:#3bb2d0; aici ar trebui schimbata culoarea*/
 	background:#8A8ACB;	
 }
 
@@ -138,7 +129,6 @@ body {
 }
 
 .btn-orange:hover{
-	/*background:#3bb2d0; aici ar trebui schimbata culoarea*/
 	background:#ef8a65;	
 }
 
@@ -147,14 +137,12 @@ body {
 }
 
 .btn-green:hover{
-	/*background:#3bb2d0; aici ar trebui schimbata culoarea*/
 	background:#8bc53f;	
 }
 
 
 
 /*/////// MENU BAR ///////*/
-
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
