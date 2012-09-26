@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   # GET /events.json
   before_filter :authenticate_user!, except: [:index]
   def index
-    @events = Event.order(:id).page(params[:page]).per_page(2)
+    @events = Event.order(:id).page(params[:page]).per_page(3)
 
     # respond_to do |format|
     #   format.html # index.html.erb

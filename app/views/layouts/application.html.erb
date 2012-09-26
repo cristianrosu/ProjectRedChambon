@@ -14,7 +14,7 @@
 </head>
 <body>
 
-  <% unless @current_controller=="events" && @current_action=="show" || @current_controller=="admin" %>
+  <% unless @current_controller=="events" && @current_action=="show" %>
     <!-- no need for menu_bar in this cases -->
     <%= render "menu_bar" %>
   <%end%>

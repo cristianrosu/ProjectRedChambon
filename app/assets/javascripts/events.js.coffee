@@ -13,6 +13,7 @@ jQuery ->
 			if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
 				$('.pagination').text("Fetching more products...")
 				$.getScript(url, (data, textStatus, jqxhr) ->
+					$("ul li:nth-child(3n+1)").css("margin-left", "0px")
 					).fail (jqxhr, settings, exception) -> 
 						console.log "ajax fail: get events"
 		$(window).scroll()

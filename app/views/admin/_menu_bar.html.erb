@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="/home">Seedbit</a>
+        <a style= "margin-right:60px"class="brand" href="/home">Dashboard</a>
 
         <ul class="nav pull-right">
           <% if user_signed_in? %>
@@ -29,12 +29,10 @@
           <% end %>      
         </ul>
 
-         <div class="nav-collapse">
-           <ul class="nav pull-right">
-            <li><%= link_to "Explore", events_path %></li>
-            <li><%= link_to "Brands" %></li>
-            <li><%= link_to "People" %></li>
-            <li><%= link_to "Map" %></li>           
+         <div class="nav-collapse">    
+           <ul class="nav">
+            <li><a class="new_event btn btn-large btn-blue " style="color:white;margin-top:25px;margin-left:30px"><i class="icon-calendar icon-white"></i>&nbsp; Create Event</a> </li> 
+            <li><a class="edit_event btn btn-large btn-orange" style="color:white;margin-top:25px;margin-left:30px"><i class="icon-bullhorn icon-white"></i>&nbsp; Promote event</a> </li>
           </ul>
         </div>
       </div>
