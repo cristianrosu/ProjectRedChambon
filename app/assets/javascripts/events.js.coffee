@@ -16,4 +16,3 @@ jQuery ->
 					).fail (jqxhr, settings, exception) -> 
 						console.log "ajax fail: get events"
 		$(window).scroll()
-

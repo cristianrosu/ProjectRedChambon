@@ -11,11 +11,11 @@
 							
 	<div class="element-toolbar">
 		<ul>
-			<li class="toggle tool-align-center" title="Alignment" <%= data_toggle_decode(block, "align") %> ><span class="title">Alignment</span></li>
+			<li class="toggle tool-align-center" title="Alignment" <%= data_toggle_decode(block, :align) %> ><span class="title">Alignment</span></li>
 			<li class="tool-remove" title="Remove" onclick="removeElement( 'bk<%= block.id %>', true );"><span>Remove</span></li>
 
 			<% if block.type_id == 1 %>
-				<li class="toggle tool-size-medium" title="Size" <%= data_toggle_decode(block, "size") %> ><span class="title">Size</span></li>
+				<li class="toggle tool-size-medium" title="Size" <%= data_toggle_decode(block, :size) %> ><span class="title">Size</span></li>
 				<li class="tool-text-undo" title="Undo" onclick="$('#bk<%= block.id %>-body').execCommand('undo'); saveRedactor('bk<%= block.id %>', 'header');"><span>Undo</span></li>
 			<% end %>
 

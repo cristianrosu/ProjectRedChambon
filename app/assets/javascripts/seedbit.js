@@ -635,6 +635,8 @@ var initializeEvent = function(){
 			e.preventDefault(); 
 		}; 
 	});
+
+
 	
 	// $.mask.definitions['~']='[0-9A-Za-z- ]';
 	// $("#url-input").mask(root+"~~~?" + str_repeat( "~", 125 ),{
@@ -650,3 +652,52 @@ var initializeEvent = function(){
 	// }
 	
 };
+
+
+function saveElementOrder( id, prevOrder, nextOrder ) {
+	
+	showSaving();
+	$('#btn-savenow').html('Save Now').removeClass('justsaved');
+	
+	if( prevOrder != nextOrder ){
+
+		url = "/event/" + serverId + "/save_block_order";
+		serverId = id.substring(2) || '';
+		data = {
+				oldOrder : prevOrder,
+				newOrder : nextOrder
+		}
+
+		$.post(url, data, function( data, textStatus, jqXHR ) {
+			}
+		);
+		
+		// $.ajax({
+		// 	type: 'POST',
+		// 	data: { 
+		// 		//tackk :	$("#staticCode").text(), 
+		// 		block : id.substring(2) || '',
+		// 		oldOrder : prevOrder,
+		// 		newOrder : nextOrder
+		// 	},
+		// 	url: 'php/ajax/saveElementOrder.php',
+		// 	success: function( data, textStatus, jqXHR ) {
+			
+		// 		var response = $.parseJSON( data );
+		// 		if( response.error == 0 ) {
+				
+		// 			hideSaving();
+		// 			$('#expires').html( response.expires );
+					
+		// 		} else {
+		// 			showError( response.description );
+		// 		}
+				
+		// 	}
+		// });
+		
+	} else {
+		hideSaving();
+	}
+	
+}
