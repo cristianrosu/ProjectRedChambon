@@ -1,4 +1,5 @@
 <%= render "admin_menu_bar" %>
+
 <div class="container">
       <% flash.each do |name, msg| %>
         <div class="alert alert-<%= name == :notice ? "success" : "error" %>">

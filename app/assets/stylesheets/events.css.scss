@@ -5,10 +5,50 @@
 //body{margin-top:-60px;} //compensate for the space the navbar replaces on large screens
 /* Landscape phones and down */
 
+/*nush daca se foloseste*/
 .wrapper-explore{
   margin:0 60px;
   display:block;
   max-width: 1400px;
+}
+
+.selector{
+	float:right;
+}
+.selector ul {
+margin: 80px 0 0;
+padding: 0;
+display: inline-block;
+}
+.selector ul li {
+	float: left;
+	margin-left: 28px;
+	text-transform: uppercase;
+	list-style: none;
+	cursor: pointer;
+
+}
+
+.selector ul li a {
+	color:#999;
+	letter-spacing: 1px;
+	font-size:13px;
+	font-weight: bolder;
+	text-shadow: rgba(255, 255, 255, 0.3) 0 1px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-transition: color 0.1s ease-out;
+	-moz-transition: color 0.1s ease-out;
+	-o-transition: color 0.1s ease-out;
+	transition: color 0.1s ease-out;
+}
+
+.selector ul li a:hover {
+color: #222;
+}
+.selector ul li a.active {
+color: #222;
+padding: 8px 0;
+border-top: solid 2px #222;
 }
 
 .white-triangle-pointer-item {
@@ -42,9 +82,9 @@
    overflow: hidden;
    position: relative;
    text-align: center;
-   -webkit-box-shadow: 1px 1px 2px #e6e6e6;
-   -moz-box-shadow: 1px 1px 2px #e6e6e6;
-   box-shadow: 1px 1px 2px #e6e6e6;
+   	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.12);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.12);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.12);
    cursor: default;
 }
 
