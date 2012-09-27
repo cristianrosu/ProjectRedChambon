@@ -35,6 +35,8 @@
 	border-left:4px solid #cdcdcd;
 }
 
+
+
 /*_______ Element Edit-Mode _______ */
 
 div.element-edit {
@@ -66,69 +68,9 @@ div.element-edit {
 		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
 	}
 
-/*	li.header:hover,
-	li.text:hover,
-	li.list:hover,
-	li.button:hover {
-		z-index: -1;
-	}
-	*/
-	body.logged_out li.button:hover div.button_show {
-		z-index: inherit;
-		margin: 0;
-		width: auto;
-	}
-
-	
-	/* Header Layering Fix v2 
-	div.page li.header:hover { padding-bottom: 25px; position: relative; z-index: 2 }
-	div.page li.header:hover + li.element { margin-top: -25px; position: relative; z-index: 1; }
-	*/
-
-
-.redactor_box .redactor_editor, body.logged_out li.header div {
-	border: 2px dashed transparent;
+.redactor_box, li.element > div{
+	margin: 0 40px;
 }
-	
-.element:hover .redactor_box .redactor_editor, .element:hover div.element-edit + .redactor_box .redactor_editor,
-.element.hover .redactor_box .redactor_editor, .element.hover div.element-edit + .redactor_box .redactor_editor,
-.onfocus-editing .redactor_box .redactor_editor {
-	border: 2px dashed #ccc;
-}
-	
-
-ul.sortable li:hover div.element-edit,
-ul.sortable li.hover div.element-edit {
-	display: block;
-}
-
-div.element-edit * {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-}
-
-
-
-/*_______ Element: Add Mini _______ */
-
-div.element-add_mini {
-	display: block;
-	width: 26px;
-	height: 26px;
-	position: absolute;
-	z-index: 7;
-	margin: 0 0 0 10px;
-	background: url(/assets/add_content-mini.png) no-repeat 0 0;
-	text-indent: -9999px;
-	cursor: pointer;
-}
-
-div.element-add_mini:active {
-	background-position: 0 -26px;
-}
-
-
 
 /*_______ Element: Position Switch _______ */
 
@@ -151,13 +93,13 @@ div.element-position div {
 	cursor: pointer;
 }
 
-	div.element-position div.position-grip {
-		height: 18px;
-		cursor: move;
-		border-top: 1px solid #222222;
-		background-color: #2a2a2a;
-		display: none;
-	}
+div.element-position div.position-grip {
+	height: 18px;
+	cursor: move;
+	border-top: 1px solid #222222;
+	background-color: #2a2a2a;
+	display: none;
+}
 	
 	div.position-up { background-position: 0 0; border-bottom: 1px solid #2a2a2a; }
 	div.position-up:active { background-position: -26px 0; }
@@ -176,7 +118,7 @@ div.element-toolbar {
 	position: absolute;
 	z-index: 7;
  /* margin: 0 0 0 655px; */
-	margin: 0 0 0 650px;
+	margin: 0 0 0 610px;
 	padding: 4px;
 	background: rgba(176, 176, 176, 0.75) !important;
 	background-color: #c4c4c4;
@@ -215,6 +157,7 @@ div.element-toolbar ul, ul.sortable li.text div.element-toolbar ul {
 
 ul.sortable div.element-toolbar li {
 	display: block;
+	position:relative;
 	float: left;
 	width: 29px;
 	height: 27px;
@@ -352,29 +295,6 @@ ul.sortable div.element-toolbar li span {
 		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
 	}
 
-/*	li.header:hover,
-	li.text:hover,
-	li.list:hover,
-	li.button:hover {
-		z-index: -1;
-	}
-	*/
-	body.logged_out li.button:hover div.button_show {
-		z-index: inherit;
-		margin: 0;
-		width: auto;
-	}
-
-	
-	/* Header Layering Fix v2 
-	div.page li.header:hover { padding-bottom: 25px; position: relative; z-index: 2 }
-	div.page li.header:hover + li.element { margin-top: -25px; position: relative; z-index: 1; }
-	*/
-
-
-.redactor_box .redactor_editor, body.logged_out li.header div {
-	border: 2px dashed transparent;
-}
 	
 .element:hover .redactor_box .redactor_editor, .element:hover div.element-edit + .redactor_box .redactor_editor,
 .element.hover .redactor_box .redactor_editor, .element.hover div.element-edit + .redactor_box .redactor_editor,
@@ -424,7 +344,7 @@ div.element-position {
 	height: 44px;
 	position: absolute;
 	z-index: 7;
-	margin: 30px 0 0 10px;
+	margin: 30px 0 0 -30px;
 }
 	/* Header Layering Fix */
 	li.header div.element-edit,
@@ -452,18 +372,6 @@ div.element-position {
 	li.list div.element-edit,
 	li.button div.element-edit {
 		min-height: 75px;
-	}
-	
-	/*TODO: adaugat alte elemente*/
-	li.header:hover .redactor_box,
-	li.text:hover .redactor_box,
-	li.list:hover .redactor_box,
-	li.button:hover .button_show,
-	li.button:hover .button_holder {
-		position: relative;
-		z-index: 2;
-		padding: 0;
-		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
 	}
 
 /*	li.header:hover,
@@ -479,36 +387,6 @@ div.element-position {
 		width: auto;
 	}
 
-	
-	/* Header Layering Fix v2 
-	div.page li.header:hover { padding-bottom: 25px; position: relative; z-index: 2 }
-	div.page li.header:hover + li.element { margin-top: -25px; position: relative; z-index: 1; }
-	*/
-
-
-.redactor_box .redactor_editor, body.logged_out li.header div {
-	border: 2px dashed transparent;
-}
-	
-.element:hover .redactor_box .redactor_editor, .element:hover div.element-edit + .redactor_box .redactor_editor,
-.element.hover .redactor_box .redactor_editor, .element.hover div.element-edit + .redactor_box .redactor_editor,
-.onfocus-editing .redactor_box .redactor_editor {
-	border: 2px dashed #ccc;
-}
-	
-
-ul.sortable li:hover div.element-edit,
-ul.sortable li.hover div.element-edit {
-	display: block;
-}
-
-div.element-edit * {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-}
-
-
 
 /*_______ Element: Add Mini _______ */
 
@@ -518,7 +396,7 @@ div.element-add_mini {
 	height: 26px;
 	position: absolute;
 	z-index: 7;
-	margin: 0 0 0 10px;
+	margin: 0 0 0 -30px;
 	background: url(/assets/add_content-mini.png) no-repeat 0 0;
 	text-indent: -9999px;
 	cursor: pointer;

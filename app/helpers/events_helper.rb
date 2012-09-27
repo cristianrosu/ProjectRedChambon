@@ -3,9 +3,9 @@ module EventsHelper
 	def block_content(block)
 		t = ""
 		case block.type_id
-		  when 1
+		  when 1  #header
 		  	t = "#{block.content}"
-		  when 2
+		  when 2  #text
 		  	t = "#{block.content}"
 		  when 3
 	  end	

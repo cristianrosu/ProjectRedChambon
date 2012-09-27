@@ -129,6 +129,31 @@ class EventsController < ApplicationController
     end
   end
 
+  def save_block_order
+    #@section = Section.find(params[:id], :include => [:blocks])
+    old_order = params[:oldOrder].to_i
+    new_order = params[:newOrder].to_i
+
+    #block_1 = @section.blocks[@section.blocks.index{|block| block.id == old_order}]
+    #block_2 = @section.blocks[@section.blocks.index{|block| block.id == new_order}]3
+    block_1 = Block.where(section_id: params[:id]).where(position: params[:oldOrder]).first
+    block_2 = Block.where(section_id: params[:id]).where(position: params[:newOrder]).first
+
+    if block_1.nil? || block_2.nil?
+      render json: {'error' => "could not save"} and return
+    end
+
+    block_1.position = new_order
+    block_2.position = old_order
+    block_1.save
+    block_2.save
+
+    render json: {'error' => 0} 
+
+
+
+  end
+
   # def upload
   #   @event = Event.find(params[:id])
   #   respond_to do |format|

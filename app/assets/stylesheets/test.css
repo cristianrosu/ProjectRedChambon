@@ -553,8 +553,9 @@ nav.menu ul li a {
 .article-content li.element .redactor_editor,
 .article-content li.element .block-content
 {
-    margin: 0 40px;
+    margin: 0;
 }
+
 .timeline article.update section img, .timeline article.news section img, .timeline-detail article.update section img, .timeline-detail article.news section img {
     float: left;
     margin-right: 20px;
