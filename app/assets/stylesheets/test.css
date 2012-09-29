@@ -562,71 +562,7 @@ nav.menu ul li a {
 .timeline article.update section .article-content, .timeline article.news section .article-content, .timeline-detail article.update section .article-content, .timeline-detail article.news section .article-content {
     margin-top: 14px;
 }
-/*.row_x
-. {
-    overflow: hidden;
-    width: 100%}
-.row_x
-.#one {
-    margin-bottom: 40px;
-}
-.row_x
-. .col {
-    float: left;
-}
-.row_x
-. .col.four-col {
-    width: 22%;
-    margin-left: 3%}
-.row_x
-. .col.three-col {
-    width: 31%;
-    margin-right: 3%}
-.row_x
-. .col.two-col {
-    width: 48%;
-    margin-right: 4%}
-.row_x
-. .col.two-col.last {
-    margin-right: 0;
-}
-.row_x
-. .col.swapped {
-    float: right;
-    margin-right: 0;
-}
-#main-footer {
-    padding: 30px 0;
-    overflow: hidden;
-    border-top: 1px solid #c2c1be;
-    clear: right;
-}
-#main-footer .copyright {
-    float: left;
-    overflow: hidden;
-}
-#main-footer .copyright img {
-    float: left;
-}
-#main-footer .copyright div {
-    float: left;
-    margin-left: 20px;
-    font-size: 1.2em;
-    line-height: 1.833em;
-}
-#main-footer .copyright div address {
-    display: block;
-    font-style: normal;
-}
-#main-footer nav {
-    float: right;
-}
-#main-footer nav ul {
-    margin-top: 10px;
-}
-#main-footer nav ul li a {
-    font-size: 1.4em;
-}*/
+
 #expertise .expertise-lists {
     margin-left: -2%}
 #expertise .three-col {
