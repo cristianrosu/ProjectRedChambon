@@ -38,6 +38,8 @@
    font-size: 13px;
 }
 
+
+
 /*_______ Element Edit-Mode _______ */
 
 div.element-edit {
@@ -69,69 +71,9 @@ div.element-edit {
 		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
 	}
 
-/*	li.header:hover,
-	li.text:hover,
-	li.list:hover,
-	li.button:hover {
-		z-index: -1;
-	}
-	*/
-	body.logged_out li.button:hover div.button_show {
-		z-index: inherit;
-		margin: 0;
-		width: auto;
-	}
-
-	
-	/* Header Layering Fix v2 
-	div.page li.header:hover { padding-bottom: 25px; position: relative; z-index: 2 }
-	div.page li.header:hover + li.element { margin-top: -25px; position: relative; z-index: 1; }
-	*/
-
-
-.redactor_box .redactor_editor, body.logged_out li.header div {
-	border: 2px dashed transparent;
+.redactor_box, li.element > div{
+	margin: 0 40px;
 }
-	
-.element:hover .redactor_box .redactor_editor, .element:hover div.element-edit + .redactor_box .redactor_editor,
-.element.hover .redactor_box .redactor_editor, .element.hover div.element-edit + .redactor_box .redactor_editor,
-.onfocus-editing .redactor_box .redactor_editor {
-	border: 2px dashed #ccc;
-}
-	
-
-ul.sortable li:hover div.element-edit,
-ul.sortable li.hover div.element-edit {
-	display: block;
-}
-
-div.element-edit * {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-}
-
-
-
-/*_______ Element: Add Mini _______ */
-
-div.element-add_mini {
-	display: block;
-	width: 26px;
-	height: 26px;
-	position: absolute;
-	z-index: 7;
-	margin: 0 0 0 10px;
-	background: url(/assets/add_content-mini.png) no-repeat 0 0;
-	text-indent: -9999px;
-	cursor: pointer;
-}
-
-div.element-add_mini:active {
-	background-position: 0 -26px;
-}
-
-
 
 /*_______ Element: Position Switch _______ */
 
@@ -154,13 +96,13 @@ div.element-position div {
 	cursor: pointer;
 }
 
-	div.element-position div.position-grip {
-		height: 18px;
-		cursor: move;
-		border-top: 1px solid #222222;
-		background-color: #2a2a2a;
-		display: none;
-	}
+div.element-position div.position-grip {
+	height: 18px;
+	cursor: move;
+	border-top: 1px solid #222222;
+	background-color: #2a2a2a;
+	display: none;
+}
 	
 	div.position-up { background-position: 0 0; border-bottom: 1px solid #2a2a2a; }
 	div.position-up:active { background-position: -26px 0; }
@@ -179,7 +121,7 @@ div.element-toolbar {
 	position: absolute;
 	z-index: 7;
  /* margin: 0 0 0 655px; */
-	margin: 0 0 0 650px;
+	margin: 0 0 0 610px;
 	padding: 4px;
 	background: rgba(176, 176, 176, 0.75) !important;
 	background-color: #c4c4c4;
@@ -218,6 +160,7 @@ div.element-toolbar ul, ul.sortable li.text div.element-toolbar ul {
 
 ul.sortable div.element-toolbar li {
 	display: block;
+	position:relative;
 	float: left;
 	width: 29px;
 	height: 27px;
@@ -355,29 +298,6 @@ ul.sortable div.element-toolbar li span {
 		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
 	}
 
-/*	li.header:hover,
-	li.text:hover,
-	li.list:hover,
-	li.button:hover {
-		z-index: -1;
-	}
-	*/
-	body.logged_out li.button:hover div.button_show {
-		z-index: inherit;
-		margin: 0;
-		width: auto;
-	}
-
-	
-	/* Header Layering Fix v2 
-	div.page li.header:hover { padding-bottom: 25px; position: relative; z-index: 2 }
-	div.page li.header:hover + li.element { margin-top: -25px; position: relative; z-index: 1; }
-	*/
-
-
-.redactor_box .redactor_editor, body.logged_out li.header div {
-	border: 2px dashed transparent;
-}
 	
 .element:hover .redactor_box .redactor_editor, .element:hover div.element-edit + .redactor_box .redactor_editor,
 .element.hover .redactor_box .redactor_editor, .element.hover div.element-edit + .redactor_box .redactor_editor,
@@ -427,7 +347,7 @@ div.element-position {
 	height: 44px;
 	position: absolute;
 	z-index: 7;
-	margin: 30px 0 0 10px;
+	margin: 30px 0 0 -30px;
 }
 	/* Header Layering Fix */
 	li.header div.element-edit,
@@ -455,18 +375,6 @@ div.element-position {
 	li.list div.element-edit,
 	li.button div.element-edit {
 		min-height: 75px;
-	}
-	
-	/*TODO: adaugat alte elemente*/
-	li.header:hover .redactor_box,
-	li.text:hover .redactor_box,
-	li.list:hover .redactor_box,
-	li.button:hover .button_show,
-	li.button:hover .button_holder {
-		position: relative;
-		z-index: 2;
-		padding: 0;
-		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
 	}
 
 /*	li.header:hover,
@@ -482,36 +390,6 @@ div.element-position {
 		width: auto;
 	}
 
-	
-	/* Header Layering Fix v2 
-	div.page li.header:hover { padding-bottom: 25px; position: relative; z-index: 2 }
-	div.page li.header:hover + li.element { margin-top: -25px; position: relative; z-index: 1; }
-	*/
-
-
-.redactor_box .redactor_editor, body.logged_out li.header div {
-	border: 2px dashed transparent;
-}
-	
-.element:hover .redactor_box .redactor_editor, .element:hover div.element-edit + .redactor_box .redactor_editor,
-.element.hover .redactor_box .redactor_editor, .element.hover div.element-edit + .redactor_box .redactor_editor,
-.onfocus-editing .redactor_box .redactor_editor {
-	border: 2px dashed #ccc;
-}
-	
-
-ul.sortable li:hover div.element-edit,
-ul.sortable li.hover div.element-edit {
-	display: block;
-}
-
-div.element-edit * {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-}
-
-
 
 /*_______ Element: Add Mini _______ */
 
@@ -521,7 +399,7 @@ div.element-add_mini {
 	height: 26px;
 	position: absolute;
 	z-index: 7;
-	margin: 0 0 0 10px;
+	margin: 0 0 0 -30px;
 	background: url(/assets/add_content-mini.png) no-repeat 0 0;
 	text-indent: -9999px;
 	cursor: pointer;
@@ -536,3 +414,150 @@ div.element-add_mini {
   border-left: 6px solid transparent;
   content: '';
 }
+
+
+
+
+/*_______ Add Content Bar _______ */
+
+ul.sortable li.add_content-bar {
+	display: none;
+	margin: 12px 0 0 -1px;
+	position: relative;
+	z-index: 0;
+	width: 698px;
+	padding: 22px 1px;
+	background: #333333 url(../images/bg-my_tackks.png) repeat;
+	-webkit-box-shadow: inset 0px 1px 12px 1px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0px 1px 12px 1px rgba(0, 0, 0, 0.5);
+}
+
+	ul.sortable li#last-bar {
+		display: block;
+		min-height: 27px;
+		margin-top: 25px;
+		margin-bottom: -56px;
+		cursor: auto;
+	}
+	
+	/* 
+	#my_tackk:hover ul.sortable li#last-bar {
+		display: block;
+	}
+	*/
+	
+	ul.sortable li#last-bar:before {
+       content: url("../images/last-bar_carrot.png");
+       display: block;
+       position: absolute;
+       top: -13px;
+       left: 338px;
+	}
+		.ie8 ul.sortable li#last-bar:before {
+	       content: url("../images/last-bar_carrot-ie.png");
+		}
+	
+	ul.sortable li#last-bar #last-bar_icons {
+		display: none;
+	}
+	
+	div#btn-add_content {
+	    display: block;
+	    float: none;
+	    font-size: 16px;
+	    font-weight: normal;
+	    margin: 0 auto;
+	    padding: 10px 12px 12px 13px;
+	    width: 150px;
+	    cursor: pointer;
+	}
+	
+	div#btn-add_content:active {
+	    padding: 11px 12px 11px 13px;
+	}
+	
+	div#add_more_stuff {
+		display: block;
+		width: 187px;
+		height: 26px;
+		text-indent: -9999px;
+		background: url("../images/add_more_stuff.png") no-repeat;
+	    margin: 0 auto;
+	    position: absolute;
+	    left: 255px;
+	    z-index: -1;
+	}
+
+
+ul.sortable li.add_content-bar ul {
+	display: block;
+	/* width: 639px; */
+	width: 546px;
+	height: 63px;
+	padding: 0 0 0 16px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+ul.sortable li.add_content-bar li {
+	list-style: none;
+	display: block;
+	float: left;
+	width: 77px;
+	height: 63px;
+	padding: 0px;
+	margin: 0 14px 0 0;
+	text-align: center;
+	text-indent: -9999px;
+	background: transparent url(../images/add_content-icons_v2.png) no-repeat;
+	cursor: pointer;
+}
+
+	ul.sortable li.add_content-bar li.add_content-header 			{ background-position: 0 0; }
+	ul.sortable li.add_content-bar li.add_content-header:active 	{ background-position: 0 -63px; }
+	
+	ul.sortable li.add_content-bar li.add_content-text 				{ background-position: -77px 0; }
+	ul.sortable li.add_content-bar li.add_content-text:active 		{ background-position: -77px -63px; }
+	
+	ul.sortable li.add_content-bar li.add_content-list 				{ background-position: -154px 0; }
+	ul.sortable li.add_content-bar li.add_content-list:active	 	{ background-position: -154px -63px; }
+
+	ul.sortable li.add_content-bar li.add_content-button 			{ background-position: -231px 0; }
+	ul.sortable li.add_content-bar li.add_content-button:active 	{ background-position: -231px -63px; }
+
+	ul.sortable li.add_content-bar li.add_content-photo,
+	ul.sortable li.add_content-bar li.add_content-gallery 			{ background-position: -308px 0; }
+	ul.sortable li.add_content-bar li.add_content-photo:active,
+	ul.sortable li.add_content-bar li.add_content-media:active	 	{ background-position: -308px -63px; }
+
+	/*ul.sortable li.add_content-bar li.add_content-gallery			{ background-position: -385px 0; }
+	ul.sortable li.add_content-bar li.add_content-gallery:active 	{ background-position: -385px -63px; } */
+
+	ul.sortable li.add_content-bar li.add_content-media 			{ background-position: -462px 0; }
+	ul.sortable li.add_content-bar li.add_content-media:active 		{ background-position: -462px -63px; }
+	
+
+div.close-add_content {
+	display: block;
+	height: 32px;
+	width: 32px;
+	position: absolute;
+	z-index: 1;
+	top: 1px;
+	right: 1px;
+	background: url(../images/close-add_content.png) no-repeat center center;
+	text-indent: -9999px;
+	cursor: pointer;
+	filter: alpha(opacity=50);
+	-moz-opacity:0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+}
+
+div.close-add_content:hover {
+	filter: alpha(opacity=100);
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+	opacity: 1;
+}
+

@@ -1,4 +1,4 @@
-<article class="post update" style="margin-bottom:100px;padding-bottom:50px;">
+<article id="sct<%= event_section.id %>" class="post update" style="margin-bottom:100px;padding-bottom:50px;">
 	<section>
 						<img src="../cache/images/3c29e05f2779aaa0a01d0510115f9b34_normal_2x.png" width="280" height="304" alt="Ordering a taxi without making a call" class="fs-img">
 					<header>
@@ -19,6 +19,7 @@
 	      	<%= render partial: "event_block.html", locals: { block: block, edit_mode: edit_mode } %>
 	        <!-- %= block_tag block, edit_mode %  -->
 	      <% end %>
+	      <%= render "event_block_add_toolbar.html"%>
       </ul>
 			<!-- <a class="read-more" href="#">See who is coming</a> -->
 		</div>
