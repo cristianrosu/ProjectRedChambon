@@ -1,78 +1,54 @@
-<!--  <div style="	padding: 5px 0px;
-				width:100%;
-				top: 0px;
-				color:white;
-				position:fixed;
-				display:block;
-				
-				z-index:1023">
-	<!-- butoanele de sus
-	<div class="pull-left" style="margin-left:90px"	>
-			<a class="new_event btn btn-large btn-blue " style="margin-top:5px;margin-left:30px"><i class="icon-calendar icon-white"></i>&nbsp; Create Event</a>	
-			<a class="edit_event btn btn-large btn-orange" style="margin-top:5px;margin-left:30px"><i class="icon-bullhorn icon-white"></i>&nbsp; Promote event</a>	
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar-inner" style ="padding:5px;background-image: url(<%= asset_path 'nav-bg.jpeg' %>);">
+      <div class="container-fluid">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
 
-			<a class="btn btn-large btn-purple " style="margin-top:8px;margin-left:30px"><i class="icon-bullhorn icon-white"></i>&nbsp; Promote Event</a>
-	</div>
-		
-		<!-- right side
-		<a href="#">
-			<img class="pull-right" style="width:52px; height:52px; margin-right: 20px;" src="/assets/home.png">
-		</a>
-		
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			<img style="width:50px; height:50px; margin-right: 20px;" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/370599_708576256_1032762146_q.jpg" class="img-circle pull-right">
-		</a>
-		<ul class="pull-right dropdown-menu" role="menu">
-		    <li><a tabindex="-1" href="#">Action</a></li>
-			<li><a tabindex="-1" href="#">Another action</a></li>
-			<li><a tabindex="-1" href="#">Something else here</a></li>
-			<li class="divider"></li>
-			<li><a tabindex="-1" href="#">Log out</a></li>
-		</ul>
+        <a style= "margin-left:40px; margin-right:60px;color:white" class="brand" href="/home">Dashboard</a>
 
-		<div class="pull-right" style="margin-right:10px;">
-			<h4 style="margin-bottom:0;margin-top:6px;"> Cristian Rosu </h4>
-			<p  class="pull-right"><i class="icon-star icon-white"></i> 0 notifications </p>
-		</div>
-</div> -->
+        <ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a style="color:#f75432" href="#" class="dropdown-toggle" data-toggle="dropdown"> YOU <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="nav-header"><%=current_user.email%></li>
+                <li><a href="/users/logout"><i class="icon-search"></i> Icon + direct link</a></li>
+                <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :get %></li>
+              </ul>
+          </li>     
 
-	<!-- left side -->
-	<div class="admin-menu" style="z-index:1030;"> 
-			<!-- <a href="#">
-				<div style="margin-top:20px;margin-left:9px;border:1px solid #464646;width:50px; height:50px; background-image: url(<%= asset_path '3.png' %>);
-										">	
-				</div>
-				
-			</a> -->
-			<a href="#">
-				<div style="background-image: url(<%= asset_path 'icon-preview-32-light.png' %>);
-										">
-					<!-- <p>Home</p>	 -->
-				</div>
-			</a>
-			<a href="#">
-				<div style="background-image: url(<%= asset_path 'icon-content-32-light.png' %>);
-									">
-					<!-- <p>Events</p> -->
-				</div>
-			</a>
-			<a href="#">
-				<div style="background-image: url(<%= asset_path 'icon-settings-32-light.png' %>);
-									">
-					<!-- <p>Settings</p> -->
-				</div>
-			</a>
-			<a href="#">
-				<div style="background-image: url(<%= asset_path 'icon-stats-32-light.png' %>);
-									">
-					<!-- <p>Statistics</p> -->
-				</div>
-			</a>
-			<a href="#">
-				<div style="background-image: url(<%= asset_path 'icon-plus-16-light.png' %>);
-									">
-					<!-- <p>Add</p> -->
-				</div>
-			</a>
-	</div>
-</div>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Login with Fb", user_omniauth_authorize_path(:facebook) %></li>
+          <% end %>      
+        </ul>
+
+         <div class="nav-collapse"> 
+         <ul class="nav" style="border-right: 1px solid #555;border-left: 1px solid #222;">
+              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
+                <a style="font-size:16px" class="new_event">Home</a>
+              </li>
+              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
+              <a style="padding:5px 20px">
+              <div style="width:30px;height:30px;background-image: url(<%= asset_path 'icon-calendar-28.png' %>);"></div></a>
+              </li>
+              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
+              <a style="padding:5px 20px">
+              <div style="width:30px;height:30px;background-image: url(<%= asset_path 'icon-stats-28.png' %>);"></div></a>
+              </li>
+              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
+              	<a style="padding:0 20px 5px 20px"><input class="btn btn-orange" type="button" value="+"></a>
+              </li>
+          </ul>   
+  
+        </div>
+      </div>
+    </div>
+  </div>

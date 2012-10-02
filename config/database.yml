@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: seedbit
   pool: 5
-  username: dexter
+  username: cristir
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a

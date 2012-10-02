@@ -2,43 +2,93 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .admin-menu{
-  display:block;
-  position:fixed;
-  bottom: 0px;
-  top: 0px;
-  left: 0px;
-  padding-top:75px;
-  background-color: #181818;
-  width:70px;
+		z-index:1023;
+		position:fixed;
+		bottom:0;
+		background-image: url(/assets/nav-bg.jpeg);
+		border-bottom:1px solid #181818;
 }
 
-.admin-menu div{
-  margin-top: 30px;
+.nav div{
   z-index: 2;
   background: #181818;
-  height:70px;
-  width:100%;
   background: transparent none center center no-repeat;
 }
 
-.admin-menu div:hover{
-  background-color: #3bb2d0;
-}
-.admin-menu div:active{
-  background-color: #3bb2d0;
-}
-
-
-.admin-menu div p{
-   text-align:center;
-   padding-top:50px;
-   color:white;
-   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-   font-size: 13px;
+.top-bar{
+	background:white;
+	position:relative; 
+	padding:10px;
+	margin-bottom:40px;
 }
 
+.top-bar .right-menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.top-bar .stats{
+	margin-top:15px;
+}
 
+.top-bar .stats li.stat{
+	float: left;
+	width: 120px;
+	padding: 10px 30px 0;
+	border-right: 1px solid #EEE;
+}
+.top-bar .stats li.stat:first-child {
+	padding-left: 0;
+}
+.top-bar .stats li.stat:last-child {
+	border-right: none;
+}
+.top-bar .stats li.stat .value{
+	font-size: 2.2em;
+	font-family: "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
+	line-height: 1.5em;
+	color:#0099B5;
+}
+
+.volunteers, .sponsors{
+	 background:#fff;
+	 padding:20px 20px;
+	 margin-bottom:20px;
+}
+
+.volunteers .head, .sponsors .head {
+	margin-left:25px;
+}
+
+.volunteers .head p, .sponsors .head p {
+	float:left;
+	margin-right: 25px;
+}
+
+.volunteers .volunteer {
+	height:55px; 
+	padding:5px 0px 5px 0px; 
+	margin:5px 0px 20px 25px; 
+	border-bottom:1px dashed #d0d0d0; 
+}
+
+.volunteers .volunteer h4{
+	float:left;
+	margin:0;
+}
+.volunteers .volunteer img{
+	float:left;
+	margin-right:15px;
+}
+
+
+.volunteers .volunteer:hover{
+	background:#f5f5f5;
+}
 
 /*_______ Element Edit-Mode _______ */
 

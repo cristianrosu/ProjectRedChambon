@@ -8,13 +8,13 @@
     <div class="control-group">
         <span class="file-wrapper controls">
           <input id="event_image" type="file" name="event[image]" >
-    	  <span class="btn btn-large btn-blue">Choose Cover Photo</span>
+    	  <span class="btn btn-large btn-blue">Choose event photo</span>
     	</span>
     </div>
     <%= f.association :industry, collection: Industry.all(order: 'name'), as: :select, prompt: "Choose event industry"  %>
-    <div class="control-group">
-        <%= f.button :submit, class:"btn-large btn-blue" %>
-    </div>
+   <!--  <div class="control-group"> -->
+        <%= f.button :submit, class:"btn btn-large btn-blue", style: "width:100%" %>
+   <!--  </div> -->
 
 
 <% end %>

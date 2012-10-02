@@ -30,27 +30,46 @@ body {
 // Example:
 // @linkColor: #ff0000;
 
-
 body {
-    font-family: "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    font-size: 0.625em;
-    line-height: 1.8em;
+    //font-family: "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
+    //font-weight: 300;
+    //font-size: 0.625em;
+    //line-height: 1.8em;
     color: #353534;
     /*background: #fbfaf7 url(../images/bg-pattern.png) repeat center top;*/
     background-color:#f2f2f2;
 }
 
 //text-box imput design change
-select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
 	height: 28px;
-	font-size: 1.6em;
+	font-size: 1.4em;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 	border: 1px solid #ccc;
 }
 
+input,
+textarea {
+  width: 250px;
+}
+
+input:-moz-placeholder{
+     padding-top:3px;
+}
+
+input:-ms-input-placeholder{
+    padding-top:3px;
+}
+
+input::-webkit-input-placeholder{
+   padding-top:3px;
+}
+
+
+
+/*
 /////// MENU BAR //////
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
 	-webkit-box-shadow: none;
@@ -99,13 +118,13 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .navbar .nav >li a{
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #777;
     font-size: 13px;
     text-transform: uppercase;
 }
 ///////// END MENU BAR ///////
 
+*/
 .event-menu .nav >li a {
 	    color: #777;
 	    font-size: 14px;
@@ -140,17 +159,11 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 .btn{
 	color: white;
 	border-radius:0px;
-    /*font-size: 14px;*/
+    border:none;
     font-weight:300;
     background-image:none;
     letter-spacing: 1px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-
-.btn-large{
-	font-size: 18px;
-	line-height: 15px;
 }
 
 .btn:hover{
@@ -160,12 +173,18 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 .btn-blue{
 	background:#0099B5;	
 }
+.btn-blue:hover{
+	background:#0099B5;	
+}
 
 .btn-purple{
 	background:#442359;
 }
 
 .btn-orange{
+	background:#f4512f;	
+}
+.btn-orange:hover{
 	background:#f4512f;	
 }
 
