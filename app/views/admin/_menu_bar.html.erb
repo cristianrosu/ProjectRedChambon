@@ -1,13 +1,14 @@
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar-inner" style ="padding:5px;background-image: url(<%= asset_path 'nav-bg.jpeg' %>);">
+      <div class="container-fluid">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a style= "margin-left:40px;margin-right:60px"class="brand" href="/home">Dashboard</a>
+
+        <a style= "margin-left:40px; margin-right:60px;color:white" class="brand" href="/home">Dashboard</a>
 
         <ul class="nav pull-right">
           <% if user_signed_in? %>
@@ -29,11 +30,24 @@
           <% end %>      
         </ul>
 
-         <div class="nav-collapse">    
-           <ul class="nav">
-           <!--  <li><a class="new_event btn btn-large btn-blue " style="color:white;margin-top:25px;margin-left:30px"><i class="icon-calendar icon-white"></i>&nbsp; Create Event</a> </li> 
-            <li><a class="edit_event btn btn-large btn-orange" style="color:white;margin-top:25px;margin-left:30px"><i class="icon-bullhorn icon-white"></i>&nbsp; Promote event</a> </li> -->
-          </ul>
+         <div class="nav-collapse"> 
+         <ul class="nav" style="border-right: 1px solid #555;border-left: 1px solid #222;">
+              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
+                <a style="font-size:16px" class="new_event">Home</a>
+              </li>
+              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
+              <a style="padding:5px 20px">
+              <div style="width:30px;height:30px;background-image: url(<%= asset_path 'icon-calendar-28.png' %>);"></div></a>
+              </li>
+              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
+              <a style="padding:5px 20px">
+              <div style="width:30px;height:30px;background-image: url(<%= asset_path 'icon-stats-28.png' %>);"></div></a>
+              </li>
+              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
+                <a style="padding:0 20px 5px 20px"><input class="btn btn-orange`" type="button" value="+"></a>
+              </li>
+          </ul>   
+  
         </div>
       </div>
     </div>
