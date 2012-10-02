@@ -24,6 +24,19 @@ module EventsHelper
 	  end	
 	  return t
 	end
+	
+	def block_type_id(type)
+		case type
+			when "header"
+				return 1
+			when "text"
+				return 2
+			when "image"
+				return 3
+		end
+		return 0
+	end
+
 
 	#details is a hash of toggles
 	#ex: {"align"=>"align-justify"} 

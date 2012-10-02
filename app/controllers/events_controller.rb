@@ -58,6 +58,7 @@ class EventsController < ApplicationController
     end
   end
 
+  # GET /events/1/edit_step2
   def edit_step2
     @event = Event.find(params[:id], :include => [{:sections => :blocks}, :sections])
 
@@ -74,6 +75,12 @@ class EventsController < ApplicationController
         }
       }
     end
+  end
+
+  def create_block
+    type_id = block_type_id(params[:type])
+    @block = Block.new()
+
   end
 
   # POST /events

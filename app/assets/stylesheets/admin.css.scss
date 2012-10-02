@@ -477,12 +477,12 @@ ul.sortable li.add_content-bar {
 	z-index: 0;
 	width: 698px;
 	padding: 22px 1px;
-	background: #333333 url(../images/bg-my_tackks.png) repeat;
+	background: #333333 url(../assets/bg-my_tackks.png) repeat;
 	-webkit-box-shadow: inset 0px 1px 12px 1px rgba(0, 0, 0, 0.5);
 	box-shadow: inset 0px 1px 12px 1px rgba(0, 0, 0, 0.5);
 }
 
-	ul.sortable li#last-bar {
+	ul.sortable li.last-bar {
 		display: block;
 		min-height: 27px;
 		margin-top: 25px;
@@ -491,23 +491,23 @@ ul.sortable li.add_content-bar {
 	}
 	
 	/* 
-	#my_tackk:hover ul.sortable li#last-bar {
+	#my_tackk:hover ul.sortable li.last-bar {
 		display: block;
 	}
 	*/
 	
-	ul.sortable li#last-bar:before {
-       content: url("../images/last-bar_carrot.png");
+	ul.sortable li.last-bar:before {
+       content: url("../assets/last-bar_carrot.png");
        display: block;
        position: absolute;
        top: -13px;
        left: 338px;
 	}
-		.ie8 ul.sortable li#last-bar:before {
-	       content: url("../images/last-bar_carrot-ie.png");
+		.ie8 ul.sortable li.last-bar:before {
+	       content: url("../assets/last-bar_carrot-ie.png");
 		}
 	
-	ul.sortable li#last-bar #last-bar_icons {
+	ul.sortable li.last-bar .last-bar_icons {
 		display: none;
 	}
 	
@@ -526,12 +526,12 @@ ul.sortable li.add_content-bar {
 	    padding: 11px 12px 11px 13px;
 	}
 	
-	div#add_more_stuff {
+	div.add_more_stuff {
 		display: block;
 		width: 187px;
 		height: 26px;
 		text-indent: -9999px;
-		background: url("../images/add_more_stuff.png") no-repeat;
+		background: url("../assets/add_more_stuff.png") no-repeat;
 	    margin: 0 auto;
 	    position: absolute;
 	    left: 255px;
@@ -559,7 +559,7 @@ ul.sortable li.add_content-bar li {
 	margin: 0 14px 0 0;
 	text-align: center;
 	text-indent: -9999px;
-	background: transparent url(../images/add_content-icons_v2.png) no-repeat;
+	background: transparent url(../assets/add_content-icons_v2.png) no-repeat;
 	cursor: pointer;
 }
 
@@ -595,7 +595,7 @@ div.close-add_content {
 	z-index: 1;
 	top: 1px;
 	right: 1px;
-	background: url(../images/close-add_content.png) no-repeat center center;
+	background: url(../assets/close-add_content.png) no-repeat center center;
 	text-indent: -9999px;
 	cursor: pointer;
 	filter: alpha(opacity=50);
