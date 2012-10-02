@@ -386,7 +386,7 @@ function saveElement( id, isNew ) {
 	
 	if( type != '' ) {
 		url = "/event/" + serverId + "/save_block";
-		data = { 
+		datas = { 
 				id		: id,
 				type 	: type,
 				position: $element.parent().children().index($element), //$("#main").find(".element:visible").index( $element ),
@@ -397,7 +397,7 @@ function saveElement( id, isNew ) {
 				//link 	: mioLink
 			};
 
-		$.post(url, data, function( data, textStatus, jqXHR ) {
+		$.post(url, datas, function( data, textStatus, jqXHR ) {
 
 		});
 
@@ -663,11 +663,11 @@ function saveElementOrder( id, prevOrder, nextOrder ) {
 
 		//erverBlockId = id.substring(2) || '';
 		var $element		= $( '#'+id );
-		serverSectionId = $element.parents('article').attr('id').substring(3) || '';
+		var serverSectionId = $element.closest('article').attr('id').substring(3) || '';
 
-		url = "/event/" + serverSectionId + "/save_block_order";
+		var url = "/event/" + serverSectionId + "/save_block_order";
 
-		data = {
+		var data = {
 				//sectionId : serverSectionId,
 				oldOrder : prevOrder,
 				newOrder : nextOrder
@@ -712,17 +712,32 @@ function initializeAdditor() {
 	$('.add_content-bar ul li').click(function(){
 		var target = $(this);
 		var type = $(this).attr( 'data-type' );
-		$.ajax({
-			type: 'POST',
-			data: { type : type },
-			url: 'php/elements/render/inject.php',
-			success: function( data, textStatus, jqXHR ) {
-				$("#blankcanvas").slideUp();
-				target.closest('.add_content-bar').before( data );
-				initializeAdditor();
-				saveElement( $(data).attr('id'), true ); // save after addition
-			}
+		
+		var sectionId = target.closest('article').attr('id').substring(3) || '';
+		var url = "/event/" + serverId + "/save_block";
+		var datas = { 
+				type : type,
+				sectionId : sectionId 
+		};
+		
+		$.post(url, datas, function( data, textStatus, jqXHR ) {
+			target.closest(".layout").find(".blankcanvas").slideUp();
+			target.closest('.add_content-bar').before( data );
+			initializeAdditor();
+			saveElement( $(data).attr('id'), true ); // save after addition
 		});
+
+		// $.ajax({
+		// 	type: 'POST',
+		// 	data: { type : type },
+		// 	url: 'php/elements/render/inject.php',
+		// 	success: function( data, textStatus, jqXHR ) {
+		// 		$("#blankcanvas").slideUp();
+		// 		target.closest('.add_content-bar').before( data );
+		// 		initializeAdditor();
+		// 		saveElement( $(data).attr('id'), true ); // save after addition
+		// 	}
+		// });
 		$(this).closest('.add_content-bar').find('.close-add_content').click();
 	});
 	
@@ -745,14 +760,16 @@ function initializeAdditor() {
 	$(".element-add_mini, .element-position div, .element-toolbar li, .add_content-bar li").disableSelection();
 
 
-	$("li#last-bar").unbind('hover');
-	$("li#last-bar").hover(function() {
-	    $("#add_more_stuff").stop(true, true).fadeOut(0, function() {
-	        $("#last-bar_icons").animate({ opacity: ['show', 'swing']}, 200, 'linear', function(){ $("#add_more_stuff").hide(); }); // just make sure they never show at same time
+	$("li.last-bar").unbind('hover');
+	$("li.last-bar").hover(function() {
+			lastBar = this;
+	    $(".add_more_stuff", lastBar).stop(true, true).fadeOut(0, function() {
+	        $(".last-bar_icons", lastBar).animate({ opacity: ['show', 'swing']}, 200, 'linear', function(){ $(".add_more_stuff", lastBar).hide(); }); // just make sure they never show at same time
 	    });
 	}, function(){
-		$("#last-bar_icons").stop(true, true).animate({ opacity: ['hide', 'swing']}, 200, 'linear', function() {
-	        $("#add_more_stuff").fadeIn(0);
+		lastBar = this;
+		$(".last-bar_icons", lastBar).stop(true, true).animate({ opacity: ['hide', 'swing']}, 200, 'linear', function() {
+	        $(".add_more_stuff", lastBar).fadeIn(0);
 	    });
 	});
 
