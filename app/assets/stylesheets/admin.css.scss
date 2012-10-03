@@ -2,19 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.admin-menu{
-		z-index:1023;
-		position:fixed;
-		bottom:0;
-		background-image: url(/assets/nav-bg.jpeg);
-		border-bottom:1px solid #181818;
+.navbar-inverse  div.navbar-inner{
+		padding:5px;
+		background-image: url("/assets/nav-bg.jpeg");
+	} 
+.navbar-inverse ul.nav li{
+	border-left: 1px solid #555;
+	border-right: 1px solid #222;
 }
 
-.nav div{
-  z-index: 2;
-  background: #181818;
-  background: transparent none center center no-repeat;
+.navbar-inverse ul.no-border,.navbar-inverse ul.nav li.no-border{
+	border:none;
+}
+
+.navbar-inverse .stats{
+	opacity:0.55;
+	width:28px;height:28px;background-image: url("/assets/icon-stats-28.png");
+}
+.navbar-inverse .calendar {
+	opacity:0.55;
+	width:28px;height:26px;background-image: url("/assets/icon-calendar-28.png");	
+}
+.navbar-inverse .map {
+	opacity:0.55;
+	width:21px;height:28px;background-image: url("/assets/icon-pin-28.png");	
+}
+ .navbar-inverse .star {
+ 	opacity:0.55;
+	width:28px;height:28px;background-image: url("/assets/icon-star-28.png");
+ }
+
+.navbar-inverse .stats:hover ,.navbar-inverse .calendar:hover, .navbar-inverse .map:hover, .navbar-inverse .star:hover{
+	opacity:1;
 }
 
 .top-bar{

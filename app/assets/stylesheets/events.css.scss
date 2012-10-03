@@ -203,15 +203,36 @@ border-top: solid 2px #222;
 	}
 
 	.presenter {
-		padding: 10.25em 0;
-		background-position:0 -12em;
-		background-size:cover;
-		background-repeat:no-repeat;
-		overflow:hidden;
-		height:10.50em;
-
-
+		margin-bottom:40px;
+		border-radius:10px 10px 0 0;
+		
+		background:white;
 	}
+
+	.presenter .stats{
+	margin-top:15px;
+}
+
+.presenter .stats li.stat{
+	float: left;
+	width: 120px;
+	padding: 10px 30px 0;
+	border-right: 1px solid #EEE;
+}
+.presenter .stats li.stat:first-child {
+	padding-left: 0;
+}
+.presenter .stats li.stat:last-child {
+	border-right: none;
+}
+.presenter .stats li.stat .value{
+	font-size: 2.2em;
+	font-family: "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
+	line-height: 1.5em;
+	color:#0099B5;
+}
+
+
 
 	.event-menu{
 		 background-image: url('/assets/images/body_noise_media.png');
@@ -260,16 +281,16 @@ border-top: solid 2px #222;
 	.preview_container .navbar-inner header > h3{
 		margin: 10px 0 0 0;
 		text-align:left;
-	    font-weight: 500;
-	    font-size: 1.5em;
+	    font-weight: 300;
+	    font-size: 1.2em;
 	    line-height: 1.15em;
 	    max-width:190px;
 	    overflow: hidden;white-space:nowrap;
 	}
 	.preview_container .navbar-inner header > p{
 		text-align:left;
-	    font-weight: 500;
-	    font-size: 1.2em;
+	    font-weight: 300;
+	    font-size: 0.9em;
 	    line-height: 1.1em;
 	    margin: 8px 0 0 0;
 	    max-width:195px;
@@ -341,41 +362,6 @@ border-top: solid 2px #222;
 	}
 
 	.preview_element {}
-
-
-
-	/* Landscape phones and down */
-	@media (min-width: 480px) 
-	{
-
-	}
-	 
-	 /* Landscape phone to portrait tablet */
-	@media (max-width: 767px) 
-	{ 
-		/*body{padding:0} daca nu pun asta, apare padding la body la device uri mici (peste tot)*/
-		.presenter { padding-bottom:0px; height:5.25em;}
-	}
-	 
-	/* Portrait tablet to landscape and desktop */
-	@media (min-width: 768px) and (max-width: 979px) 
-	{ 
-		.event_head { margin-top:0px; }
-		.presenter { padding-bottom:0px; height:9.00em;}
-	}
-
-	@media (min-width: 979px)
-	{
-	.event_head { margin-top:-60px; }
-
-	}
-	 
-	/* Large desktop */
-	@media (min-width: 1200px) 
-	{ 
-		.event_head { margin-top:-60px; }
-		
-	}
 
 /*pana aici event header*/
 

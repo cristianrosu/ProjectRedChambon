@@ -1,25 +1,4 @@
-<div class="event_head">
-	<div id="head_line"></div>
-	<div class="presenter" style="background-image: url(<%= @event.image_url.to_s %>);">
-			
-		<div style="position:relative">
-					
-				<center>
-					<h2 style="font-size: 4em;
-					font-weight: 400;
-					line-height: 1.111em;color:white"> The European Pirate Summit - 2012
-					<div style="margin-top:5px;width: 400px;height: 0;border-bottom: 3px solid white;">
-					<hr>
-					</div>
-					</h2>
-				</center>
-					
-
-		</div>
-	</div>
-
-
-<div class="navbar event-menu" style="margin-bottom:0px;position:relative; z-index:50">
+<!-- <div class="navbar event-menu" style="margin-bottom:0px;position:relative; z-index:50">
     <div class="navbar-inner lite pull-center" >
 		<ul class="nav" style="margin-top:5px;">
             <li><%= link_to "Details", root_path %></li>
@@ -30,10 +9,82 @@
             <li><%= link_to "Past events" %></li>         
           </ul>
     </div>
+</div> -->
+
+<div class="event_head">
+	<div class="row-fluid">
+		<div class="span10 offset1">
+			<div class="presenter clearfix" style="position:relative">
+				<h1 style="font-size:40px;margin-top:10px;line-height:1;padding:15px 25px"> How to Web 2012</h1>
+				<a class="profile-image" style="display: block;
+													float: left;
+								
+													">
+							<img style="position:relative; left:0; max-height:280px;width:1200px" alt="Small_vapjpmb0a3bscmazj0du" src="https://www.dkit.ie/sites/default/files/logo/event.jpg">						
+											</a>
+											
+
+				<div class="cleafix">
+					<ul class="stats">
+						<li class="stat">
+						<div class="value">3</div>
+						<div class="descriptor">Upcoming Events</div>
+						</li>
+						<li class="stat">
+						<div class="value">14</div>
+						<div class="descriptor">New Volunteers</div>
+						</li>
+						<li class="stat">
+						<div class="value">2</div>
+						<div class="descriptor">Sponsorships</div>
+						</li>
+						<li class="stat">
+						<div class="value">$0.00</div>
+						<div class="descriptor">Balance</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 </div>
 
 
-<div class="navbar numbers">
+		<div class="navbar preview_container">
+			<div class="navbar-inner transp pull-center" >
+				<ul class="nav">
+					<li>
+						<img src=" <%= asset_path '1.png' %>">	
+						<header>
+							<h3>Gabriel Bondor Emilian</h3>
+							<p>CEO, Square inc.com </p>
+						</header>		
+					</li>
+
+					<li>
+						<img src=" <%= asset_path '2.png' %>">	
+						<header>
+							<h3>Vlad Marian Stan</h3>
+							<p>CEO, Geekcelerator </p>
+						</header>
+					</li>
+					<li>
+						<img src=" <%= asset_path '3.png' %>">	
+						<header>
+							<h3>Adelina Peltearu Maria</h3>
+							<p>Redactor Sef, Decat o Revista </p>
+						</header>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+
+
+
+
+
+<!-- <div class="navbar numbers">
 	<div class="navbar-inner transp pull-center" > 
 	 	<ul class="nav">
 			<li>
@@ -48,7 +99,7 @@
 				<div class="section">
 					<h1> 240 </h1>
 					<p><i class="icon-user"></i> Participants </p>
-					<!-- <div class="arrow-up"></div> -->
+					<div class="arrow-up"></div>
 				</div>
 			</li>
 
@@ -56,7 +107,7 @@
 				<div class="section">
 					<h1> 9 </h1>
 					<p><i class="icon-bullhorn"></i> Speakers </p>
-					<!-- <div class="arrow-up"></div> -->
+				
 				</div>
 			</li>
 
@@ -68,36 +119,8 @@
 			</li>
 	 	</ul>
 	</div>
-</div>
+</div> -->
 
 
-<div class="navbar preview_container">
-	<div class="navbar-inner transp pull-center" >
-		<ul class="nav">
-			<li>
-				<img src=" <%= asset_path '1.png' %>">	
-				<header>
-					<h3>Gabriel Bondor Emilian</h3>
-					<p>CEO, Square inc.com </p>
-				</header>		
-			</li>
 
-			<li>
-				<img src=" <%= asset_path '2.png' %>">	
-				<header>
-					<h3>Vlad Marian Stan</h3>
-					<p>CEO, Geekcelerator </p>
-				</header>
-			</li>
-			<li>
-				<img src=" <%= asset_path '3.png' %>">	
-				<header>
-					<h3>Adelina Peltearu Maria</h3>
-					<p>Redactor Sef, Decat o Revista </p>
-				</header>
-			</li>
-		</ul>
-
-	</div>
-</div>
 </div>
