@@ -1,26 +1,14 @@
-<% if edit_mode %>
-
-  <%= render "header_event.html" %>
-
-<% else %>
-
-  <% content_for :header_event do %>
-     <%= render "header_event.html" %>
-  <% end %>
-
-<% end %>
-
   <div class="span" style="position:absolute;display:block;width:210px;height:600px;background:white;padding:15px;">
-      ggerer <%= "edit mode: #{edit_mode}" %>
-  </div>
+      ggerer < % = "edit mode: #{edit_mode}" %>
+  </div> 
 
-  <div id="wrapper"> 
-    <section class="timeline-detail">
-      <% @event.sections.each do |section| %>
-            <%= render partial: "event_section.html", locals: { event_section: section, edit_mode: edit_mode } %>
-      <% end %>
-    </section>
-  </div>
+<div id="wrapper"> 
+  <section class="timeline-detail">
+    <% @event.sections.each do |section| %>
+          <%= render partial: "event_section.html", locals: { event_section: section, edit_mode: edit_mode } %>
+    <% end %>
+  </section>
+</div>
 
 
 

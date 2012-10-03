@@ -1,0 +1,33 @@
+<div id="wrapper">
+	<div class="row-fluid" style="padding-bottom:40px">
+		<div style="float:left">
+			<h3 style="padding-top:40px;line-height:1;paddin-bottom:10px">
+				<span class="directions">
+				Explore events and get choose in your favourite
+				</span>
+				</br><small>You can get involved as volunteer / participant / sponsor :))</span>
+			</h3>
+		</div>
+
+		<div class="selector">
+			<ul>
+			<li><a class="active">All</a></li>
+			<li><a>Nearby</a></li>
+			<li><a>Categoty <span class="caret" style="margin-top:6px;"></span></a></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="row-fluid">
+		<ul id="events" class="thumbnails">
+		<%= render @events %>
+		</ul>
+	</div>
+
+	<br />
+	<br />
+	<%= will_paginate @events %>
+
+</div>
+<%= link_to 'New Event', new_event_path, :class => 'btn btn-primary' %>

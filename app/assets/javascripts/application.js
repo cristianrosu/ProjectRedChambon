@@ -7,6 +7,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
+//= require raphael
+//= require morris
 //= require twitter/bootstrap
 //= require_tree .
 
