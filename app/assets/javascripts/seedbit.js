@@ -714,7 +714,7 @@ function initializeAdditor() {
 		var type = $(this).attr( 'data-type' );
 		
 		var sectionId = target.closest('article').attr('id').substring(3) || '';
-		var url = "/event/" + serverId + "/save_block";
+		var url = "/event/" + sectionId + "/create_block";
 		var datas = { 
 				type : type,
 				sectionId : sectionId 

@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  include EventsHelper
   # GET /events
   # GET /events.json
   before_filter :authenticate_user!, except: [:index]
@@ -79,8 +80,12 @@ class EventsController < ApplicationController
 
   def create_block
     type_id = block_type_id(params[:type])
-    @block = Block.new()
-
+    @block = Block.new(type_id: type_id, section_id: params[:sectionId])
+    if @block.save
+      render partial: "event_block.html", locals: { block: @block, edit_mode: true } 
+    else
+      
+    end
   end
 
   # POST /events
@@ -156,9 +161,6 @@ class EventsController < ApplicationController
     block_2.save
 
     render json: {'error' => 0} 
-
-
-
   end
 
   # def upload
