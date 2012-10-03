@@ -9,8 +9,8 @@ jQuery ->
 	fparams = $.url().fparam()
 	if fparams.evid
 		currentEventId = fparams.evid
-	if fparams.evact && currentEventId
-		$.getJSON("/events/" + currentEventId + "/" + fparams.evact, (response)->
+	if fparams.action && currentEventId
+		$.getJSON("/events/" + currentEventId + "/" + fparams.action, (response)->
 			updateWorkspace(response)
 		)
 
