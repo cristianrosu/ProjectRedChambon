@@ -19,7 +19,9 @@
 	      	<%= render partial: "event_block.html", locals: { block: block, edit_mode: edit_mode } %>
 	        <!-- %= block_tag block, edit_mode %  -->
 	      <% end %>
-	      <%= render "event_block_add_toolbar.html"%>
+	      <% if edit_mode %>
+	      	<%= render "event_block_add_toolbar.html"%>
+	      <% end %>
       </ul>
 			<!-- <a class="read-more" href="#">See who is coming</a> -->
 		</div>

@@ -1,17 +1,17 @@
-/*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, hr, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, 
-
-, output, ruby, section, summary, time, mark, audio, video, input, button, textarea {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, hr, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, input, button, textarea {
     margin: 0;
-    /*padding: 0;
+    /*padding: 0;*/
     border: 0;
-    /*font-size: 100%; 
+    /*font-size: 100%;*/
     vertical-align: baseline;
 }
-*/
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, section {
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
 }
-
+ol, ul {
+    list-style: none;
+}
 a {
     text-decoration: none;
 }
@@ -25,18 +25,18 @@ a {
     color: #fff;
     text-shadow: none;
 }
-
-
+.fs-img {
+    font-family: "image-set( url(%7Bsrc%7D/index.html) 1x,  url(%7Bdirectory%7D%7Bfilename%7D_2x.%7Bext%7D) 2x)";
+    display: none;
+}
 h1, h2, h3, h4 {
     font-family: "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
-
 /* aici textarea */
 input, button, textarea {
     font: 1.4em/1.4em "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
     outline: 0;
 }
-
 ol, ul {
     list-style: none;
 }
@@ -44,7 +44,6 @@ a, a:hover {
     text-decoration: none;
     color: #0099b5;
 }
-
 #wrapper {
     max-width: 1140px;
     position: relative;
@@ -55,7 +54,47 @@ a, a:hover {
 section[role="main"] {
     margin-top: 20px;
 }
-
+ /* buttons */
+ /*
+.btn {
+    display: block;
+    padding: 16px 0;
+    text-align: center;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+}
+.btn strong {
+    display: block;
+}
+.btn.grey {
+    color: #353534;
+    text-shadow: rgba(255, 255, 255, 0.3) 0 1px;
+    background: #e1e0dc;
+}
+.btn.blue {
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.1) 0 -1px;
+    background: #0099b5;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -ms-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -ms-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+.btn.blue:hover {
+    padding: 18px 0;
+    margin: -2px 0;
+    background: #09889f;
+}
+*/
 hr {
     clear: both;
     width: auto;
@@ -65,7 +104,9 @@ hr {
     *background: url("bg-double-line.png") repeat-x center bottom;
 }
 
-
+.read-more {
+    text-transform: lowercase;
+}
 .read-more, .link-button {
     float: left;
     display: block;
@@ -86,10 +127,6 @@ hr {
     background: url(../images/share-icon.png) #0099b5 15px center no-repeat;
 }
 
-.read-more.share:hover, .link-button.share:hover {
-    padding: 15px 20px 15px 60px;
-    margin: 0;
-}
 
 @media only screen and (-webkit-device-pixel-ratio: 2) {
         .read-more.share, .link-button.share {
@@ -98,35 +135,82 @@ hr {
     }
 }
 
-
-@media only screen and (-webkit-device-pixel-ratio: 2) {
-        .logo {
-        background: url(../images/logo_2x.png) no-repeat;
-        background-size: 148px 109px;
-    }
+.read-more.share:hover, .link-button.share:hover {
+    padding: 15px 20px 15px 60px;
+    margin: 0;
 }
-/*
 
+.share-wrap {
+    position: relative;
+    width: 125px;
+    height: 48px;
+    float: right;
+    margin-bottom: 30px;
+    overflow: hidden;
+    z-index: 99;
+}
+.share-wrap .link-button {
+    position: absolute;
+    right: 0px;
+    top: 0;
+}
+.social-box {
+    position: relative;
+    float: right;
+    width: 375px;
+    height: 48px;
+    background: #fff;
+}
+.social-box ul {
+    float: left;
+    padding: 12px 0 0 15px;
+}
+.social-box li {
+    top: 14px;
+    position: absolute;
+}
+.social-box .share-twitter {
+    left: 15px;
+}
+.social-box .share-gplus {
+    left: 110px;
+}
+.social-box .share-linkedin {
+    left: 195px;
+}
+.social-box .share-fb {
+    left: 275px;
+}
 
-.menu {
+.logo {
+    width: 148px;
+    height: 109px;
+    display: block;
+    float: left;
+    text-indent: 110%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url(../images/logo.png) no-repeat;
+}
+@media only screen and (-webkit-device-pixel-ratio: 2) {
+    .logo {
+    background: url(../images/logo_2x.png) no-repeat;
+    background-size: 148px 109px;
+}
+}
+nav.menu {
     *width: 463px;
     float: left;
 }
-
-
-.menu ul {
+nav.menu ul {
     float: right;
     margin-top: 75px;
 }
-
-
-.menu ul li {
+nav.menu ul li {
     float: left;
     margin-left: 6px;
 }
-
-
-.menu ul li a {
+nav.menu ul li a {
     display: block;
     padding: 0 10px;
     color: #353534;
@@ -150,9 +234,8 @@ hr {
     -o-transition-duration: 0.2s;
     transition-duration: 0.2s;
 }
- 
-*/
-.timeline-detail {
+
+.timeline, .timeline-detail {
     padding-top: 70px;
     margin-bottom: -50px;
     clear: both;
@@ -160,7 +243,7 @@ hr {
     *background: url('timeline.png') repeat-y 256px top;
 }
 
-.timeline-detail .loading {
+.timeline .loading, .timeline-detail .loading {
     position: absolute;
     bottom: 150px;
     right: 0px;
@@ -168,32 +251,37 @@ hr {
     font-size: 1.4em;
     text-align: center;
 }
-
-.timeline-detail .link-button.share {
+.timeline .share-wrap, .timeline-detail .share-wrap {
+    width: 92px;
+    height: 38px;
+}
+.timeline .link-button.share, .timeline-detail .link-button.share {
     padding: 10px 10px 10px 38px;
     background: url('share-icon-timeline.png') 10px center no-repeat #0099b5;
 }
-
 @media only screen and (-webkit-device-pixel-ratio: 2) {
-      .timeline-detail .link-button.share {
+    .timeline .link-button.share, .timeline-detail .link-button.share {
     background: url('share-icon-timeline_2x.png') 10px center no-repeat #0099b5;
     background-size: 19px 16px;
 }
 
-}
-.timeline-detail .link-button.share:hover {
+}.timeline .link-button.share:hover, .timeline-detail .link-button.share:hover {
     padding: 10px 10px 10px 36px;
 }
-
-
-.timeline-detail article {
+.timeline .social-box, .timeline-detail .social-box {
+    height: 38px;
+}
+.timeline .social-box li, .timeline-detail .social-box li {
+    top: 9px;
+}
+.timeline article, .timeline-detail article {
     position: relative;
     margin: 50px 0 30px;
     padding-left: 310px;
     clear: right;
 }
 
-.timeline-detail article aside {
+.timeline article aside, .timeline-detail article aside {
     position: absolute;
     width: 210px;
     top: -100px; /* ca sa stea deasupra */
@@ -208,7 +296,7 @@ hr {
 }
 
 
-.timeline-detail article aside .icon, .timeline-detail article aside time {
+.timeline article aside .icon, .timeline article aside time, .timeline-detail article aside .icon, .timeline-detail article aside time {
     display: block;
     margin-bottom: 20px;
    /* width: 98px;
@@ -222,24 +310,24 @@ hr {
 }
 
 
-.timeline-detail article aside .icon, .timeline-detail article aside .icon img, .timeline-detail article aside .roundcircle {
+.timeline article aside .icon, .timeline article aside .icon img, .timeline article aside .roundcircle, .timeline-detail article aside .icon, .timeline-detail article aside .icon img, .timeline-detail article aside .roundcircle {
     width: 86px; /* 98 */
     height: 86px;
 }
-.timeline-detail article aside .icon {
+.timeline article aside .icon, .timeline-detail article aside .icon {
     position: relative;
     margin-right: 10px;
     cursor: default;
 }
-.timeline-detail article aside .icon img, .timeline-detail article aside .icon .roundcircle {
+.timeline article aside .icon img, .timeline article aside .icon .roundcircle, .timeline-detail article aside .icon img, .timeline-detail article aside .icon .roundcircle {
     position: absolute;
     top: 0;
     left: 0;
 }
-.timeline-detail article aside .icon img {
+.timeline article aside .icon img, .timeline-detail article aside .icon img {
     z-index: -1;
 }
-.timeline-detail article aside .icon .roundcircle {
+.timeline article aside .icon .roundcircle, .timeline-detail article aside .icon .roundcircle {
     display: block;
     opacity: 0;
     -webkit-transition-property: all;
@@ -256,7 +344,7 @@ hr {
     base64, iVBORw0KGgoAAAANSUhEUgAAAGIAAABiCAYAAACrpQYOAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4NTlGRUM1QkJERTAxMUUxQkI0QkExREFCMjk1QjcyMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4NTlGRUM1Q0JERTAxMUUxQkI0QkExREFCMjk1QjcyMiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg1OUZFQzU5QkRFMDExRTFCQjRCQTFEQUIyOTVCNzIyIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg1OUZFQzVBQkRFMDExRTFCQjRCQTFEQUIyOTVCNzIyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+X5nsFQAABZlJREFUeNrsnX9oHEUUx18vIRA4OCgEKhElEAkEIpEIUolEIkpECVQigfhPJSVSsSgp/lEoiGIxVCoFpQVRlIpiMFQUiqIYLAYDwaAoBoOBQDFYKBwUAoFAwfe4t7Jc9i77Y3Zm9vL9wLdtLsn29n13Zt6bnZ071Dn3EXlKhTXMGlD1sXpYh2P+/m3WBmtV/xatsLZ8PNl2j95LmTWiwX+cNWTAyKGI44gh37Kuq275cPKHHLeIDtYx1hRrTL+2zSJrgTXPqroKRMnR/ytdzEXWv6zPWeOOTBBGWZdY/7A+NdASC2FEP0ua4N+slxP09zbo1Jb5C+tH7SZbzggx4CrrT9ZxVhv5zYia8bO2mMIbIQPwedbvOhYUjaOsH7T77C6qEROsv1ivFqAF7MeknstsXueShxGSNn7F+iLvq8hBen1Bx5Be342QpvyrZkGtyqCe44SvRszqANdDrU9ZW/wlzba8MKJNU9ILDmsBV5xkfWciDc9qRKeOB8fp4DKsPUG3KyMOa2r3FIEBrTn6bBtR0avgKDz4n3tYP6XNqNIY0aFV8gBiv4cu1jesI3kb0aZV5ihi3pBeHcAreRpxsaBTFS7GjKtJqvAkRkiZ/xJiHBvpNd4ybYRkAx8gtomRebYxU0Z06LhQRlxTcUUzqsxGSMU8iHhmyqSuZDViUMt4kA250TSVxYh3qfj3EnzhPDWZk2pmxAzV5lGAGWQu6s2kRpSTpF4gNjONZiQaGXGS/Fph0SpIN/96XCNkansWMcuNY1FZaJQR05Ri0gokYnY/I9q0GgT5MkV1N5LqjRiPUwUCI2PFTDMjphEja0yHa7SwEZIljSE+VuuK4SgjJlFFW2cyyggsArDPeL0RUjvg9qeb7qk/bMQIGVqxBhIzEjYCk3vuGIURHhqBO3DukLKhu6SVdAXxcEpfKRi1gVP6xYgexMGPFgEj3NMrRnQhDs45UiLcEvWBLhjhB+USYuAFnSXUEF7QIUbsIA7OuSNG7CIOztlGi/CDXTGiijg4pypG3EQcnHNLjNhCHJyzKUZsIg7O+UOMWEccnLMeGIEU1i0bQR2xhlg4YycwQlhBPJyxGtQRwhLi4Yzv5Y/AiOuIhzMWw0bckBQKMXEyPqyEjRC+RFyctIbdeiM+QVysMx/8I2yEfK7CMmJjtVu6FmWE8DHiY7U1VBsZsUC4P2GLD8Nf1BtRRauwwnJ97Ra1imOOMPeUN+fqX4gyQmqKzxCr3FgND9LNjAhaxR3ELBfmol5sZIRMjb+PmBlnSROi2EYIZwkLC0wiPcypRt9sZoSYcBrxM8Zl1m9pjAgKPEyRZ0cWaJxp9gNxFiGfYG0jlpnYN4ZxjFjXA4F0vE21z0alrEYI88iiUmdJZ+P8YJLnI15pNtiAPcinAj9HMWcpkhghk4FPE1YGJonVjbi/kPSJITHhUfLkM6A9RVrAM5RwZUyaR7c21G1Ml0fzfJzB2YQRpG4/gbR2T+X8AqWcMM3yMOOSdlNY1l/rjp7NkllmfapUpnQfoYO9onxbe4dMq2BMPN4rY8bDdDCnQjb13DMv0DP1nPVN7abmDpAJ0gIeIEML80w+8C6D1RnNqFo5vZXx4JSmqLdNHTSPnQeu6ZWy0IImSLb4IOs90wfOawuILc0intQxpOhUNTV9iHJaI5z3XhxS2NzPes1kM7ZcG8j6o/so50lPG5uiSAX+ButeKs7tV3nPl9WAEzbes83daaRFnFNDTpOfk4cS8Hf0Pb5osz5ysU3Qtp7s3azHqHY71mW3Jd3P15oF3aUXifWsr93xFbiokqtPNomfoNqGtF0WLoZFzfAWfOgu2z3pEnY0IEHKK1ugyu7MQ1T7uLDeDObIsdc02xEtk4ePH7STn6zR3keOK2rIUMRrQcocnoBc19S5EDey/hNgAMzb+A1CEm48AAAAAElFTkSuQmCC') no-repeat;
     *background: url("icon-timeline-hover.png") no-repeat;
 }
-.timeline-detail article aside .icon .post-type {
+.timeline article aside .icon .post-type, .timeline-detail article aside .icon .post-type {
     width: 98px;
     top: 40px;
     display: block;
@@ -268,10 +356,10 @@ hr {
     z-index: 10;
     opacity: 0;
 }
-.timeline-detail article aside .icon:hover .roundcircle, .timeline-detail article aside .icon:hover .post-type {
+.timeline article aside .icon:hover .roundcircle, .timeline article aside .icon:hover .post-type, .timeline-detail article aside .icon:hover .roundcircle, .timeline-detail article aside .icon:hover .post-type {
     opacity: 1;
 }
-.timeline-detail article aside a {
+.timeline article aside a, .timeline-detail article aside a {
     color: #353534;
 }
 .timeline article aside time, .timeline-detail article aside time {
@@ -286,31 +374,29 @@ hr {
     -o-border-radius: 50px;
     border-radius: 50px;
 }
-.timeline-detail article aside strong {
+.timeline article aside strong, .timeline-detail article aside strong {
     clear: both;
     margin-top: 20px;
     font-size: 1.6em;
     font-weight: 300;
     line-height: 1.375em;
 }
-.timeline-detail article aside strong a {
+.timeline article aside strong a, .timeline-detail article aside strong a {
     color: #0099b5;
     white-space: nowrap;
 }
-.timeline-detail article aside strong em {
+.timeline article aside strong em, .timeline-detail article aside strong em {
     display: block;
     color: #767676;
     font-style: normal;
 }
-
-
-.timeline-detail article aside .tags {
+.timeline article aside .tags, .timeline-detail article aside .tags {
     margin-top: 20px;
 }
-.timeline-detail article aside .tags li {
+.timeline article aside .tags li, .timeline-detail article aside .tags li {
     margin-top: 3px;
 }
-.timeline-detail article aside .tags li a {
+.timeline article aside .tags li a, .timeline-detail article aside .tags li a {
     display: inline-block;
     padding: 6px 10px 7px 10px;
     color: #353534;
@@ -333,60 +419,256 @@ hr {
     -o-transition-duration: 0.2s;
     transition-duration: 0.2s;
 }
-.timeline-detail article aside .tags li a:hover {
+.timeline article aside .tags li a:hover, .timeline-detail article aside .tags li a:hover {
     color: #fff;
     text-shadow: rgba(0, 0, 0, 0.1) 0 -1px;
     background: #0099b5;
 }
-.timeline-detail article p {
+.timeline article p, .timeline-detail article p {
     font-size: 1.429em;
     line-height: 1.5em;
 }
-
-.timeline-detail article.update section .article-content, .timeline-detail article.event section .article-content, .timeline-detail article.milestone section .article-content {
+.timeline article.tweet header h2, .timeline-detail article.tweet header h2 {
+    min-height: 50px;
+    position: relative;
+    padding: 10px 60px;
+    font-weight: 200;
+    background: #292826;
+}
+.timeline article.tweet header .text, .timeline-detail article.tweet header .text {
+    color: #fff;
+    font-size: 2.5em;
+    line-height: 1.417em;
+}
+.timeline article.tweet header .quote, .timeline-detail article.tweet header .quote {
+    width: 70px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    margin-top: 10px;
+    background: url('data:image/png;
+    base64, iVBORw0KGgoAAAANSUhEUgAAAEYAAAAZCAYAAACM9limAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QkEyOENGMzE1MEZGMTFFMUE5NzVCMDIzN0QxRUIwNEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QkEyOENGMzI1MEZGMTFFMUE5NzVCMDIzN0QxRUIwNEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCQTI4Q0YyRjUwRkYxMUUxQTk3NUIwMjM3RDFFQjA0QyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCQTI4Q0YzMDUwRkYxMUUxQTk3NUIwMjM3RDFFQjA0QyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PhKQ7eAAAAFuSURBVHja3JfRDYIwEIbRuAAr6AisAC++4wg4Ao6gI8gI8u6LHUFGsCswApbkSIgJ9mr+k5ZLLiZec/a+/n8bV13XRYhYVfdv5XyUfdQmK5Pqh58qqU9isqVeF5O6L3bFHjLPOpKPq8nbCMoA6kE1bsQmnybPBGX4rjD5ok9YSIMpLRsuPoB9izGQqQNIQgFTMAe2xZbZqwwBTEIDcYa2reOqKg8BjMsmt/8a2AcwLpehskDj3h2N72ByejE4UQPVUvsOJgWpxVV5dQiKQQzDvcAHG2mfwbjaqPXNRlJgUuAwiwLDHaYF2kghbSQBJvjXSAoM8jVaFBiUjXIHG9ku8NnBIG2EVN7sYBZjIwnFIGyUOiivkrARGkw8wwmL2AgNpgENo0HK8wYMZ5OasU4zlSAGBQ3mwlDNkdnrZLk7NK0JAkwf2cRJaqopB1tmE7ZSVGslwWzA/frNHuh/Tupgnyk4O+qTjKA00R/iLcAA7TxYUdP+IvwAAAAASUVORK5CYII=') no-repeat;
+    *background: url("blue-quote.png") no-repeat;
+}
+.timeline article.tweet header .quote.left, .timeline-detail article.tweet header .quote.left {
+    left: 0;
+}
+.timeline article.tweet header .quote.right, .timeline-detail article.tweet header .quote.right {
+    right: 0;
+    bottom: 18px;
+}
+.timeline article.tweet ul, .timeline-detail article.tweet ul {
+    overflow: hidden;
+}
+.timeline article.tweet ul li, .timeline-detail article.tweet ul li {
+    margin-top: 10px;
+    float: left;
+    display: block;
+    margin-right: 10px;
+    font-size: 1.6em;
+    line-height: 1.2em;
+}
+.timeline article.tweet ul li.tweet-options, .timeline-detail article.tweet ul li.tweet-options {
+    float: right;
+    margin-right: 0;
+}
+.timeline article.tweet ul li.tweet-options > a, .timeline-detail article.tweet ul li.tweet-options > a {
+    margin-left: 15px;
+    display: inline-block;
+    color: #0099b5;
+}
+.timeline article.tweet ul li.tweet-options > a:hover, .timeline-detail article.tweet ul li.tweet-options > a:hover {
+    color: #09889f;
+    text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px;
+}
+.timeline article.tweet ul li a, .timeline-detail article.tweet ul li a {
+    color: #353534;
+}
+.timeline article.news aside .icon img, .timeline-detail article.news aside .icon img {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%}
+.timeline article.blog aside .icon img, .timeline-detail article.blog aside .icon img {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%}
+.timeline article.blog header, .timeline article.case header, .timeline-detail article.blog header, .timeline-detail article.case header {
+    background: #fff;
+    padding: 32px;
+}
+.timeline article.blog section .article-content, .timeline article.case section .article-content, .timeline article.update section .article-content, .timeline article.news section .article-content, .timeline article.event section .article-content, .timeline article.milestone section .article-content, .timeline-detail article.blog section .article-content, .timeline-detail article.case section .article-content, .timeline-detail article.update section .article-content, .timeline-detail article.news section .article-content, .timeline-detail article.event section .article-content, .timeline-detail article.milestone section .article-content {
     font-size: 1.4em;
     line-height: 1.6em;
 }
-.timeline-detail article.update section .article-content p, .timeline-detail article.event section .article-content p, .timeline-detail article.milestone section .article-content p {
+.timeline article.blog section .article-content p, .timeline article.case section .article-content p, .timeline article.update section .article-content p, .timeline article.news section .article-content p, .timeline article.event section .article-content p, .timeline article.milestone section .article-content p, .timeline-detail article.blog section .article-content p, .timeline-detail article.case section .article-content p, .timeline-detail article.update section .article-content p, .timeline-detail article.news section .article-content p, .timeline-detail article.event section .article-content p, .timeline-detail article.milestone section .article-content p {
     padding: 0;
     margin-bottom: 10px;
 }
-.timeline-detail article.update section .article-content p a, .timeline-detail article.news section .article-content p a, .timeline-detail article.event section .article-content p a, .timeline-detail article.milestone section .article-content p a {
+.timeline article.blog section .article-content p a, .timeline article.case section .article-content p a, .timeline article.update section .article-content p a, .timeline article.news section .article-content p a, .timeline article.event section .article-content p a, .timeline article.milestone section .article-content p a, .timeline-detail article.blog section .article-content p a, .timeline-detail article.case section .article-content p a, .timeline-detail article.update section .article-content p a, .timeline-detail article.news section .article-content p a, .timeline-detail article.event section .article-content p a, .timeline-detail article.milestone section .article-content p a {
     color: #0099b5;
 }
-.timeline-detail article.update section .article-content p a:hover, .timeline-detail article.event section .article-content p a:hover, .timeline-detail article.milestone section .article-content p a:hover {
+.timeline article.blog section .article-content p a:hover, .timeline article.case section .article-content p a:hover, .timeline article.update section .article-content p a:hover, .timeline article.news section .article-content p a:hover, .timeline article.event section .article-content p a:hover, .timeline article.milestone section .article-content p a:hover, .timeline-detail article.blog section .article-content p a:hover, .timeline-detail article.case section .article-content p a:hover, .timeline-detail article.update section .article-content p a:hover, .timeline-detail article.news section .article-content p a:hover, .timeline-detail article.event section .article-content p a:hover, .timeline-detail article.milestone section .article-content p a:hover {
     text-decoration: underline;
 }
-.timeline-detail article.update section .article-content .read-more, .timeline-detail article.event section .article-content .read-more, .timeline-detail article.milestone section .article-content .read-more {
+.timeline article.blog section .article-content .read-more, .timeline article.case section .article-content .read-more, .timeline article.update section .article-content .read-more, .timeline article.news section .article-content .read-more, .timeline article.event section .article-content .read-more, .timeline article.milestone section .article-content .read-more, .timeline-detail article.blog section .article-content .read-more, .timeline-detail article.case section .article-content .read-more, .timeline-detail article.update section .article-content .read-more, .timeline-detail article.news section .article-content .read-more, .timeline-detail article.event section .article-content .read-more, .timeline-detail article.milestone section .article-content .read-more {
     float: none;
     display: inline-block;
 }
-
-.timeline-detail article.update header h2, .timeline-detail article.news header h2 {
+.timeline article.blog section, .timeline-detail article.blog section {
+    position: relative;
+}
+.timeline article.blog section img, .timeline-detail article.blog section img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.timeline article.blog section .article-content, .timeline-detail article.blog section .article-content {
+    position: absolute;
+    width: 60%;
+    padding: 15px 20px;
+    left: 50px;
+    bottom: 50px;
+    background: #fff;
+}
+.timeline article.case section, .timeline-detail article.case section {
+    padding: 0 40px 40px 40px;
+    background: #fff;
+}
+.timeline article.case section img, .timeline-detail article.case section img {
+    display: block;
+    width: 100%}
+.timeline article.blog header h2, .timeline article.case header h2, .timeline article.update header h2, .timeline article.news header h2, .timeline-detail article.blog header h2, .timeline-detail article.case header h2, .timeline-detail article.update header h2, .timeline-detail article.news header h2 {
     font-size: 3.6em;
     font-weight: 400;
     line-height: 1.111em;
 }
-.timeline-detail article.update section, .timeline-detail article.news section {
+.timeline article.update section, .timeline article.news section, .timeline-detail article.update section, .timeline-detail article.news section {
     padding: 0px;
     overflow: hidden;
     background: #fff;
 }
-
 /*asta ca sa aiba li u margin nu sectionu padding*/
 .article-content li.element .redactor_editor,
 .article-content li.element .block-content
 {
-    margin: 0 40px;
+    margin: 0;
 }
-.timeline-detail article.update section img, .timeline-detail article.news section img {
+
+.timeline article.update section img, .timeline article.news section img, .timeline-detail article.update section img, .timeline-detail article.news section img {
     float: left;
     margin-right: 20px;
 }
-.timeline-detail article.update section .article-content, .timeline-detail article.news section .article-content {
+.timeline article.update section .article-content, .timeline article.news section .article-content, .timeline-detail article.update section .article-content, .timeline-detail article.news section .article-content {
     margin-top: 14px;
 }
+/*.row_x
+. {
+    overflow: hidden;
+    width: 100%}
+.row_x
+.#one {
+    margin-bottom: 40px;
+}
+.row_x
+. .col {
+    float: left;
+}
+.row_x
+. .col.four-col {
+    width: 22%;
+    margin-left: 3%}
+.row_x
+. .col.three-col {
+    width: 31%;
+    margin-right: 3%}
+.row_x
+. .col.two-col {
+    width: 48%;
+    margin-right: 4%}
+.row_x
+. .col.two-col.last {
+    margin-right: 0;
+}
+.row_x
+. .col.swapped {
+    float: right;
+    margin-right: 0;
+}
+#main-footer {
+    padding: 30px 0;
+    overflow: hidden;
+    border-top: 1px solid #c2c1be;
+    clear: right;
+}
+#main-footer .copyright {
+    float: left;
+    overflow: hidden;
+}
+#main-footer .copyright img {
+    float: left;
+}
+#main-footer .copyright div {
+    float: left;
+    margin-left: 20px;
+    font-size: 1.2em;
+    line-height: 1.833em;
+}
+#main-footer .copyright div address {
+    display: block;
+    font-style: normal;
+}
+#main-footer nav {
+    float: right;
+}
+#main-footer nav ul {
+    margin-top: 10px;
+}
+#main-footer nav ul li a {
+    font-size: 1.4em;
+}*/
+#expertise .expertise-lists {
+    margin-left: -2%}
+#expertise .three-col {
+    min-height: 325px;
+    position: relative;
+    margin: 50px 0 50px 2%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 80px 0 20px;
+    text-align: center;
+    background: #fff;
+}
+#expertise .three-col .expertise-icon {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: -50px;
+    left: 0;
+    text-align: center;
+}
+#expertise .three-col .teaser {
+    padding: 20px;
+    min-height: 225px;
+    text-align: left;
+}
+#expertise .three-col .teaser p {
+    font-size: 1.8em;
+    line-height: 1.6em;
+}
 
+#expertise .three-col .description h2 {
+    text-align: center;
+    font-size: 2.8em;
+    font-weight: 500;
+    line-height: 1.143em;
+}
+#expertise .three-col .read-more {
+    margin-left: 20px;
+    font-size: 1.5em;
+    font-weight: 300;
+}
 article.content {
     position: relative;
     float: right;
@@ -412,8 +694,102 @@ article.content p {
     line-height: 1.6em;
     margin: 0 0 25px 0;
 }
-
-
+.qualities {
+    overflow: hidden;
+    margin: 35px 0 25px -3%}
+.qualities img {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px 0;
+}
+.qualities h2 {
+    font-weight: 500;
+    font-size: 2.8em;
+    line-height: 1.143em;
+    border-bottom: 1px solid #e9e8e5;
+    margin: 0 0 15px 0;
+    padding: 0 0 15px 0;
+}
+.qualities p {
+    font-weight: 300;
+    font-size: 1.7em;
+    line-height: 1.6em;
+}
+#three {
+    overflow: hidden;
+    margin: 35px 0 0 0;
+    padding: 0 0 25px 0;
+}
+#three article.block {
+    position: relative;
+    float: left;
+    width: 42%;
+    background: #fff;
+    padding: 3%;
+    min-height: 430px;
+}
+#three article.block h3 {
+    font-weight: 500;
+    font-size: 2.8em;
+    line-height: 1em;
+    margin: 0 0 20px 0;
+}
+#three article.block p {
+    font-size: 1.8em;
+    font-weight: 300;
+    line-height: 1.6em;
+    margin: 0 0 25px 0;
+}
+#three article.block ul {
+    margin-bottom: 20px;
+}
+#three article.block ul.job-lists li, #three article.block ul.events li {
+    padding-left: 0;
+    border: 0;
+    font-size: 1.7em;
+}
+#three article.block ul .read-more {
+    display: inline-block;
+    float: none;
+}
+#three article.block ul li {
+    margin-bottom: 10px;
+}
+#three article.block ul.events li {
+    position: relative;
+    padding: 0 0 0 11%}
+#three article.block ul.events img.icon {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#three article.block ul.events a {
+    display: inline-block;
+    margin-top: 6px;
+}
+#three article.block.nomg {
+    float: right;
+    margin-right: 0;
+}
+#three article.block.jobs-detail ul {
+    margin-left: 0;
+}
+#three article.block.jobs-detail ul li {
+    margin: 0 0 10px 0;
+    font-size: 1.7em;
+    line-height: 1.294;
+    min-height: 36px;
+    padding: 6px 0 0 45px;
+    background: url('data:image/png;
+    base64, iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkZERTUwNzc5NjhGMTFFMUI2MjdDREE4Nzg1NzkxRjQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkZERTUwNzg5NjhGMTFFMUI2MjdDREE4Nzg1NzkxRjQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGRkRFNTA3NTk2OEYxMUUxQjYyN0NEQTg3ODU3OTFGNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGRkRFNTA3Njk2OEYxMUUxQjYyN0NEQTg3ODU3OTFGNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pvr92kEAAAJgSURBVHja7JhBSxtREMdnd01SMEVqyBq7WBEFry2C3r0mCDmLp34NsZd+DS8WPBWkBz9AjxWhOXlSpC1RszEByx6amM12Hs5iXHfXee+tNIcO/NkQeP/5sTtvePOMIAhgnMKEMYuJ8MfPH2f/HObN/OI9kGSUUVVUHeWgKvRsoq7oeYA6RLWV3hAz3qI+EkxcOKQV1Ab9J6C2UY0sa2gatYf6ngKTFFVat0c+2kDLqG+oLc0S2SKfZR2gVdQxaimjul0iv1UVIFELX1DFjDdTkXwdGaA8Lao80w6vkH+eC/Sedkp6AVoWTBZfgmUpdY8VyvMkkHilOxxH256FUsmG184cFAovVKB2oiVhJuwGqU9lGCbYM7MqUJXo7o0DqnPdOtcu+L6vC1VPAxKNa53rdHvbB7d18QCqbEtDrY82TDOm71gybiHUkKBMUxrKGu1LUaAFlcoUUK0YqHyhwLVYSAKaUm0scVCl0gx3+dQzHdAC0D1/RoFuVI1yuRzuMgeb5F0JDodD6HRa3OU3SUDnWcG03Uvo93pci/MkoCOUrwMTBHcwvd4froVPeWOBuqivOjBuSwoGKF83rag/c51eTZd1YR7liwP6xD2Yi62tCdOmfKlAHuoDx83FWul22nB58UsFBiiPxzkP7XKmBNEEPe83DAYDFZgG5WEd0PqomuxMJfmpapSHfaZu0iIvYxiPfJsqU4foD2uo04xgTsnvSGcuOyGTfU2YffI5yWJyFY1rE/WORmOZOKR1m6MNMKvZvkHfP3rZEF44hBcNypcNRnhhNS7XMcb/G7Qn4q8AAwAa584Y+N+qfAAAAABJRU5ErkJggg==') no-repeat top left;
+    *background: url("icon-list.png") no-repeat top left;
+}
+#three article.block.jobs-detail p {
+    font-size: 1.7em;
+    line-height: 1.294;
+}
 article.content h1 {
     font-size: 4.8em;
     line-height: 1.208em;
@@ -444,7 +820,124 @@ p.message.error {
     *background: url("back-to-top.png") no-repeat;
     z-index: 100;
 }
-
+.portfolio-project {
+    padding: 30px 0;
+    overflow: hidden;
+    border-top: solid 1px #e7e6e3;
+}
+.portfolio-project h1, .portfolio-project h2 {
+    line-height: 1.2em;
+}
+.portfolio-project h2 {
+    font-size: 3.6em;
+    font-weight: 600;
+    line-height: 1.2em;
+    margin-bottom: 15px;
+}
+.portfolio-project .subtitle {
+    font-size: 3em;
+    font-weight: 300;
+    line-height: 1.2em;
+}
+.portfolio-project .portfolio-text {
+    width: 59%;
+    float: left;
+    margin-right: 1.018%}
+.portfolio-project .portfolio-text p {
+    margin-bottom: 30px;
+}
+.portfolio-project .portfolio-text img {
+    width: 100%}
+.portfolio-project .portfolio-text p {
+    font-size: 1.7em;
+    line-height: 1.8em;
+}
+.portfolio-project .portfolio-image {
+    width: 39.474%;
+    float: right;
+    text-align: center;
+}
+.portfolio-project .portfolio-image img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+.portfolio-project .link-button {
+    font-size: 2em;
+    padding: 9px 14px;
+}
+.portfolio-project .link-button:hover {
+    padding: 11px 14px;
+    margin: -2px 0;
+}
+.clients h2 {
+    margin: 30px 0;
+    font-size: 3.6em;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.2em;
+}
+.clients img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+.twocols-box {
+    overflow: hidden;
+    background: url('data:image/png;
+    base64, iVBORw0KGgoAAAANSUhEUgAABHIAAAABCAIAAAA90B7HAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGOEE4RjkzRDhEMjQxMUUxQjFEMDg5OTU2MkY1NkJERCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGOEE4RjkzRThEMjQxMUUxQjFEMDg5OTU2MkY1NkJERCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkY4QThGOTNCOEQyNDExRTFCMUQwODk5NTYyRjU2QkREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkY4QThGOTNDOEQyNDExRTFCMUQwODk5NTYyRjU2QkREIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+oFnIcwAAACpJREFUeNrs0EERACAMAzAwMf/6aqKo4LNLJOS2PQDwR5KZ8QDAbk+AAQDBbQX/+NOGxwAAAABJRU5ErkJggg==') top center repeat-y;
+    *background: url("bg-twocols-box.png") top center repeat-y;
+}
+.twocols-box > div {
+    width: 46%;
+    padding: 2%;
+    float: left;
+}
+.twocols-box > div:first-child {
+    width: 44%;
+    margin-right: 2%}
+.twocols-box > div.expert {
+    position: relative;
+}
+.twocols-box > div.expert img, .twocols-box > div.expert div {
+    float: left;
+}
+.twocols-box > div.expert .expert-info {
+    width: 36%;
+    margin: 20px 0 0 3%}
+.twocols-box > div.expert .expert-info p {
+    margin-bottom: 0;
+}
+.twocols-box > div p, .twocols-box > div h3, .twocols-box > div a {
+    font-size: 1.7em;
+    line-height: 1.6em;
+}
+.twocols-box > div.footer-text p {
+    margin-bottom: 10px;
+}
+.twocols-box > div.footer-text .read-more {
+    display: inline-block;
+    float: none;
+}
+.twocols-box > div.footer-text a {
+    display: inline;
+}
+.twocols-box > div a {
+    display: block;
+    color: #0099b5;
+    font-size: 1em;
+}
+.twocols-box > div .read-more {
+    color: #fff;
+}
+.twocols-box h2, .twocols-box h3 {
+    font-weight: 500;
+}
+.twocols-box h2 {
+    margin-bottom: 15px;
+    font-size: 2.8em;
+    line-height: 1.286em;
+}
 
 .timeline-detail {
     position: relative;
@@ -481,13 +974,38 @@ p.message.error {
     *background: url("bg-back.png") center no-repeat;
 }
 
-/*@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1140px) {
+    #expertise .three-col .teaser {
+    min-height: 295px;
+}
+.qualities h2 {
+    font-size: 2.5em;
+}
 
+.timeline article.blog section .article-content, .timeline-detail article.blog section .article-content {
+    width: 100%;
+    padding: 15px 0;
+    position: static;
+}
+.timeline article.blog section .article-content > p, .timeline-detail article.blog section .article-content > p {
+    margin: 0 20px 20px;
+}
+.timeline article.blog section .article-content .read-more, .timeline-detail article.blog section .article-content .read-more {
+    margin-left: 20px;
+}
+.twocols-box > div.expert .expert-info {
+    margin-top: 0;
+}
+.twocols-box > div.expert .expert-info p {
+    margin-bottom: 0;
+}
 
-
-}*/
+}
 
 @media screen and (max-width: 960px) {
+    nav.menu ul li a {
+    font-size: 1.5em;
+}
 
 #wrapper {
     font-size: 1.1em;
@@ -578,38 +1096,41 @@ p.message.error {
     font-size: 1.636em;
 }
 
-.timeline-detail article p {
+.timeline article p, .timeline-detail article p {
     font-size: 1.2em;
     line-height: 1.556em;
 }
-.timeline-detail article.milestone header h2, .timeline-detail article.event header h2 {
+.timeline article.milestone header h2, .timeline article.event header h2, .timeline-detail article.milestone header h2, .timeline-detail article.event header h2 {
     font-size: 1.636em;
     line-height: 1.556em;
 }
-.timeline-detail article.blog header h2, .timeline-detail article.case header h2, .timeline-detail article.update header h2, .timeline-detail article.news header h2 {
+.timeline article.blog header h2, .timeline article.case header h2, .timeline article.update header h2, .timeline article.news header h2, .timeline-detail article.blog header h2, .timeline-detail article.case header h2, .timeline-detail article.update header h2, .timeline-detail article.news header h2 {
     display: block;
     font-size: 2.545em;
     line-height: 1.179em;
 }
-.timeline-detail article.blog section img, .timeline-detail article.case section img, .timeline-detail article.update section img, .timeline-detail article.news section img {
+.timeline article.blog section img, .timeline article.case section img, .timeline article.update section img, .timeline article.news section img, .timeline-detail article.blog section img, .timeline-detail article.case section img, .timeline-detail article.update section img, .timeline-detail article.news section img {
     float: none;
 }
 }
 
 @media screen and (max-width: 870px) {
+    #head-wrap #head-wrap-inner {
+    padding: 0 15px;
+}
 
-.timeline-detail {
+.timeline, .timeline-detail {
     background-position: 17px top;
     padding-left: 11px;
 }
-.timeline-detail article {
+.timeline article, .timeline-detail article {
     padding: 90px 0 0 30px;
 }
-.timeline-detail article.update section img {
+.timeline article.update section img, .timeline-detail article.update section img {
     float: none;
 }
 
-.timeline-detail article aside {
+.timeline article aside, .timeline-detail article aside {
     padding-left: 30px;
     padding-right: 0;
     left:0;
@@ -619,10 +1140,10 @@ p.message.error {
     overflow: hidden;
     background: url('timeline-item-bg-flipped.png') no-repeat left 28px;
 }
-.timeline-detail article aside .icon:hover .roundcircle, .timeline-detail article aside .icon:hover .post-type {
+.timeline article aside .icon:hover .roundcircle, .timeline article aside .icon:hover .post-type, .timeline-detail article aside .icon:hover .roundcircle, .timeline-detail article aside .icon:hover .post-type {
     opacity: 0;
 }
-.timeline-detail article aside .icon, .timeline-detail article aside a time, .timeline-detail article aside time {
+.timeline article aside .icon, .timeline article aside a time, .timeline article aside time, .timeline-detail article aside .icon, .timeline-detail article aside a time, .timeline-detail article aside time {
     float: left;
     width: 75px;
     height: 75px;
@@ -630,30 +1151,30 @@ p.message.error {
     line-height: 75px;
 }
 
-.timeline-detail article aside time {
+.timeline article aside time, .timeline-detail article aside time {
     font-size: 1.4em;
     line-height: 75px;
     font-weight: 400;
 }
 
-.timeline-detail article aside .icon img, .timeline-detail article aside a time img, .timeline-detail article aside time img {
+.timeline article aside .icon img, .timeline article aside a time img, .timeline article aside time img, .timeline-detail article aside .icon img, .timeline-detail article aside a time img, .timeline-detail article aside time img {
     width: 75px;
     height: 75px;
 }
-.timeline-detail article aside strong {
+.timeline article aside strong, .timeline-detail article aside strong {
     clear: none;
     float: left;
     display: block;
     margin: 20px 0 0 10px;
 }
-.timeline-detail article aside .tags {
+.timeline article aside .tags, .timeline-detail article aside .tags {
     display: none;
 }    
 
-.timeline-detail .socialmedia-wrapper {
+.timeline .socialmedia-wrapper, .timeline-detail .socialmedia-wrapper {
     margin-left: 30px;
 }
-.timeline-detail .socialmedia-wrapper a.back {
+.timeline .socialmedia-wrapper a.back, .timeline-detail .socialmedia-wrapper a.back {
     left: 20px;
 }
 #wrapper {
@@ -713,17 +1234,36 @@ p.message.error {
     padding: 0 0 0 40px;
     line-height: 36px;
 }
-
+#cases .col {
+    min-height: 415px;
+}
+.static-icon-header, figure.slide, .back-to-top {
+    display: none;
+}
+#expertise .three-col {
+    margin-left: 2.7%}
+#expertise .three-col .teaser {
+    min-height: 233px;
+}
 }
 @media screen and (max-width: 660px) {
     #wrapper {
     font-size: 1em;
 }
 
-.timeline-detail {
+
+
+#cases .col {
+    margin-bottom: 8%;
+    margin-right: 0;
+}
+#cases .col.last {
+    margin-right: 0;
+}
+.timeline, .timeline-detail {
     padding-top: 0;
 }
-.timeline-detail article:first-child {
+.timeline article:first-child, .timeline-detail article:first-child {
     margin-top: 30px;
 }
 
@@ -759,6 +1299,19 @@ p.message.error {
     min-height: 36px;
 }
 
+.portfolio-project .portfolio-text {
+    width: 100%}
+.portfolio-project .portfolio-image {
+    width: 80%;
+    float: none;
+    margin: 0 auto 20px;
+}
+#expertise .expertise-lists {
+    margin-left: -2.55%}
+#expertise .three-col {
+    margin-left: 3%;
+    min-height: 380px;
+}
 }
 
 @media screen and (max-width: 470px) {
@@ -771,46 +1324,94 @@ p.message.error {
     overflow: hidden;
 }
 
-.timeline-detail {
+.timeline, .timeline-detail {
     margin-top: -45px;
 }
-.timeline-detail article {
+.timeline article, .timeline-detail article {
     padding-top: 100px;
 }
-
-
-.timeline-detail article.news section, .timeline-detail article.update section, .timeline-detail article.case section {
+.timeline article.case header, .timeline-detail article.case header {
+    padding: 20px 20px 0 20px;
+}
+.timeline article.blog, .timeline-detail article.blog {
+    padding-top: 130px;
+}
+.timeline article.blog header, .timeline-detail article.blog header {
     padding: 20px;
 }
-.timeline-detail article.news section img, .timeline-detail article.update section img, .timeline-detail article.case section img {
+.timeline article.news section, .timeline article.update section, .timeline article.case section, .timeline-detail article.news section, .timeline-detail article.update section, .timeline-detail article.case section {
+    padding: 20px;
+}
+.timeline article.news section img, .timeline article.update section img, .timeline article.case section img, .timeline-detail article.news section img, .timeline-detail article.update section img, .timeline-detail article.case section img {
     max-width: 100%;
     width: 100%;
     height: auto;
 }
+.timeline article.oneliner header, .timeline-detail article.oneliner header {
+    font-size: 0.8em;
+    margin-top: -48px;
+    margin-left: 80px;
+}
+.timeline article.milestone header h2, .timeline-detail article.milestone header h2 {
+    margin-top: 30px;
+}
 
-.timeline-detail article aside {
+.timeline article.event header h2, .timeline-detail article.event header h2 {
+    margin-top: 15px;
+}
+.timeline article.tweet header h2, .timeline-detail article.tweet header h2 {
+    padding: 10px 20px;
+}
+.timeline article.tweet header .quote, .timeline-detail article.tweet header .quote {
+    display: none;
+}
+.timeline article.tweet p, .timeline-detail article.tweet p {
+    font-size: 0.8em;
+}
+.timeline article aside, .timeline-detail article aside {
     min-height: 125px;
     background-position: left 23px;
 }
-.timeline-detail article aside time, .timeline-detail article aside .icon, .timeline-detail article aside .icon img {
+.timeline article aside time, .timeline article aside .icon, .timeline article aside .icon img, .timeline-detail article aside time, .timeline-detail article aside .icon, .timeline-detail article aside .icon img {
     width: 75px;
     height: 75px;
     line-height: 77px;
 }
 /* sa fie scrisul mai mare la phone*/
-.timeline-detail article aside time {
+.timeline article aside time, .timeline-detail article aside time {
     font-size: 1.99em;
     line-height: 75px;
     font-weight: 400;
 }
 
 /* aici trebuit*/
-.timeline-detail article aside strong {
+.timeline article aside strong, .timeline-detail article aside strong {
     width: 92%;
     top: 66px;
     left: 20px;
     position: absolute;
     font-size: 1.5em;
 }
-
+.timeline .socialmedia-wrapper, .timeline-detail .socialmedia-wrapper {
+    height: auto;
+    overflow: hidden;
 }
+.timeline .socialmedia-wrapper .socialmedia, .timeline-detail .socialmedia-wrapper .socialmedia {
+    width: 75%}
+.timeline .socialmedia-wrapper .socialmedia li, .timeline-detail .socialmedia-wrapper .socialmedia li {
+    height: 80px;
+}
+
+#expertise .three-col {
+    width: 100%;
+    min-height: 100%}
+#expertise .three-col .description h2 {
+    font-size: 3em;
+}
+#expertise .three-col .teaser {
+    min-height: 100%}
+#expertise .three-col .teaser p {
+    font-size: 1.8;
+}
+}
+
