@@ -72,7 +72,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.json { render json: {
           'mata' => 'test',
-          'workspace' => render_to_string(partial: "preview.html", locals: {event: @event})
+          'workspace' => render_to_string(partial: "preview", locals: {event: @event}, formats: [:html])
         }
       }
     end

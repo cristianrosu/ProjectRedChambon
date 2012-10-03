@@ -344,10 +344,15 @@ hr {
 }
 
 
+.timeline-detail article.update section .article-content ul{
+    margin:0;
+}
 .timeline-detail article.update section .article-content, .timeline-detail article.event section .article-content, .timeline-detail article.milestone section .article-content {
     font-size: 1.4em;
     line-height: 1.6em;
-    border-bottom: 1px solid #f00;
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
 .timeline-detail article.update section .article-content p, .timeline-detail article.event section .article-content p, .timeline-detail article.milestone section .article-content p {
     padding: 0;
@@ -379,8 +384,9 @@ hr {
 .article-content li.element .redactor_editor,
 .article-content li.element .block-content
 {
-    margin: 0 40px;
+    margin: 0;
 }
+
 .timeline-detail article.update section img, .timeline-detail article.news section img {
     float: left;
     margin-right: 20px;

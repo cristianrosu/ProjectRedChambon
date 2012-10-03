@@ -1,11 +1,11 @@
-  <div class="span" style="position:absolute;display:block;width:210px;height:600px;background:white;padding:15px;">
+<!--   <div class="span" style="position:absolute;display:block;width:210px;height:600px;background:white;padding:15px;">
       ggerer < % = "edit mode: #{edit_mode}" %>
-  </div> 
-
+  </div>  -->
+ <%= render partial: "header_event", formats: [:html] %>
 <div id="wrapper"> 
   <section class="timeline-detail">
     <% @event.sections.each do |section| %>
-          <%= render partial: "event_section.html", locals: { event_section: section, edit_mode: edit_mode } %>
+          <%= render partial: "event_section", locals: { event_section: section, edit_mode: edit_mode }, formats: [:html] %>
     <% end %>
   </section>
 </div>

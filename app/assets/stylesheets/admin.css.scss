@@ -189,8 +189,8 @@ div.element-toolbar {
 	min-height: 30px;
 	position: absolute;
 	z-index: 7;
- /* margin: 0 0 0 655px; */
-	margin: 0 0 0 610px;
+    margin: 0 0 0 715px;
+	
 	padding: 4px;
 	background: rgba(176, 176, 176, 0.75) !important;
 	background-color: #c4c4c4;
@@ -367,13 +367,28 @@ ul.sortable div.element-toolbar li span {
 		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
 	}
 
+
+.redactor_box .redactor_editor{
+border: 2px dashed transparent;
+
+outline:none;
+outline-style:none;
+width:100%;
+
+background:transparent;
+display:block;
+
+}
+
 	
 .element:hover .redactor_box .redactor_editor, .element:hover div.element-edit + .redactor_box .redactor_editor,
 .element.hover .redactor_box .redactor_editor, .element.hover div.element-edit + .redactor_box .redactor_editor,
 .onfocus-editing .redactor_box .redactor_editor {
 	border: 2px dashed #ccc;
 }
-	
+
+
+ul.sortable li.text	{padding: 4px 0}
 
 ul.sortable li:hover div.element-edit,
 ul.sortable li.hover div.element-edit {

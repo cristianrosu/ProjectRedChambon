@@ -754,8 +754,8 @@ function initializeAdditor() {
 		$(this).parent("li.add_content-bar").animate({ opacity: ['toggle', 'swing'], height: ['toggle', 'swing']}, 400, 'linear', function(){ $("#last-bar").after( $("#roam-bar") ); });
 	});
 
-	$(".element-add_mini, .element-position div").tipsy({gravity: 'e', delayIn: 600, delayOut: 0});
-	$(".element-toolbar li").tipsy({gravity: 'w', delayIn: 600, delayOut: 0});
+	// $(".element-add_mini, .element-position div").tipsy({gravity: 'e', delayIn: 600, delayOut: 0});
+	// $(".element-toolbar li").tipsy({gravity: 'w', delayIn: 600, delayOut: 0});
 
 	$(".element-add_mini, .element-position div, .element-toolbar li, .add_content-bar li").disableSelection();
 
