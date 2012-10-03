@@ -6,18 +6,20 @@ class Block < ActiveRecord::Base
 
   after_initialize :init
 
+  private
   def init
   	self.type_id ||= 2
-
+  	cont = ""
 		case self.type_id
 		  when 1
-		  	self.content = "<h1>Title</h1>"
+		  	cont = "<h1>Title</h1>"
 		  when 2
-		  	t = "You can write here anything you want..."
+		  	cont = "You can write here anything you want..."
 		  when 3
-		  	t = "image"
+		  	cont = "image"
 	  end	
-	  return t
+	  self.content = cont if self.content.nil?
+	  #save!
 	end
 
     # self.number  ||= 0.0           #will set the default value only if it's nil

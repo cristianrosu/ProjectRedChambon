@@ -39,7 +39,7 @@ jQuery ->
 	)
 
 	$(".edit_event").live("click", ->
-		$.getJSON("/events/10/edit_step2", (response)->
+		$.getJSON("/events/9/edit_step2", (response)->
 			updateWorkspace(response)
 		)
 	)
