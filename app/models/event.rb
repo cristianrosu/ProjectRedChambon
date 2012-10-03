@@ -8,16 +8,17 @@ class Event < ActiveRecord::Base
   
   mount_uploader :image, ImageUploader
 
-  validate :date_cannot_be_in_the_past
+  validate :date_validation
   validates :title, :presence => true
 
-  def date_cannot_be_in_the_past
+  def date_validation
     if !date_start.blank? and date_start < Date.today
       errors.add(:date_start, "can't be in the past")
     end
     if !date_end.blank? and date_end < Date.today
       errors.add( :date_end, "can't be in the past")
     end
+    #if !date_start.blank? and !date_end.blank?
   end
 
 

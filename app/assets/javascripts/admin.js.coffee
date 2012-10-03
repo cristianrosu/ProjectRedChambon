@@ -2,8 +2,17 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+@currentEventId = null
+
 jQuery ->
 
+	fparams = $.url().fparam()
+	if fparams.evid
+		currentEventId = fparams.evid
+	if fparams.evact && currentEventId
+		$.getJSON("/events/" + currentEventId + "/" + fparams.evact, (response)->
+			updateWorkspace(response)
+		)
 
 	$("#save").live("click", ->
 		alert "l-am oprit"
@@ -28,9 +37,14 @@ jQuery ->
 	)
 
 	$(".edit_event").live("click", ->
-		$.getJSON("/events/9/edit_step2", (response)->
-			updateWorkspace(response)
-		)
+		if (currentEventId)
+			$.getJSON("/events/" + currentEventId + "/edit_step2", (response)->
+				updateWorkspace(response)
+			)
+		else
+			$.getJSON("/events/new", (response)->
+				updateWorkspace(response)
+			)			
 	)
 
 	$("#event_title").live("keyup change", ->
@@ -44,6 +58,9 @@ jQuery ->
 updateWorkspace = (response) ->
 
 	$("#workspace").html(response.workspace)
+	if (response.eventId)
+		@currentEventId = response.eventId
+
 
 	$("#event_image").fileupload({
 		dataType: 'json',
@@ -54,6 +71,7 @@ updateWorkspace = (response) ->
 	$( "#event_date_start" ).datepicker({ dateFormat: 'yy-mm-dd' });
 	$( "#event_date_end" ).datepicker({ dateFormat: 'yy-mm-dd' });
 	initializeEvent()
+
 
 
 	

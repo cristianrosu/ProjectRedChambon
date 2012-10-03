@@ -17,7 +17,7 @@
 
 		<div style="float:right;margin-top:10px" class="btn btn-large btn-orange">Import from Eventbrite</div> 	
 		<h2 style="margin-bottom:20px"><i class="icon-pencil"></i> New event</h2>
-		<%= render(partial: 'form.html', locals: { event: event }) %>
+		<%= render(partial: 'form', locals: { event: event }, formats: [:html]) %>
 	</div>
 
 	<div class="span4" style="border-left:1px dashed #d0d0d0;padding: 0 10px 20px 15px">
