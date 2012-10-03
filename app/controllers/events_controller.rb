@@ -94,8 +94,15 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     @event.user_id = current_user.id
 
+    @section_basic = Section.new(name: "Basic Info", type_id: 1, position: 1)
+    @section_details = Section.new(name: "Details", type_id: 2, position: 2)
+    @section_sponsorships = Section.new(name: "Sponsorships", type_id: 3, position: 3)
+
+    @event.sections << @section_basic << @section_details << @section_sponsorships
+
     respond_to do |format|
-      if @event.save
+      # if 
+      @event.save
       #   format.html { render partial: "test" } #{ redirect_to @event, notice: 'Event was successfully created.' }
       #   format.json { render json: @event, status: :created, location: @event }
       #   format.js { render "test" }
@@ -104,10 +111,11 @@ class EventsController < ApplicationController
       #   format.json { render json: @event.errors, status: :unprocessable_entity }       format.json { render json: {
         format.json { render json: {
               'mata' => 'test',
+              'eventId' => @event.id,
               'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
             }
           }
-      end
+      # end
     end
   end
 
