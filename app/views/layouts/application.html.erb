@@ -11,6 +11,8 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
+  <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.css' rel='stylesheet' />
 </head>
 <body>
 
@@ -21,8 +23,11 @@
 
   <% if @current_controller=="admin" %>
     <%= render "admin/admin_layout" %>
-
+  
   <%else%>
+      <% if @current_controller == "events" && @current_action== "map" %>
+        <%= yield %>
+      <%else%>
           <div class="container-fluid">
             <% flash.each do |name, msg| %>
               <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
@@ -32,8 +37,8 @@
             <% end %>
             <%= yield %>
           </div>   
-  <%end%>
-
+      <% end %>
+<% end %>
 
 
   <!-- 
