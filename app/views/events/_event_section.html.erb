@@ -16,8 +16,7 @@
 			<%= "edit mode: #{edit_mode}" %>
 			<ul class="sortable layout">
 	      <% event_section.blocks.each do |block| %>
-	      	
-	        <!-- %= block_tag block, edit_mode %  -->
+	      	<%= render partial: "event_block.html", locals: { block: block, edit_mode: edit_mode } %>
 	      <% end %>
 	      <% if edit_mode %>
 	      	<%= render "event_block_add_toolbar.html"%>
