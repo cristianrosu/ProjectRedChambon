@@ -220,33 +220,6 @@ border-top: solid 2px #222;
 	height:210px;
 }
 
-.slide {
-position: absolute;
-top: 120px;
-width: 40px;
-height: 40px;
-background: rgba(109, 151, 115, 0.4);
-z-index: 10;
-color: white;
-font-size: 48px;
-line-height: 28px;
-text-align: center;
--webkit-touch-callout: none;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-}
-
- .next{
-	right: 0;
-text-indent: 2px;
-}
- .prev{
-	left: 0;
-text-indent: -2px;
-}
-
 .presenter {
 	//margin-bottom:40px;
 	//opacity:0.85;		
