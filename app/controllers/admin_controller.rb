@@ -24,4 +24,9 @@ class AdminController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+
+  def volunteers
+    render json: { 'workspace' => render_to_string(partial: "volunteers.html")}
+  end
+
 end

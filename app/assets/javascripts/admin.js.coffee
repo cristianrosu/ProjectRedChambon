@@ -30,6 +30,17 @@ jQuery ->
 		return false
 	)
 
+	$(".btn-volunteers").live("click", ->
+		url = "/admin/volunteers"
+		data = {
+			type : "all"
+		}
+		$.post(url, data, (response) ->
+			updateWorkspace(response)
+		)
+		return false
+	)
+
 	$(".new_event").live("click", ->
 		$.getJSON("/events/new", (response)->
 			updateWorkspace(response)

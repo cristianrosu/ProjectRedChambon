@@ -8,6 +8,7 @@ ProjectRedChambon::Application.routes.draw do
  post "event/:id/save_block" => "events#save_block"
  post "event/:id/save_block_order" => "events#save_block_order"
  post "event/:id/create_block" => "events#create_block"
+ post "admin/volunteers" => "admin#volunteers"
  
  resources :events 
 

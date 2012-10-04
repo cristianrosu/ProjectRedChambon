@@ -1,46 +1,3 @@
-<div class="navbar navbar-fixed-top"> 
-<div class="navbar-inner">
-      <div class="container-fluid">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="/home">Seedbit</a>
-
-        <ul class="nav pull-right">
-          <% if user_signed_in? %>
-            <li class="dropdown">
-              <a style="color:#f75432" href="#" class="dropdown-toggle" data-toggle="dropdown"> YOU <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="nav-header"><%=current_user.email%></li>
-                <li><a href="/users/logout"><i class="icon-search"></i> Icon + direct link</a></li>
-                <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-                <li class="divider"></li>
-                <li><%= link_to "Logout", destroy_user_session_path, method: :get %></li>
-              </ul>
-          </li>     
-
-          <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <li><%= link_to "Login", new_user_session_path %></li>
-            <li><%= link_to "Login with Fb", user_omniauth_authorize_path(:facebook) %></li>
-          <% end %>      
-        </ul>
-
-         <div class="nav-collapse">
-           <ul class="nav pull-right">
-            <li><%= link_to "Explore", events_path %></li>
-            <li><%= link_to "Brands" %></li>
-            <li><%= link_to "People" %></li>
-            <li><%= link_to "Map" %></li>           
-          </ul>
-        </div>
-    </div>
-</div>
-
-
-
 <div class="navbar navbar-inverse navbar-fixed-bottom">
     <div class="navbar-inner" style ="padding:5px;background-image: url(<%= asset_path 'nav-bg.jpeg' %>);">
       <div class="container-fluid">
@@ -50,19 +7,29 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-
-        <a style= "margin-left:40px; margin-right:60px;color:white" class="brand" href="/home">Dashboard</a>
+        <div id='outer_container'>
+              <a class="menu_button" href="#" title="Toggle"><span>Menu Toggle</span></a>
+              <ul class="menu_option">
+                <li><a href="#"><span></span></a></li>
+                <li><a href="#"><span>Item</span></a></li>
+                <li><a href="#"><span>Item</span></a></li>
+                <li><a href="#"><span>Item</span></a></li>
+                <li><a href="#"><span>Item</span></a></li>       
+              </ul>
+        </div>
+       
+        <a style= "margin-left:40px; margin-right:60px;color:white" class="brand" href="/home">Seedbit</a>
 
         <ul class="nav pull-right">
           <% if user_signed_in? %>
-            <li class="dropdown">
+            <li class="dropdown no-border">
               <a style="color:#f75432" href="#" class="dropdown-toggle" data-toggle="dropdown"> YOU <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="nav-header"><%=current_user.email%></li>
-                <li><a href="/users/logout"><i class="icon-search"></i> Icon + direct link</a></li>
-                <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-                <li class="divider"></li>
-                <li><%= link_to "Logout", destroy_user_session_path, method: :get %></li>
+              <ul class="dropdown-menu" style="margin-bottom:10px">
+                <li class="nav-header no-border"><%=current_user.email%></li>
+                <li class="no-border"><a href="/users/logout"><i class="icon-search"></i> Icon + direct link</a></li>
+                <li class="no-border"><%= link_to 'Edit profile', edit_user_registration_path %></li>
+                <li class="divider no-border"></li>
+                <li class="no-border"><%= link_to "Logout", destroy_user_session_path, method: :get %></li>
               </ul>
           </li>     
 
@@ -76,18 +43,21 @@
          <div class="nav-collapse"> 
          <ul class="nav" style="border-right: 1px solid #555;border-left: 1px solid #222;">
               <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
-                <a style="font-size:16px" class="new_event">Home</a>
+                <a href="/events" style="font-size:16px" class="new_event">Explore</a>
               </li>
-              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
-              <a style="padding:5px 20px">
-              <div style="width:30px;height:30px;background-image: url(<%= asset_path 'icon-calendar-28.png' %>);"></div></a>
+              
+              <li>
+                <a style="padding:6px 20px">
+                <div class="calendar"></div></a>
               </li>
-              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
-              <a style="padding:5px 20px">
-              <div style="width:30px;height:30px;background-image: url(<%= asset_path 'icon-stats-28.png' %>);"></div></a>
+              <li><a style="padding:5px 20px">
+                  <div class="stats"></div></a>
               </li>
-              <li style="border-left: 1px solid #555;border-right: 1px solid #222;">
-                <a style="padding:0 20px 5px 20px"><input class="btn btn-orange`" type="button" value="+"></a>
+              <li><a style="padding:5px 20px">
+                  <div class="map"></div></a>
+              </li>
+               <li><a style="padding:5px 20px">
+                  <div class="star"></div></a>
               </li>
           </ul>   
   

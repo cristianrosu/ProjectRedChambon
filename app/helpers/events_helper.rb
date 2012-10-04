@@ -43,12 +43,26 @@ module EventsHelper
 	#calling with type="align"
 	#will render: data-field="align" data-value="align-center"
 	def data_toggle_decode(block, type)
-		if block.nil? || block.details.nil? || type.nil?
+		if block.nil? || type.nil?
 			return
 		end
+		toggle << "data-field=\"#{type}\" data-value=\""
+		if !block.details.nil? && block.details.has_key?(type) 
+			toggle << "#{block.details[type]}"
+		else
+			case type
+				when "align"
+					toggle << "align-left"
+				when "size"
+					toggle << "size-large"
+			end 
+		end
+		toggle << "\""
+		return toggle.html_safe
 
-		block.details.has_key?(type) ? "data-field=\"#{type}\" data-value=\"#{block.details[type]}\"".html_safe : ""
 	end
+
+
 
 	def add_class_data_toggle(block)
 		if block.nil? || block.details.nil? 

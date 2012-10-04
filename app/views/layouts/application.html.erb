@@ -19,28 +19,22 @@
     <%= render "menu_bar" %>
   <%end%>
 
-  <% if @current_controller=="events" && @current_action=="show" %>
-    <!-- Only display header of the event in the event details page.(did this so that the header isn't included in the fluid layout of bootstrap) -->
-    <%= content_for?(:header_event) ? yield(:header_event) : yield %>
-  <% end %>
- 
-
   <% if @current_controller=="admin" %>
     <%= render "admin/admin_layout" %>
 
-    <%else%>
-
-      <div class="container-fluid">
-      <% flash.each do |name, msg| %>
-        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-          <a class="close" data-dismiss="alert">×</a>
-          <%= msg %>
-        </div>
-      <% end %>
-      <%= yield %>
-    </div> 
-
+  <%else%>
+          <div class="container-fluid">
+            <% flash.each do |name, msg| %>
+              <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+                <a class="close" data-dismiss="alert">×</a>
+                <%= msg %>
+              </div>
+            <% end %>
+            <%= yield %>
+          </div>   
   <%end%>
+
+
 
   <!-- 
       <p class="notice"><%= notice %></p>
