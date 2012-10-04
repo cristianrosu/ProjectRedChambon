@@ -12,6 +12,10 @@ class EventsController < ApplicationController
     # end
   end
 
+  def map
+
+  end
+
   # GET /events/1
   # GET /events/1.json
   def show    

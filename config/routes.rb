@@ -4,6 +4,8 @@ ProjectRedChambon::Application.routes.draw do
 
  #match "events/new" => "admin#new"
  #match "events/:id/edit" => "admin#edit"
+ get "events/map"
+
  get "events/:id/edit_step2" => "events#edit_step2"
  post "event/:id/save_block" => "events#save_block"
  post "event/:id/save_block_order" => "events#save_block_order"
