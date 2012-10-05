@@ -21,6 +21,11 @@
     <%= render "menu_bar" %>
   <%end%>
 
+  <% if @current_controller=="events" && @current_action=="index"%>
+
+    <%= render "events_header" %>
+  <%end%>
+
   <% if @current_controller=="admin" %>
     <%= render "admin/admin_layout" %>
   

@@ -12,6 +12,18 @@
   max-width: 1400px;
 }
 
+.head-explore{
+	
+	position:relative;
+	
+	left:0px;
+	right:0px;
+	padding:30px;
+	z-index:10;
+/*	height:300px; */
+	background: url('https://www.pulse.me/media/images/light_gray_noise-994fecd3fbd995349a86ef01bbe5efadc91939a9.jpg');
+}
+
 .selector{
 	float:right;
 }

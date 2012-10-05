@@ -9,6 +9,7 @@
 //= require jquery.ui.datepicker
 //= require raphael
 //= require morris
+//= require blur.min
 //= require twitter/bootstrap
 //= require_tree .
 

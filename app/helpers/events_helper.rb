@@ -46,7 +46,18 @@ module EventsHelper
 		if block.nil? || type.nil?
 			return
 		end
+		toggle = ""
 		toggle << "data-field=\"#{type}\" data-value=\""
+		toggle << data_toggle_value(block, type)
+		toggle << "\""
+		return toggle.html_safe
+	end
+
+	def data_toggle_value(block, type)
+		if block.nil? || type.nil?
+			return
+		end
+		toggle = ""
 		if !block.details.nil? && block.details.has_key?(type) 
 			toggle << "#{block.details[type]}"
 		else
@@ -57,12 +68,8 @@ module EventsHelper
 					toggle << "size-large"
 			end 
 		end
-		toggle << "\""
 		return toggle.html_safe
-
 	end
-
-
 
 	def add_class_data_toggle(block)
 		if block.nil? || block.details.nil? 
