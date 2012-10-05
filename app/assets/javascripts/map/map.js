@@ -35,3 +35,20 @@ $(window).load(function(){
 // 	radius:10
 // });
 });
+
+
+
+
+// $(document).ready(function(){
+    
+//     $('#prev').blurjs({
+// 		source: 'body',
+//         radius: 7,
+//         overlay: 'rgba(255,255,255,0.4)',
+//         optClass: 'blurred',
+//         cache:false
+//     });
+    
+// });
+
+// });
