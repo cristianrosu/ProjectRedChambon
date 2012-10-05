@@ -1,0 +1,16 @@
+<div id="car" class="carousel slide" style="width:100%; height:0px;">
+  <div class="carousel-inner">
+    <div class="item edit_guidelines" style="color:black">
+      <%= render( partial: "edit_guidelines", locals: { edit_mode: true }, formats: [:html])  %>
+    </div>
+    <div class="active item edit_basic">
+			<%= render( partial: 'edit_basic', locals: { event: @event }, formats: [:html]) %>
+    </div>
+    <div class="item event_show" style="color:black">
+			 <%= render( partial: "show", locals: { event: @event, edit_mode: true }, formats: [:html]) %>
+    </div>
+  </div>
+
+  <a class="carousel-control left" href="#car" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#car" data-slide="next">&rsaquo;</a>
+</div>

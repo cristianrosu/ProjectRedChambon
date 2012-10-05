@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show    
-    @event = Event.find(params[:id], :include => [{:sections => :blocks}, :sections])
+    @event = Event.find(params[:id], :include => [{:sections => :blocks}, :sections, :industry])
 
     @event.sections.each do |section|
       section.blocks.each do |block|
@@ -41,26 +41,49 @@ class EventsController < ApplicationController
 
 
      respond_to do |format|
-    #   format.html # new.html.erb
+       format.html # new.html.erb
        #format.json { render partial: "new.json" } #render json: @event
-       format.json { render json: {
-            'mata' => 'test',
-            'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
-          }
-        }
+       # format.json { render json: {
+       #      'mata' => 'test',
+       #      'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
+       #    }
+       #  }
      end
   end
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
-    respond_to do |format|
-      format.json { render json: {
-          'mata' => 'test',
-          'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
-        }
-      }
+
+    @event = Event.find(params[:id], :include => [{:sections => :blocks}, :sections, :industry])
+
+    @event.sections.each do |section|
+      section.blocks.each do |block|
+        block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+      end
     end
+
+    respond_to do |format|
+      format.html 
+      # format.json { render json: {
+      #       'mata' => 'test',
+      #       'action' => 'edit',
+      #       'eventId' => @event.id,
+      #       'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
+      #     }
+      # }
+    end
+
+    # @event = Event.find(params[:id])
+    # respond_to do |format|
+    #   format.html { render }
+    #   format.json { render json: {
+    #       'mata' => 'test',
+    #       'action' => 'edit',
+    #       'eventId' => @event.id,
+    #       'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
+    #     }
+    #   }
+    # end
   end
 
   # GET /events/1/edit_step2
@@ -76,19 +99,11 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.json { render json: {
           'mata' => 'test',
+          'action' => 'edit_step2',
+          'eventId' => @event.id,
           'workspace' => render_to_string(partial: "preview", locals: {event: @event}, formats: [:html])
         }
       }
-    end
-  end
-
-  def create_block
-    type_id = block_type_id(params[:type])
-    @block = Block.new(type_id: type_id, section_id: params[:sectionId])
-    if @block.save
-      render partial: "event_block.html", locals: { block: @block, edit_mode: true } 
-    else
-      
     end
   end
 
@@ -105,40 +120,77 @@ class EventsController < ApplicationController
     @event.sections << @section_basic << @section_details << @section_sponsorships
 
     respond_to do |format|
-      # if 
-      @event.save
+      if @event.save
       #   format.html { render partial: "test" } #{ redirect_to @event, notice: 'Event was successfully created.' }
       #   format.json { render json: @event, status: :created, location: @event }
       #   format.js { render "test" }
       # else
-      #   format.html { render action: "new" }
+        format.html { redirect_to edit_event_path(@event) }
       #   format.json { render json: @event.errors, status: :unprocessable_entity }       format.json { render json: {
-        format.json { render json: {
-              'mata' => 'test',
-              'eventId' => @event.id,
-              'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
-            }
-          }
-      # end
+        # format.json { render json: {
+        #       'mata' => 'test',
+        #       'action' => 'edit',
+        #       'eventId' => @event.id,
+        #       'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
+        #     }
+        #   }
+      else
+        format.html { render text: "am futut-o" }
+      end
     end
   end
 
   # PUT /events/1
   # PUT /events/1.json
   def update
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:id], :include => [{:sections => :blocks}, :sections])
+
+    @event.sections.each do |section|
+      section.blocks.each do |block|
+        block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+      end
+    end
 
     respond_to do |format|
-      #if
-      @event.update_attributes(params[:event])
+      if @event.update_attributes(params[:event])
+        format.html { redirect_to edit_event_path(@event) }
         format.json { render json: {
             'mata' => 'test',
-            'workspace' => render_to_string(partial: "new.html", locals: {event: @event})
+            'edit_guidelines' => render_to_string( partial: "edit_guidelines", locals: { edit_mode: true }, formats: [:html]),
+            'edit_basic' => render_to_string( partial: 'edit_basic', locals: { event: @event }, formats: [:html]),
+            'event_show' => render_to_string( partial: "show", locals: { event: @event, edit_mode: true }, formats: [:html])
           }
         }
-      # else
-      #   format.json { render json: @event.errors, status: :unprocessable_entity }
-      # end
+      else
+        format.html { render text: "am futut-o" }
+      end
+    end
+  end
+
+  # DELETE /events/1
+  # DELETE /events/1.json
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+
+    respond_to do |format|
+      format.html { redirect_to events_url }
+      format.json { head :no_content }
+    end
+  end
+
+
+######################
+# Block operations
+######################
+
+  def create_block
+    type_id = block_type_id(params[:type])
+    @block = Block.new(type_id: type_id, section_id: params[:sectionId])
+    if @block.save
+      render partial: "event_block.html", locals: { block: @block, edit_mode: true } 
+    else
+      
     end
   end
 
@@ -173,29 +225,6 @@ class EventsController < ApplicationController
     block_2.save
 
     render json: {'error' => 0} 
-  end
-
-  # def upload
-  #   @event = Event.find(params[:id])
-  #   respond_to do |format|
-  #     if @event.update_attributes(params[:image])
-  #       format.html { render text: @event.image_url(:thumb) }
-  #     else
-  #       format.html { render text: "am belit-o" }
-  #     end
-  #   end
-  # end
-
-  # DELETE /events/1
-  # DELETE /events/1.json
-  def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
-
-    respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :no_content }
-    end
   end
 
 end

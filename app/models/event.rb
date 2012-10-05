@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   validate :date_validation
-  validates :title, :presence => true
+  #validates :title, :presence => true
 
   def date_validation
     if !date_start.blank? and date_start < Date.today

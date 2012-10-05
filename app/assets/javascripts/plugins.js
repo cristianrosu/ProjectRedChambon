@@ -1,3 +1,38 @@
+// Some plugins
+
+(function( $ ){
+
+  $.fn.containedStickyScroll = function( options ) {
+  
+    var defaults = {  
+        oSelector : this.selector,
+        easing: 'linear',
+        duration: 100,
+        queue: false,
+        container: this.parent()
+    }  
+                  
+    var options =  $.extend(defaults, options);
+  
+    jQuery(window).scroll(function() {
+        getObject = options.oSelector;
+        container = options.container;
+        if((jQuery(window).scrollTop() + 55) > (container.offset().top) &&
+           (container.height() + container.position().top - 30) > (jQuery(window).scrollTop() + jQuery(getObject).height())){
+            jQuery(getObject).animate({ top: (jQuery(window).scrollTop() - container.offset().top) + 65 + "px" }, 
+            { queue: options.queue, easing: options.easing, duration: options.duration });
+        }
+        else if(jQuery(window).scrollTop() < (container.offset().top)){
+            jQuery(getObject).animate({ top: "0px" },
+            { queue: options.queue, easing: options.easing, duration: options.duration });
+        }
+    });
+
+  };
+})( jQuery );
+
+
+
 // tipsy, facebook style tooltips for jquery
 // version 1.0.0a
 // (c) 2008-2010 jason frame [jason@onehackoranother.com]
@@ -601,3 +636,7 @@
 
     };
 })(jQuery);
+
+$.fn.exists = function () {
+    return this.length !== 0;
+}

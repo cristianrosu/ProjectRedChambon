@@ -3,8 +3,8 @@
 			
            <img style="width:460px;" src="<%= event.image_url(:thumb).to_s %>">
                 <div class="mask">
-                    <h4>Conference / Technology</h4>
-                    <p> Hey! I have something going on and need a developer to team up with for a fun project. if you know wordpress, paypal, jquery and care about design and web tr...</p> 
+                    <h4> <i class="icon icon-tag"></i> asdw<!-- %= event.industry.name.to_s% --></h4>
+                    <p><%= event.description.to_s %></p> 
                      <h4 class="pull-left"><i class="icon icon-map-marker"></i>Cluj Napoca, Ro</h4>
             </div>  
             </img>
@@ -16,7 +16,7 @@
             </div>
 
     		<div class="caption">
-    			<h2 id="_event_title"><% event.title %></h2>
+    			<h2 id="_event_title"><%= event.title.to_s %></h2>
                 <h3 class="pull-right"><i class="icon icon-calendar"></i>20-22 <small>Sep, 2012</small></h3>
                <!--  <h3 class="pull-left"><small><i class="icon icon-map-marker"></i>Cluj Napoca, Ro</small></h3> -->
 

@@ -1,0 +1,205 @@
+<style>
+ #map-ui {
+    position:absolute;
+    top:100px;left:10px;
+    z-index:4000;
+    }
+    #map-ui ul {
+      list-style:none;
+      margin:0;padding:0;
+      }
+      #map-ui a {
+        font-size:13px;
+        background:#FFF;
+        color:#3C4E5A;
+        display:block;
+        margin:0;padding:0;
+        border:1px solid #BBB;
+        border-bottom-width:0;
+        min-width:138px;
+        padding:10px;
+        text-decoration:none;
+        }
+      #map-ui a:hover { background:#ECF5FA; }
+      #map-ui li:last-child a {
+        border-bottom-width:1px;
+        -webkit-border-radius:0 0 3px 3px;
+                border-radius:0 0 3px 3px;
+        }
+      #map-ui li:first-child a {
+        -webkit-border-radius:3px 3px 0 0;
+                border-radius:3px 3px 0 0;
+        }
+      #map-ui a.active {
+        background:#3887BE;
+        border-color:#3887BE;
+        color:#FFF;
+        }
+</style>
+
+<div id="branding"></div>
+    <div id="content"><div class="limiter">
+        <div id="about">
+          <img style='float:left;' src='img/logo_retina.png' width='49' height'39' />
+          <h1 class='map-title'>gdjt</h1>
+          <p class='description'>gdj</p>
+          <div id="markerfilters" class="clearfix-map sectionn">
+            <div class="markerfilter selected" id="null">All</div>
+          </div>
+        </div>
+        <div data-control='geocode' class="clearfix-map sectionn" id="search">
+          <form class="geocode">
+            <input placeholder='Search for an address' type="text" id="searchTextField">
+            <div id='geocode-error'></div>
+          </form>
+        </div>
+    </div></div>
+    <div id='map-ui'>
+      <ul>
+        <li><a href='#' id='filter-food'>show only awesome events</a></li>
+        <li><a href='#' class='active' id='filter-all'>show all events</a></li>
+      </ul>
+    </div>
+    <div id="map" class="map"></div>
+    <a class="btn btn-orange" style="position:absolute;top:15px;left:15px;" id="prevBtn">Preview</a>
+    <a class="btn btn-orange" style="position:absolute;top:50px;left:15px;" id="editBtn">Get event</a>
+    <div id="prev" data-extended="false" style="overflow:auto;position:absolute;top:0;left:100%;width:90%;bottom:0px;padding-top:30px;background-color: rgba(250,250,250,0.8);"></div>
+    <div id="map_canvas" style="display:none">
+
+    <script>
+
+      // GeoJSON input features
+      // The image and url properties of the features will be used in
+      // the tooltips
+      var features = [{
+          "geometry": { "type": "Point", "coordinates": [-77.03, 38.90]},
+          "properties": {
+              "marker-color": "#000",
+              "marker-symbol": "star-stroked",
+              "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/DCmontage4.jpg/250px-DCmontage4.jpg",
+              "url": "http://en.wikipedia.org/wiki/Washington,_D.C.",
+              "city": "Washington, D.C.",
+              "category": "awesome"
+          }
+      }, {
+          "geometry": { "type": "Point", "coordinates": [-87.63, 41.88]},
+          "properties": {
+              "marker-color": "#000",
+              "marker-symbol": "star-stroked",
+              "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Chicago_montage.jpg/300px-Chicago_montage.jpg",
+              "url": "http://en.wikipedia.org/wiki/Chicago",
+              "city": "Chicago",
+              "category": "awesome"
+          }
+      }, {
+          "geometry": { "type": "Point", "coordinates": [-74.00, 40.71]},
+          "properties": {
+              "marker-color": "#000",
+              "marker-symbol": "star-stroked",
+              "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/NYC_Montage_2011.jpg/275px-NYC_Montage_2011.jpg",
+              "url": "http://en.wikipedia.org/wiki/New_York_City",
+              "city": "New York City",
+              "category": "regular"
+          }
+      }];
+
+      var map = mapbox.map('map');
+      map.addLayer(mapbox.layer().id('examples.map-yr0njcqy'));
+
+      var mapOptions = {
+          center: new google.maps.LatLng(-33.8688, 151.2195),
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map2 = new google.maps.Map(document.getElementById('map_canvas'),
+          mapOptions);
+
+        var input = document.getElementById('searchTextField');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        autocomplete.bindTo('bounds', map2);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+          map: map2
+        });
+
+      google.maps.event.addListener(autocomplete, 'place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          input.className = '';
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            // Inform the user that the place was not found and return.
+            $('#geocode-error').text('This address cannot be found.').fadeIn('fast');
+            return;
+          }
+
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.ease.location({ lat: place.geometry.location.Xa, lon: place.geometry.location.Ya }).zoom(14).optimal();
+          } else {
+            map.ease.location({ lat: place.geometry.location.Xa, lon: place.geometry.location.Ya }).zoom(14).optimal();
+          }
+
+        });
+
+      // Create and add marker layer
+      var markerLayer = mapbox.markers.layer().features(features);
+      var interaction = mapbox.markers.interaction(markerLayer);
+      markerLayer.factory(function(m) {
+
+        // Create a marker using the simplestyle factory
+        var elem = mapbox.markers.simplestyle_factory(m);
+
+        // Add function that centers marker on click
+        MM.addEvent(elem, 'click', function(e) {
+            map.ease.location({
+              lat: m.geometry.coordinates[1],
+              lon: m.geometry.coordinates[0]
+            }).zoom(map.zoom()).optimal();
+        });
+
+        var food = document.getElementById('filter-food');
+        var all = document.getElementById('filter-all');
+
+        food.onclick = function(e) {
+            all.className = '';
+            this.className = 'active';
+            // The filter function takes a GeoJSON feature object
+            // and returns true to show it or false to hide it.
+            markerLayer.filter(function(f) {
+                return f.properties['category'] === 'awesome';
+            });
+            return false;
+        };
+
+        all.onclick = function() {
+            food.className = '';
+            this.className = 'active';
+            markerLayer.filter(function(f) {
+                // Returning true for all markers shows everything.
+                return true;
+            });
+            return false;
+        };
+
+
+        return elem;
+      });
+      map.addLayer(markerLayer);
+
+      // Set a custom formatter for tooltips
+      // Provide a function that returns html to be used in tooltip
+      interaction.formatter(function(feature) {
+          var o = '<a target="_blank" href="' + feature.properties.url + '">' +
+              '<img src="' + feature.properties.image + '">' +
+              '<h2>' + feature.properties.city + '</h2>' +
+              '</a>';
+
+          return o;
+      });
+
+      map.zoom(5).center({ lat: 46, lon: -79 });
+
+    </script>
