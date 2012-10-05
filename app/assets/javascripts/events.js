@@ -1,3 +1,21 @@
+var steps = {
+  'guidelines' : 0,
+  'basics' : 1,
+  'event' : 2
+}
+
+var navigateStep = function(step){
+
+
+}
+
+var navigateInit = function(){
+  $('.carousel').carousel({
+    interval: false
+  });
+  //if( window.location.hash )
+
+}
 
 
 $(document).ready(function() {
@@ -85,9 +103,6 @@ $(document).ready(function() {
     });
     $(window).scroll();
   }
-  $('.carousel').carousel({
-    interval: false
-  });
 });
 
 var updateWorkspace = function(response) {
