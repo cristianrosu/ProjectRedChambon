@@ -104,9 +104,9 @@ module EventsHelper
 	      		image: event.image_url().to_s
 	      }
 	    }
-	  end.to_json.html_safe
-	end
-
+	  	end.to_json.html_safe
+    end
+        
 	private
 	def get_name(property, default_value)
 		if property.nil? || property.name.nil? || property.name.blank?
@@ -117,6 +117,19 @@ module EventsHelper
 
 	def get_industry_name(property)
 		return get_name(property, "General")
+	end
+
+	def section_icon_class(type_id)
+		t = ""
+		case id
+		  when 1
+		  	t = "basic"
+		  when 2
+		  	t = "details"
+		  when 3
+		  	t = "sponsorship"
+	  end	
+	  return t
 	end
 
 end

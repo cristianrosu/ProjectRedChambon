@@ -12,6 +12,18 @@
   max-width: 1400px;
 }
 
+.head-explore{
+	
+	position:relative;
+	
+	left:0px;
+	right:0px;
+	padding:30px;
+	z-index:10;
+/*	height:300px; */
+	background: url('https://www.pulse.me/media/images/light_gray_noise-994fecd3fbd995349a86ef01bbe5efadc91939a9.jpg');
+}
+
 .selector{
 	float:right;
 }
@@ -218,33 +230,6 @@ border-top: solid 2px #222;
 .aside div.chart{
 	padding: 0;
 	height:210px;
-}
-
-.slide {
-position: absolute;
-top: 120px;
-width: 40px;
-height: 40px;
-background: rgba(109, 151, 115, 0.4);
-z-index: 10;
-color: white;
-font-size: 48px;
-line-height: 28px;
-text-align: center;
--webkit-touch-callout: none;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-}
-
- .next{
-	right: 0;
-text-indent: 2px;
-}
- .prev{
-	left: 0;
-text-indent: -2px;
 }
 
 .presenter {

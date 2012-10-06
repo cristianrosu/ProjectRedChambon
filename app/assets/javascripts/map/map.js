@@ -32,3 +32,20 @@ $(window).load(function(){
 		}
 	});
 });
+
+
+
+
+// $(document).ready(function(){
+    
+//     $('#prev').blurjs({
+// 		source: 'body',
+//         radius: 7,
+//         overlay: 'rgba(255,255,255,0.4)',
+//         optClass: 'blurred',
+//         cache:false
+//     });
+    
+// });
+
+// });
