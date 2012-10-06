@@ -112,7 +112,7 @@ $(document).ready(function() {
   $(".home_admin").click(function() {
     $.getScript("/admin/index");
   });
-
+ 
 
   if ($('.pagination').length) {
     $('.pagination').hide();
@@ -130,6 +130,8 @@ $(document).ready(function() {
     });
     $(window).scroll();
   }
+
+   updateWorkspace();
 });
 
 var updateWorkspace = function(response) {
@@ -165,5 +167,20 @@ var updateWorkspace = function(response) {
   });
   
   initializeEvent();
+
+
+      // Charts
+  // dead simple donut charts
+  // Morris.Donut({
+  //   element: 'pipali',
+  //   data: [
+  //     {label: "Download Sales", value: 12},
+  //     {label: "In-Store Sales", value: 30},
+  //     {label: "Mail-Order Sales", value: 20}
+  //   ]
+  // });
+
 };
+
+
 
