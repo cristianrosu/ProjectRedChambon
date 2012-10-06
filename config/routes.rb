@@ -12,7 +12,6 @@ ProjectRedChambon::Application.routes.draw do
  get  "events/:id/edit_step2" => "events#edit_step2"
  post "admin/volunteers" => "admin#volunteers"
 
-
  get "admin/event/:id/edit" => "events#edit"
  get "admin/event/new" => "events#new"
  
