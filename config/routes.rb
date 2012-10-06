@@ -11,7 +11,8 @@ ProjectRedChambon::Application.routes.draw do
  post "event/:id/create_block" => "events#create_block"
  post "admin/volunteers" => "admin#volunteers"
 
- 
+ get "admin/event/:id/edit" => "events#edit"
+ get "admin/event/new" => "events#new"
  
  resources :events 
 

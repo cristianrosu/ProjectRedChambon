@@ -13,8 +13,9 @@ var navigateInit = function(){
   $('.carousel').carousel({
     interval: false
   });
-  //if( window.location.hash )
-
+  if( window.location.hash ){
+    
+  }
 }
 
 
