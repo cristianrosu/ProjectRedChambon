@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924234456) do
+ActiveRecord::Schema.define(:version => 20121006135523) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "section_id"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20120924234456) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "image"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "industries", :force => true do |t|
