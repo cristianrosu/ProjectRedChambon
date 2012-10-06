@@ -2,29 +2,29 @@
     <div id="wrapper">
 
         <div class="selector" style="float:left;margin-bottom:0;height:40px;margin-top:5px;">
-            <ul class="new-event">
-                  <li><a class="active">1. Guidlines</a></li>
-                  <li><a>2. Basic Info</a></li>
-                  <li><a>3. Details</a></li>          
+            <ul class="new-event steps-nav">
+                  <li><a class="active" href="#guidelines">1. Guidlines</a></li>
+                  <li><a class="" href="#basics">2. Basic Info</a></li>
+                  <li><a class="" href="#event">3. Details</a></li>          
               </ul>
           </div>
 
-        <a class="btn btn-large btn-purple " style="float:right;margin:5px 5px" href="#">Publish</a>
-        <a class="btn btn-large btn-green" style="float:right;margin:5px 5px" href="#"> Save </a>
-        <a class="btn btn-large btn-orange " style="float:right;margin:5px 5px" href="#"><i class="icon icon-trash icon-white"></i></a>
+        <a class="btn btn-large btn-purple " style="float:right;margin:5px 5px" >Publish</a>
+        <a class="btn btn-large btn-green btn-event-save" style="float:right;margin:5px 5px" > Save </a>
+        <a class="btn btn-large btn-orange " style="float:right;margin:5px 5px" ><i class="icon icon-trash icon-white"></i></a>
     </div>
 </div>
 
 <div id="wrapper">
-  <div id="car" class="carousel slide" style="padding:0; height:0px;margin-top:80px">
+  <div id="carousel-edit" class="carousel slide" style="padding:0; height:0px;margin-top:80px">
     <div class="carousel-inner">
-      <div class="item edit_guidelines" style="color:black">
+      <div class="item car-guidelines edit_guidelines" style="color:black">
         <%= render( partial: "edit_guidelines", locals: { edit_mode: true }, formats: [:html])  %>
       </div>
-      <div class="active item edit_basic">
+      <div class="item car-basics edit_basic">
   			<%= render( partial: 'edit_basic', locals: { event: @event }, formats: [:html]) %>
       </div>
-      <div class="item event_show" style="color:black">
+      <div class="item car-event event_show" style="color:black">
   			 <%= render( partial: "show", locals: { event: @event, edit_mode: true }, formats: [:html]) %>
       </div>
     </div>
