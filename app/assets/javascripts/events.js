@@ -1,35 +1,80 @@
+var steps = ['guidelines', 'basics', 'event'];
+//   'guidelines' : 0,
+//   'basics' : 1,
+//   'event' : 2
+// }
+var navigateStep = function(increment){
+    var nextStep = ($.inArray(window.location.hash.substring(1), steps) + increment) % steps.length
+    $(".steps-nav li a.active").removeClass("active");
+    $(this).addClass("active");
+    $('#carousel-edit').carousel(step);
+}
 
+
+var navigateInit = function(){
+  if( $.inArray(window.location.hash.substring(1), steps) < 0 ){
+    window.location.hash = steps[1];
+  }
+    
+  $('#carousel-edit .car-' + window.location.hash.substring(1) ).addClass("active");
+  $('#carousel-edit').carousel({
+    interval: false
+  });
+  $(".steps-nav li a.active").removeClass("active");
+  $(".steps-nav li a[href='" + window.location.hash + "']").addClass("active");
+}
 
 $(document).ready(function() {
 
-  fparams = $.url().fparam();
-  if (fparams.evid) {
-    currentEventId = fparams.evid;
-  }
-  if (fparams.action && currentEventId) {
-    $.getJSON("/events/" + currentEventId + "/" + fparams.action, function(response) {
-      updateWorkspace(response);
-    });
-  }
+  // fparams = $.url().fparam();
+  // if (fparams.evid) {
+  //   currentEventId = fparams.evid;
+  // }
+  // if (fparams.action && currentEventId) {
+  //   $.getJSON("/events/" + currentEventId + "/" + fparams.action, function(response) {
+  //     updateWorkspace(response);
+  //   });
+  // }
 
-  $("#save").live("click", function() {
-    alert("l-am oprit");
-    $.post("/events", $("#new_event").serialize(), function(data) {
-      alert(data);
-    });
+  updateWorkspace();
+  navigateInit();
+
+  $(".btn-event-save").live("click", function() {
+    $(".form-events").submit();
+  });
+
+  $(".steps-nav li a").click(function() {
+    var step = $.inArray(this.hash.substring(1), steps);
+    $(".steps-nav li a.active").removeClass("active");
+    $(this).addClass("active");
+    $('#carousel-edit').carousel(step);
   });
 
   $(".form-events").live("submit", function(event) {
-    var data, url;
-    if ($(".form-events").attr("id") !== "new_event") {
+    if ($(this).attr("id") !== "new_event") {
       url = $(this).attr("action");
       data = $(this).serialize();
       $.post(url, data, function(response) {
         updateWorkspace(response);
       }, "json");
+    
       return false;
     }
   });
+
+  // var submitForm = function(formEvents){
+  //   var data, url;
+  //   if (formEvents == null){
+  //     formEvents = $(".form-events");
+  //   }
+  //   if ($(".form-events").attr("id") !== "new_event") {
+  //     url = $(formEvents).attr("action");
+  //     data = $(formEvents).serialize();
+  //     $.post(url, data, function(response) {
+  //       updateWorkspace(response);
+  //     }, "json");
+  //   }
+  // }
 
   $(".btn-volunteers").live("click", function() {
     var data, url;
@@ -85,9 +130,6 @@ $(document).ready(function() {
     });
     $(window).scroll();
   }
-  $('.carousel').carousel({
-    interval: false
-  });
 
    updateWorkspace();
 });
