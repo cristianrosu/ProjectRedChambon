@@ -5,6 +5,7 @@
 //body{margin-top:-60px;} //compensate for the space the navbar replaces on large screens
 /* Landscape phones and down */
 
+
 /*nush daca se foloseste*/
 .wrapper-explore{
   margin:0 60px;
@@ -230,6 +231,35 @@ border-top: solid 2px #222;
 .aside div.chart{
 	padding: 0;
 	height:210px;
+}
+
+.bubble-details{
+	position:absolute;
+	top:23px;margin-left:23px;
+
+	height:40px;width:40px;
+	background-size: cover;                  							
+	background-image: url("/assets/details.png");
+	background-position: center center;
+}
+
+.bubble-sponsors{
+	position:absolute;
+	top:21px;margin-left:21px;
+	height:44px;width:44px;
+	background-size: cover;                  							
+	background-image: url("/assets/sponsors.png");
+	background-position: center center;
+}
+
+.bubble-people{
+	position:absolute;
+	top:21px;margin-left:21px;
+	height:44px;width:44px;
+	background-size: cover;                  							
+	background-image: url("/assets/people.png");
+	background-position: center center;
+	background-repeat:no-repeat;
 }
 
 .presenter {

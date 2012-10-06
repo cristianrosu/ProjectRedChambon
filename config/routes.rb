@@ -9,6 +9,7 @@ ProjectRedChambon::Application.routes.draw do
  post "events/:id/save_block" => "events#save_block"
  post "events/:id/save_block_order" => "events#save_block_order"
  post "events/:id/create_block" => "events#create_block"
+ get  "events/:id/edit_step2" => "events#edit_step2"
  post "admin/volunteers" => "admin#volunteers"
 
  get "admin/event/:id/edit" => "events#edit"

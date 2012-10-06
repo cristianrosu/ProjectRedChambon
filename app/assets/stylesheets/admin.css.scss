@@ -189,8 +189,9 @@ div.element-toolbar {
 	min-height: 30px;
 	position: absolute;
 	z-index: 7;
-    margin: 0 0 0 715px;
-	
+    margin:0 0 0 -120px;
+
+
 	padding: 4px;
 	background: rgba(176, 176, 176, 0.75) !important;
 	background-color: #c4c4c4;
@@ -207,7 +208,7 @@ div.element-toolbar:before {
        display: block;
        position: absolute;
        top: 10px;
-       left: -9px;
+       right: -9px;
   }
 
 div.element-toolbar ul, ul.sortable li.text div.element-toolbar ul {
@@ -411,7 +412,7 @@ div.element-add_mini {
 	height: 26px;
 	position: absolute;
 	z-index: 7;
-	margin: 0 0 0 10px;
+	margin: 0 0 0 -32px;
 	background: url(/assets/add_content-mini.png) no-repeat 0 0;
 	text-indent: -9999px;
 	cursor: pointer;
@@ -431,7 +432,7 @@ div.element-position {
 	height: 44px;
 	position: absolute;
 	z-index: 7;
-	margin: 30px 0 0 -30px;
+	margin: 30px 0 0 -32px;
 }
 	/* Header Layering Fix */
 	li.header div.element-edit,
@@ -450,7 +451,6 @@ div.element-position {
 		position: relative;
 		z-index: 2;
 		padding: 0;
-		/*margin: 0 49px;  --edit: se microseara divu de edit cu asta*/
 	}
 
 	/* Header Layering Fix */
@@ -475,19 +475,7 @@ div.element-position {
 	}
 
 
-/*_______ Element: Add Mini _______ */
 
-div.element-add_mini {
-	display: block;
-	width: 26px;
-	height: 26px;
-	position: absolute;
-	z-index: 7;
-	margin: 0 0 0 -30px;
-	background: url(/assets/add_content-mini.png) no-repeat 0 0;
-	text-indent: -9999px;
-	cursor: pointer;
-}
 .dropdown-menu:after {
   position: absolute;
   top: -6px;
@@ -509,8 +497,8 @@ ul.sortable li.add_content-bar {
 	margin: 12px 0 0 -1px;
 	position: relative;
 	z-index: 0;
-	width: 698px;
-	padding: 22px 1px;
+	width: 100%; /*698px*/
+	padding: 20px 1px;
 	background: #333333 url(../assets/bg-my_tackks.png) repeat;
 	-webkit-box-shadow: inset 0px 1px 12px 1px rgba(0, 0, 0, 0.5);
 	box-shadow: inset 0px 1px 12px 1px rgba(0, 0, 0, 0.5);
@@ -518,9 +506,8 @@ ul.sortable li.add_content-bar {
 
 	ul.sortable li.last-bar {
 		display: block;
-		min-height: 27px;
+		min-height:27px;
 		margin-top: 25px;
-		margin-bottom: -56px;
 		cursor: auto;
 	}
 	

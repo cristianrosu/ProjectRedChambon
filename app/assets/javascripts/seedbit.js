@@ -27,6 +27,97 @@ toggles['column']	= 	[ 'column-one', 'column-two' ];
 toggles['style']	= 	[ 'style-bullet', 'style-number' ];
 
 
+function initializeText( id ) {
+
+	var $element		= $( '#'+id ),
+		$eleBody		= $('#'+id+'-body'),
+		$eleEditable	= $('#'+id+' .redactor_editor');
+
+	$eleBody.redactor({
+		toolbar: false,
+		resize: false,
+		removeStyles: true,
+		removeClasses: true,
+		observeImages: false,
+		shortcuts: false,
+		allowedTags: ['a','b','i','strong','em','p','u','br'],
+		keyupCallback: function( obj, event ) {
+			if( event.keyCode != 9 && event.keyCode != 16 ){
+				typewatch(function() {
+					saveRedactor( id, 'text' );
+				}, 1000);
+			}
+		}
+	});
+	
+	var $editor	= $eleBody.getEditor();
+	
+	$editor.addClass( $eleBody.attr('class') );
+	
+	$('#'+id+' .element-toolbar').containedStickyScroll({ duration: 100, container: $('#'+id) });
+	
+	// On Focus / Blur for redactor:
+	$editor.unbind('focus blur')
+		.bind('focus',function(e){
+			$element.addClass('onfocus-editing');
+			if( $element.hasClass('defaultState') ) { $element.removeClass('defaultState').addClass('unsaved'); }
+		})
+		.bind('blur',function(e){
+			$element.removeClass('onfocus-editing focused');
+			if( $element.hasClass('unsaved') ) { $element.addClass('defaultState'); }
+		})
+		.bind("click",function(e){
+			if( $element.hasClass('unsaved') || $element.hasClass('defaultState') ){
+				if( !$element.hasClass("focused") ) {
+					selectAllText( this );
+				}
+				$element.addClass("focused");
+			}
+		})
+		.bind("keydown",function(e){
+			// dont acknowledge tab:
+			if( e.keyCode == 9 ) { return; }
+
+			if( e.keyCode==66 && (e.metaKey || e.ctrlKey) ) {
+				// Bold:
+				$eleBody.execCommand('bold');
+			}
+			if( e.keyCode==73 && (e.metaKey || e.ctrlKey) ) {
+				// Italic:
+				$eleBody.execCommand('italic');
+			}
+			if( e.keyCode==85 && (e.metaKey || e.ctrlKey) ) {
+				// Italic:
+				$eleBody.execCommand('underline');
+			}
+		})
+		.bind("keyup",function(e){
+			// does code need to be cleaned?
+			// trying to fight against code outside of a tag:
+			var code 	= $eleBody.getCode(),
+				tag		= 'p',
+				clean	= null;
+				
+			// Browser will place caret at front...
+			if( e.keyCode == 9 ) {
+				if( $element.hasClass('unsaved') || $element.hasClass('defaultState') )
+					selectAllText( this );
+				else
+					moveCaretToEnd( this );
+			}
+				
+			// clean the html:
+			clean = cleaner( tag, code );
+			if( clean !== null ){
+				$eleBody.setCode( clean );
+				moveCaretToEnd( this );
+				$eleBody.syncCode();
+			}
+
+		});
+	
+}
+
 
 function initializeHeader (id){
 	var $element		= $( '#'+id ),

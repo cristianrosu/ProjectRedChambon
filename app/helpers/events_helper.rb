@@ -4,9 +4,9 @@ module EventsHelper
 		t = ""
 		case block.type_id
 		  when 1  #header
-		  	t = "#{block.content}"
+		  	t = "<h2>#{block.content}</h2>"
 		  when 2  #text
-		  	t = "#{block.content}"
+		  	t = "<p>#{block.content}</p>"
 		  when 3
 	  end	
 	 	return t.html_safe
@@ -86,6 +86,27 @@ module EventsHelper
 		return class_text.html_safe
 	end
 
+	def events_as_json(events)
+	  events.collect do |event|
+	    {
+	      geometry: {
+	      		type: "Point",
+	      		coordinates: [event.longitude, event.latitude]
+	      	},
+	      properties: {
+	      		id: event.id,
+	      		title: event.title,
+	      		description: event.description,
+	      		industry: get_industry_name(event.industry),
+	      		location: event.location,
+	      		rating: event.rating,
+	      		date_start: event.date_start,
+	      		image: event.image_url().to_s
+	      }
+	    }
+	  	end.to_json.html_safe
+    end
+        
 	private
 	def get_name(property, default_value)
 		if property.nil? || property.name.nil? || property.name.blank?
@@ -112,3 +133,11 @@ module EventsHelper
 	end
 
 end
+# "geometry": { "type": "Point", "coordinates": [-77.03, 38.90]},
+#           "properties": {
+#               "marker-color": "#000",
+#               "marker-symbol": "star-stroked",
+#               "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/DCmontage4.jpg/250px-DCmontage4.jpg",
+#               "url": "http://en.wikipedia.org/wiki/Washington,_D.C.",
+#               "city": "Washington, D.C.",
+#               "category": "awesome"

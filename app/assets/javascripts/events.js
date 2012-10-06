@@ -110,5 +110,18 @@ var updateWorkspace = function(response) {
   
   //initialize wyswig
   initializeEvent();
+
+
+  // Charts
+  // dead simple donut charts
+  // Morris.Donut({
+  //   element: 'pipali',
+  //   data: [
+  //     {label: "Download Sales", value: 12},
+  //     {label: "In-Store Sales", value: 30},
+  //     {label: "Mail-Order Sales", value: 20}
+  //   ]
+  // });
+
 };
 

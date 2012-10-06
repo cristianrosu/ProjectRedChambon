@@ -1,28 +1,38 @@
 <article id="sct<%= event_section.id %>" class="post update" style="margin-bottom:100px;padding-bottom:50px;">
 	<section>
 <!-- 						<img src="../cache/images/3c29e05f2779aaa0a01d0510115f9b34_normal_2x.png" width="280" height="304" alt="Ordering a taxi without making a call" class="fs-img"> -->
-		<header>
-			<h2><%= event_section.name %> </h2>
-		</header>
 		<aside>
-			<time>Details</time>
+			<time style="background:#0099b5;">
+					
+					 <div class="bubble-details">
+								<h2 style="float:left;margin:0 80px;"> Sponsors </h2>
+					</div>
+			</time>
 			<!-- <div class="icon update">
 				<span class="post-type">update</span>
 				<span class="roundcircle"></span>
 				<img src="../images/icon-timeline-update.png" alt=""/>
 			</div> -->
 		</aside>
-		<div class="article-content">
-			<%= "edit mode: #{edit_mode}" %>
+		<div class="article-content" style="overflow:visible">
 			<ul class="sortable layout">
+				
+				<li class="element header">
+					<div class=" header-align-left header-size-large ">
+						<h1>
+							<%= event_section.name %>
+						</h1>
+
+					</div>
+				</li>
 	      <% event_section.blocks.each do |block| %>
 	      	<%= render partial: "event_block.html", locals: { block: block, edit_mode: edit_mode } %>
 	      <% end %>
 	      <% if edit_mode %>
 	      	<%= render "event_block_add_toolbar.html"%>
 	      <% end %>
-      </ul>
-			<!-- <a class="read-more" href="#">See who is coming</a> -->
+      		</ul>
+			 <!-- <a class="read-more" href="#">See who is coming</a>  -->
 		</div>
 	</section>
 	<div class="share-wrap">

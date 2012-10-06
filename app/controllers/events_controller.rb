@@ -13,6 +13,12 @@ class EventsController < ApplicationController
   end
 
   def map
+    @events = Event.all
+    @events.each do |event|
+      event.latitude = Random.rand(180)
+      event.longitude = Random.rand(90)
+      event.save
+    end
 
   end
 
@@ -101,7 +107,7 @@ class EventsController < ApplicationController
           'mata' => 'test',
           'action' => 'edit_step2',
           'eventId' => @event.id,
-          'workspace' => render_to_string(partial: "preview", locals: {event: @event}, formats: [:html])
+          'workspace' => render_to_string( partial: "show", locals: { event: @event, edit_mode: false }, formats: [:html])
         }
       }
     end
