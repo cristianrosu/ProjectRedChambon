@@ -4,7 +4,7 @@
            <img style="width:460px;" src="<%= event.image_url(:thumb).to_s %>">
                 <div class="mask">
                     <h4> <i class="icon icon-tag"></i> <%= get_industry_name(event.industry) %></h4>
-                    <p><%= event.description.to_s %></p> 
+                    <p id="_event_description"> <%= event.description.to_s %></p> 
                      <h4 class="pull-left"><i class="icon icon-map-marker"></i>Cluj Napoca, Ro</h4>
             </div>  
             </img>

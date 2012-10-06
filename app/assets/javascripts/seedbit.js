@@ -265,7 +265,7 @@ function saveElement( id, isNew ) {
 	$('#btn-savenow').html('Save Now').removeClass('justsaved');
 	
 	if( type != '' ) {
-		url = "/event/" + serverId + "/save_block";
+		url = "/events/" + serverId + "/save_block";
 		datas = { 
 				id		: id,
 				type 	: type,
@@ -544,7 +544,7 @@ function saveElementOrder( id, prevOrder, nextOrder ) {
 		var $element		= $( '#'+id );
 		var serverSectionId = $element.closest('article').attr('id').substring(3) || '';
 
-		var url = "/event/" + serverSectionId + "/save_block_order";
+		var url = "/events/" + serverSectionId + "/save_block_order";
 
 		var data = {
 				//sectionId : serverSectionId,
@@ -593,7 +593,7 @@ function initializeAdditor() {
 		var type = $(this).attr( 'data-type' );
 		
 		var sectionId = target.closest('article').attr('id').substring(3) || '';
-		var url = "/event/" + sectionId + "/create_block";
+		var url = "/events/" + sectionId + "/create_block";
 		var datas = { 
 				type : type,
 				sectionId : sectionId 

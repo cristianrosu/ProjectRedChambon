@@ -23,7 +23,7 @@
 		 			<div class="chart" id="pipali">
 		 			</div>
 		 			<div>
-		 				<h1>event.description</h1>
+		 				<h1>asdw</h1>
 		 				<a class="btn btn-large btn-blue btn-block" href="#">Buy ticket</a>
 		 				<a class="btn btn-large btn-green btn-block" href="#">Volunteer</a>
 		 				<a class="btn btn-large btn-orange btn-block" href="#">Sponsor event</a>
@@ -69,7 +69,7 @@
 						    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);">
 
 
-						    <h4><i class="icon icon-tag"></i> Conference/Tech</h4>
+						    <h4><i class="icon icon-tag"></i> <%= get_industry_name(event.industry) %></h4>
 						    <p style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 										font-size: 0.9em;
 										color: #555;
@@ -78,7 +78,7 @@
 										margin-bottom:25px;
 										text-align: left;
 										max-height: 130px;
-										overflow: hidden;"> Hey! I have something going on and need a developer to team up with for a fun project. if you know wordpress, paypal, jquery and care about design and web tr...</p>
+										overflow: hidden;"> <%= event.description.to_s %></p>
 							<h4><i class="icon icon-calendar"></i> 20-22 Sept, 2012</h4>
 							<h4><i class="icon icon-map-marker"></i> Cluj Napoca, Ro</h4>
 						</div>
