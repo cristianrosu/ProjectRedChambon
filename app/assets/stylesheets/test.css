@@ -185,7 +185,7 @@ hr {
 
 .timeline-detail article aside {
     position: absolute;
-    width: 210px;
+    width: 300px; /*210*/
     top: -100px; /* ca sa stea deasupra */
     left: 250px; 
     

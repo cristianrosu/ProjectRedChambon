@@ -5,14 +5,19 @@
 			<h2><%= event_section.name %> </h2>
 		</header>
 		<aside>
-			<time>Details</time>
+			<time style="background:#0099b5;">
+					
+					 <div class="bubble-details">
+								<h2 style="float:left;margin:0 80px;"> Sponsors </h2>
+					</div>
+			</time>
 			<!-- <div class="icon update">
 				<span class="post-type">update</span>
 				<span class="roundcircle"></span>
 				<img src="../images/icon-timeline-update.png" alt=""/>
 			</div> -->
 		</aside>
-		<div class="article-content">
+		<div class="article-content" style="overflow:visible">
 			<%= "edit mode: #{edit_mode}" %>
 			<ul class="sortable layout">
 	      <% event_section.blocks.each do |block| %>
@@ -21,8 +26,8 @@
 	      <% if edit_mode %>
 	      	<%= render "event_block_add_toolbar.html"%>
 	      <% end %>
-      </ul>
-			<!-- <a class="read-more" href="#">See who is coming</a> -->
+      		</ul>
+			 <!-- <a class="read-more" href="#">See who is coming</a>  -->
 		</div>
 	</section>
 	<div class="share-wrap">

@@ -1,7 +1,7 @@
-<div class="clearfix" style="z-index:1023;position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.85);padding:20px;">
+<div class="clearfix" style="z-index:1023;position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);padding:5px; border-bottom:1px solid #ccc">
     <div id="wrapper">
 
-        <div class="selector" style="float:left;margin-bottom:0;height:40px;margin-top:5px;">
+        <div class="selector" style="float:left;margin-bottom:0;height:40px;margin-top:8px;">
             <ul class="new-event">
                   <li><a class="active">1. Guidlines</a></li>
                   <li><a>2. Basic Info</a></li>
@@ -11,12 +11,12 @@
 
         <a class="btn btn-large btn-purple " style="float:right;margin:5px 5px" href="#">Publish</a>
         <a class="btn btn-large btn-green" style="float:right;margin:5px 5px" href="#"> Save </a>
-        <a class="btn btn-large btn-orange " style="float:right;margin:5px 5px" href="#"><i class="icon icon-trash icon-white"></i></a>
+        <a class="btn btn" style="float:right;margin:5px 5px" href="#"><i style="color:#ccc" class="icon icon-trash"></i></a>
     </div>
 </div>
 
 <div id="wrapper">
-  <div id="car" class="carousel slide" style="padding:0; height:0px;margin-top:80px">
+  <div id="car" class="carousel slide" style="padding:0; height:0px;margin-top:80px;">
     <div class="carousel-inner">
       <div class="item edit_guidelines" style="color:black">
         <%= render( partial: "edit_guidelines", locals: { edit_mode: true }, formats: [:html])  %>
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-  <!--   <a class="carousel-control left" href="#car" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#car" data-slide="next">&rsaquo;</a> -->
+    <a class="carousel-control left" href="#car" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#car" data-slide="next">&rsaquo;</a>
   </div>
 </div>

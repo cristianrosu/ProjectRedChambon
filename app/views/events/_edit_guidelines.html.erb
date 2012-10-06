@@ -1,10 +1,23 @@
-Guidelines...
+<div class="row">
+	<div class="span7 offset2">
+		<h1>Guidelines<small><br>things you need to know before you get started</small></h1>
+		
+		<!-- <h3>rethert </h3> -->
+		<h2 style="margin-top:40px">1. List your events</h2>
+		<h4 style="margin-left:50px;">A project will eventually be completed, and something will be produced by it. A project is not open-ended. Starting a business, for example, does not qualify as a project.</h4>
+		<h2>2. For Atendees. For Volunteers. For Sponsors.</h2>
+		<h4 style="margin-left:50px;">Examples of prohibited use include raising money for the Red Cross, funding an awareness campaign, funding a scholarship, or promoting the donation of funds raised, or future profits, to a charity or cause.</h4>
 
-sun de acord ca bla bla blah
+<div style="margin-top:40px">
+	<% if !edit_mode %>
 
+		<%= simple_form_for(@event, :html => {:class => 'form-events', :multipart => true}) do |f| %>
+		        <%= f.button :submit, class:"btn btn-large btn-blue pull-right" %>
+		        <a class="btn btn-large btn-orange pull-right" style="margin-right:20px;"> Import from Eventbrite</a>
+		<% end %>
 
-<% if !edit_mode %>
-	<%= simple_form_for(@event, :html => {:class => 'form-events', :multipart => true}) do |f| %>
-	        <%= f.button :submit, class:"btn btn-large btn-blue"%>
 	<% end %>
-<% end %>
+</div>
+
+</div>
+</div>
