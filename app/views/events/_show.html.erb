@@ -4,5 +4,10 @@
     <% event.sections.each do |section| %>
       <%= render partial: "event_section", locals: { event_section: section, edit_mode: edit_mode }, formats: [:html] %>
     <% end %>
+
+    <% if edit_mode %>
+    	<!-- <a class="btn btn-blue btn-large btn-block">Add new section -</a> -->
+    	<%= render partial: "event_section_add" %>
+    <% end %>
   </section>
 </div>
