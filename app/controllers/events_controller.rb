@@ -125,6 +125,17 @@ class EventsController < ApplicationController
 
     @event.sections << @section_basic << @section_details << @section_sponsorships
 
+
+    @block1 = Block.new(type_id: 1, position: 0, details: "{}")
+    @block11 = Block.new(type_id: 2, position: 1, details: "{}")
+    @section_basic.blocks << @block1 << @block11
+    @block2 = Block.new(type_id: 1, position: 0, details: "{}")
+    @block22 = Block.new(type_id: 2, position: 1, details: "{}")
+    @section_details.blocks << @block2 << @block22
+    @block3 = Block.new(type_id: 1, position: 0, details: "{}")
+    @block33 = Block.new(type_id: 2, position: 1, details: "{}")
+    @section_sponsorships.blocks << @block3 << @block33
+
     respond_to do |format|
       if @event.save
       #   format.html { render partial: "test" } #{ redirect_to @event, notice: 'Event was successfully created.' }
