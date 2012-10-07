@@ -450,7 +450,24 @@ border-top: solid 2px #222;
 		position: relative;top:0;left:115px;
 	}
 
-	.preview_element {}
-
 /*pana aici event header*/
+
+
+/*badge sponsors*/
+
+.badge-sponsor{
+
+		padding: 10px;
+	max-width:260px;
+	border:1px solid #f0f0f0;
+	background:#f9f9f9;
+	
+}
+
+.badge-sponsor:hover{
+
+		border:1px dashed #ccc;
+	
+}
+
 
