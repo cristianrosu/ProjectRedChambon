@@ -497,9 +497,9 @@ ul.sortable li.add_content-bar {
 	margin: 12px 0 0 -1px;
 	position: relative;
 	z-index: 0;
-	width: 100%; /*698px*/
+	width: 100%;
 	padding: 20px 1px;
-	background: #333333 url(../assets/bg-my_tackks.png) repeat;
+	background: #333333;
 	-webkit-box-shadow: inset 0px 1px 12px 1px rgba(0, 0, 0, 0.5);
 	box-shadow: inset 0px 1px 12px 1px rgba(0, 0, 0, 0.5);
 }
@@ -511,18 +511,13 @@ ul.sortable li.add_content-bar {
 		cursor: auto;
 	}
 	
-	/* 
-	#my_tackk:hover ul.sortable li.last-bar {
-		display: block;
-	}
-	*/
-	
 	ul.sortable li.last-bar:before {
        content: url("../assets/last-bar_carrot.png");
        display: block;
        position: absolute;
-       top: -13px;
-       left: 338px;
+       top: -11px;
+       left: 50%;
+       margin-left: -12px;
 	}
 		.ie8 ul.sortable li.last-bar:before {
 	       content: url("../assets/last-bar_carrot-ie.png");
@@ -553,16 +548,15 @@ ul.sortable li.add_content-bar {
 		height: 26px;
 		text-indent: -9999px;
 		background: url("../assets/add_more_stuff.png") no-repeat;
-	    margin: 0 auto;
 	    position: absolute;
-	    left: 255px;
+	    left: 50%;
+	    margin-left:-94px;
 	    z-index: -1;
 	}
 
 
 ul.sortable li.add_content-bar ul {
 	display: block;
-	/* width: 639px; */
 	width: 546px;
 	height: 63px;
 	padding: 0 0 0 16px;
@@ -580,7 +574,7 @@ ul.sortable li.add_content-bar li {
 	margin: 0 14px 0 0;
 	text-align: center;
 	text-indent: -9999px;
-	background: transparent url(../assets/add_content-icons_v2.png) no-repeat;
+	background: transparent url(../assets/add_content-icons.png) no-repeat;
 	cursor: pointer;
 }
 

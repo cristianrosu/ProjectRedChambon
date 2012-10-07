@@ -29,4 +29,8 @@ class AdminController < ApplicationController
     render json: { 'workspace' => render_to_string(partial: "volunteers.html")}
   end
 
+   def sponsors
+    render json: { 'workspace' => render_to_string(partial: "sponsors.html")}
+  end
+
 end

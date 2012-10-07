@@ -1,15 +1,13 @@
-<!--   <div class="span" style="position:absolute;display:block;width:210px;height:600px;background:white;padding:15px;">
-      ggerer < % = "edit mode: #{edit_mode}" %>
-  </div>  -->
- <%= render partial: "header_event", locals: { event: event }, formats: [:html] %>
+<%= render partial: "header_event", locals: { event: event }, formats: [:html] %>
 <div id="wrapper"> 
-  <section class="timeline-detail">
+  <section id="event-content" data-event-id="<%= event.id %>" class="timeline-detail">
     <% event.sections.each do |section| %>
       <%= render partial: "event_section", locals: { event_section: section, edit_mode: edit_mode }, formats: [:html] %>
     <% end %>
+
+    <% if edit_mode %>
+    	<!-- <a class="btn btn-blue btn-large btn-block">Add new section -</a> -->
+    	<%= render partial: "event_section_add" %>
+    <% end %>
   </section>
-
 </div>
-
-
-

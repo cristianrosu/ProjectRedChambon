@@ -4,7 +4,7 @@
            <img style="width:460px;" src="<%= event.image_url(:thumb).to_s %>">
                 <div class="mask">
                     <h4> <i class="icon icon-tag"></i> <%= get_industry_name(event.industry) %></h4>
-                    <p><%= event.description.to_s %></p> 
+                    <p id="_event_description"> <%= event.description.to_s %></p> 
                      <h4 class="pull-left"><i class="icon icon-map-marker"></i>Cluj Napoca, Ro</h4>
             </div>  
             </img>
@@ -18,8 +18,6 @@
     		<div class="caption">
     			<h2 id="_event_title"><%= event.title.to_s %></h2>
                 <h3 class="pull-right"><i class="icon icon-calendar"></i>20-22 <small>Sep, 2012</small></h3>
-               <!--  <h3 class="pull-left"><small><i class="icon icon-map-marker"></i>Cluj Napoca, Ro</small></h3> -->
-
     		</div>	 
     </div>
     <div class="thumbnail-info">

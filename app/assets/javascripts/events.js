@@ -1,8 +1,4 @@
 var steps = ['guidelines', 'basics', 'event'];
-//   'guidelines' : 0,
-//   'basics' : 1,
-//   'event' : 2
-// }
 var navigateStep = function(increment){
     var nextStep = ($.inArray(window.location.hash.substring(1), steps) + increment) % steps.length
     $(".steps-nav li a.active").removeClass("active");
@@ -10,38 +6,20 @@ var navigateStep = function(increment){
     $('#carousel-edit').carousel(step);
 }
 
-
+//initialize carousel, update URL hash and set active link
 var navigateInit = function(){
   if( $.inArray(window.location.hash.substring(1), steps) < 0 ){
     window.location.hash = steps[1];
   }
     
   $('#carousel-edit .car-' + window.location.hash.substring(1) ).addClass("active");
+
   $('#carousel-edit').carousel({
     interval: false
   });
+
   $(".steps-nav li a.active").removeClass("active");
   $(".steps-nav li a[href='" + window.location.hash + "']").addClass("active");
-}
-
-$(document).ready(function() {
-
-  // fparams = $.url().fparam();
-  // if (fparams.evid) {
-  //   currentEventId = fparams.evid;
-  // }
-  // if (fparams.action && currentEventId) {
-  //   $.getJSON("/events/" + currentEventId + "/" + fparams.action, function(response) {
-  //     updateWorkspace(response);
-  //   });
-  // }
-
-  updateWorkspace();
-  navigateInit();
-
-  $(".btn-event-save").live("click", function() {
-    $(".form-events").submit();
-  });
 
   $(".steps-nav li a").click(function() {
     var step = $.inArray(this.hash.substring(1), steps);
@@ -49,70 +27,12 @@ $(document).ready(function() {
     $(this).addClass("active");
     $('#carousel-edit').carousel(step);
   });
+}
 
-  $(".form-events").live("submit", function(event) {
-    if ($(this).attr("id") !== "new_event") {
-      url = $(this).attr("action");
-      data = $(this).serialize();
-      $.post(url, data, function(response) {
-        updateWorkspace(response);
-      }, "json");
-    
-      return false;
-    }
-  });
+$(document).ready(function() {
 
-  // var submitForm = function(formEvents){
-  //   var data, url;
-  //   if (formEvents == null){
-  //     formEvents = $(".form-events");
-  //   }
-  //   if ($(".form-events").attr("id") !== "new_event") {
-  //     url = $(formEvents).attr("action");
-  //     data = $(formEvents).serialize();
-  //     $.post(url, data, function(response) {
-  //       updateWorkspace(response);
-  //     }, "json");
-  //   }
-  // }
-
-  $(".btn-volunteers").live("click", function() {
-    var data, url;
-    url = "/admin/volunteers";
-    data = {
-      type: "all"
-    };
-    $.post(url, data, function(response) {
-      updateWorkspace(response);
-    });
-    return false;
-  });
-
-  $(".new_event").live("click", function() {
-    $.getJSON("/events/new", function(response) {
-      updateWorkspace(response);
-    });
-  });
-
-  $(".edit_event").live("click", function() {
-    if (currentEventId) {
-      $.getJSON("/events/" + currentEventId + "/edit_step2", function(response) {
-        updateWorkspace(response);
-      });
-    } else {
-      $.getJSON("/events/new", function(response) {
-        updateWorkspace(response);
-      });
-    }
-  });
-
-  $("#event_title").live("keyup change", function() {
-    $("#_event_title").html(this.value);
-  });
-  $(".home_admin").click(function() {
-    $.getScript("/admin/index");
-  });
- 
+  updateWorkspace();
+  navigateInit();
 
   if ($('.pagination').length) {
     $('.pagination').hide();
@@ -130,12 +50,19 @@ $(document).ready(function() {
     });
     $(window).scroll();
   }
-
-   updateWorkspace();
 });
+
+var resetModal = function(modalPopup){
+  $("input", modalPopup).val("");
+  $(".selected", modalPopup).removeClass("selected");
+  $(".disabled", modalPopup).removeClass("disabled");
+  $(".btn-save_section").html("Save");
+}
 
 var updateWorkspace = function(response) {
   
+  //for each property of 'response' search for a div with that name 
+  // and update it's contents
   for(var divClass in response){
     var divObj = $("." + divClass);
     if ( divObj.exists() ){
@@ -143,16 +70,69 @@ var updateWorkspace = function(response) {
     }
   } 
 
-  //$("#workspace").html(response.workspace);
-  /*
-  	if (response.action)
-  		action = response.action
-  		window.location.hash += "action="+action
-  	if (response.eventId)
-  		@currentEventId = response.eventId
-  		window.location.hash += "&evid="+currentEventId
-  */
+  //prevent form to submit normally, send and update page using ajax
+  $(".form-events").unbind("submit")
+    .bind("submit", function(event) {
+      if ($(this).attr("id") !== "new_event") {
+        url = $(this).attr("action");
+        data = $(this).serialize();
+        $.post(url, data, function(response) {
+          updateWorkspace(response);
+        }, "json");
+      
+        return false;
+      }
+  });
 
+  //event handlers
+  $("#event_title").unbind("keyup change")
+    .bind("keyup change", function() {
+      $("#_event_title").html(this.value);
+  });
+
+  $("#event_description").unbind("keyup change")
+    .bind("keyup change", function() {
+      $("#_event_description").html(this.value);
+  });
+
+  $(".btn-event-save").unbind("click")
+    .bind("click", function() {
+      $(".form-events").submit();
+  });
+
+  $(".btn-save_section").unbind("click")
+    .bind("click", function() {
+      var modalPopup = $("#new_section_modal"),
+        form = $("#new_section", modalPopup),
+        url = "/events/create_section",
+        button = this;
+
+      var data = {
+        section : {
+          name      : $("#section_name", form).val(),
+          type_id   : $(".markerfilter .selected", form).data("type"),
+          position  : $("#event-content > article[id]").index() + 1,
+          event_id  : $("#event-content").attr("data-event-id")
+        }
+      };
+
+      $(button).html("Saving...").addClass("disabled");
+
+      $.post(url, data, function(response) {
+          $(modalPopup).modal('hide');
+          resetModal();
+
+          updateWorkspace(response);
+      }, "json");
+  });
+
+  $("#new_section .markerfilter").unbind("click")
+    .bind("click", function() {
+      $(this).siblings(".selected").removeClass("selected");
+      $(this).addClass("selected");
+  });
+
+  //initialize fileuploader and date fields
   $("#event_image").fileupload({
     dataType: 'json',
     done: function(e, data) {
@@ -166,10 +146,11 @@ var updateWorkspace = function(response) {
     dateFormat: 'yy-mm-dd'
   });
   
+  //initialize wyswig
   initializeEvent();
 
 
-      // Charts
+  // Charts
   // dead simple donut charts
   // Morris.Donut({
   //   element: 'pipali',
@@ -181,6 +162,4 @@ var updateWorkspace = function(response) {
   // });
 
 };
-
-
 
