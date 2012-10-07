@@ -211,6 +211,23 @@ class EventsController < ApplicationController
     end
   end
 
+  def create_section
+    @section = Section.new(params[:section])
+    if @section.save
+
+      @event = Event.find(@section.event_id, :include => [{:sections => :blocks}, :sections])
+      @event.sections.each do |section|
+        section.blocks.each do |block|
+          block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+        end
+      end
+      render json: { 'event_show' => render_to_string( partial: "show", locals: { event: @event, edit_mode: true }, formats: [:html]) }
+
+    else
+      render text: "error"
+    end
+  end
+
   def save_block
     @block = Block.find(params[:id])
     @block.update_attributes({

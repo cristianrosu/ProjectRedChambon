@@ -5,21 +5,12 @@
 			<time style="background:#0099b5;">
 					
 					 <div class="bubble-details">
-								<h2 style="float:left;margin:0 80px;"> Sponsors </h2>
+								<h2 style="float:left;margin:0 80px;"> <%= event_section.name %> </h2>
 					</div>
 			</time>
 		</aside>
 		<div class="article-content" style="overflow:visible">
 			<ul class="sortable layout">
-				
-				<li class="element header">
-					<div class=" header-align-left header-size-large ">
-						<h1>
-							<%= event_section.name %>
-						</h1>
-
-					</div>
-				</li>
 	      <% event_section.blocks.each do |block| %>
 	      	<%= render partial: "event_block.html", locals: { block: block, edit_mode: edit_mode } %>
 	      <% end %>
