@@ -5,6 +5,13 @@
 //body{margin-top:-60px;} //compensate for the space the navbar replaces on large screens
 /* Landscape phones and down */
 
+.marker-popup{
+	background: #f00;
+}
+
+.ppp{
+	background: #f00;
+}
 
 /*nush daca se foloseste*/
 .wrapper-explore{
@@ -258,6 +265,26 @@ border-top: solid 2px #222;
 	height:44px;width:44px;
 	background-size: cover;                  							
 	background-image: url("/assets/people.png");
+	background-position: center center;
+	background-repeat:no-repeat;
+}
+
+.bubble-new-section{
+	position:absolute;
+	top:22px;margin-left:32px;
+	height:44px;width:35px;
+	background-size: cover;                  							
+	background-image: url("/assets/new_section.png");
+	background-position: center center;
+	background-repeat:no-repeat;
+}
+
+.bubble-comments{
+	position:absolute;
+	top:27px;margin-left:24px;
+	height:35px;width:40px;
+	background-size: cover;                  							
+	background-image: url("/assets/comments.png");
 	background-position: center center;
 	background-repeat:no-repeat;
 }

@@ -1,65 +1,13 @@
-<!--   <div class="span" style="position:absolute;display:block;width:210px;height:600px;background:white;padding:15px;">
-      ggerer < % = "edit mode: #{edit_mode}" %>
-  </div>  -->
- <%= render partial: "header_event", locals: { event: event }, formats: [:html] %>
+<%= render partial: "header_event", locals: { event: event }, formats: [:html] %>
 <div id="wrapper"> 
   <section class="timeline-detail">
     <% event.sections.each do |section| %>
       <%= render partial: "event_section", locals: { event_section: section, edit_mode: edit_mode }, formats: [:html] %>
     <% end %>
+
+    <% if edit_mode %>
+    	<!-- <a class="btn btn-blue btn-large btn-block">Add new section -</a> -->
+    	<%= render partial: "event_section_add" %>
+    <% end %>
   </section>
 </div>
-
-
-
-
-<h1>  De aici trebuie lucrat </h1>
-<p id="notice"><%= notice %></p>
-
-<%= image_tag event.image_url.to_s %>
-
-<p>
-  <b>Title:</b>
-  <%= event.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= event.description %>
-</p>
-
-<p>
-  <b>Date start:</b>
-  <%= event.date_start %>
-</p>
-
-<p>
-  <b>Date end:</b>
-  <%= event.date_end %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= event.location %>
-</p>
-
-<p>
-  <b>Rating:</b>
-  <%= event.rating %>
-</p>
-
-<p>
-  <b>Industry:</b>
-<!-- %= event.industry.name % -->
-</p>
-
-<p>
-  <b>User:</b>
-  <%= event.user_id %>
-</p>
-
-
-
-
-<%= link_to 'Edit', edit_event_path(event) %> |
-<%= link_to 'Back', events_path %>

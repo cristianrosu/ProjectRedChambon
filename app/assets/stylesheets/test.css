@@ -1,3 +1,6 @@
+/*test.css
+
+*/
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, section {
     display: block;
 }
@@ -55,36 +58,9 @@ hr {
 /*    *background: url("bg-double-line.png") repeat-x center bottom;*/
 }
 
-.read-more, .link-button {
-    float: left;
-    display: block;
-    padding: 5px 14px;
-    color: #fff;
-    font-weight: 300;
-    background: #0099b5;
-}
-.read-more:hover, .link-button:hover {
-    color: #fff;
-    padding: 7px 14px;
-    margin: -2px 0;
-    background: #09889f;
-}
-.read-more.share, .link-button.share {
-    padding: 15px 20px 15px 60px;
-    font-size: 1.8em;
-    background: url(../images/share-icon.png) #0099b5 15px center no-repeat;
-}
-
-.read-more.share:hover, .link-button.share:hover {
-    padding: 15px 20px 15px 60px;
-    margin: 0;
-}
 
 @media only screen and (-webkit-device-pixel-ratio: 2) {
-        .read-more.share, .link-button.share {
-        background: url(../images/share-icon_2x.png) #0099b5 15px center no-repeat;
-        background-size: 36px 31px;
-    }
+
 }
 
 
@@ -109,22 +85,6 @@ hr {
     left: 0px;
     font-size: 1.4em;
     text-align: center;
-}
-
-.timeline-detail .link-button.share {
-    padding: 10px 10px 10px 38px;
-    background: url('share-icon-timeline.png') 10px center no-repeat #0099b5;
-}
-
-@media only screen and (-webkit-device-pixel-ratio: 2) {
-      .timeline-detail .link-button.share {
-    background: url('share-icon-timeline_2x.png') 10px center no-repeat #0099b5;
-    background-size: 19px 16px;
-}
-
-}
-.timeline-detail .link-button.share:hover {
-    padding: 10px 10px 10px 36px;
 }
 
 
@@ -285,10 +245,7 @@ hr {
 .timeline-detail article.update section .article-content p a:hover, .timeline-detail article.event section .article-content p a:hover, .timeline-detail article.milestone section .article-content p a:hover {
     text-decoration: underline;
 }
-.timeline-detail article.update section .article-content .read-more, .timeline-detail article.event section .article-content .read-more, .timeline-detail article.milestone section .article-content .read-more {
-    float: none;
-    display: inline-block;
-}
+
 
 .timeline-detail article.update header h2, .timeline-detail article.news header h2 {
     font-size: 3.6em;
@@ -582,60 +539,6 @@ p.message.error {
     padding: 0 10px;
 }
 
-#wrapper section#main #one .twocols-box {
-    margin-bottom: 30px;
-}
-#wrapper section#main #one .twocols-box .footer-text h2, #wrapper section#main #one .twocols-box .expert h2 {
-    font-size: 2.546em;
-}
-#wrapper section#main #one .twocols-box .expert {
-    text-align: center;
-}
-#wrapper section#main #one .twocols-box .expert img {
-    float: none;
-}
-#wrapper section#main #one .twocols-box .expert .expert-info {
-    width: 95%}
-#wrapper section#main #one .twocols-box .read-more {
-    display: inline-block;
-    float: none;
-}
-#wrapper section#main #two {
-    margin: 0 0 25px 0 !important;
-}
-#wrapper section#main #three {
-    margin: 25px 0 0 0;
-}
-#wrapper section#main #three article.block {
-    padding: 4%;
-    width: 92%;
-    float: none;
-    margin: 0 0 25px 0;
-    min-height: 150px;
-}
-#wrapper section#main #three article.block h3 {
-    font-weight: 500;
-    font-size: 2em;
-    margin: 0 0 20px 0;
-}
-#wrapper section#main #three article.block p {
-    line-height: 1.5em;
-    margin: 0 0 25px 0;
-}
-#wrapper section#main #three article.block ul li {
-    margin: 0 0 15px 0;
-    min-height: 36px;
-}
-#wrapper section#main #three article.block ul li a {
-    font-size: 1em;
-    line-height: 1.9em;
-    font-weight: 100;
-}
-#wrapper section#main #three article.block ul.events li {
-    padding: 0 0 0 40px;
-    line-height: 36px;
-}
-
 }
 @media screen and (max-width: 660px) {
         #wrapper {
@@ -652,55 +555,52 @@ p.message.error {
 }
 
 @media screen and (max-width: 470px) {
-    .share-box {
-    display: none;
-}
 
-#wrapper {
-    font-size: 0.8em;
-    overflow: hidden;
-}
+    #wrapper {
+        font-size: 0.8em;
+        overflow: hidden;
+    }
 
-.timeline-detail {
-    margin-top: -45px;
-}
-.timeline-detail article {
-    padding-top: 100px;
-}
+    .timeline-detail {
+        margin-top: -45px;
+    }
+    .timeline-detail article {
+        padding-top: 100px;
+    }
 
 
-.timeline-detail article.news section, .timeline-detail article.update section, .timeline-detail article.case section {
-    padding: 20px;
-}
-.timeline-detail article.news section img, .timeline-detail article.update section img, .timeline-detail article.case section img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-}
+    .timeline-detail article.news section, .timeline-detail article.update section, .timeline-detail article.case section {
+        padding: 20px;
+    }
+    .timeline-detail article.news section img, .timeline-detail article.update section img, .timeline-detail article.case section img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
 
-.timeline-detail article aside {
-    min-height: 125px;
-    background-position: left 23px;
-}
-.timeline-detail article aside time, .timeline-detail article aside .icon, .timeline-detail article aside .icon img {
-    width: 75px;
-    height: 75px;
-    line-height: 77px;
-}
-/* sa fie scrisul mai mare la phone*/
-.timeline-detail article aside time {
-    font-size: 1.99em;
-    line-height: 75px;
-    font-weight: 400;
-}
+    .timeline-detail article aside {
+        min-height: 125px;
+        background-position: left 23px;
+    }
+    .timeline-detail article aside time, .timeline-detail article aside .icon, .timeline-detail article aside .icon img {
+        width: 75px;
+        height: 75px;
+        line-height: 77px;
+    }
+    /* sa fie scrisul mai mare la phone*/
+    .timeline-detail article aside time {
+        font-size: 1.99em;
+        line-height: 75px;
+        font-weight: 400;
+    }
 
-/* aici trebuit*/
-.timeline-detail article aside strong {
-    width: 92%;
-    top: 66px;
-    left: 20px;
-    position: absolute;
-    font-size: 1.5em;
-}
+    /* aici trebuit*/
+    .timeline-detail article aside strong {
+        width: 92%;
+        top: 66px;
+        left: 20px;
+        position: absolute;
+        font-size: 1.5em;
+    }
 
 }
