@@ -101,7 +101,7 @@ class EventsController < ApplicationController
           'mata' => 'test',
           'action' => 'edit_step2',
           'eventId' => @event.id,
-          'workspace' => render_to_string( partial: "show", locals: { event: @event, edit_mode: true }, formats: [:html])
+          'workspace' => render_to_string( partial: "show", locals: { event: @event, edit_mode: false }, formats: [:html])
         }
       }
     end

@@ -94,6 +94,7 @@ module EventsHelper
 	      		coordinates: [event.longitude, event.latitude]
 	      	},
 	      properties: {
+	      		:'marker-color' => get_industry_color(event.industry_id),
 	      		id: event.id,
 	      		title: event.title,
 	      		description: event.description,
@@ -106,7 +107,27 @@ module EventsHelper
 	    }
 	  	end.to_json.html_safe
     end
-        
+       
+    private
+    def get_industry_color(industry_id)
+    	color = ""
+    	case industry_id.to_s
+    		when "1"
+    			color = "#A200FF"
+    		when "2"
+    			color = "#FF0097"
+    		when "3"
+    			color = "#00ABA9"
+    		when "4"
+    			color = "#8CBF26"
+    		when "5"
+    			color = "#1BA1E2"
+    		when "6"
+    			color = "#339933"	
+    	end
+    	return color
+    end
+
 	private
 	def get_name(property, default_value)
 		if property.nil? || property.name.nil? || property.name.blank?

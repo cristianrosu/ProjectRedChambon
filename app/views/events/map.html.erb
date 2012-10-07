@@ -63,14 +63,13 @@
           <h1 class='map-title'>Discover events</h1>
           <p class='description'>Choose category</p>
           <div id="markerfilters" class="clearfix-map sectionn">
-            <div class="markerfilter selected" id="null">All</div>
-            <div class="markerfilter" id="null">All</div>
-            <div class="markerfilter" id="null">All</div>
-            <div class="markerfilter" id="null">All</div>
-            <div class="markerfilter" id="null">All</div>
-            <div class="markerfilter" id="null">All</div>
-            <div class="markerfilter" id="null">All</div>
-            <div class="markerfilter" id="null">All</div>
+            <div class="markerfilter selected" id="All">All</div>
+            <div class="markerfilter" id="IT">IT-T</div>
+            <div class="markerfilter" id="Education">Edu</div>
+            <div class="markerfilter" id="Fashion">Fash</div>
+            <div class="markerfilter" id="Entertainment">Entr</div>
+            <div class="markerfilter" id="Media">Media</div>
+            <div class="markerfilter" id="Marketing">Market</div>
           </div>
         </div>
         <div data-control='geocode' class="clearfix-map sectionn" id="search">
@@ -80,12 +79,6 @@
           </form>
         </div>
     </div></div>
-    <div id='map-ui'>
-      <ul>
-        <li><a href='#' id='filter-food'>show only awesome events</a></li>
-        <li><a href='#' class='active' id='filter-all'>show all events</a></li>
-      </ul>
-    </div>
     <div id="map" class="map"></div>
     <a class="btn btn-orange" style="position:absolute;top:15px;left:15px;" id="prevBtn">Close</a>
     <a href='#' id='geolocate'>Find me</a>
@@ -102,7 +95,7 @@
       // most mobile browsers and modern browsers, but not in Internet Explorer
       //
       // See this chart of compatibility for details:
-      // http://caniuse.com/#feat=geolocation
+      // http://caniu se.com/#feat=geolocation
       if (!navigator.geolocation) {
           geolocate.innerHTML = 'geolocation is not available';
       } else {
@@ -164,9 +157,9 @@
 
           // If the place has a geometry, then present it on a map.
           if (place.geometry.viewport) {
-            map.ease.location({ lat: place.geometry.location.Xa, lon: place.geometry.location.Ya }).zoom(14).optimal();
+            map.ease.location({ lat: place.geometry.location.Xa, lon: place.geometry.location.Ya }).zoom(12).optimal();
           } else {
-            map.ease.location({ lat: place.geometry.location.Xa, lon: place.geometry.location.Ya }).zoom(14).optimal();
+            map.ease.location({ lat: place.geometry.location.Xa, lon: place.geometry.location.Ya }).zoom(12).optimal();
           }
 
         });
@@ -187,34 +180,28 @@
             }).zoom(map.zoom()).optimal();
         });
 
-        var food = document.getElementById('filter-food');
-        var all = document.getElementById('filter-all');
-
-        food.onclick = function(e) {
-            all.className = '';
-            this.className = 'active';
-            // The filter function takes a GeoJSON feature object
-            // and returns true to show it or false to hide it.
-            markerLayer.filter(function(f) {
-                return f.properties['title'] === 'loho';
-            });
-            return false;
-        };
-
-        all.onclick = function() {
-            food.className = '';
-            this.className = 'active';
-            markerLayer.filter(function(f) {
-                // Returning true for all markers shows everything.
-                return true;
-            });
-            return false;
-        };
-
-
         return elem;
       });
+
       map.addLayer(markerLayer);
+      
+      //fac filtrarea pe industrie, in functie de iconita apasata
+      $('div.markerfilter').click(function() {
+            $('div.markerfilter').removeClass('selected');
+            $(this).addClass('selected');
+            
+            if ($(this).attr('id') === 'All') {
+                markerLayer.filter(function(f) {
+                 return true;
+                });
+            }
+            else {
+                var industry = $(this).attr('id');
+                markerLayer.filter(function(f) {
+                 return (f.properties['industry'].indexOf(industry) != -1);
+                });
+            }
+      });
 
       // Set a custom formatter for tooltips
       // Provide a function that returns html to be used in tooltip
@@ -222,7 +209,7 @@
           var o = '<a target="_blank" href="' + feature.properties.description + '">' +
               '<img src="' + feature.properties.image + '">' +
               '<h2>' + feature.properties.industry + '</h2>' +
-              '<a onclick="GetEventOnClick('+feature.properties.id+')" class="btn btn-orange" style="position:absolute;bottom:15px;right:15px;" id="prevBtn">Preview</a>'+
+              '<a onclick="GetEventOnClick('+feature.properties.id+')" class="btn btn-orange" style="margin-right:5px" id="prevBtn">Preview</a>'+
               '</a>';
 
           return o;
