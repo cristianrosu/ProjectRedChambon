@@ -9,7 +9,7 @@
 	</textarea>
 	<script type="text/javascript">
 		$(document).ready( function() {
-			initializeHeader( "bk<%= block.id %>" );
+			initialize<%= block_type(block.type_id).capitalize %>( "bk<%= block.id %>" );
 		});
 	</script>
 

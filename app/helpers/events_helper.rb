@@ -4,9 +4,9 @@ module EventsHelper
 		t = ""
 		case block.type_id
 		  when 1  #header
-		  	t = "#{block.content}"
+		  	t = "<h2>#{block.content}</h2>"
 		  when 2  #text
-		  	t = "#{block.content}"
+		  	t = "<p>#{block.content}</p>"
 		  when 3
 	  end	
 	 	return t.html_safe
