@@ -657,53 +657,53 @@ p.message.error {
 @media screen and (max-width: 470px) {
     .share-box {
     display: none;
-}
+    }
 
-#wrapper {
-    font-size: 0.8em;
-    overflow: hidden;
-}
+    #wrapper {
+        font-size: 0.8em;
+        overflow: hidden;
+    }
 
-.timeline-detail {
-    margin-top: -45px;
-}
-.timeline-detail article {
-    padding-top: 100px;
-}
+    .timeline-detail {
+        margin-top: -45px;
+    }
+    .timeline-detail article {
+        padding-top: 100px;
+    }
 
 
-.timeline-detail article.news section, .timeline-detail article.update section, .timeline-detail article.case section {
-    padding: 20px;
-}
-.timeline-detail article.news section img, .timeline-detail article.update section img, .timeline-detail article.case section img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-}
+    .timeline-detail article.news section, .timeline-detail article.update section, .timeline-detail article.case section {
+        padding: 20px;
+    }
+    .timeline-detail article.news section img, .timeline-detail article.update section img, .timeline-detail article.case section img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
 
-.timeline-detail article aside {
-    min-height: 125px;
-    background-position: left 23px;
-}
-.timeline-detail article aside time, .timeline-detail article aside .icon, .timeline-detail article aside .icon img {
-    width: 75px;
-    height: 75px;
-    line-height: 77px;
-}
-/* sa fie scrisul mai mare la phone*/
-.timeline-detail article aside time {
-    font-size: 1.99em;
-    line-height: 75px;
-    font-weight: 400;
-}
+    .timeline-detail article aside {
+        min-height: 125px;
+        background-position: left 23px;
+    }
+    .timeline-detail article aside time, .timeline-detail article aside .icon, .timeline-detail article aside .icon img {
+        width: 75px;
+        height: 75px;
+        line-height: 77px;
+    }
+    /* sa fie scrisul mai mare la phone*/
+    .timeline-detail article aside time {
+        font-size: 1.99em;
+        line-height: 75px;
+        font-weight: 400;
+    }
 
-/* aici trebuit*/
-.timeline-detail article aside strong {
-    width: 92%;
-    top: 66px;
-    left: 20px;
-    position: absolute;
-    font-size: 1.5em;
-}
+    /* aici trebuit*/
+    .timeline-detail article aside strong {
+        width: 92%;
+        top: 66px;
+        left: 20px;
+        position: absolute;
+        font-size: 1.5em;
+    }
 
 }
