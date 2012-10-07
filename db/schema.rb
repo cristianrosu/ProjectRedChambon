@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006135523) do
+ActiveRecord::Schema.define(:version => 20121007112738) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "section_id"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(:version => 20121006135523) do
     t.string   "details"
   end
 
+  create_table "event_types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -32,11 +39,12 @@ ActiveRecord::Schema.define(:version => 20121006135523) do
     t.integer  "rating"
     t.integer  "industry_id"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "image"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "event_type_id"
   end
 
   create_table "industries", :force => true do |t|

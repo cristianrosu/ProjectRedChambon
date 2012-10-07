@@ -52,6 +52,13 @@ $(document).ready(function() {
   }
 });
 
+var resetModal = function(modalPopup){
+  $("input", modalPopup).val("");
+  $(".selected", modalPopup).removeClass("selected");
+  $(".disabled", modalPopup).removeClass("disabled");
+  $(".btn-save_section").html("Save");
+}
+
 var updateWorkspace = function(response) {
   
   //for each property of 'response' search for a div with that name 
@@ -93,6 +100,37 @@ var updateWorkspace = function(response) {
       $(".form-events").submit();
   });
 
+  $(".btn-save_section").unbind("click")
+    .bind("click", function() {
+      var modalPopup = $("#new_section_modal"),
+        form = $("#new_section", modalPopup),
+        url = "/events/create_section",
+        button = this;
+
+      var data = {
+        section : {
+          name      : $("#section_name", form).val(),
+          type_id   : $(".markerfilter .selected", form).data("type"),
+          position  : $("#event-content > article[id]").index() + 1,
+          event_id  : $("#event-content").attr("data-event-id")
+        }
+      };
+
+      $(button).html("Saving...").addClass("disabled");
+
+      $.post(url, data, function(response) {
+          $(modalPopup).modal('hide');
+          resetModal();
+
+          updateWorkspace(response);
+      }, "json");
+  });
+
+  $("#new_section .markerfilter").unbind("click")
+    .bind("click", function() {
+      $(this).siblings(".selected").removeClass("selected");
+      $(this).addClass("selected");
+  });
 
   //initialize fileuploader and date fields
   $("#event_image").fileupload({

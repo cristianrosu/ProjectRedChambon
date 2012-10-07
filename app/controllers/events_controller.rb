@@ -14,11 +14,11 @@ class EventsController < ApplicationController
 
   def map
     @events = Event.all
-    @events.each do |event|
-      event.latitude = Random.rand(180)
-      event.longitude = Random.rand(90)
-      event.save
-    end
+    # @events.each do |event|
+    #   event.latitude = Random.rand(180)
+    #   event.longitude = Random.rand(90)
+    #   event.save
+    # end
 
   end
 
@@ -125,6 +125,17 @@ class EventsController < ApplicationController
 
     @event.sections << @section_basic << @section_details << @section_sponsorships
 
+
+    @block1 = Block.new(type_id: 1, position: 0, details: "{}")
+    @block11 = Block.new(type_id: 2, position: 1, details: "{}")
+    @section_basic.blocks << @block1 << @block11
+    @block2 = Block.new(type_id: 1, position: 0, details: "{}")
+    @block22 = Block.new(type_id: 2, position: 1, details: "{}")
+    @section_details.blocks << @block2 << @block22
+    @block3 = Block.new(type_id: 1, position: 0, details: "{}")
+    @block33 = Block.new(type_id: 2, position: 1, details: "{}")
+    @section_sponsorships.blocks << @block3 << @block33
+
     respond_to do |format|
       if @event.save
       #   format.html { render partial: "test" } #{ redirect_to @event, notice: 'Event was successfully created.' }
@@ -197,6 +208,23 @@ class EventsController < ApplicationController
       render partial: "event_block.html", locals: { block: @block, edit_mode: true } 
     else
       
+    end
+  end
+
+  def create_section
+    @section = Section.new(params[:section])
+    if @section.save
+
+      @event = Event.find(@section.event_id, :include => [{:sections => :blocks}, :sections])
+      @event.sections.each do |section|
+        section.blocks.each do |block|
+          block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+        end
+      end
+      render json: { 'event_show' => render_to_string( partial: "show", locals: { event: @event, edit_mode: true }, formats: [:html]) }
+
+    else
+      render text: "error"
     end
   end
 
