@@ -117,10 +117,13 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
+    @event.title = "Event title"
+    @event.description = "Awesome description for your event"
+
     @event.user_id = current_user.id
 
-    @section_basic = Section.new(name: "Basic Info", type_id: 1, position: 1)
-    @section_details = Section.new(name: "Details", type_id: 2, position: 2)
+    @section_basic = Section.new(name: "Details", type_id: 1, position: 1)
+    @section_details = Section.new(name: "People", type_id: 2, position: 2)
     @section_sponsorships = Section.new(name: "Sponsorships", type_id: 3, position: 3)
 
     @event.sections << @section_basic << @section_details << @section_sponsorships
@@ -213,6 +216,11 @@ class EventsController < ApplicationController
 
   def create_section
     @section = Section.new(params[:section])
+
+    @block1 = Block.new(type_id: 1, position: 0, details: "{}")
+    @block11 = Block.new(type_id: 2, position: 1, details: "{}")
+    @section << @block1 << @block11
+    
     if @section.save
 
       @event = Event.find(@section.event_id, :include => [{:sections => :blocks}, :sections])
@@ -225,6 +233,16 @@ class EventsController < ApplicationController
 
     else
       render text: "error"
+    end
+  end
+
+  def create_sponsorship_block
+    type_id = block_type_id(params[:type])
+    @block = Block.new(type_id: type_id, section_id: params[:sectionId])
+    if @block.save
+      render partial: "event_block.html", locals: { block: @block, edit_mode: true } 
+    else
+      
     end
   end
 

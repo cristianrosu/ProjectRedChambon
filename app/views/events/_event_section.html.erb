@@ -12,7 +12,9 @@
 		<div class="article-content" style="overflow:visible">
 			
 			<ul class="sortable layout">
-				<li class="element"> <%= render partial: "custom_block.html" %></li>
+				<% if event_section.name == "Sponsorships"  %>
+					<li class="element"> <%= render partial: "custom_block.html" %></li>
+				<% end %>
 	      <% event_section.blocks.each do |block| %>
 	      	<%= render partial: "event_block.html", locals: { block: block, edit_mode: edit_mode } %>
 	      <% end %>

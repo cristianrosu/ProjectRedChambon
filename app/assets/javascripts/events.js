@@ -29,11 +29,7 @@ var navigateInit = function(){
   });
 }
 
-$(document).ready(function() {
-
-  updateWorkspace();
-  navigateInit();
-
+var paginationInit = function(){
   if ($('.pagination').length) {
     $('.pagination').hide();
     $(window).scroll(function() {
@@ -48,8 +44,11 @@ $(document).ready(function() {
         });
       }
     });
-    $(window).scroll();
   }
+}
+
+$(document).ready(function() {
+
 });
 
 var resetModal = function(modalPopup){
@@ -126,10 +125,40 @@ var updateWorkspace = function(response) {
       }, "json");
   });
 
+  $("#new_sponsorship .btn-save").unbind("click")
+    .bind("click", function() {
+      var modalPopup = $("#new_sponsorship"),
+        form = $("#new_section", modalPopup),
+        url = "/events/create_section",
+        button = this;
+
+      var data = {
+        sponsorship : {
+          name      : "",//$("#section_name", form).val(),
+          type_id   : 3, //$(".markerfilter .selected", form).data("type"),
+          position  : 0, //$("#event-content > article[id]").index() + 1,
+          section_id : $("#event-content").attr("data-event-id")
+        }
+      };
+
+      $(button).html("Saving...").addClass("disabled");
+
+      $.post(url, data, function(response) {
+          $(modalPopup).modal('hide');
+          resetModal();
+
+          updateWorkspace(response);
+      }, "json");
+  });
   $("#new_section .markerfilter").unbind("click")
     .bind("click", function() {
       $(this).siblings(".selected").removeClass("selected");
       $(this).addClass("selected");
+  });
+
+  $(".add_content-sponsorship").unbind("click")
+    .bind("click", function() {
+      $("#new_sponsorship").modal('show');
   });
 
   //initialize fileuploader and date fields

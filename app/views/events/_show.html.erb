@@ -1,3 +1,10 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		updateWorkspace();
+		navigateInit();
+	});
+</script>
+
 <%= render partial: "header_event", locals: { event: event }, formats: [:html] %>
 <div id="wrapper"> 
   <section id="event-content" data-event-id="<%= event.id %>" class="timeline-detail">

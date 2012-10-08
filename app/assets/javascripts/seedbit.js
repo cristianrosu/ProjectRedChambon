@@ -678,8 +678,8 @@ function saveElementOrder( id, prevOrder, nextOrder ) {
 }
 
 function initializeAdditor() {
-	$('.add_content-bar ul li').unbind( 'click' );
-	$('.add_content-bar ul li').click(function(){
+	$('.add_content-bar ul li.enabled').unbind( 'click' );
+	$('.add_content-bar ul li.enabled').click(function(){
 		var target = $(this);
 		var type = $(this).attr( 'data-type' );
 		
