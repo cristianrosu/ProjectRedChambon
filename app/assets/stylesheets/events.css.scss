@@ -3,6 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.popover{
+	width:auto;
+}
+.popover .popover-title{
+	padding:0;
+	border-bottom:0;
+}
 
 .head-explore{
 	position:relative;

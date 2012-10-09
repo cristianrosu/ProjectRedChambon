@@ -48,8 +48,22 @@ var paginationInit = function(){
 }
 
 $(document).ready(function() {
+  //popover for creating a new event section
+
+  $("#new_section").popover({
+      placement : 'right', //placement of the popover. also can use top, bottom, left or right
+      title : '',
+      html: 'true', //needed to show html of course
+      content : function(){
+          return $('#new_section_wrapper').html();
+      }
+
+  });
+
+
 
 });
+
 
 var resetModal = function(modalPopup){
   $("input", modalPopup).val("");
@@ -189,6 +203,9 @@ var updateWorkspace = function(response) {
   //     {label: "Mail-Order Sales", value: 20}
   //   ]
   // });
+
+  
+
 
 };
 
