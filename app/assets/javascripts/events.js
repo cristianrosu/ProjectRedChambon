@@ -1,4 +1,5 @@
 var steps = ['guidelines', 'basics', 'event'];
+
 var navigateStep = function(increment){
     var nextStep = ($.inArray(window.location.hash.substring(1), steps) + increment) % steps.length
     $(".steps-nav li a.active").removeClass("active");
@@ -12,20 +13,22 @@ var navigateInit = function(){
     window.location.hash = steps[1];
   }
     
+  $('#slide' + $.inArray(window.location.hash.substring(1), steps)).addClass("active");
   $('#carousel-edit .car-' + window.location.hash.substring(1) ).addClass("active");
 
   $('#carousel-edit').carousel({
     interval: false
   });
 
-  $(".steps-nav li a.active").removeClass("active");
-  $(".steps-nav li a[href='" + window.location.hash + "']").addClass("active");
+  $(".steps-nav .active").removeClass("active");
+  $(".steps-nav li a[href='" + window.location.hash + "']").parent().addClass("active");
 
   $(".steps-nav li a").click(function() {
     var step = $.inArray(this.hash.substring(1), steps);
-    $(".steps-nav li a.active").removeClass("active");
-    $(this).addClass("active");
+    $(".steps-nav .active").removeClass("active");
+    $(this).parent().addClass("active");
     $('#carousel-edit').carousel(step);
+    $('#slide' + step).addClass("active");
   });
 }
 
@@ -48,19 +51,27 @@ var paginationInit = function(){
 }
 
 $(document).ready(function() {
-  //popover for creating a new event section
 
+  //popover for creating a new event section
   $("#new_section").popover({
-      placement : 'right', //placement of the popover. also can use top, bottom, left or right
+      placement : 'right',
       title : '',
-      html: 'true', //needed to show html of course
+      html: 'true',
       content : function(){
           return $('#new_section_wrapper').html();
       }
 
   });
 
-
+  //popover for creating a new custom block in a section
+  $("#new_custom_block").popover({
+      placement : 'bottom',
+      title : '',
+      html: 'true',
+      content : function(){
+          return $('#new_custom_block_wrapper').html();
+      }
+  });
 
 });
 
