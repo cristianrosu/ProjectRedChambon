@@ -52,16 +52,38 @@ $(document).ready(function() {
 
   $("#new_section").popover({
       placement : 'right', //placement of the popover. also can use top, bottom, left or right
-      title : '',
-      html: 'true', //needed to show html of course
-      content : function(){
+      title     : '',
+      trigger   : 'manual',
+      html      : 'true', //needed to show html of course
+      content   : function(){
           return $('#new_section_wrapper').html();
       }
+    }).unbind("click").bind("click", function(e) {
+      $(this).popover('show');
+      var $button = this;
+      var $popover = $(".popover");
 
-  });
+      $(".btn-close", $popover).bind("click", function() {
+            $($button).popover('hide');
+            $(this).unbind("click");
+      });
+
+      $("btn-save", $popover).bind("click", function() {
+        var url = "/events/create_section";
+        var data = {
+          section : {
+            name      : $("#section_name", form).val(),
+            type_id   : $(".markerfilter .selected", form).data("type"),
+            position  : $("#event-content > article[id]").index() + 1,
+            event_id  : $("#event-content").attr("data-event-id")
+          }
+        };
 
 
+      });
 
+      e.preventDefault();
+    });
 });
 
 

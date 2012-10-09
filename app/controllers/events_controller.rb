@@ -219,8 +219,8 @@ class EventsController < ApplicationController
 
     @block1 = Block.new(type_id: 1, position: 0, details: "{}")
     @block11 = Block.new(type_id: 2, position: 1, details: "{}")
-    @section << @block1 << @block11
-    
+    @section.blocks << @block1 << @block11
+
     if @section.save
 
       @event = Event.find(@section.event_id, :include => [{:sections => :blocks}, :sections])
