@@ -429,7 +429,7 @@ function hideSaving(){
 */
 
 var initializeEvent = function(){
-	var $my_event = $(".timeline-detail");
+	var $my_event = $(".event-timeline");
 
 	//All links should open in a new window:
 	$my_event.find("li.element.text,li.element.list").children("div:not(.element-edit)").find("a").attr("target","_blank");

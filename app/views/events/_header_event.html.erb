@@ -13,9 +13,9 @@
 
 <div id="wrapper" style="margin-top:-60px"> <!-- compensate body padding -->
 	
-    <section class="timeline-detail" style="padding-bottom:0;margin-bottom:0px;padding-top:10px">
+    <section class="event-timeline" style="padding-bottom:0;margin-bottom:0px;padding-top:10px">
 
-    <article id="" class="post update" style="padding-top:5px;margin-bottom:0;padding-bottom:50px;">
+    <article id="" class="post event-section" style="padding-top:5px;margin-bottom:0;padding-bottom:50px;">
 
      	<h1 class="pad3 introduction" style="font-size:50px;margin-bottom:30px"><%= event.title %></h1>
 		 <div class="aside">
@@ -31,7 +31,7 @@
 		</div>
 		<div class="article-content">
 			
-			 <div style="position: relative; 	
+			   <div style="position: relative; 	
 						height: 280px;
 						 ">
 					<div id="myCarousel"  class="carousel slide" style="top:0;width:100%;">
@@ -83,63 +83,76 @@
 							<h4><i class="icon icon-map-marker"></i> Cluj Napoca, Ro</h4>
 						</div>
 
-					 </div>
-			<div class="presenter " style="margin-bottom:20px;">
-							<ul class="stats">
-								<li class="stat">
-								<div class="value">254</div>
-								<div class="descriptor">People atending</div>
-								</li>
-								<li class="stat">
-								<div class="value">104</div>
-								<div class="descriptor">Special guests</div>
-								</li>
-								<li class="stat">
-								<div class="value">54</div>
-								<div class="descriptor">Volunteers</div>
-								</li>
-								<li class="stat">
-								<div class="value">23</div>
-								<div class="descriptor">Sponsors</div>
-								</li>
-							</ul>
+			</div>
+			<div class="presenter clearfix">
+								<div class="stats">
+									<div class="stat">
+										<div class="value">234</div>
+										<div class="descriptor">People attending </div>
+									</div>
+									<div class="stat">
+										<div class="value">13</div>
+										<div class="descriptor">Concerts</div>
+									</div>
+									<div class="stat">
+										<div class="value">25</div>
+										<div class="descriptor">Volunteers</div>
+									</div>
+									<div class="stat">
+										<div class="value">12</div>
+										<div class="descriptor">Sponsors</div>
+									</div>
+								</div>
 			</div>
 
-			<div class="navbar preview_container">
-				<div style="position:absolute;left:40px;top:-15px;height:20px;width:25px;
+			 <div class="presenter-preview">
+ 				<div style="position:absolute;left:40px;top:-15px;height:20px;width:25px;
 			
 					background-repeat: no-repeat;
 				background-image: url(' <%= asset_path 'last-bar_carrot.png' %>');
 					background-position: center center;">
 				</div>
-				<div class="navbar-inner transp pull-center" >
-					<ul class="nav">
-						<li>
-							<img src=" <%= asset_path '1.png' %>">	
-							<header>
-								<h3>Gabriel Bondor Emilian</h3>
-								<p>CEO, Square inc.com </p>
-							</header>		
-						</li>
 
-						<li>
-							<img src=" <%= asset_path '2.png' %>">	
-							<header>
-								<h3>Vlad Marian Stan</h3>
-								<p>CEO, Geekcelerator </p>
-							</header>
-						</li>
-						<li>
-							<img src=" <%= asset_path '3.png' %>">	
-							<header>
-								<h3>Adelina Peltearu Maria</h3>
-								<p>Redactor Sef, Decat o Revista </p>
-							</header>
-						</li>
-					</ul>
+			 	<div id="blocks-wrapper">
+						<ol style="display:block; position: absolute;float:none; overflow: hidden;">
+									
+									<li style="min-width:60px;display:table-cell; padding-right: 10px;">
+											<img src=" <%= asset_path '2.png' %>"/>
+
+									</li>
+									<li style="display:table-cell; padding-right: 15px;padding-top:0">
+											<header>
+												<h3>Bondor Cristian Gabriel</h3>
+												<p>Redactor Sef, Revista Cashimir</p>
+											</header>
+									</li>
+
+									<li  style=" min-width:60px;display:table-cell;padding-right: 10px;">
+											<img  src=" <%= asset_path '1.png' %>">
+									</li>								
+									<li  style="display:table-cell;padding-right: 15px;">
+											 <header >
+												<h3>Adelina Maria Nicusor </h3>
+												<p>Redactor e </p>
+											</header>
+									</li>
+
+									<li  style="min-width:60px;display:table-cell;padding-right: 10px;">
+											<img  src=" <%= asset_path '1.png' %>">
+									</li>								
+									<li  style="display:table-cell;padding-right: 15px;">
+											 <header >
+												<h3>Adelina Maria Nicusor </h3>
+												<p>Redactor e </p>
+											</header>
+									</li>
+									
+								</ol>
 
 				</div>
+			
 			</div>
+			
 		</div>
 	</article>	
     </section>

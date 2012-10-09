@@ -1,18 +1,13 @@
-/*test.css
-
-*/
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, section {
+article, aside, details, figcaption, figure, footer, header, menu, section {
     display: block;
 }
 
-a {
-    text-decoration: none;
-}
 ::-moz-selection {
     background: #f95602;
     color: #fff;
     text-shadow: none;
 }
+
 ::selection {
     background: #f95602;
     color: #fff;
@@ -31,8 +26,8 @@ input, button, textarea {
     outline: 0;
 }
 
-ol, ul {
-    list-style: none;
+a {
+    text-decoration: none;
 }
 a, a:hover {
     text-decoration: none;
@@ -46,23 +41,18 @@ a, a:hover {
     margin: 0 auto;
     padding: 0 40px;
 }
-section[role="main"] {
-    margin-top: 20px;
-}
 
 hr {
     clear: both;
     width: auto;
     height: 5px;
     border: 0;
-/*    *background: url("bg-double-line.png") repeat-x center bottom;*/
+/*   *background: url("bg-double-line.png") repeat-x center bottom;*/
 }
-
 
 @media only screen and (-webkit-device-pixel-ratio: 2) {
 
 }
-
 
 @media only screen and (-webkit-device-pixel-ratio: 2) {
         .logo {
@@ -71,14 +61,14 @@ hr {
     }
 }
 
-.timeline-detail {
+.event-timeline {
     padding-top: 70px;
     margin-bottom: -50px;
     clear: both;
     background: url('timeline.png') repeat-y 256px top;
 }
 
-.timeline-detail .loading {
+.event-timeline .loading {
     position: absolute;
     bottom: 150px;
     right: 0px;
@@ -87,17 +77,16 @@ hr {
     text-align: center;
 }
 
-
-.timeline-detail article {
+.event-timeline article {
     position: relative;
     margin: 50px 0 30px;
     padding-left: 310px;
     clear: right;
 }
 
-.timeline-detail article aside {
+.event-timeline article aside {
     position: absolute;
-    width: 300px; /*210*/
+    //width: 300px; /*210*/
     top: -100px; /* ca sa stea deasupra */
     left: 250px; 
     
@@ -109,59 +98,27 @@ hr {
     background: url('timeline-item-bg-flipped.png') no-repeat left 34px;
 }
 
-
-.timeline-detail article aside .icon, .timeline-detail article aside time {
+.event-timeline article aside .bubble, .event-timeline article aside a.bubble {
     display: block;
     margin-bottom: 20px;
-   /* width: 98px;
-    height: 98px;*/
     float: left;
     width: 86px;
     height: 86px;
     margin: 0 10px 0 0;
     line-height: 20px;
-
 }
 
-
-.timeline-detail article aside .icon, .timeline-detail article aside .icon img, .timeline-detail article aside .roundcircle {
-    width: 86px; /* 98 */
-    height: 86px;
-}
-.timeline-detail article aside .icon {
-    position: relative;
-    margin-right: 10px;
-    cursor: default;
-}
-.timeline-detail article aside .icon img, .timeline-detail article aside .icon .roundcircle {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.timeline-detail article aside .icon img {
-    z-index: -1;
+.event-timeline article aside .bubble img, .event-timeline article aside a.bubble img {
+   background-position:center center;
+   margin-top:-8px;
 }
 
-.timeline-detail article aside .icon .post-type {
-    width: 98px;
-    top: 40px;
-    display: block;
-    position: absolute;
-    font-weight: 400;
-    font-size: 1.4em;
-    text-align: center;
-    color: #fff;
-    z-index: 10;
-    opacity: 0;
-}
-.timeline-detail article aside .icon:hover .roundcircle, .timeline-detail article aside .icon:hover .post-type {
-    opacity: 1;
-}
-.timeline-detail article aside a {
+.event-timeline article aside a {
     color: #353534;
 }
-.timeline article aside time, .timeline-detail article aside time {
-    background: #fff;
+
+.event-timeline article aside .bubble {
+    background: #0099b5;
     text-align: center;
     font-size: 1.55em;
     line-height: 90px;
@@ -172,31 +129,15 @@ hr {
     -o-border-radius: 50px;
     border-radius: 50px;
 }
-.timeline-detail article aside strong {
-    clear: both;
-    margin-top: 20px;
-    font-size: 1.6em;
-    font-weight: 300;
-    line-height: 1.375em;
-}
-.timeline-detail article aside strong a {
-    color: #0099b5;
-    white-space: nowrap;
-}
-.timeline-detail article aside strong em {
-    display: block;
-    color: #767676;
-    font-style: normal;
-}
 
 
-.timeline-detail article aside .tags {
+.event-timeline article aside .tags {
     margin-top: 20px;
 }
-.timeline-detail article aside .tags li {
+.event-timeline article aside .tags li {
     margin-top: 3px;
 }
-.timeline-detail article aside .tags li a {
+.event-timeline article aside .tags li a {
     display: inline-block;
     padding: 6px 10px 7px 10px;
     color: #353534;
@@ -219,56 +160,56 @@ hr {
     -o-transition-duration: 0.2s;
     transition-duration: 0.2s;
 }
-.timeline-detail article aside .tags li a:hover {
+.event-timeline article aside .tags li a:hover {
     color: #fff;
     text-shadow: rgba(0, 0, 0, 0.1) 0 -1px;
     background: #0099b5;
 }
 
-.timeline-detail article.update section .article-content ul{
+.event-timeline article.event-section section .article-content ul{
     margin:0;
 }
-.timeline-detail article.update section .article-content, .timeline-detail article.event section .article-content, .timeline-detail article.milestone section .article-content {
+.event-timeline article.event-section section .article-content {
     font-size: 1.4em;
     line-height: 1.6em;
     -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
-.timeline-detail article.update section .article-content p, .timeline-detail article.event section .article-content p, .timeline-detail article.milestone section .article-content p {
+.event-timeline article.event-section section .article-content p {
     padding: 0;
     margin-bottom: 10px;
 }
-.timeline-detail article.update section .article-content p a, .timeline-detail article.news section .article-content p a, .timeline-detail article.event section .article-content p a, .timeline-detail article.milestone section .article-content p a {
+.event-timeline article.event-section section .article-content p a {
     color: #0099b5;
 }
-.timeline-detail article.update section .article-content p a:hover, .timeline-detail article.event section .article-content p a:hover, .timeline-detail article.milestone section .article-content p a:hover {
+.event-timeline article.event-section section .article-content p a:hover {
     text-decoration: underline;
 }
 
 
-.timeline-detail article.update header h2, .timeline-detail article.news header h2 {
+.event-timeline article.event-section header h2 {
     font-size: 3.6em;
     font-weight: 300;
     line-height: 1.111em;
 }
 
-.timeline-detail .article-content h1 {
+.event-timeline .article-content h1 {
     font-size: 2.5em;
     line-height: 1.111em;
 }
 
-.timeline-detail .article-content  h2 {
+.event-timeline .article-content  h2 {
     font-size: 2em;   
     line-height: 1em;
 }
 
-.timeline-detail .article-content h3 {
+.event-timeline .article-content h3 {
     font-size: 1.8em;
     line-height: 0.9em;
 }
 
-.timeline-detail article.update section, .timeline-detail article.news section {
+.event-timeline article.event-section section {
     padding: 0px;
     overflow: hidden;
     background: #fff;
@@ -281,56 +222,11 @@ hr {
     margin: 0;
 }
 
-.timeline-detail article.update section img, .timeline-detail article.news section img {
-    float: left;
-    margin-right: 20px;
-}
-.timeline-detail article.update section .article-content, .timeline-detail article.news section .article-content {
+
+.event-timeline article.event-section section .article-content {
     margin-top: 14px;
 }
 
-article.content {
-    position: relative;
-    float: right;
-    width: 56%;
-    margin: 55px 0 0 0;
-}
-article.content.fullwidth {
-    width: 100%;
-    float: none;
-    margin-top: 0;
-}
-article.content.expertise {
-    width: 74.123%}
-article.content h2, article.content .subtitle {
-    margin-bottom: 15px;
-    font-size: 3em;
-    font-weight: 300;
-    line-height: 1.2em;
-}
-article.content p {
-    font-size: 2em;
-    font-weight: 300;
-    line-height: 1.6em;
-    margin: 0 0 25px 0;
-}
-
-
-article.content h1 {
-    font-size: 4.8em;
-    line-height: 1.208em;
-    font-weight: 600;
-    text-shadow: rgba(0, 0, 0, 0.15) 0 3px;
-    margin: 0 0 10px 0;
-}
-
-p.message {
-    margin: 0 0 35px 0;
-    font-size: 1.6em;
-}
-p.message.error {
-    color: red;
-}
 .back-to-top {
     width: 66px;
     height: 66px;
@@ -343,24 +239,40 @@ p.message.error {
     overflow: hidden;
     background: url("/assets/back-to-top.png") no-repeat;
     z-index: 100;
- 
 }
 
 
-.timeline-detail {
+.event-timeline {
     position: relative;
     margin-bottom: 100px; /* aici ca sa stea bine cu bula,era 30*/
     padding-bottom: 70px;
 }
-.timeline-detail article {
+.event-timeline article {
     margin-bottom: 15px;
 }
 
-/*@media screen and (max-width: 1140px) {
+.event-timeline .article-content li {
+    line-height: 0px;
+}
 
+.event-timeline article p {
+    font-size: 0.9em;
+    line-height: 1.4em;
+}
 
+.event-timeline article.event-section header h2 {
+    display: block;
+    font-size: 2.545em;
+    line-height: 1.179em;
+}
 
-}*/
+.event-timeline article.event-section section img {
+    float: none;
+}
+
+@media screen and (max-width: 1140px) {
+
+}
 
 @media screen and (max-width: 960px) {
 
@@ -368,187 +280,66 @@ p.message.error {
         font-size: 1.1em;
         overflow-x: hidden;
     }
-
-    #wrapper section#main #one article.content {
-        margin: 35px 0 0 0;
-    }
-    #wrapper section#main #one article.content > header, #wrapper section#main #one .portfolio-project > header {
-        margin-bottom: 30px;
-    }
-    #wrapper section#main #one article.content h1, #wrapper section#main #one article.content h2, #wrapper section#main #one .portfolio-project h1, #wrapper section#main #one .portfolio-project h2 {
-        font-size: 3.5em;
-    }
-    #wrapper section#main #one article.content .subtitle, #wrapper section#main #one .portfolio-project .subtitle {
-        font-size: 2em;
-    }
-    #wrapper section#main #one article.content p, #wrapper section#main #one .portfolio-project p {
-        font-size: 1.636em;
-        line-height: 1.556em;
-        margin: 0 0 25px 0;
-    }
-    #wrapper section#main #one article.content .work-details-wrapper .explanation, #wrapper section#main #one .portfolio-project .work-details-wrapper .explanation {
-        width: 67%;
-        margin-right: 1%}
-    #wrapper section#main #one article.content .work-details-wrapper .explanation .introduction p, #wrapper section#main #one .portfolio-project .work-details-wrapper .explanation .introduction p {
-        margin: 0 3%}
-    #wrapper section#main #one .twocols-box h2 {
-        margin-bottom: 25px;
-        font-size: 2em;
-    }
-    #wrapper section#main #one .twocols-box p {
-        font-size: 1.3em;
-    }
-    #wrapper section#main #one .twocols-box .expert h2 {
-        margin-bottom: 20px;
-    }
-    #wrapper section#main #one .twocols-box .expert .expert-info {
-        width: 69%;
-        margin-top: 0;
-    }
-    #wrapper section#main #one .twocols-box .expert .expert-info p {
-        margin-bottom: 0;
-    }
-    #wrapper section#main #two {
-        margin: 35px 0 25px 0;
-    }
-    #wrapper section#main #two ul.qualities li img {
-        margin: 0 0 20px 0;
-    }
-    #wrapper section#main #two ul.qualities li h2 {
-        font-size: 2em;
-    }
-    #wrapper section#main #two ul.qualities li p {
-        font-size: 1.4em;
-    }
-    #wrapper section#main #three {
-        margin: 35px 0 0 0;
-        padding: 0 0 25px 0;
-    }
-    #wrapper section#main #three article.block {
-        min-height: 287px;
-    }
-    #wrapper section#main #three article.block h3 {
-        font-size: 2em;
-    }
-    #wrapper section#main #three article.block p {
-        font-size: 1.4em;
-    }
-    #wrapper section#main #three article.block ul li {
-        margin: 0 0 10px 0;
-        min-height: 30px;
-    }
-    #wrapper section#main #three article.block ul li a {
-        font-size: 0.79em;
-    }
-    #wrapper #expertise .three-col .description h2 {
-        font-size: 2em;
-    }
-    #wrapper #expertise .three-col .teaser p {
-        font-size: 1.5em;
-    }
-    #wrapper #cases .col .teaser h2 {
-        font-size: 3em;
-    }
-    #wrapper #cases .col .teaser p {
-        font-size: 1.636em;
-    }
-}
-
-.timeline-detail .article-content li {
-    line-height: 0px;
-}
-.timeline-detail article p {
-    font-size: 0.9em;
-    line-height: 1.4em;
-}
-
-.timeline-detail article.milestone header h2, .timeline-detail article.event header h2 {
-    font-size: 1.636em;
-    line-height: 1.556em;
-}
-.timeline-detail article.blog header h2, .timeline-detail article.case header h2, .timeline-detail article.update header h2, .timeline-detail article.news header h2 {
-    display: block;
-    font-size: 2.545em;
-    line-height: 1.179em;
-}
-.timeline-detail article.blog section img, .timeline-detail article.case section img, .timeline-detail article.update section img, .timeline-detail article.news section img {
-    float: none;
 }
 
 @media screen and (max-width: 870px) {
 
-.timeline-detail {
-    background-position: 17px top;
-    padding-left: 11px;
-}
-.timeline-detail article {
-    padding: 90px 0 0 30px;
-}
-.timeline-detail article.update section img {
-    float: none;
-}
+    #wrapper {
+        padding: 0 10px;
+    }
 
-.timeline-detail article aside {
-    padding-left: 30px;
-    padding-right: 0;
-    left:0;
-    top:0;
-    width: 100%;
-    text-align: left;
-    overflow: hidden;
-    background: url('timeline-item-bg-flipped.png') no-repeat left 28px;
-}
-.timeline-detail article aside .icon:hover .roundcircle, .timeline-detail article aside .icon:hover .post-type {
-    opacity: 0;
-}
-.timeline-detail article aside .icon, .timeline-detail article aside a time, .timeline-detail article aside time {
-    float: left;
-    width: 75px;
-    height: 75px;
-    margin: 0 10px 0 0;
-    line-height: 75px;
-}
+    .event-timeline {
+        background-position: 17px top;
+        padding-left: 11px;
+    }
+    .event-timeline article {
+        padding: 90px 0 0 30px;
+    }
 
-.timeline-detail article aside time {
-    font-size: 1.4em;
-    line-height: 75px;
-    font-weight: 400;
-}
+    .event-timeline article.event-section section img {
+        float: none;
+    }
 
-.timeline-detail article aside .icon img, .timeline-detail article aside a time img, .timeline-detail article aside time img {
-    width: 75px;
-    height: 75px;
-}
-.timeline-detail article aside strong {
-    clear: none;
-    float: left;
-    display: block;
-    margin: 20px 0 0 10px;
-}
-.timeline-detail article aside .tags {
-    display: none;
-}    
+    .event-timeline article aside {
+        padding-left: 30px;
+        padding-right: 0;
+        left:0;
+        top:0;
+        width: 100%;
+        text-align: left;
+        overflow: hidden;
+        background: url('timeline-item-bg-flipped.png') no-repeat left 28px;
+    }
 
-.timeline-detail .socialmedia-wrapper {
-    margin-left: 30px;
-}
-.timeline-detail .socialmedia-wrapper a.back {
-    left: 20px;
-}
-#wrapper {
-    padding: 0 10px;
-}
+    .event-timeline article aside a .bubble, .event-timeline article aside .bubble {
+        float: left;
+        width: 75px;
+        height: 75px;
+        margin: 0 10px 0 0;
+        line-height: 75px;
+    }
+
+    .event-timeline article aside .bubble {
+        font-size: 1.4em;
+        line-height: 75px;
+        font-weight: 400;
+    }
+
+    .event-timeline article aside .tags {
+        display: none;
+    }    
 
 }
-@media screen and (max-width: 660px) {
-        #wrapper {
+
+@media screen  and (max-width: 660px) {
+    #wrapper {
         font-size: 1em;
     }
 
-    .timeline-detail {
+    .event-timeline {
         padding-top: 0;
     }
-    .timeline-detail article:first-child {
+    .event-timeline article:first-child {
         margin-top: 30px;
     }
 
@@ -561,46 +352,32 @@ p.message.error {
         overflow: hidden;
     }
 
-    .timeline-detail {
+    .event-timeline {
         margin-top: -45px;
     }
-    .timeline-detail article {
+    .event-timeline article {
         padding-top: 100px;
     }
 
 
-    .timeline-detail article.news section, .timeline-detail article.update section, .timeline-detail article.case section {
+    .event-timeline article.event-section section {
         padding: 20px;
     }
-    .timeline-detail article.news section img, .timeline-detail article.update section img, .timeline-detail article.case section img {
+    .event-timeline article.event-section section img {
         max-width: 100%;
         width: 100%;
         height: auto;
     }
 
-    .timeline-detail article aside {
+    .event-timeline article aside {
         min-height: 125px;
         background-position: left 23px;
     }
-    .timeline-detail article aside time, .timeline-detail article aside .icon, .timeline-detail article aside .icon img {
-        width: 75px;
-        height: 75px;
-        line-height: 77px;
-    }
-    /* sa fie scrisul mai mare la phone*/
-    .timeline-detail article aside time {
+
+    .event-timeline article aside .bubble {
         font-size: 1.99em;
         line-height: 75px;
         font-weight: 400;
-    }
-
-    /* aici trebuit*/
-    .timeline-detail article aside strong {
-        width: 92%;
-        top: 66px;
-        left: 20px;
-        position: absolute;
-        font-size: 1.5em;
     }
 
 }
