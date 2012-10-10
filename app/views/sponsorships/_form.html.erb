@@ -1,0 +1,20 @@
+<%= simple_form_for(@sponsorship) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :date_start %>
+    <%= f.input :date_end %>
+    <%= f.input :location %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+    <%= f.input :sponsorship_type_id %>
+    <%= f.input :industry_id %>
+    <%= f.input :image %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

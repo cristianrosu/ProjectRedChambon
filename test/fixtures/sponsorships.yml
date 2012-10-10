@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  date_start: 2012-10-10
+  date_end: 2012-10-10
+  location: MyString
+  latitude: 1.5
+  longitude: 1.5
+  sponsorship_type_id: 1
+  industry_id: 1
+  image: MyString
+
+two:
+  title: MyString
+  description: MyText
+  date_start: 2012-10-10
+  date_end: 2012-10-10
+  location: MyString
+  latitude: 1.5
+  longitude: 1.5
+  sponsorship_type_id: 1
+  industry_id: 1
+  image: MyString
