@@ -21,6 +21,8 @@ module EventsHelper
 		  	t = "text"
 		  when 3
 		  	t = "image"
+		  when 4
+		  	t = "sponsorship"
 	  end	
 	  return t
 	end
@@ -33,6 +35,8 @@ module EventsHelper
 				return 2
 			when "image"
 				return 3
+			when "sponsorship"
+				return 4
 		end
 		return 0
 	end

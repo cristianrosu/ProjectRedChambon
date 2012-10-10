@@ -14,10 +14,10 @@
 					<li class="element"> <%= render partial: "custom_block.html" %></li>
 				<% end %>
 	      <% event_section.blocks.each do |block| %>
-	      	<%= render partial: "event_block.html", locals: { block: block, edit_mode: edit_mode } %>
+	      	<%= render partial: "event_block", locals: { block: block, edit_mode: edit_mode }, formats: [:html] %>
 	      <% end %>
 	      <% if edit_mode %>
-	      	<%= render "event_block_add_toolbar.html"%>
+	      	<%= render partial: "event_block_add_toolbar", locals: { section_id: event_section.id }, formats: [:html]%>
 	      <% end %>
       		</ul>
 		</div>

@@ -45,5 +45,6 @@ class BlockType
   HEADER=1
   TEXT=2
   IMAGE=3
+  SPONSORSHIP=4
   BADGE=5
 end

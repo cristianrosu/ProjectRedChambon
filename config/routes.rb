@@ -8,7 +8,7 @@ ProjectRedChambon::Application.routes.draw do
 
  post "events/:id/save_block" => "events#save_block"
  post "events/:id/save_block_order" => "events#save_block_order"
- post "events/:id/create_block" => "events#create_block"
+ post "events/create_block" => "events#create_block"
  post "events/create_section" => "events#create_section"
  post "events/create_sponsorship_block" => "events#create_sponsorship_block"
 
