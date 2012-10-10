@@ -1,18 +1,18 @@
-<article id="sct<%= event_section.id %>" class="post update" style="margin-bottom:100px;padding-bottom:50px;">
+<article id="sct<%= event_section.id %>" class="post event-section<%= new_object ? " hide" : "" %>" style="margin-bottom:100px;padding-bottom:50px;">
 	<section>
 <!-- 						<img src="../cache/images/3c29e05f2779aaa0a01d0510115f9b34_normal_2x.png" width="280" height="304" alt="Ordering a taxi without making a call" class="fs-img"> -->
 		<aside>
-			<time style="background:#0099b5;">
-					
-					 <div class="bubble-details">
-								<h2 style="float:left;margin:0 80px;"> <%= event_section.name %> </h2>
-					</div>
-			</time>
+			<div class="bubble">
+					  <img src="<%= section_image(event_section) %>"/>
+			</div>
+			<a href="sds"><h1 style="float:left;line-height:86px;margin:0">  <%= event_section.name %></h1></a>
+
 		</aside>
 		<div class="article-content" style="overflow:visible">
-			
 			<ul class="sortable layout">
-				<li class="element"> <%= render partial: "custom_block.html" %></li>
+				<% if event_section.name == "Sponsorships"  %>
+					<li class="element"> <%= render partial: "custom_block.html" %></li>
+				<% end %>
 	      <% event_section.blocks.each do |block| %>
 	      	<%= render partial: "event_block.html", locals: { block: block, edit_mode: edit_mode } %>
 	      <% end %>

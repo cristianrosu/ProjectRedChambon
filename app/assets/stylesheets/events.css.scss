@@ -2,34 +2,145 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//body{margin-top:-60px;} //compensate for the space the navbar replaces on large screens
-/* Landscape phones and down */
 
-
-/*nush daca se foloseste*/
-.wrapper-explore{
-  margin:0 60px;
-  display:block;
-  max-width: 1400px;
+.popover{
+	width:auto;
+}
+.popover .popover-title{
+	padding:0;
+	border-bottom:0;
 }
 
-.ppp{background: #f00;}
+.square {
+margin: 5px;
+width: 52px;
+height: 52px;
+line-height: 55px;
+opacity: .35;
+border-radius: 5px;
+-moz-border-radius: 5px;
+background: #000;
+overflow: hidden;
+display: block;
+float: left;
+text-transform: uppercase;
+text-align: center;
+font-weight: bold;
+font-size: 12px;
+color: white;
+cursor: pointer;
+}
+
+.square:hover {
+  opacity: 0.6;
+}
+
+.square.selected {
+	opacity:1;
+	background-color: #0099b5;
+}
+
+.square.selected:hover {
+	opacity:1;
+}
+
 
 .head-explore{
-	
 	position:relative;
-	
 	left:0px;
 	right:0px;
 	padding:30px;
 	z-index:10;
-/*	height:300px; */
 	background: url('https://www.pulse.me/media/images/light_gray_noise-994fecd3fbd995349a86ef01bbe5efadc91939a9.jpg');
+}
+
+
+/*.bubble-selector {
+	//display: none;
+	-webkit-animation-duration: 500ms;
+	-moz-animation-duration: 500ms;
+	-o-animation-duration: 500ms;
+	animation-duration: 500ms;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeOutRight;
+	-moz-animation-name: fadeOutRight;
+	-o-animation-name: fadeOutRight;
+	animation-name: fadeOutRight;
+}*/
+
+.bubble-selector li {
+	cursor: pointer;
+	height: 50px;
+	line-height: 50px;
+	width: 50px;
+	display: inline-block;
+	margin-right: 5px;
+	text-align: center;
+	}
+
+.bubble-selector li a {
+	background: #3887B3;
+	color: #92C4D9;
+	color: rgba(255, 255, 255, 0.5);
+	font-weight: bold;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	display: inline-block;
+	text-align: center;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-transition: all 150ms ease-in;
+	-moz-transition: all 150ms ease-in;
+	-o-transition: all 150ms ease-in;
+	transition: all 150ms ease-in;
+	overflow: hidden;
+	}
+
+.bubble-selector li.active a {
+	color: white;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	background: #3BB2D0;
+}
+
+.slidde {
+	display: none;
+	-webkit-animation-duration: 500ms;
+	-moz-animation-duration: 500ms;
+	-o-animation-duration: 500ms;
+	animation-duration: 500ms;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeOutRight;
+	-moz-animation-name: fadeOutRight;
+	-o-animation-name: fadeOutRight;
+	animation-name: fadeOutRight;
+}
+
+.slidde.active {
+	display: block;
+	-webkit-animation-delay: 500ms;
+	-moz-animation-delay: 500ms;
+	-o-animation-delay: 500ms;
+	animation-delay: 500ms;
+	-webkit-animation-name: fadeInRight;
+	-moz-animation-name: fadeInRight;
+	-o-animation-name: fadeInRight;
+	animation-name: fadeInRight;
 }
 
 .selector{
 	float:right;
 }
+
 .selector ul {
 margin: 80px 0 0;
 padding: 0;
@@ -41,11 +152,13 @@ margin: 30px 0 60px 0;
 padding: 0;
 display: inline-block;
 }
+
 .selector ul.new-event {
 margin: 10px 0 50px 0;
 padding: 0;
 display: inline-block;
 }
+
 .selector ul li {
 	float: left;
 	margin-left: 28px;
@@ -76,16 +189,15 @@ padding: 8px 0;
 border-top: solid 2px #222;
 }
 
-.white-triangle-pointer-item {
+/*.white-triangle-pointer-item {
 	width: 37px;
 	height: 19px;
 	position: absolute;
 	left: 15px;
 	top: -4px;
-	//background: url('../images/white_triangle_pointer.png') no-repeat center top;
 	background-image: url('/assets/white_triangle_pointer.png');
 	background-repeat: no-repeat;
-}
+}*/
 
 .when {
    position:absolute;
@@ -206,9 +318,10 @@ border-top: solid 2px #222;
   -moz-opacity: 0.01;
   opacity: 0.01;
 }
-//---pana aici---custom image uploader button
+//---pana aici---custom image uploader btn
 
 //de aici vine event_header
+
 .event_head{margin-bottom:50px;}
 
 
@@ -235,94 +348,41 @@ border-top: solid 2px #222;
 	height:210px;
 }
 
-.bubble-details{
-	position:absolute;
-	top:23px;margin-left:23px;
-
-	height:40px;width:40px;
-	background-size: cover;                  							
-	background-image: url("/assets/details.png");
-	background-position: center center;
-}
-
-.bubble-sponsors{
-	position:absolute;
-	top:21px;margin-left:21px;
-	height:44px;width:44px;
-	background-size: cover;                  							
-	background-image: url("/assets/sponsors.png");
-	background-position: center center;
-}
-
-.bubble-people{
-	position:absolute;
-	top:21px;margin-left:21px;
-	height:44px;width:44px;
-	background-size: cover;                  							
-	background-image: url("/assets/people.png");
-	background-position: center center;
-	background-repeat:no-repeat;
-}
-
-.bubble-new-section{
-	position:absolute;
-	top:22px;margin-left:32px;
-	height:44px;width:35px;
-	background-size: cover;                  							
-	background-image: url("/assets/new_section.png");
-	background-position: center center;
-	background-repeat:no-repeat;
-}
-
-.bubble-comments{
-	position:absolute;
-	top:27px;margin-left:24px;
-	height:35px;width:40px;
-	background-size: cover;                  							
-	background-image: url("/assets/comments.png");
-	background-position: center center;
-	background-repeat:no-repeat;
-}
-
 .presenter {
-	//margin-bottom:40px;
-	//opacity:0.85;		
+	position: relative;
+	margin-bottom:20px;	
 	background:white;
-	//position:absolute;
-	//bottom:0; left:0; right:0;
-	//text-align: center;
 	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 .presenter .stats{
-	margin:10px 25px;
+	margin:10px 0 10px 30px;
 	display:inline-block;
 }
 
-.presenter .stats li.stat{
-	float: left;
-	width: 120px;
+.presenter .stats .stat{
+	min-width:70px;
 	padding: 10px 30px 0;
 	border-right: 1px solid #EEE;
+	float:left;
 }
-.presenter .stats li.stat:first-child {
+.presenter .stats .stat:first-child {
 	padding-left: 0;
 }
-.presenter .stats li.stat:last-child {
+.presenter .stats .stat:last-child {
 	border-right: none;
 }
-.presenter .stats li.stat .value{
-	font-size: 2.2em;
+.presenter .stats .stat .value{
+	font-size: 2em;
 	font-family: "Museo-300", Helvetica Neue, Helvetica, Arial, sans-serif;
-	line-height: 1em;
+	line-height: 1.2em;
 	color:#0099B5;
 }
 
 
-
-	.event-menu{
+	.event-menu {
 		 background-image: url('/assets/images/body_noise_media.png');
 	}
 
@@ -342,11 +402,11 @@ border-top: solid 2px #222;
 		background-image:none;	
 	}
 
- 	.preview_container{
+ 	.presenter-preview {
  		position:relative;
+ 		overflow: hidden;
+ 		height: 60px;
 		z-index:45;
-		height:66px;
-		margin-bottom:0px;
 		text-shadow: 1px 1px 1px #000;
 		background-image: url('/assets/pattern.png');
 		color:white;
@@ -355,42 +415,45 @@ border-top: solid 2px #222;
 		 -moz-box-shadow: inset 0px 1px 12px 1px rgba(0,0,0,.7);
 		 -webkit-box-shadow: inset 0px 1px 12px 1px rgba(0,0,0,.7);
 		 box-shadow:inset 0px 1px 12px 1px rgba(0,0,0,.7);
-
 	}
 
-	.preview_container .navbar-inner >ul > li img{
-		float:left;
-		margin-right:15px;
-		margin-top:8px;
+	#blocks-wrapper {
+		position:relative;
+		display:block;
+	}
+
+
+	.presenter-preview  img {
+		margin:5px 5px;
 		height:50px; 
 		width:50px;
-
+		
 	}
 
-	.preview_container .navbar-inner header{
-		display:block;
-		float:left;
-		margin-top:8px;
-		margin-right:20px;
+	.presenter-preview  header {
+		margin-right:10px;
 	}
 
-	.preview_container .navbar-inner header > h3{
-		margin: 10px 0 0 0;
+	.presenter-preview #blocks-wrapper header > h3{
+		margin: 0;
+	    font-weight: 300;
+	    font-size: 14px;
+	    line-height: 14px;
+	    max-width:150px;
+	    overflow: hidden;
+	    white-space:nowrap;
+	}
+
+	.preview_container header > p{
 		text-align:left;
 	    font-weight: 300;
-	    font-size: 1.2em;
-	    line-height: 1.15em;
-	    max-width:190px;
-	    overflow: hidden;white-space:nowrap;
-	}
-	.preview_container .navbar-inner header > p{
-		text-align:left;
-	    font-weight: 300;
-	    font-size: 0.9em;
-	    line-height: 1.1em;
+	    font-size: 12em;
+	    line-height: 12px;
 	    margin: 8px 0 0 0;
-	    max-width:195px;
-	    overflow: hidden;white-space:nowrap;text-overflow:ellipsis;
+	    max-width:120px;
+	    overflow: hidden;
+	    white-space:nowrap;
+	    text-overflow:ellipsis;
 	}
 
  	.section{

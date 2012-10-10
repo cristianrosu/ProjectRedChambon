@@ -15,24 +15,36 @@
 	border:none;
 }
 
-.navbar-inverse .stats{
+.ico-bar {
 	opacity:0.55;
-	width:28px;height:28px;background-image: url("/assets/icon-stats-28.png");
+	height:28px;
+	background-repeat: no-repeat;
+	position:center center;	
 }
-.navbar-inverse .calendar {
-	opacity:0.55;
-	width:28px;height:26px;background-image: url("/assets/icon-calendar-28.png");	
-}
-.navbar-inverse .pin-map {
-	opacity:0.55;
-	width:21px;height:28px;background-image: url("/assets/icon-pin-28.png");	
-}
- .navbar-inverse .star {
- 	opacity:0.55;
-	width:28px;height:28px;background-image: url("/assets/icon-star-28.png");
- }
 
-.navbar-inverse .stats:hover ,.navbar-inverse .calendar:hover, .navbar-inverse .pin-map:hover, .navbar-inverse .star:hover{
+.ico-bar.ico-calendar-plus {
+	width:32px;background-image: url("/assets/28px/icon-calendar-plus.png");
+}
+.ico-bar.ico-calendar {
+	width:32px;background-image: url("/assets/28px/icon-calendar.png");
+}
+.ico-bar.ico-map {
+	width:21px;background-image: url("/assets/28px/icon-pin.png");	
+}
+.ico-bar.ico-settings {
+	width:28px;background-image: url("/assets/28px/icon-settings.png");	
+}
+.ico-bar.ico-stats {
+	width:28px;background-image: url("/assets/28px/icon-stats.png");	
+}
+.ico-bar.ico-user {
+	width:28px;background-image: url("/assets/28px/user-icon.png");	
+}
+.ico-bar.ico-volunteers {
+	width:43px;background-image: url("/assets/28px/icon-volunteers.png");	
+}
+
+.ico-bar.ico-calendar-plus:hover ,.ico-bar.ico-calendar:hover, .ico-bar.ico-map:hover,.ico-bar.ico-settings:hover,.ico-bar.ico-stats:hover,.ico-bar.ico-user:hover,.ico-bar.ico-volunteers:hover {
 	opacity:1;
 }
 
@@ -52,6 +64,7 @@
 }
 .top-bar .stats{
 	margin-top:15px;
+	display: block;
 }
 
 .top-bar .stats li.stat{

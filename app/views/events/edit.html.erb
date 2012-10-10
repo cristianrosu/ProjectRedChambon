@@ -1,21 +1,37 @@
-<div class="clearfix" style="z-index:1023;position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);padding:5px; border-bottom:1px solid #ccc">
-    <div id="wrapper">
-
-        <div class="selector" style="float:left;margin-bottom:0;height:40px;margin-top:8px;">
-            <ul class="new-event steps-nav">
-                  <li><a class="active" href="#guidelines">1. Guidlines</a></li>
-                  <li><a class="" href="#basics">2. Basic Info</a></li>
-                  <li><a class="" href="#event">3. Details</a></li>          
-              </ul>
+<div style="z-index:1023;position:fixed;top:20px;left:0px;display:block" class="clearfix">
+  <div class="steps-nav" style="float:left;width:270px;padding:0 40px 40px 0; -webkit-transition: padding 100ms;">
+          <ul class="bubble-selector clearfix" style="box-sizing: border-box;display:block;min-width:60px">
+            <li class=""><a  href="#guidelines">1</a></li>
+            <li class="active"><a href="#basics">2</a></li>
+            <li class=""><a href="#event">3</a></li>
+            <li><a href="#" >4</a></li>
+          </ul>
+<!-- 
+          <div id="slide0" class="slidde">
+            <h2>Guidelines</h2>
+            <p>Start by reading this carefully, so that you can make the most out of your event</p>
           </div>
+          <div id="slide1" class=" active slidde">
+            <h2>Basic information</h2>
+            <p>Location and date, upload a video and link your event with all media accounts</p>
+          </div>
+          <div id="slide2" class=" slidde">
+            <h2>Detailed timeline of your event</h2>
+            <p>Toggle the integrated terrain layer to show elevation hillshades.</p>
+          </div>
+          <div id="slide3" class="slidde">
+            <h2>Add markers to your map</h2>
+            <p>Annotate maps with pins, symbols, icons and interactive tooltips.</p>
+          </div> -->
 
-        <a class="btn btn-large btn-purple " style="float:right;margin:5px 5px" >Publish</a>
-        <a class="btn btn-large btn-green btn-event-save" style="float:right;margin:5px 5px" > Save </a>
-        <a class="btn btn-large btn-orange " style="float:right;margin:5px 5px" ><i class="icon icon-trash icon-white"></i></a>
-    </div>
+          <!-- <a class="btn btn-small btn-purple " style="float:right;margin:5px 5px" >Publish</a> -->
+        <a class="btn btn-green btn-event-save" style="position:fixed;left:50px;float:right;margin:5px 5px" > Save </a>
+  </div>
+        
 </div>
+        
 
-  <div id="carousel-edit" class="carousel slide" style="padding:0; height:0px;margin-top:80px">
+  <div id="carousel-edit" class="carousel slide" style="padding:0; height:0px;">
     <div class="carousel-inner">
       <div class="item car-guidelines edit_guidelines" style="color:black">
         <%= render( partial: "edit_guidelines", locals: { edit_mode: true }, formats: [:html])  %>
@@ -27,7 +43,7 @@
   			 <%= render( partial: "show", locals: { event: @event, edit_mode: true }, formats: [:html]) %>
       </div>
     </div>
-
+<!-- 
     <a class="carousel-control left" href="#car" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#car" data-slide="next">&rsaquo;</a>
+    <a class="carousel-control right" href="#car" data-slide="next">&rsaquo;</a> -->
   </div>

@@ -1,4 +1,5 @@
 var steps = ['guidelines', 'basics', 'event'];
+
 var navigateStep = function(increment){
     var nextStep = ($.inArray(window.location.hash.substring(1), steps) + increment) % steps.length
     $(".steps-nav li a.active").removeClass("active");
@@ -12,28 +13,26 @@ var navigateInit = function(){
     window.location.hash = steps[1];
   }
     
+  $('#slide' + $.inArray(window.location.hash.substring(1), steps)).addClass("active");
   $('#carousel-edit .car-' + window.location.hash.substring(1) ).addClass("active");
 
   $('#carousel-edit').carousel({
     interval: false
   });
 
-  $(".steps-nav li a.active").removeClass("active");
-  $(".steps-nav li a[href='" + window.location.hash + "']").addClass("active");
+  $(".steps-nav .active").removeClass("active");
+  $(".steps-nav li a[href='" + window.location.hash + "']").parent().addClass("active");
 
   $(".steps-nav li a").click(function() {
     var step = $.inArray(this.hash.substring(1), steps);
-    $(".steps-nav li a.active").removeClass("active");
-    $(this).addClass("active");
+    $(".steps-nav .active").removeClass("active");
+    $(this).parent().addClass("active");
     $('#carousel-edit').carousel(step);
+    $('#slide' + step).addClass("active");
   });
 }
 
-$(document).ready(function() {
-
-  updateWorkspace();
-  navigateInit();
-
+var paginationInit = function(){
   if ($('.pagination').length) {
     $('.pagination').hide();
     $(window).scroll(function() {
@@ -48,16 +47,84 @@ $(document).ready(function() {
         });
       }
     });
-    $(window).scroll();
+  }
+}
+
+$(document).mouseup(function (e) {
+  var container = $(".popover");
+  if (container.exists && !container.is(e.target) && container.has(e.target).length === 0) {
+    closePopover(container);
   }
 });
 
-var resetModal = function(modalPopup){
-  $("input", modalPopup).val("");
-  $(".selected", modalPopup).removeClass("selected");
-  $(".disabled", modalPopup).removeClass("disabled");
-  $(".btn-save_section").html("Save");
+var closePopover = function(container) {
+  var callerSelector = $(container).attr("data-caller-id");
+  $(".btn-close", container).unbind("click");
+  $(".btn-save", container).unbind("click");
+  $(".square", container).unbind("click");
+  $("#" + callerSelector).popover('hide');
 }
+
+$(document).ready(function() {
+
+  //popover for creating a new event section
+  $("#new_section").popover({
+      placement : 'right', //placement of the popover. also can use top, bottom, left or right
+      title     : '',
+      trigger   : 'manual',
+      html      : 'true', //needed to show html of course
+      content   : function(){
+          return $('#new_section_wrapper').html();
+      }
+    }).unbind("click").bind("click", function(e) {
+      $(this).popover('show');
+      var container = $(".popover");
+
+      $(container).attr("data-caller-id", this.id);
+
+      $(".square", container).bind("click", function() {
+          $(this).siblings(".selected").removeClass("selected");
+          $(this).addClass("selected");
+      });
+
+      $(".btn-close", container).bind("click", function() {
+        closePopover(container);
+      });
+
+      $(".btn-save", container).bind("click", function() {
+        var url = "/events/create_section";
+        var data = {
+          section : {
+            name      : $("#section_name", container).val(),
+            type_id   : $(".square.selected", container).data("type"),
+            position  : $("#event-content > article[id]").index() + 1,
+            event_id  : $("#event-content").attr("data-event-id")
+          }
+        };
+        if (data.section.name && data.section.type_id) {
+          $(this).html("Saving...").addClass("disabled");
+          $(this).unbind("click");
+
+          $.post(url, data, function(response) {
+              closePopover(container);
+              $("#event-content > article.post[id]").last().after(response.new_section);
+              $("#event-content > article.post.hide").fadeIn().removeClass("hide");
+              updateWorkspace();
+          }, "json");
+        }
+      });
+
+      e.preventDefault();
+    });
+});
+
+
+// var resetModal = function(modalPopup){
+//   $("input", modalPopup).val("");
+//   $(".selected", modalPopup).removeClass("selected");
+//   $(".disabled", modalPopup).removeClass("disabled");
+//   $(".btn-save_section").html("Save");
+// }
 
 var updateWorkspace = function(response) {
   
@@ -100,19 +167,45 @@ var updateWorkspace = function(response) {
       $(".form-events").submit();
   });
 
-  $(".btn-save_section").unbind("click")
+  // $(".btn-save_section").unbind("click")
+  //   .bind("click", function() {
+  //     var modalPopup = $("#new_section_modal"),
+  //       form = $("#new_section", modalPopup),
+  //       url = "/events/create_section",
+  //       button = this;
+
+  //     var data = {
+  //       section : {
+  //         name      : $("#section_name", form).val(),
+  //         type_id   : $(".markerfilter .selected", form).data("type"),
+  //         position  : $("#event-content > article[id]").index() + 1,
+  //         event_id  : $("#event-content").attr("data-event-id")
+  //       }
+  //     };
+
+  //     $(button).html("Saving...").addClass("disabled");
+
+  //     $.post(url, data, function(response) {
+  //         $(modalPopup).modal('hide');
+  //         resetModal();
+
+  //         updateWorkspace(response);
+  //     }, "json");
+  // });
+
+  $("#new_sponsorship .btn-save").unbind("click")
     .bind("click", function() {
-      var modalPopup = $("#new_section_modal"),
+      var modalPopup = $("#new_sponsorship"),
         form = $("#new_section", modalPopup),
         url = "/events/create_section",
         button = this;
 
       var data = {
-        section : {
-          name      : $("#section_name", form).val(),
-          type_id   : $(".markerfilter .selected", form).data("type"),
-          position  : $("#event-content > article[id]").index() + 1,
-          event_id  : $("#event-content").attr("data-event-id")
+        sponsorship : {
+          name      : "",//$("#section_name", form).val(),
+          type_id   : 3, //$(".markerfilter .selected", form).data("type"),
+          position  : 0, //$("#event-content > article[id]").index() + 1,
+          section_id : $("#event-content").attr("data-event-id")
         }
       };
 
@@ -126,10 +219,9 @@ var updateWorkspace = function(response) {
       }, "json");
   });
 
-  $("#new_section .markerfilter").unbind("click")
+  $(".add_content-sponsorship").unbind("click")
     .bind("click", function() {
-      $(this).siblings(".selected").removeClass("selected");
-      $(this).addClass("selected");
+      $("#new_sponsorship").modal('show');
   });
 
   //initialize fileuploader and date fields
@@ -160,6 +252,9 @@ var updateWorkspace = function(response) {
   //     {label: "Mail-Order Sales", value: 20}
   //   ]
   // });
+
+  
+
 
 };
 
