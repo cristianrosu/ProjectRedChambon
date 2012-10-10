@@ -1,6 +1,6 @@
 <%= simple_form_for(@event, :html => {:class => 'form-events', :multipart => true}) do |f| %>
 
-    <%= f.input :title %>
+    <%= f.input :title , class:"input-xxlarge" %>
     <%= f.input :description, input_html: {rows: 3} %>
     <%= f.input :date_start, as: :string %>
     <%= f.input :date_end, as: :string%>
@@ -13,7 +13,7 @@
     </div>
     <%= f.association :industry, collection: Industry.all(order: 'name'), as: :select, prompt: "Choose event industry"  %>
    <!--  <div class="control-group"> -->
-        <%= f.button :submit, class:"btn btn-large btn-blue", style: "width:100%" %>
+        <%= f.button :submit, class:"btn btn-large btn-blue btn-event-save", style: "width:100%" %>
    <!--  </div> -->
 
 

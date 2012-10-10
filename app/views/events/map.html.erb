@@ -57,11 +57,11 @@
 </style>
 
 <div id="branding"></div>
-    <div id="content"><div class="limiter">
-        <div id="about">
-          <img style='float:left;' src='img/logo_retina.png' width='49' height'39' />
-          <h1 class='map-title'>Discover events</h1>
-          <p class='description'>Choose category</p>
+    <div id="content">
+      <div class="limiter">
+        <div id="about" style="margin-bottom:30px">
+          <legend><h2 class='map-title' style="line-height:1">Discover events</h2></legend>
+          <h4 class='description'>Choose category</h4>
           <div id="markerfilters" class="clearfix-map sectionn">
             <div class="markerfilter selected" id="All">All</div>
             <div class="markerfilter" id="IT">IT-T</div>
@@ -72,13 +72,20 @@
             <div class="markerfilter" id="Marketing">Market</div>
           </div>
         </div>
+        
+        <h4 clas="pull-left">Search by location</h4>
+        
         <div data-control='geocode' class="clearfix-map sectionn" id="search">
           <form class="geocode">
-            <input placeholder='Search for an address' type="text" id="searchTextField">
+            <input placeholder='Search for an address' type="text" id="searchTextField" style="float:left;width:189px;font-size:14px;line-height:30px;height:20px;">
             <div id='geocode-error'></div>
+              <a style="margin-left:10px" class="pull-right btn btn-blue"><i class="icon-map-marker icon-white"></i></a>
           </form>
+        
         </div>
-    </div></div>
+
+    </div>
+  </div>
     <div id="map" class="map"></div>
     <a class="btn btn-orange" style="position:absolute;top:15px;left:15px;" id="prevBtn">Close</a>
     <a href='#' id='geolocate'>Find me</a>

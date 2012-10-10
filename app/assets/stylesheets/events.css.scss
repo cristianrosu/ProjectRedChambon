@@ -99,6 +99,7 @@ cursor: pointer;
 	-o-transition: all 150ms ease-in;
 	transition: all 150ms ease-in;
 	overflow: hidden;
+		box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 0px 5px;
 	}
 
 .bubble-selector li.active a {
