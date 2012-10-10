@@ -3,18 +3,28 @@
     <h3>Add a new section</h3>
   </div>
   <div class="modal-body">
-    <form id="new_section"> 
-      <input type="text" id="section_name" placeholder="Name" style="margin:15px 0">
+      <input type="text" id="section_name" placeholder="Name" style="margin:10px 0">
       <legend>Choose an icon</legend>
-      <div class="markerfilter" data-type="1" style="background-image: url(<%= asset_path 'icon-star-28.png' %>);background-position:center center"></div>
-      <div class="markerfilter" data-type="2" style="background-image: url(<%= asset_path 'icon-home-28.png' %>);background-position:center center"></div>
-      <div class="markerfilter" data-type="3" style="background-image: url(<%= asset_path 'icon-plus-28.png' %>);background-position:center center" ></div>
-      <div class="markerfilter" data-type="4" style="background-image: url(<%= asset_path 'icon-pin-28.png' %>);background-position:center center"></div>
-      <div class="markerfilter" data-type="5" style="background-image: url(<%= asset_path 'icon-stats-28.png' %>);background-position:center center"></div>
-      <div class="markerfilter" data-type="6" style="background-image: url(<%= asset_path 'people.png' %>);background-position:center center" ></div>
+      <div class="square selected" data-type="1"> 
+        <img style="margin-top:-5px;height:35px; height:auto"  src=" <%= asset_path 'bubble/icon-sheet.png' %> ">
+      </div>
+
+      <div class="square" data-type="2"> 
+        <img style="margin-top:-5px;height:35px; height:auto"  src=" <%= asset_path 'bubble/icon-volunteers.png' %> ">
+      </div>
+      <div class="square" data-type="3">
+        <img style="margin-top:-5px;height:35px; height:auto"  src=" <%= asset_path 'bubble/icon-message.png' %> ">
+      </div>
+      <div class="square" data-type="4">
+        <img style="margin-top:-5px;height:35px; height:auto"  src=" <%= asset_path 'bubble/icon-plus.png' %> ">
+      </div>
+      <div class="square" data-type="1"> 
+        <img style="margin-top:-5px;height:35px; height:auto"  src=" <%= asset_path 'bubble/icon-sheet.png' %> ">
+      </div>
   </div>
-  <div class="pull-right" style="padding: 0 15px 15px;">
-    <button class="btn btn-blue btn-close">Close</button>
+  <div class="pull-right" style="padding:0 0 15px 15px;">
     <button class="btn btn-green btn-save">Save</button>
+    <button class="btn btn-danger btn-close">Cancel</button>
+    
   </div>
 </div>

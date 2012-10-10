@@ -1,9 +1,9 @@
-<article id="sct<%= event_section.id %>" class="post event-section" style="margin-bottom:100px;padding-bottom:50px;">
+<article id="sct<%= event_section.id %>" class="post event-section<%= new_object ? " hide" : "" %>" style="margin-bottom:100px;padding-bottom:50px;">
 	<section>
 <!-- 						<img src="../cache/images/3c29e05f2779aaa0a01d0510115f9b34_normal_2x.png" width="280" height="304" alt="Ordering a taxi without making a call" class="fs-img"> -->
 		<aside>
 			<div class="bubble">
-					  <img src="<%= asset_path 'bubble/icon-message.png' %>"/>
+					  <img src="<%= section_image(event_section) %>"/>
 			</div>
 			<a href="sds"><h1 style="float:left;line-height:86px;margin:0">  <%= event_section.name %></h1></a>
 

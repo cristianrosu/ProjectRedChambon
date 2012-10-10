@@ -95,50 +95,6 @@ body > div {
   color:white;
 }
 
-
-/*form.geocode input[type=text] {
-  height: 20px;
-  display: block;
-  border: 1px solid #CCC;
-  padding: 5px;
-  float: left;
-  width: 185px;
-  margin: 0px 5px;
-  line-height: 12px;
-}*/
-/*form.geocode input[type=submit] {
-  background:url(img/map.png) no-repeat -121px -0px #fff;
-  text-indent:-9999px;
-  width:32px;
-  height:32px;
-  display:block;
-  border:1px solid  #ccc;
-  border-radius:3px;
-  -moz-border-radius:3px;
-  -webkit-border-radius:3px;
-  box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
-  -moz-box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
-  -webkit-box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
-  margin: 0px 5px;
-  padding:11px;
-  float:left;
-}
-form.geocode input[type=submit]:active {
-  border-color:#bbb;
-  background-color:#ddd;
-  box-shadow:inset rgba(0,0,0,0.1) 0px 1px 3px;
-  -moz-box-shadow:inset rgba(0,0,0,0.1) 0px 1px 3px;
-  -webkit-box-shadow:inset rgba(0,0,0,0.1) 0px 1px 3px;
-}
-form.geocode.loading input[type=submit] {
-  background:url(img/ajax-loader.gif) no-repeat 50% 50%;
-  border-color:#bbb;
-  background-color:#ddd;
-  box-shadow:inset rgba(0,0,0,0.1) 0px 1px 3px;
-  -moz-box-shadow:inset rgba(0,0,0,0.1) 0px 1px 3px;
-  -webkit-box-shadow:inset rgba(0,0,0,0.1) 0px 1px 3px;
-}*/
-
 #geocode-error {
   display:none;
   position:relative;
