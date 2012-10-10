@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @brand.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @brand.description %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @brand.email %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @brand.logo %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @brand.phone_number %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @brand.website %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @brand.location %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @brand.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @brand.longitude %>
+</p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @brand.contact_name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @brand.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_brand_path(@brand) %> |
+<%= link_to 'Back', brands_path %>

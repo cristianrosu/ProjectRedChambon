@@ -1,0 +1,41 @@
+<h1>Listing sponsorships</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Date start</th>
+    <th>Date end</th>
+    <th>Location</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Sponsorship type</th>
+    <th>Industry</th>
+    <th>Image</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sponsorships.each do |sponsorship| %>
+  <tr>
+    <td><%= sponsorship.title %></td>
+    <td><%= sponsorship.description %></td>
+    <td><%= sponsorship.date_start %></td>
+    <td><%= sponsorship.date_end %></td>
+    <td><%= sponsorship.location %></td>
+    <td><%= sponsorship.latitude %></td>
+    <td><%= sponsorship.longitude %></td>
+    <td><%= sponsorship.sponsorship_type_id %></td>
+    <td><%= sponsorship.industry_id %></td>
+    <td><%= sponsorship.image %></td>
+    <td><%= link_to 'Show', sponsorship %></td>
+    <td><%= link_to 'Edit', edit_sponsorship_path(sponsorship) %></td>
+    <td><%= link_to 'Destroy', sponsorship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sponsorship', new_sponsorship_path %>

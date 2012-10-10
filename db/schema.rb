@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007112738) do
+ActiveRecord::Schema.define(:version => 20121010190509) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "section_id"
@@ -21,6 +21,22 @@ ActiveRecord::Schema.define(:version => 20121007112738) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "details"
+  end
+
+  create_table "brands", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "email"
+    t.string   "logo"
+    t.string   "phone_number"
+    t.string   "website"
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "contact_name"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "event_types", :force => true do |t|
@@ -60,6 +76,22 @@ ActiveRecord::Schema.define(:version => 20121007112738) do
     t.integer  "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "sponsorships", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "sponsorship_type_id"
+    t.integer  "industry_id"
+    t.string   "image"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

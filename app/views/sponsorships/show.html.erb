@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @sponsorship.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @sponsorship.description %>
+</p>
+
+<p>
+  <b>Date start:</b>
+  <%= @sponsorship.date_start %>
+</p>
+
+<p>
+  <b>Date end:</b>
+  <%= @sponsorship.date_end %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @sponsorship.location %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @sponsorship.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @sponsorship.longitude %>
+</p>
+
+<p>
+  <b>Sponsorship type:</b>
+  <%= @sponsorship.sponsorship_type_id %>
+</p>
+
+<p>
+  <b>Industry:</b>
+  <%= @sponsorship.industry_id %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= @sponsorship.image %>
+</p>
+
+
+<%= link_to 'Edit', edit_sponsorship_path(@sponsorship) %> |
+<%= link_to 'Back', sponsorships_path %>
