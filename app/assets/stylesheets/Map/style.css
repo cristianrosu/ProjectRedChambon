@@ -62,13 +62,13 @@ body > div {
 
 #content {
   position:absolute;
-  top:0px;
-  right:0;
-  bottom:0;
-  width:279px;
+  top:20px;
+  right:20px;
+  bottom:70px;
+  width:250px;
   background:rgb(255,255,255);
   background:rgba(255,255,255, 0.9);
-  border-left:1px solid #ccc;
+  border:1px solid #ccc;
   overflow-x:hidden;
   overflow-y:auto;
   padding:20px;
