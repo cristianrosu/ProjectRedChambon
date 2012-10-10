@@ -3,8 +3,9 @@ var steps = ['guidelines', 'basics', 'event'];
 var navigateStep = function(increment){
     var nextStep = ($.inArray(window.location.hash.substring(1), steps) + increment) % steps.length
     $(".steps-nav li a.active").removeClass("active");
-    $(this).addClass("active");
+    //$(this).addClass("active");
     $('#carousel-edit').carousel(step);
+    $("#carousel-header").carousel();
 }
 
 //initialize carousel, update URL hash and set active link
@@ -29,7 +30,12 @@ var navigateInit = function(){
     $(this).parent().addClass("active");
     $('#carousel-edit').carousel(step);
     $('#slide' + step).addClass("active");
+
+    //hack for second carousel  -- fuck it (won't work)
+    //$("#carousel-header .item").removeClass("active").first().addClass("active");
   });
+
+  $("#carousel-header").carousel();
 }
 
 var paginationInit = function(){
