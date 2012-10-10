@@ -5,6 +5,9 @@
     <%= f.input :date_start, as: :string %>
     <%= f.input :date_end, as: :string%>
     <%= f.input :location %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+    <div id="map_canvas" style="display:none"></div>
     <div class="control-group">
         <span class="file-wrapper controls">
           <input id="event_image" type="file" name="event[image]" >
@@ -16,5 +19,53 @@
         <%= f.button :submit, class:"btn btn-large btn-blue", style: "width:100%" %>
    <!--  </div> -->
 
+   <script>
+
+      $(".control-group.float.optional").hide();
+      var latitude = document.getElementById('event_latitude');
+      var longitude = document.getElementById('event_longitude');
+
+      var mapOptions = {
+          center: new google.maps.LatLng(-33.8688, 151.2195),
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+      
+      var map2 = new google.maps.Map(document.getElementById('map_canvas'),
+        mapOptions);
+
+      var input = document.getElementById('event_location');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+
+      autocomplete.bindTo('bounds', map2);
+
+      var infowindow = new google.maps.InfoWindow();
+      var marker = new google.maps.Marker({
+        map: map2
+      });
+
+      google.maps.event.addListener(autocomplete, 'place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            // Inform the user that the place was not found and return.
+            $('#geocode-error').text('This address cannot be found.').fadeIn('fast');
+            return;
+          }
+
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            latitude.value = place.geometry.location.Xa;
+            longitude.value = place.geometry.location.Ya;
+          } else {
+            latitude.value = place.geometry.location.Xa;
+            longitude.value = place.geometry.location.Ya;
+          }
+
+        });
+
+   </script>
 
 <% end %>
+
