@@ -37,6 +37,21 @@ module EventsHelper
 		return 0
 	end
 
+	def section_image(section)
+		case section.type_id
+			when 1
+				return "/assets/bubble/icon-sheet.png"
+			when 2
+				return "/assets/bubble/icon-volunteers.png"
+			when 3
+				return "/assets/bubble/icon-message.png"
+			when 4
+				return "/assets/bubble/icon-plus.png"
+			when 5
+				return "/assets/bubble/icon-sheet.png"
+		end
+	end 
+
 
 	#details is a hash of toggles
 	#ex: {"align"=>"align-justify"} 

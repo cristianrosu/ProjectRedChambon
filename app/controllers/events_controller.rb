@@ -219,17 +219,14 @@ class EventsController < ApplicationController
 
     @block1 = Block.new(type_id: 1, position: 0, details: "{}")
     @block11 = Block.new(type_id: 2, position: 1, details: "{}")
-    @section << @block1 << @block11
-    
-    if @section.save
+    @section.blocks << @block1 << @block11
 
-      @event = Event.find(@section.event_id, :include => [{:sections => :blocks}, :sections])
-      @event.sections.each do |section|
-        section.blocks.each do |block|
-          block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
-        end
+    if @section.save
+      @section.blocks.each do |block|
+        block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
       end
-      render json: { 'event_show' => render_to_string( partial: "show", locals: { event: @event, edit_mode: true }, formats: [:html]) }
+
+      render json: { 'new_section' => render_to_string( partial: "event_section", locals: { event_section: @section, edit_mode: true, new_object: true }, formats: [:html]) }
 
     else
       render text: "error"

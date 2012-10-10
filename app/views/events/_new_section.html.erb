@@ -5,7 +5,7 @@
   <div class="modal-body">
       <input type="text" id="section_name" placeholder="Name" style="margin:10px 0">
       <legend>Choose an icon</legend>
-      <div class="square" data-type="1"> 
+      <div class="square selected" data-type="1"> 
         <img style="margin-top:-5px;height:35px; height:auto"  src=" <%= asset_path 'bubble/icon-sheet.png' %> ">
       </div>
 
@@ -18,13 +18,13 @@
       <div class="square" data-type="4">
         <img style="margin-top:-5px;height:35px; height:auto"  src=" <%= asset_path 'bubble/icon-plus.png' %> ">
       </div>
-      <div class="square selected" data-type="1"> 
+      <div class="square" data-type="1"> 
         <img style="margin-top:-5px;height:35px; height:auto"  src=" <%= asset_path 'bubble/icon-sheet.png' %> ">
       </div>
   </div>
   <div class="pull-right" style="padding:0 0 15px 15px;">
-    <button class="btn btn-green btn-save_section">Save</button>
-    <button class="btn btn-danger">Cancel</button>
+    <button class="btn btn-green btn-save">Save</button>
+    <button class="btn btn-danger btn-close">Cancel</button>
     
   </div>
 </div>

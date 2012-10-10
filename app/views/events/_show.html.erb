@@ -9,14 +9,14 @@
 <div id="wrapper"> 
   <section id="event-content" data-event-id="<%= event.id %>" class="event-timeline">
     <% event.sections.each do |section| %>
-      <%= render partial: "event_section", locals: { event_section: section, edit_mode: edit_mode }, formats: [:html] %>
+      <%= render partial: "event_section", locals: { event_section: section, edit_mode: edit_mode, new_object: false }, formats: [:html] %>
     <% end %>
 
     <% if edit_mode %>
     	<!-- <a class="btn btn-blue btn-large btn-block">Add new section -</a> -->
-    	<%= render partial: "event_section_add" %>
-
-      <%= render partial: "new_custom_block", formats: [:html] %>
+    	<%= render partial: "event_section_add", formats: [:html] %>
+    	<%= render partial: "new_section", formats: [:html] %>
+		<%= render partial: "new_custom_block", formats: [:html] %>
     <% end %>
   </section>
 </div>
