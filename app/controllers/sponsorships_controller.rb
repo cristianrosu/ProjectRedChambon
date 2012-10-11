@@ -1,6 +1,8 @@
 class SponsorshipsController < ApplicationController
   # GET /sponsorships
   # GET /sponsorships.json
+  include SponsorshipsHelper
+  include EventsHelper
   def index
     @sponsorships = Sponsorship.all
 
@@ -19,6 +21,19 @@ class SponsorshipsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @sponsorship }
     end
+  end
+
+  def map
+
+    @sponsorships = Sponsorship.all
+    @features_as_json = sponsorships_as_json(@sponsorships)
+
+    respond_to do |format|
+      format.html { render action: "../events/map" }
+      format.json { render json: @features_as_json }
+    end
+
+    
   end
 
   # GET /sponsorships/new

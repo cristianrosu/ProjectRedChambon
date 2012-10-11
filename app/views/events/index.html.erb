@@ -1,7 +1,11 @@
 <div id="wrapper">
 	<div class="row-fluid">
 		<ul id="events" class="thumbnails">
-		<%= render @events %>
+			<% @events.each do |event| %>
+				<li class="span4" style="style:none">
+					<%= render partial: "event", locals: { event: event }, formats: [:html] %>
+				</li>
+			<% end %>
 		</ul>
 	</div>
 

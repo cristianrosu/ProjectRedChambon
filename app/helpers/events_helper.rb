@@ -21,6 +21,8 @@ module EventsHelper
 		  	t = "text"
 		  when 3
 		  	t = "image"
+		  when 4
+		  	t = "sponsorship"
 	  end	
 	  return t
 	end
@@ -33,6 +35,8 @@ module EventsHelper
 				return 2
 			when "image"
 				return 3
+			when "sponsorship"
+				return 4
 		end
 		return 0
 	end
@@ -73,10 +77,11 @@ module EventsHelper
 			return
 		end
 		toggle = ""
-		if !block.details.nil? && block.details.has_key?(type) 
-			toggle << "#{block.details[type]}"
+		if !block.details.nil? && block.details.kind_of?(Hash) && block.details.has_key?(type.to_s) 
+			toggle << "#{block.details[type.to_s]}"
 		else
-			case type
+			#this should never be hit
+			case type.to_s
 				when "align"
 					toggle << "align-left"
 				when "size"
@@ -87,7 +92,7 @@ module EventsHelper
 	end
 
 	def add_class_data_toggle(block)
-		if block.nil? || block.details.nil? 
+		if block.nil? || block.details.blank? || !block.details.kind_of?(Hash)
 			return
 		end
 
@@ -112,6 +117,7 @@ module EventsHelper
 	      		:'marker-color' => get_industry_color(event.industry_id),
 	      		id: event.id,
 	      		title: event.title,
+	      		feature_type: "event",
 	      		description: event.description,
 	      		industry: get_industry_name(event.industry),
 	      		location: event.location,
@@ -122,7 +128,7 @@ module EventsHelper
 	    }
 	  	end.to_json.html_safe
     end
-       
+
     private
     def get_industry_color(industry_id)
     	color = ""
@@ -166,6 +172,14 @@ module EventsHelper
 		  	t = "sponsorship"
 	  end	
 	  return t
+	end
+
+	def symbolize_keys_deep!(h)
+    h.keys.each do |k|
+        ks    = k.respond_to?(:to_sym) ? k.to_sym : k
+        h[ks] = h.delete k # Preserve order even when k == ks
+        symbolize_keys_deep! h[ks] if h[ks].kind_of? Hash
+    end
 	end
 
 end

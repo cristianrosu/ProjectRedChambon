@@ -1,4 +1,12 @@
-$('#events').append('<%= j render(@events) %>');
+$('#events').append('\
+		<ul id="events" class="thumbnails">\
+			<% @events.each do |event| %>
+				<li class=\"span4\" style=\"style:none\">\
+					<%= j render partial: "event", locals: { event: event }, formats: [:html] %>\
+				</li>\
+			<% end %>	
+		</ul>');
+
 <% if @events.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate(@events) %>');
   $('.pagination').hide();

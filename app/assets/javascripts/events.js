@@ -1,4 +1,5 @@
 var steps = ['guidelines', 'basics', 'event'];
+var generatedId = 1;
 
 var navigateStep = function(increment){
     var nextStep = ($.inArray(window.location.hash.substring(1), steps) + increment) % steps.length
@@ -54,6 +55,14 @@ var paginationInit = function(){
       }
     });
   }
+}
+
+var getElementId = function(element){
+  if (!element.id){
+    element.id = "gen-" + generatedId;
+    generatedId ++;
+  } 
+  return element.id;
 }
 
 $(document).mouseup(function (e) {
@@ -121,7 +130,10 @@ $(document).ready(function() {
       });
 
       e.preventDefault();
-    });
+  });
+
+
+
 });
 
 
@@ -223,6 +235,71 @@ var updateWorkspace = function(response) {
 
           updateWorkspace(response);
       }, "json");
+  });
+
+    //popover for adding a sponsorship
+  $(".add_content-media").popover({
+      placement : 'bottom', //placement of the popover. also can use top, bottom, left or right
+      title     : '',
+      trigger   : 'manual',
+      html      : 'true', //needed to show html of course
+      content   : function(){
+          return $('#new_custom_block_wrapper').html();
+      }
+    }).unbind("click").bind("click", function(e) {
+      $(this).popover('show');
+      var container = $(".popover");
+
+      $(container).attr("data-caller-id", getElementId(this));
+      var sectionId = ($(this).closest('article').attr('id') || '').substring(3)
+
+      $(".square", container).bind("click", function() {
+        $(this).siblings(".selected").removeClass("selected");
+        $(this).addClass("selected");
+
+        var url = "/events/create_block";
+        var data = {
+            type      : $(".square.selected", container).data("type"),
+            sectionId : sectionId
+        };
+
+        $.post(url, data, function(response) {
+            closePopover(container);
+            $("#event-content > article.post[id]").last().after(response.new_section);
+            $("#event-content > article.post.hide").fadeIn().removeClass("hide");
+            updateWorkspace();
+        }, "json");        
+
+      });
+
+      $(".btn-close", container).bind("click", function() {
+        closePopover(container);
+      });
+
+      // $(".btn-save", container).bind("click", function() {
+      //   var url = "/events/create_section";
+      //   var data = {
+      //     section : {
+      //       name      : $("#section_name", container).val(),
+      //       type_id   : $(".square.selected", container).data("type"),
+      //       position  : $("#event-content > article[id]").index() + 1,
+      //       event_id  : $("#event-content").attr("data-event-id")
+      //     }
+      //   };
+      //   if (data.section.name && data.section.type_id) {
+      //     $(this).html("Saving...").addClass("disabled");
+      //     $(this).unbind("click");
+
+      //     $.post(url, data, function(response) {
+      //         closePopover(container);
+      //         $("#event-content > article.post[id]").last().after(response.new_section);
+      //         $("#event-content > article.post.hide").fadeIn().removeClass("hide");
+      //         updateWorkspace();
+      //     }, "json");
+      //   }
+      // });
+
+      e.preventDefault();
   });
 
   $(".add_content-sponsorship").unbind("click")

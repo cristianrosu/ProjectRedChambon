@@ -14,12 +14,12 @@ class EventsController < ApplicationController
 
   def map
     @events = Event.all
-    # @events.each do |event|
-    #   event.latitude = Random.rand(180)
-    #   event.longitude = Random.rand(90)
-    #   event.save
-    # end
+    @features_as_json = events_as_json(@events)
 
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @features_as_json }
+    end
   end
 
   # GET /events/1
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
 
     @event.sections.each do |section|
       section.blocks.each do |block|
-        block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+        block.details =  ActiveSupport::JSON.decode(block.details)
       end
     end
     
@@ -64,7 +64,7 @@ class EventsController < ApplicationController
 
     @event.sections.each do |section|
       section.blocks.each do |block|
-        block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+        block.details =  ActiveSupport::JSON.decode(block.details)
       end
     end
 
@@ -98,7 +98,7 @@ class EventsController < ApplicationController
 
     @event.sections.each do |section|
       section.blocks.each do |block|
-        block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+        block.details =  ActiveSupport::JSON.decode(block.details)
       end
     end
 
@@ -129,14 +129,14 @@ class EventsController < ApplicationController
     @event.sections << @section_basic << @section_details << @section_sponsorships
 
 
-    @block1 = Block.new(type_id: 1, position: 0, details: "{}")
-    @block11 = Block.new(type_id: 2, position: 1, details: "{}")
+    @block1 = Block.new(type_id: 1, position: 0)
+    @block11 = Block.new(type_id: 2, position: 1)
     @section_basic.blocks << @block1 << @block11
-    @block2 = Block.new(type_id: 1, position: 0, details: "{}")
-    @block22 = Block.new(type_id: 2, position: 1, details: "{}")
+    @block2 = Block.new(type_id: 1, position: 0)
+    @block22 = Block.new(type_id: 2, position: 1)
     @section_details.blocks << @block2 << @block22
-    @block3 = Block.new(type_id: 1, position: 0, details: "{}")
-    @block33 = Block.new(type_id: 2, position: 1, details: "{}")
+    @block3 = Block.new(type_id: 1, position: 0)
+    @block33 = Block.new(type_id: 2, position: 1)
     @section_sponsorships.blocks << @block3 << @block33
 
     respond_to do |format|
@@ -167,7 +167,7 @@ class EventsController < ApplicationController
 
     @event.sections.each do |section|
       section.blocks.each do |block|
-        block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+        block.details =  ActiveSupport::JSON.decode(block.details)
       end
     end
 
@@ -208,7 +208,9 @@ class EventsController < ApplicationController
     type_id = block_type_id(params[:type])
     @block = Block.new(type_id: type_id, section_id: params[:sectionId])
     if @block.save
+      @block.details =  ActiveSupport::JSON.decode(@block.details)
       render partial: "event_block.html", locals: { block: @block, edit_mode: true } 
+      #render json: @block
     else
       
     end
@@ -217,13 +219,13 @@ class EventsController < ApplicationController
   def create_section
     @section = Section.new(params[:section])
 
-    @block1 = Block.new(type_id: 1, position: 0, details: "{}")
-    @block11 = Block.new(type_id: 2, position: 1, details: "{}")
+    @block1 = Block.new(type_id: 1, position: 0)
+    @block11 = Block.new(type_id: 2, position: 1)
     @section.blocks << @block1 << @block11
 
     if @section.save
       @section.blocks.each do |block|
-        block.details =  ActiveSupport::JSON.decode(block.details).symbolize_keys
+        block.details =  ActiveSupport::JSON.decode(block.details)
       end
 
       render json: { 'new_section' => render_to_string( partial: "event_section", locals: { event_section: @section, edit_mode: true, new_object: true }, formats: [:html]) }

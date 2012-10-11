@@ -36,7 +36,7 @@
         color:#FFF;
         }
 
-      #geolocate {
+      /*#geolocate {
         background:#fff;
         position:absolute;
         top:200px;
@@ -53,7 +53,7 @@
         -webkit-border-radius:3px;
                 border-radius:3px;
         }
-      #geolocate:hover { background:#ECF5FA; }
+      #geolocate:hover { background:#ECF5FA; }*/
 </style>
 
 <div id="branding"></div>
@@ -79,7 +79,7 @@
           <form class="geocode">
             <input placeholder='Search for an address' type="text" id="searchTextField" style="float:left;width:189px;font-size:14px;line-height:30px;height:20px;">
             <div id='geocode-error'></div>
-              <a style="margin-left:10px" class="pull-right btn btn-blue"><i class="icon-map-marker icon-white"></i></a>
+              <a id='geolocate' style="margin-left:10px" class="pull-right btn btn-blue"><i class="icon-map-marker icon-white"></i></a>
           </form>
         
         </div>
@@ -88,16 +88,66 @@
   </div>
     <div id="map" class="map"></div>
     <a class="btn btn-orange" style="position:absolute;top:15px;left:15px;" id="prevBtn">Close</a>
-    <a href='#' id='geolocate'>Find me</a>
+    <a class="btn btn-orange" onclick="SwitchPins()" style="position:absolute;top:60px;left:15px;" id="switchBtn">Sponsorships</a>
     <div id="prev" data-extended="false" style="overflow:auto;position:absolute;top:0;left:100%;width:90%;bottom:0px;padding-top:30px;background:rgba(255,255,255, 0.6) url(/assets/bg/noise.png) repeat center top;">
     </div>
     <div id="map_canvas" style="display:none">
 
     <script>
 
+      function SwitchPins() {
+
+          var url;
+
+          if ( $(switchBtn).text() === "Sponsorships" ) {
+            $(switchBtn).text("Events");
+            url = "/sponsorships/map";
+          }
+          else {
+            $(switchBtn).text("Sponsorships");
+            url = "/events/map";
+          }
+
+          $.getJSON(url, function(response) {
+              map.removeLayer(markerLayer);
+              markerLayer = mapbox.markers.layer().features(response);
+              
+              markerLayer.filter(function(f) {
+                if (industry === "All")
+                  return true;
+                return (f.properties['industry'].indexOf(industry) != -1);
+              });
+              
+              map.addLayer(markerLayer);
+
+              interaction = mapbox.markers.interaction(markerLayer);
+              interaction.formatter(function(feature) {
+                if (feature.properties.feature_type === "sponsorship") {
+                  var o = '<a target="_blank" href="' + feature.properties.description + '">' +
+                      '<img src="http://www.cardinalpath.com/cpwp/wp-content/uploads/img_0001.jpg">' +
+                      '<h2>' + feature.properties.industry + '</h2>' +
+                      '<a onclick="GetEventOnClick('+feature.properties.id+')" class="btn btn-orange" style="margin-right:5px" id="prevBtn">Preview</a>'+
+                      '</a>';
+
+                  return o;
+                }
+                else {
+                  var o = '<a target="_blank" href="' + feature.properties.description + '">' +
+                      '<img src="' + feature.properties.image + '">' +
+                      '<h2>' + feature.properties.industry + '</h2>' +
+                      '<a onclick="GetEventOnClick('+feature.properties.id+')" class="btn btn-orange" style="margin-right:5px" id="prevBtn">Preview</a>'+
+                      '</a>';
+
+                  return o;   
+                }
+              });
+          });
+
+      }
+
       //Gettng the current location
       var geolocate = document.getElementById('geolocate');
-
+      var industry = "All";
       // This uses the HTML5 geolocation API, which is available on
       // most mobile browsers and modern browsers, but not in Internet Explorer
       //
@@ -114,8 +164,8 @@
                   // Once we've got a position, zoom and center the map
                   // on it, add ad a single feature
                   map.ease.location({ lat: position.coords.latitude, lon: position.coords.longitude }).zoom(14).optimal();
-                  // And hide the geolocation button
-                  geolocate.parentNode.removeChild(geolocate);
+                  // And hide the geolocation button if you want
+                  //geolocate.parentNode.removeChild(geolocate);
               },
               function(err) {
                   // If the user chooses not to allow their location
@@ -126,7 +176,7 @@
       }
 
       //Bringing the events as jsons
-      var features = <%= events_as_json(@events)%>;
+      var features = <%= @features_as_json %>;
 
       //creating the mapbox map
       var map = mapbox.map('map');
@@ -198,12 +248,13 @@
             $(this).addClass('selected');
             
             if ($(this).attr('id') === 'All') {
+                industry = "All";
                 markerLayer.filter(function(f) {
                  return true;
                 });
             }
             else {
-                var industry = $(this).attr('id');
+                industry = $(this).attr('id');
                 markerLayer.filter(function(f) {
                  return (f.properties['industry'].indexOf(industry) != -1);
                 });
@@ -213,15 +264,26 @@
       // Set a custom formatter for tooltips
       // Provide a function that returns html to be used in tooltip
       interaction.formatter(function(feature) {
+        if (feature.properties.feature_type === "sponsorship") {
+          var o = '<a target="_blank" href="' + feature.properties.description + '">' +
+              '<img src="http://www.cardinalpath.com/cpwp/wp-content/uploads/img_0001.jpg">' +
+              '<h2>' + feature.properties.industry + '</h2>' +
+              '<a onclick="GetEventOnClick('+feature.properties.id+')" class="btn btn-orange" style="margin-right:5px" id="prevBtn">Preview</a>'+
+              '</a>';
+
+          return o;
+        }
+        else {
           var o = '<a target="_blank" href="' + feature.properties.description + '">' +
               '<img src="' + feature.properties.image + '">' +
               '<h2>' + feature.properties.industry + '</h2>' +
               '<a onclick="GetEventOnClick('+feature.properties.id+')" class="btn btn-orange" style="margin-right:5px" id="prevBtn">Preview</a>'+
               '</a>';
 
-          return o;
+          return o;   
+        }
       });
 
-      map.zoom(5).center({ lat: 46, lon: -79 });
+      map.zoom(5).center({ lat: 46, lon: 23 });
 
     </script>

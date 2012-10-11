@@ -1,18 +1,14 @@
 ProjectRedChambon::Application.routes.draw do
 
- 
-
-  resources :brands
-
-  resources :sponsorships
 
  #match "events/new" => "admin#new"
  #match "events/:id/edit" => "admin#edit"
  get "events/map"
+ get "sponsorships/map"
 
  post "events/:id/save_block" => "events#save_block"
  post "events/:id/save_block_order" => "events#save_block_order"
- post "events/:id/create_block" => "events#create_block"
+ post "events/create_block" => "events#create_block"
  post "events/create_section" => "events#create_section"
  post "events/create_sponsorship_block" => "events#create_sponsorship_block"
 
@@ -25,6 +21,10 @@ ProjectRedChambon::Application.routes.draw do
  get "admin/event/new" => "events#new"
  
  resources :events 
+
+ resources :brands
+
+ resources :sponsorships
 
 get "home/index"
 get "home/contact"
