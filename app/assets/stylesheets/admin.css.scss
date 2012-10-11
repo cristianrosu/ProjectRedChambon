@@ -3,13 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .navbar-inverse  div.navbar-inner{
-		padding:5px;
+		//padding:5px;
 		background-image: url("/assets/nav-bg.jpeg");
 	} 
-.navbar-inverse ul.nav li{
-	border-left: 1px solid #555;
-	border-right: 1px solid #222;
+	.navbar-inverse ul.nav{
+//border-right: 1px solid #555;
+ //border-left: 1px solid #222;
 }
+.navbar-inverse ul.nav li{
+	//border-left: 1px solid #555;
+	//border-right: 1px solid #222;
+	padding-right: 5px;
+}
+
 
 .navbar-inverse ul.no-border,.navbar-inverse ul.nav li.no-border{
 	border:none;
@@ -17,10 +23,21 @@
 
 .ico-bar {
 	opacity:0.55;
-	height:28px;
+	height:22px;
 	background-repeat: no-repeat;
 	position:center center;	
 }
+
+.ico-bar.ico-home {
+	width:28px;background-image: url("/assets/22px/icon-home.png");
+}
+.ico-bar.ico-explore {
+	width:28px;background-image: url("/assets/22px/icon-explore.png");
+}
+.ico-bar.ico-companies {
+	width:28px;background-image: url("/assets/22px/icon-companies.png");
+}
+
 
 .ico-bar.ico-calendar-plus {
 	width:32px;background-image: url("/assets/28px/icon-calendar-plus.png");
@@ -44,9 +61,11 @@
 	width:43px;background-image: url("/assets/28px/icon-volunteers.png");	
 }
 
-.ico-bar.ico-calendar-plus:hover ,.ico-bar.ico-calendar:hover, .ico-bar.ico-map:hover,.ico-bar.ico-settings:hover,.ico-bar.ico-stats:hover,.ico-bar.ico-user:hover,.ico-bar.ico-volunteers:hover {
-	opacity:1;
+.ico-bar.ico-calendar-plus:hover ,.ico-bar.ico-calendar:hover, .ico-bar.ico-map:hover,.ico-bar.ico-settings:hover,.ico-bar.ico-stats:hover,.ico-bar.ico-user:hover,.ico-bar.ico-volunteers:hover, .ico-bar.ico-home:hover, .ico-bar.ico-explore:hover, .ico-bar.ico-companies:hover {
+	opacity:1; 
+
 }
+.iii{opacity:1;}
 
 .top-bar{
 	background:white;
@@ -710,7 +729,7 @@ margin-left: 0;
 	-moz-background-clip: padding;
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	background: #E2432F;
+	background: #F95602;
 	display: inline-block;
 	position: relative;
 	top: -11px;
@@ -720,7 +739,7 @@ margin-left: 0;
 }
 
 #timeline .event_right .bullet {
-left: -8px;
+left: -13px;
 top:-285px;
 }
 
@@ -753,7 +772,7 @@ box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95),inset 0 0 8px rgba(0, 0, 0
 #timeline .event_right {
 	top: 50px;
 	
-	right: -154px;
+	right: -160px;
 	min-width: 350px;
 }
 
