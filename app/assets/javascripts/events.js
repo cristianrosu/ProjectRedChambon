@@ -251,15 +251,16 @@ var updateWorkspace = function(response) {
       var container = $(".popover");
 
       $(container).attr("data-caller-id", getElementId(this));
+      var sectionId = ($(this).closest('article').attr('id') || '').substring(3)
 
       $(".square", container).bind("click", function() {
         $(this).siblings(".selected").removeClass("selected");
         $(this).addClass("selected");
 
-        var url = "/events/create_section";
+        var url = "/events/create_block";
         var data = {
             type      : $(".square.selected", container).data("type"),
-            sectionId : $(container).closest('article').attr('id').substring(3) || ''
+            sectionId : sectionId
         };
 
         $.post(url, data, function(response) {
@@ -275,28 +276,28 @@ var updateWorkspace = function(response) {
         closePopover(container);
       });
 
-      $(".btn-save", container).bind("click", function() {
-        var url = "/events/create_section";
-        var data = {
-          section : {
-            name      : $("#section_name", container).val(),
-            type_id   : $(".square.selected", container).data("type"),
-            position  : $("#event-content > article[id]").index() + 1,
-            event_id  : $("#event-content").attr("data-event-id")
-          }
-        };
-        if (data.section.name && data.section.type_id) {
-          $(this).html("Saving...").addClass("disabled");
-          $(this).unbind("click");
+      // $(".btn-save", container).bind("click", function() {
+      //   var url = "/events/create_section";
+      //   var data = {
+      //     section : {
+      //       name      : $("#section_name", container).val(),
+      //       type_id   : $(".square.selected", container).data("type"),
+      //       position  : $("#event-content > article[id]").index() + 1,
+      //       event_id  : $("#event-content").attr("data-event-id")
+      //     }
+      //   };
+      //   if (data.section.name && data.section.type_id) {
+      //     $(this).html("Saving...").addClass("disabled");
+      //     $(this).unbind("click");
 
-          $.post(url, data, function(response) {
-              closePopover(container);
-              $("#event-content > article.post[id]").last().after(response.new_section);
-              $("#event-content > article.post.hide").fadeIn().removeClass("hide");
-              updateWorkspace();
-          }, "json");
-        }
-      });
+      //     $.post(url, data, function(response) {
+      //         closePopover(container);
+      //         $("#event-content > article.post[id]").last().after(response.new_section);
+      //         $("#event-content > article.post.hide").fadeIn().removeClass("hide");
+      //         updateWorkspace();
+      //     }, "json");
+      //   }
+      // });
 
       e.preventDefault();
   });

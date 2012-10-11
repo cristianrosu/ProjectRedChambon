@@ -77,10 +77,11 @@ module EventsHelper
 			return
 		end
 		toggle = ""
-		if !block.details.nil? && block.details.has_key?(type) 
-			toggle << "#{block.details[type]}"
+		if !block.details.nil? && block.details.kind_of?(Hash) && block.details.has_key?(type.to_s) 
+			toggle << "#{block.details[type.to_s]}"
 		else
-			case type
+			#this should never be hit
+			case type.to_s
 				when "align"
 					toggle << "align-left"
 				when "size"
@@ -91,7 +92,7 @@ module EventsHelper
 	end
 
 	def add_class_data_toggle(block)
-		if block.nil? || block.details.nil? 
+		if block.nil? || block.details.blank? || !block.details.kind_of?(Hash)
 			return
 		end
 
@@ -170,6 +171,14 @@ module EventsHelper
 		  	t = "sponsorship"
 	  end	
 	  return t
+	end
+
+	def symbolize_keys_deep!(h)
+    h.keys.each do |k|
+        ks    = k.respond_to?(:to_sym) ? k.to_sym : k
+        h[ks] = h.delete k # Preserve order even when k == ks
+        symbolize_keys_deep! h[ks] if h[ks].kind_of? Hash
+    end
 	end
 
 end

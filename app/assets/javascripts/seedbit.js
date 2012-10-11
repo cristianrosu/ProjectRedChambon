@@ -27,6 +27,12 @@ toggles['column']	= 	[ 'column-one', 'column-two' ];
 toggles['style']	= 	[ 'style-bullet', 'style-number' ];
 
 
+function initializeSponsorship( id ) {
+	var $element		= $( '#'+id );
+
+}
+
+
 function initializeText( id ) {
 
 	var $element		= $( '#'+id ),
@@ -341,8 +347,7 @@ function saveRedactor( id, type ) {
 	$( '#'+id ).data( value );
 	saveElement( id );
 }
-
-function saveElement( id, isNew ) {
+ function saveElement( id, isNew ) {
 	
 	var $element 		= $( "#"+id ),
 		value					= $element.data('value') || '',
@@ -694,7 +699,8 @@ function initializeAdditor() {
 			target.closest(".layout").find(".blankcanvas").slideUp();
 			target.closest('.add_content-bar').before( data );
 			initializeAdditor();
-			saveElement( $(data).attr('id'), true ); // save after addition
+			//saveElement( $(data).attr('id'), true ); // save after addition
+			saveRedactor($(data).attr('id'), type);
 		});
 
 		// $.ajax({
