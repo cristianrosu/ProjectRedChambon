@@ -2,6 +2,10 @@ ProjectRedChambon::Application.routes.draw do
 
  
 
+  resources :brands
+
+  resources :sponsorships
+
  #match "events/new" => "admin#new"
  #match "events/:id/edit" => "admin#edit"
  get "events/map"
