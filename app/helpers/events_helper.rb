@@ -112,6 +112,7 @@ module EventsHelper
 	      		:'marker-color' => get_industry_color(event.industry_id),
 	      		id: event.id,
 	      		title: event.title,
+	      		feature_type: "event",
 	      		description: event.description,
 	      		industry: get_industry_name(event.industry),
 	      		location: event.location,
@@ -122,7 +123,7 @@ module EventsHelper
 	    }
 	  	end.to_json.html_safe
     end
-       
+
     private
     def get_industry_color(industry_id)
     	color = ""

@@ -14,12 +14,12 @@ class EventsController < ApplicationController
 
   def map
     @events = Event.all
-    # @events.each do |event|
-    #   event.latitude = Random.rand(180)
-    #   event.longitude = Random.rand(90)
-    #   event.save
-    # end
+    @features_as_json = events_as_json(@events)
 
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @features_as_json }
+    end
   end
 
   # GET /events/1
