@@ -7,7 +7,7 @@
 
 <%= render partial: "header_event", locals: { event: event }, formats: [:html] %>
 <div id="wrapper"> 
-  <section id="event-content" data-event-id="<%= event.id %>" class="event-timeline">
+  <section id="event-content" data-event-id="<%= event.id %>" class="event-timeline" >
     <% event.sections.each do |section| %>
       <%= render partial: "event_section", locals: { event_section: section, edit_mode: edit_mode, new_object: false }, formats: [:html] %>
     <% end %>
