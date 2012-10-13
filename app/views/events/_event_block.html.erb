@@ -4,12 +4,25 @@
 
 	<%= render partial: "event_block_edit_toolbox.html", locals: { block: block } %>
 
-	<textarea id="bk<%= block.id %>-body" class="<%= add_class_data_toggle(block) %>" style="display: none;" >
-		<%= block_content(block) %>
-	</textarea>
+	<% if block.type_id < 3 %>
+		<textarea id="bk<%= block.id %>-body" class="<%= add_class_data_toggle(block) %>" style="display: none;" >
+			<%= block_content(block) %>
+		</textarea>
+	<% end %>
+
+
+	<% if block.type_id == 4 %>
+		<div id="bk<%= block.id %>-body" class="<%= add_class_data_toggle(block) %>">
+			<%= block_content(block) %>
+		</div>
+	<% end %>
+
 	<script type="text/javascript">
 		$(document).ready( function() {
 			initialize<%= block_type(block.type_id).capitalize %>( "bk<%= block.id %>" );
+			<% if block.type_id == 4 %>
+				<%= "sponsorships_data_#{block.id} =  #{block.details.to_json}".html_safe %>;
+			<% end %>
 		});
 	</script>
 
