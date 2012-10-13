@@ -22,6 +22,7 @@
    <script>
 
       $(".control-group.float.optional").hide();
+      var event_location = document.getElementById('event_location');
       var latitude = document.getElementById('event_latitude');
       var longitude = document.getElementById('event_longitude');
 
@@ -58,6 +59,20 @@
           if (place.geometry.viewport) {
             latitude.value = place.geometry.location.Xa;
             longitude.value = place.geometry.location.Ya;
+
+            var locality, country;
+            for (var i = 0; i < place.address_components.length ; i++) {
+              if (place.address_components[i].types[0] == "locality") {
+                locality = place.address_components[i].long_name;
+              }
+              if (place.address_components[i].types[0] == "country") {
+                country = place.address_components[i].short_name;
+              }
+            }
+            var formatted_address = locality + ", " + country;
+            event_location.value = formatted_address;
+            $("#_event_location").html('<i class="icon icon-map-marker"></i> ' + formatted_address);
+
           } else {
             latitude.value = place.geometry.location.Xa;
             longitude.value = place.geometry.location.Ya;

@@ -1,4 +1,7 @@
 var steps = ['guidelines', 'basics', 'event'];
+var m_names = new Array("January", "February", "March", 
+"April", "May", "June", "July", "August", "September", 
+"October", "November", "December");
 var generatedId = 1;
 
 var navigateStep = function(increment){
@@ -25,17 +28,20 @@ var navigateInit = function(){
   $(".steps-nav .active").removeClass("active");
   $(".steps-nav li a[href='" + window.location.hash + "']").parent().addClass("active");
 
-  $(".steps-nav li a").click(function() {
+  $(".steps-nav li a").click(function(e) {
+    e.preventDefault();
     var step = $.inArray(this.hash.substring(1), steps);
     $(".steps-nav .active").removeClass("active");
     $(this).parent().addClass("active");
     $('#carousel-edit').carousel(step);
     $('#slide' + step).addClass("active");
+    window.location.hash = this.hash;
 
     //hack for second carousel  -- fuck it (won't work)
     //$("#carousel-header .item").removeClass("active").first().addClass("active");
+    donutInit();
   });
-
+  donutInit();
   $("#carousel-header").carousel();
 }
 
@@ -53,6 +59,19 @@ var paginationInit = function(){
           console.log("ajax fail: get events");
         });
       }
+    });
+  }
+}
+
+var donutInit = function() {
+  if (window.location.hash.substring(1) == steps[2]) {
+    Morris.Donut({
+      element: 'pipali',
+      data: [
+        {label: "Download Sales", value: 12},
+        {label: "In-Store Sales", value: 30},
+        {label: "Mail-Order Sales", value: 20}
+      ]
     });
   }
 }
@@ -327,14 +346,7 @@ var updateWorkspace = function(response) {
 
   // Charts
   // dead simple donut charts
-  // Morris.Donut({
-  //   element: 'pipali',
-  //   data: [
-  //     {label: "Download Sales", value: 12},
-  //     {label: "In-Store Sales", value: 30},
-  //     {label: "Mail-Order Sales", value: 20}
-  //   ]
-  // });
+
 
   
 

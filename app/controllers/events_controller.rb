@@ -119,6 +119,8 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     @event.title = "Event title"
     @event.description = "Awesome description for your event"
+    @event.date_start = Date.today + 10.days;
+    @event.date_end = Date.today + 12.days;
 
     @event.user_id = current_user.id
 
