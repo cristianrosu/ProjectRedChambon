@@ -16,7 +16,7 @@
             </div>
 
     		<div class="caption">
-    			<h2 id="_event_title"><%= event.title.to_s %></h2>
+    			<a href="<%= "/events/#{event.id}" %>"><h2 id="_event_title"><%= event.title.to_s %></h2></a>
                 <h3 class="pull-right"><i class="icon icon-calendar"></i> <%= "#{event.date_start.strftime('%d')}-#{event.date_end.strftime('%d')}" %> <small><%= "#{event.date_end.strftime('%b')}, #{event.date_end.strftime('%Y')}" %> </small></h3>
     		</div>	 
     </div>
