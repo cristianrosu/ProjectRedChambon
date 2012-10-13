@@ -68,9 +68,9 @@ var donutInit = function() {
     Morris.Donut({
       element: 'pipali',
       data: [
-        {label: "Hackers", value: 12},
-        {label: "In-Store Sales", value: 30},
-        {label: "Mail-Order Sales", value: 20}
+        {label: "Competitors", value: 32},
+        {label: "Media & Bloggers", value: 15},
+        {label: "Mentors & Experts", value: 10}
       ]
     });
   }
