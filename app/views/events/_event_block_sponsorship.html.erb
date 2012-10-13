@@ -1,0 +1,21 @@
+<div class="row-fluid">
+	<ul class="thumbnails">
+		<% i = 0
+		sponsorships.each do |s| %>
+		  <li class="span5 <%= i%2==0 ? 'offset1' : '' %>">
+		  	<div class="clearfix badge-sponsor" <%= "data-values=\"sponsorships_data_#{block_id}\" data-id=\"#{i}\" ".html_safe %> >
+		  		<center>
+			  		<img style="margin-bottom:15px;" src="<%= asset_path  'sponsor-badge-blue.png' %>"> </img>
+						<div style="border-bottom:1px dotted #ccc">
+							<p id="sponsorship_title"><%= s["title"] %></p>
+							<h3 id="sponsorship_count_value"> <%= "#{s['count']} x #{s['value']}$" %> </h3>
+							<p><small id="sponsorship_description"><%= s["description"] %></small></p>
+						</div>
+					</center>
+					<a style="margin-top:5px" class="pull-right btn btn-small btn-orange">Sponsor</a>
+				</div>
+		  </li>
+			<% i = i + 1 %>
+		<% end %>
+	</ul>
+</div>

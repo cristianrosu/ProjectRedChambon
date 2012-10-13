@@ -28,7 +28,77 @@ toggles['style']	= 	[ 'style-bullet', 'style-number' ];
 
 
 function initializeSponsorship( id ) {
-	var $element		= $( '#'+id );
+	var $element		= $( '#'+id ),
+			$eleBody		= $('#'+id+'-body');
+
+			$eleBody.wrap('<div id="' + id + '_body" />');
+
+			$eleEditable = $("#" + id + "_body");
+			//$eleEditable.html(function () { return $eleBody.html(); });
+
+
+  //popover for editing a sponsorship
+  $(".badge-sponsor", $eleBody).popover({
+      placement : 'left', //placement of the popover. also can use top, bottom, left or right
+      title     : '',
+      trigger   : 'manual',
+      html      : 'true', //needed to show html of course
+      content   : function(){
+          return $('#sponsorship_edit_wrapper').html();
+      }
+    }).unbind("click").bind("click", function(e) {
+      $(this).popover('show');
+      var sponsorship = this;
+      var container = $(".popover");
+
+      $(container).attr("data-caller-id", getElementId(this));
+      var sectionId = ($(this).closest('article').attr('id') || '').substring(3)
+      var values = $(this).attr("data-values");
+      var values_id = $(this).attr("data-id");
+
+      //TARANISM
+      $("#sponsorship_title", container).val(window[values][values_id].title);
+      $("#sponsorship_count", container).val(window[values][values_id].count);
+      $("#sponsorship_value", container).val(window[values][values_id].value);
+      $("#sponsorship_description", container).val(window[values][values_id].description);
+
+      $('[id^="sponsorship_"]', container).bind("keyup change", function() {
+      	$("#" + this.id, sponsorship).text($(this).val());
+      	if (this.id == "sponsorship_count" || this.id == "sponsorship_value"){	
+      		$("#sponsorship_count_value", sponsorship).text($("#sponsorship_count", container).val() + " x " + $("#sponsorship_value", container).val() + "$")
+      	}
+      });
+
+      $(".square", container).bind("click", function() {
+        $(this).siblings(".selected").removeClass("selected");
+        $(this).addClass("selected");   
+
+      });
+
+      $(".btn-save", container).bind("click", function() {
+      	window[values][values_id].title = $("#sponsorship_title", container).val();
+      	window[values][values_id].count = $("#sponsorship_count", container).val();
+      	window[values][values_id].value = $("#sponsorship_value", container).val();
+      	window[values][values_id].description = $("#sponsorship_description", container).val();
+      	//$('[id^="sponsorship_"]', container).unbind("keyup change");
+
+        var url = "/events/" + id.substring(2) + "/save_block";
+        var data = {
+            details : window[values] ? JSON.stringify( window[values] ) : ''
+        };
+
+        $.post(url, data, function(response) {
+            closePopover(container);
+        }, "json"); 
+
+        closePopover(container);
+      });
+
+      $(".btn-close", container).bind("click", function() {
+      	//restore div
+        closePopover(container);
+      });
+    });
 
 }
 

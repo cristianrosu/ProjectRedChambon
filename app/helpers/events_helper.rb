@@ -8,6 +8,9 @@ module EventsHelper
 		  when 2  #text
 		  	t = "<p>#{block.content}</p>"
 		  when 3
+		  	t = ""
+		  when 4 
+		  	t = render( partial: "event_block_sponsorship", locals: { sponsorships: block.details, block_id: block.id }, formats: [:html] )
 	  end	
 	 	return t.html_safe
 	end
