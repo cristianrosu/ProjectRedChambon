@@ -3,13 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .navbar-inverse  div.navbar-inner{
-		padding:5px;
+		//padding:5px;
 		background-image: url("/assets/nav-bg.jpeg");
 	} 
-.navbar-inverse ul.nav li{
-	border-left: 1px solid #555;
-	border-right: 1px solid #222;
+	.navbar-inverse ul.nav{
+//border-right: 1px solid #555;
+ //border-left: 1px solid #222;
 }
+.navbar-inverse ul.nav li{
+	//border-left: 1px solid #555;
+	//border-right: 1px solid #222;
+	padding-right: 5px;
+}
+
 
 .navbar-inverse ul.no-border,.navbar-inverse ul.nav li.no-border{
 	border:none;
@@ -17,10 +23,21 @@
 
 .ico-bar {
 	opacity:0.55;
-	height:28px;
+	height:22px;
 	background-repeat: no-repeat;
 	position:center center;	
 }
+
+.ico-bar.ico-home {
+	width:28px;background-image: url("/assets/22px/icon-home.png");
+}
+.ico-bar.ico-explore {
+	width:28px;background-image: url("/assets/22px/icon-explore.png");
+}
+.ico-bar.ico-companies {
+	width:28px;background-image: url("/assets/22px/icon-companies.png");
+}
+
 
 .ico-bar.ico-calendar-plus {
 	width:32px;background-image: url("/assets/28px/icon-calendar-plus.png");
@@ -44,9 +61,11 @@
 	width:43px;background-image: url("/assets/28px/icon-volunteers.png");	
 }
 
-.ico-bar.ico-calendar-plus:hover ,.ico-bar.ico-calendar:hover, .ico-bar.ico-map:hover,.ico-bar.ico-settings:hover,.ico-bar.ico-stats:hover,.ico-bar.ico-user:hover,.ico-bar.ico-volunteers:hover {
-	opacity:1;
+.ico-bar.ico-calendar-plus:hover ,.ico-bar.ico-calendar:hover, .ico-bar.ico-map:hover,.ico-bar.ico-settings:hover,.ico-bar.ico-stats:hover,.ico-bar.ico-user:hover,.ico-bar.ico-volunteers:hover, .ico-bar.ico-home:hover, .ico-bar.ico-explore:hover, .ico-bar.ico-companies:hover {
+	opacity:1; 
+
 }
+.iii{opacity:1;}
 
 .top-bar{
 	background:white;
@@ -637,5 +656,130 @@ div.close-add_content:hover {
 	-moz-opacity: 1;
 	-khtml-opacity: 1;
 	opacity: 1;
+}
+
+/* De aici timeline sponsorships
+*/
+
+#timeline .timeline-container {
+	width: 630px;
+	height: 1780px;
+	margin-top: 40px;
+	position: relative;
+	text-align: center;
+
+	margin:auto;
+}
+
+#timeline .timeline-container .year {
+	background: white;
+	-webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95),inset 0 0 8px rgba(0, 0, 0, 0.12),1px 0 0 rgba(0, 0, 0, 0.25),-1px 0 0 rgba(0, 0, 0, 0.25),0 1px 0 rgba(0, 0, 0, 0.2),0 -1px 0 rgba(0, 0, 0, 0.25),0 2px 2px rgba(0, 0, 0, 0.09);
+	-moz-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95),inset 0 0 8px rgba(0, 0, 0, 0.12),1px 0 0 rgba(0, 0, 0, 0.25),-1px 0 0 rgba(0, 0, 0, 0.25),0 1px 0 rgba(0, 0, 0, 0.2),0 -1px 0 rgba(0, 0, 0, 0.25),0 2px 2px rgba(0, 0, 0, 0.09);
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95),inset 0 0 8px rgba(0, 0, 0, 0.12),1px 0 0 rgba(0, 0, 0, 0.25),-1px 0 0 rgba(0, 0, 0, 0.25),0 1px 0 rgba(0, 0, 0, 0.2),0 -1px 0 rgba(0, 0, 0, 0.25),0 2px 2px rgba(0, 0, 0, 0.09);
+	padding: 6px 12px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	font-weight: 700;
+	text-shadow: 0 1px 1px white;
+	position: relative;
+	z-index: 1;
+}
+
+#timeline .event {
+	display: inline-block;
+	color: #565D66;
+}
+
+#timeline .line {
+	width: 1px;
+	height: 1250px;
+	border-left: 1px solid #0099b5;
+	border-right: 1px solid #0099b5;
+	background: #0099b5;
+	display: inline-block;
+}
+#timeline .event_container {
+	position: absolute;
+}
+
+#timeline .date.left {
+left: -5px;
+}
+#timeline .date {
+position: relative;
+top: -14px;
+color: #9EA3AB;
+text-shadow: 0 1px 1px white;
+left: 5px;
+}
+#timeline .bullet.left {
+margin-left: 0;
+}
+
+#timeline .bullet {
+	width: 9px;
+	height: 9px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	background: #F95602;
+	display: inline-block;
+	position: relative;
+	top: -11px;
+	left:-1px;
+	border: 3px solid white;
+	margin-left: 5px;
+}
+
+#timeline .event_right .bullet {
+left: -13px;
+top:-285px;
+}
+
+#timeline .event_left .bullet {
+left: 248px;
+top:-320px;
+}
+
+#timeline .tag {
+
+line-height: 0;
+//height: 37px;
+border-width: 19px;
+min-width: 70px;
+
+//height: 140px;
+border-width: 14px 44px 14px 13px;
+line-height: 1.3;
+text-align: left;
+width: 450px;
+//background:white;
+//border:1px solid #f00;
+/*-webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95),inset 0 0 8px rgba(0, 0, 0, 0.12),1px 0 0 rgba(0, 0, 0, 0.25),-1px 0 0 rgba(0, 0, 0, 0.25),0 1px 0 rgba(0, 0, 0, 0.2),0 -1px 0 rgba(0, 0, 0, 0.25),0 2px 2px rgba(0, 0, 0, 0.09);
+-moz-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95),inset 0 0 8px rgba(0, 0, 0, 0.12),1px 0 0 rgba(0, 0, 0, 0.25),-1px 0 0 rgba(0, 0, 0, 0.25),0 1px 0 rgba(0, 0, 0, 0.2),0 -1px 0 rgba(0, 0, 0, 0.25),0 2px 2px rgba(0, 0, 0, 0.09);
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95),inset 0 0 8px rgba(0, 0, 0, 0.12),1px 0 0 rgba(0, 0, 0, 0.25),-1px 0 0 rgba(0, 0, 0, 0.25),0 1px 0 rgba(0, 0, 0, 0.2),0 -1px 0 rgba(0, 0, 0, 0.25),0 2px 2px rgba(0, 0, 0, 0.09);
+*/
+
+}
+
+#timeline .event_right {
+	top: 50px;
+	
+	right: -160px;
+	min-width: 350px;
+}
+
+#timeline .event_left {
+	top: 130px;
+
+	right: 340px;
+	min-width: 350px;
 }
 
