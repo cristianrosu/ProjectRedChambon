@@ -23,7 +23,7 @@
 		 			<div style="position:relative"class="chart" id="pipali" >
 		 			</div>
 		 			<div>
-		 				<h1>asdw</h1>
+		 				<h2>Get Involved</h2>
 		 				<a class="btn btn-large btn-blue btn-block" href="#">Buy ticket</a>
 		 				<a class="btn btn-large btn-green btn-block" href="#">Volunteer</a>
 		 				<a class="btn btn-large btn-orange btn-block" href="#">Sponsor event</a>
@@ -79,8 +79,8 @@
 										text-align: left;
 										max-height: 130px;
 										overflow: hidden;"> <%= event.description.to_s %></p>
-							<h4><i class="icon icon-calendar"></i> 20-22 Sept, 2012</h4>
-							<h4><i class="icon icon-map-marker"></i> Cluj Napoca, Ro</h4>
+							<h4><i class="icon icon-calendar"></i> <%= "#{event.date_start.strftime('%d')}-#{event.date_end.strftime('%d')}" %> <small><%= "#{event.date_end.strftime('%b')}, #{event.date_end.strftime('%Y')}" %> </small></h4>
+							<h4><i class="icon icon-map-marker"></i> <%= event.location %></h4>
 						</div>
 
 			</div>

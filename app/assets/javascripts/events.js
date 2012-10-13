@@ -15,7 +15,7 @@ var navigateStep = function(increment){
 //initialize carousel, update URL hash and set active link
 var navigateInit = function(){
   if( $.inArray(window.location.hash.substring(1), steps) < 0 ){
-    window.location.hash = steps[1];
+    window.location.hash = steps[2];
   }
     
   $('#slide' + $.inArray(window.location.hash.substring(1), steps)).addClass("active");
@@ -68,7 +68,7 @@ var donutInit = function() {
     Morris.Donut({
       element: 'pipali',
       data: [
-        {label: "Download Sales", value: 12},
+        {label: "Hackers", value: 12},
         {label: "In-Store Sales", value: 30},
         {label: "Mail-Order Sales", value: 20}
       ]

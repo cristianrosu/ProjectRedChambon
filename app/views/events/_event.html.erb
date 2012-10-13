@@ -17,7 +17,7 @@
 
     		<div class="caption">
     			<h2 id="_event_title"><%= event.title.to_s %></h2>
-                <h3 class="pull-right"><i class="icon icon-calendar"></i>20-22 <small>Sep, 2012</small></h3>
+                <h3 class="pull-right"><i class="icon icon-calendar"></i> <%= "#{event.date_start.strftime('%d')}-#{event.date_end.strftime('%d')}" %> <small><%= "#{event.date_end.strftime('%b')}, #{event.date_end.strftime('%Y')}" %> </small></h3>
     		</div>	 
     </div>
     <div class="thumbnail-info">
