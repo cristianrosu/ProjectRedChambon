@@ -268,7 +268,7 @@ var updateWorkspace = function(response) {
     }).unbind("click").bind("click", function(e) {
       $(this).popover('show');
       var container = $(".popover");
-
+      var caller = this;
       $(container).attr("data-caller-id", getElementId(this));
       var sectionId = ($(this).closest('article').attr('id') || '').substring(3)
 
@@ -284,10 +284,11 @@ var updateWorkspace = function(response) {
 
         $.post(url, data, function(response) {
             closePopover(container);
-            $("#event-content > article.post[id]").last().after(response.new_section);
-            $("#event-content > article.post.hide").fadeIn().removeClass("hide");
+            $(caller).closest('.add_content-bar').before( response );
             updateWorkspace();
-        }, "json");        
+        }).error(function(a, b, c) {
+          alert("err");
+        });        
 
       });
 
