@@ -10,12 +10,12 @@
 /* Rad menu */
 .menu_button
 { position:absolute;
-  bottom:6px;
-  left:20px;
+  bottom:4px;
+  left:23px;
   
   border-radius:50%;
-  height:32px;
-  width:32px;
+  height:28px;
+  width:28px;
   border:3px solid #fff;
   text-indent:-99999px;
   overflow:hidden;
@@ -25,8 +25,8 @@
 
 .menu_button span
 { display:block;
-  height:32px;
-  width:32px;
+  height:28px;
+  width:28px;
   background:url("/assets/cross.svg") no-repeat center center;
   -webkit-transition:.4s ease;
   -moz-transition:.4s ease;
@@ -37,7 +37,7 @@
 .menu_option
 { 
   /*sa se ascunda in spatele pozei*/
-  bottom:29px; 
+  bottom:27px; 
   left:-1px;
   position:absolute; }
 
@@ -64,11 +64,11 @@
   overflow:hidden;
   background:#444; }
 
-.menu_option li a span
+.menu_option li a span.xx
 { background-attachment:scroll;
   background-clip:border-box;
   background-color:transparent;
-  background-image:url("/assets/usr.png");
+  background-image:url("/assets/22px/icon-explore.png");
   background-origin:padding-box;
   background-position:center center;
   background-repeat:no-repeat;
@@ -80,14 +80,19 @@
   -moz-transition:.4s ease;
   -ms-transition:.4s ease;
   -o-transition:.4s ease;
-  transition:.4s ease; }
+  transition:.4s ease; 
+}
+
+
 
 .btn-rotate span
-{ -webkit-transform:rotate(-135deg);
+{ 
+  -webkit-transform:rotate(-135deg);
   -moz-transform:rotate(-135deg);
   -ms-transform:rotate(-135deg);
   -o-transform:rotate(-135deg);
-  transform:rotate(-135deg); }
+  transform:rotate(-135deg); 
+}
 
 .active .menu_option li a
 { -webkit-animation:expand .6s ease 1 backwards;

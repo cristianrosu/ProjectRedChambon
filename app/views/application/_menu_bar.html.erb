@@ -1,5 +1,5 @@
 <div class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="navbar-inner" style ="padding:5px;background-image: url(<%= asset_path 'nav-bg.jpeg' %>);">
+    <div class="navbar-inner" style ="background-image: url(<%= asset_path 'nav-bg.jpeg' %>);">
       <div class="container-fluid">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -10,7 +10,7 @@
         <div id='outer_container'>
               <a class="menu_button" href="#" title="Toggle"><span>Menu Toggle</span></a>
               <ul class="menu_option">
-                <li><a href="#"><span></span></a></li>
+                <li><a href="#"><span>Item</span></a></li>
                 <li><a href="#"><span>Item</span></a></li>
                 <li><a href="#"><span>Item</span></a></li>
                 <li><a href="#"><span>Item</span></a></li>
@@ -19,11 +19,11 @@
         </div>
        
         <a style= "margin-left:40px; margin-right:60px;color:white" class="brand" href="/home">Seedbit</a>
-
+ 
         <ul class="nav pull-right">
           <% if user_signed_in? %>
             <li class="dropdown no-border">
-              <a style="color:#f75432" href="#" class="dropdown-toggle" data-toggle="dropdown"> YOU <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> You <b class="caret"></b></a>
               <ul class="dropdown-menu" style="margin-bottom:10px">
                 <li class="nav-header no-border"><%=current_user.email%></li>
                 <li class="no-border"><a href="/users/logout"><i class="icon-search"></i> Icon + direct link</a></li>
@@ -41,21 +41,29 @@
         </ul>
 
          <div class="nav-collapse"> 
-         <ul class="nav" style="border-right: 1px solid #555;border-left: 1px solid #222;">
-              <li><a href="/events" style="font-size:16px" class="btn-volunteers">Explore</a></li>
+         <ul class="nav">
               <li>
-                <a href="/events/map" style="padding:6px 35px">
-                <div class="ico-bar ico-map"></div></a>
+                <a class="clearfix" href="">
+                      <!-- <span style="width:22px;height:22px" class="ico-bar ico-map"></span> -->
+                      <div style="float:left;" class="ico-bar ico-home"></div><span style="float:left">Home</span>
+                </a>
               </li>
+
               <li>
-                <a style="padding:6px 35px">
-                <div class="ico-bar ico-calendar-plus"></div></a>
+                <a class="" href="">
+                      <!-- <span style="width:22px;height:22px" class="ico-bar ico-map"></span> -->
+                      <div style="float:left;" class="ico-bar ico-explore"></div><span style="float:left">Explore</span>
+                </a>
               </li>
+
+              <li>
+                  <a class="iii" href="">
+                        <!-- <span style="width:22px;height:22px" class="ico-bar ico-map"></span> -->
+                        <div style="float:left;" class="ico-bar ico-companies"></div>Companies</span>
+                  </a>
+                </li>
+
               
-               <li>
-                <a style="padding:6px 35px">
-                <div class="ico-bar ico-volunteers"></div></a>
-              </li>
           </ul>   
   
         </div>

@@ -66,6 +66,7 @@ hr {
     margin-bottom: -50px;
     clear: both;
     background: url('timeline.png') repeat-y 256px top;
+
 }
 
 .event-timeline .loading {
