@@ -1,4 +1,7 @@
 var steps = ['guidelines', 'basics', 'event'];
+var m_names = new Array("January", "February", "March", 
+"April", "May", "June", "July", "August", "September", 
+"October", "November", "December");
 var generatedId = 1;
 
 var navigateStep = function(increment){
@@ -12,7 +15,7 @@ var navigateStep = function(increment){
 //initialize carousel, update URL hash and set active link
 var navigateInit = function(){
   if( $.inArray(window.location.hash.substring(1), steps) < 0 ){
-    window.location.hash = steps[1];
+    window.location.hash = steps[2];
   }
     
   $('#slide' + $.inArray(window.location.hash.substring(1), steps)).addClass("active");
@@ -25,17 +28,20 @@ var navigateInit = function(){
   $(".steps-nav .active").removeClass("active");
   $(".steps-nav li a[href='" + window.location.hash + "']").parent().addClass("active");
 
-  $(".steps-nav li a").click(function() {
+  $(".steps-nav li a").click(function(e) {
+    e.preventDefault();
     var step = $.inArray(this.hash.substring(1), steps);
     $(".steps-nav .active").removeClass("active");
     $(this).parent().addClass("active");
     $('#carousel-edit').carousel(step);
     $('#slide' + step).addClass("active");
+    window.location.hash = this.hash;
 
     //hack for second carousel  -- fuck it (won't work)
     //$("#carousel-header .item").removeClass("active").first().addClass("active");
+    donutInit();
   });
-
+  donutInit();
   $("#carousel-header").carousel();
 }
 
@@ -53,6 +59,19 @@ var paginationInit = function(){
           console.log("ajax fail: get events");
         });
       }
+    });
+  }
+}
+
+var donutInit = function() {
+  if (window.location.hash.substring(1) == steps[2]) {
+    Morris.Donut({
+      element: 'pipali',
+      data: [
+        {label: "Competitors", value: 32},
+        {label: "Media & Bloggers", value: 15},
+        {label: "Mentors & Experts", value: 10}
+      ]
     });
   }
 }
@@ -249,7 +268,7 @@ var updateWorkspace = function(response) {
     }).unbind("click").bind("click", function(e) {
       $(this).popover('show');
       var container = $(".popover");
-
+      var caller = this;
       $(container).attr("data-caller-id", getElementId(this));
       var sectionId = ($(this).closest('article').attr('id') || '').substring(3)
 
@@ -265,10 +284,11 @@ var updateWorkspace = function(response) {
 
         $.post(url, data, function(response) {
             closePopover(container);
-            $("#event-content > article.post[id]").last().after(response.new_section);
-            $("#event-content > article.post.hide").fadeIn().removeClass("hide");
+            $(caller).closest('.add_content-bar').before( response );
             updateWorkspace();
-        }, "json");        
+        }).error(function(a, b, c) {
+          alert("err");
+        });        
 
       });
 
@@ -327,14 +347,7 @@ var updateWorkspace = function(response) {
 
   // Charts
   // dead simple donut charts
-  // Morris.Donut({
-  //   element: 'pipali',
-  //   data: [
-  //     {label: "Download Sales", value: 12},
-  //     {label: "In-Store Sales", value: 30},
-  //     {label: "Mail-Order Sales", value: 20}
-  //   ]
-  // });
+
 
   
 

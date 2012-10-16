@@ -417,7 +417,8 @@ function saveRedactor( id, type ) {
 	$( '#'+id ).data( value );
 	saveElement( id );
 }
- function saveElement( id, isNew ) {
+
+function saveElement( id, isNew ) {
 	
 	var $element 		= $( "#"+id ),
 		value					= $element.data('value') || '',
@@ -431,8 +432,8 @@ function saveRedactor( id, type ) {
 	$('#btn-savenow').html('Save Now').removeClass('justsaved');
 	
 	if( type != '' ) {
-		url = "/events/" + serverId + "/save_block";
-		datas = { 
+		var url = "/events/" + serverId + "/save_block";
+		var datas = { 
 				id		: id,
 				type 	: type,
 				position: $element.parent().children().index($element), //$("#main").find(".element:visible").index( $element ),
@@ -486,6 +487,57 @@ function saveRedactor( id, type ) {
 		hideSaving();
 		//showError( "There was a problem saving your tackk info" );
 	}
+}
+
+
+function removeElement( id, prompt ) {
+
+	if( prompt && !$("#"+id).hasClass('defaultState') ) {
+		//$('#elementToRemove').html( id );
+		//$.colorbox({width:"420px", height:"228px", scrolling:"false", href:"#removeelementpromptbox" });
+		//$("#remove-block-prompt").modal("show");
+	} else {
+		//removeElementAction( id );
+	}
+	removeElementAction( id );
+	
+}
+
+function removeElementAction( id ) {
+
+	var $element	 = $("#"+id),
+		elementOrder = $element.parent().children(".element:visible").index($element);	
+
+	$element.slideUp('normal', function() { 
+	
+		showSaving();
+		//$('#btn-savenow').html('Save Now').removeClass('justsaved');
+		
+		// if( $("#my_tackk").children("#main").find(".element:visible").length == 0 ) {
+		// 	$("#blankcanvas").slideDown();
+		// }
+		
+		$element.remove();
+		
+		var url = "/events/destroy_block";
+		var data = { 
+				id		: id,
+				position: $element.parent().children().index($element), //$("#main").find(".element:visible").index( $element ),
+		};
+		
+		$.post(url, data, function( response ) {
+			if( response.error == 0 ) {
+			
+				hideSaving();
+				//$('#expires').html( response.expires );
+				
+			} else {
+				showError( response.description );
+			}
+
+		});
+		
+	});
 }
 
 function showSaving(){
