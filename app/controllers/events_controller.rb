@@ -119,6 +119,8 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     @event.title = "Event title"
     @event.description = "Awesome description for your event"
+    @event.date_start = Date.today + 10.days;
+    @event.date_end = Date.today + 12.days;
 
     @event.user_id = current_user.id
 
@@ -277,5 +279,43 @@ class EventsController < ApplicationController
 
     render json: {'error' => 0} 
   end
+
+  def destroy_block
+    @block = Block.find(params[:id]);
+    if @block.nil?
+      render json: { "error" => 1, "description" => "Could not delete block" } and return
+    else
+      @block.delete
+      @blocks = Block.select("id, position").where("section_id = ? AND position > ?", @block.section_id, @block.position)
+      
+      @blocks.each do |bl|
+        bl.decrement!(:position)
+      end
+      render json: { "error" => 0 } and return
+    end
+  end
+
+  private
+  def fix_positions
+
+    blocks = Block.all(:conditions => "section_id IS NULL ")
+    blocks.each do |block|
+      block.delete
+    end    
+
+    sections = Section.all
+    sections.each do |section|
+      blocks = Block.where("section_id = ?", section.id).order("position ASC")
+      i = 0
+      blocks.each do |block|
+        block.position = i
+        block.save
+        i = i + 1
+      end
+    end
+
+  end
+
+
 
 end

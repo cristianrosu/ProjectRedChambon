@@ -10,6 +10,7 @@ class Event < ActiveRecord::Base
   acts_as_taggable
 
   mount_uploader :image, ImageUploader
+  # before_create :init
 
   #validate :date_validation
   #validates :title, :presence => true
@@ -23,6 +24,12 @@ class Event < ActiveRecord::Base
     end
     #if !date_start.blank? and !date_end.blank?
   end
+
+  # private
+  # def init
+  #   self.date_start = Date.today + 10.days if self.date_start.nil?
+  #   self.date_end = Date.today + 10.days if self.date_end.nil?
+  # end
 
 
 end

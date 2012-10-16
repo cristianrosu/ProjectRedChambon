@@ -5,19 +5,19 @@
                 <div class="mask">
                     <h4> <i class="icon icon-tag"></i> <%= get_industry_name(event.industry) %></h4>
                     <p id="_event_description"> <%= event.description.to_s %></p> 
-                     <h4 class="pull-left"><i class="icon icon-map-marker"></i>Cluj Napoca, Ro</h4>
+                    <h4 id="_event_location" class="pull-left"><i class="icon icon-map-marker"></i> <%= event.location %></h4>
             </div>  
             </img>
 
 		   <div class="when">
-                <img src="http://www.nationaltraveller.com/templates/traveler/images/demo-02_fb.png"></img>
-                <img src="http://www.nationaltraveller.com/templates/traveler/images/demo-02_tw.png"></img>
-                <img src="http://www.nationaltraveller.com/templates/traveler/images/demo-02_pinterest.png"></img>   
+                <img src="<%= asset_path 'icon-fb.png' %>"></img>
+                <img src="<%= asset_path 'icon-twitter.png' %>"></img>
+                <img src="<%= asset_path 'icon-pinterest.png' %>"></img> 
             </div>
 
     		<div class="caption">
-    			<h2 id="_event_title"><%= event.title.to_s %></h2>
-                <h3 class="pull-right"><i class="icon icon-calendar"></i>20-22 <small>Sep, 2012</small></h3>
+    			<a href="<%= "/events/#{event.id}" %>"><h2 id="_event_title"><%= event.title.to_s %></h2></a>
+                <h3 class="pull-right"><i class="icon icon-calendar"></i> <%= "#{event.date_start.strftime('%d')}-#{event.date_end.strftime('%d')}" %> <small><%= "#{event.date_end.strftime('%b')}, #{event.date_end.strftime('%Y')}" %> </small></h3>
     		</div>	 
     </div>
     <div class="thumbnail-info">
