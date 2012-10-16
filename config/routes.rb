@@ -11,6 +11,8 @@ ProjectRedChambon::Application.routes.draw do
  post "events/create_block" => "events#create_block"
  post "events/create_section" => "events#create_section"
  post "events/create_sponsorship_block" => "events#create_sponsorship_block"
+ post "events/destroy_block" => "events#destroy_block"
+ 
 
  get  "events/:id/edit_step2" => "events#edit_step2"
  

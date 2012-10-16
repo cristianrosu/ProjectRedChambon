@@ -515,7 +515,7 @@ function removeElementAction( id ) {
 		
 		// if( $("#my_tackk").children("#main").find(".element:visible").length == 0 ) {
 		// 	$("#blankcanvas").slideDown();
-		}
+		// }
 		
 		$element.remove();
 		
