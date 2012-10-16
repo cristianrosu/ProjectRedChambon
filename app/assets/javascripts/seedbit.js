@@ -42,7 +42,7 @@ function initializeSponsorship( id ) {
       placement : 'left', //placement of the popover. also can use top, bottom, left or right
       title     : '',
       trigger   : 'manual',
-      html      : 'true', //needed to show html of course
+      html      : 'true', 
       content   : function(){
           return $('#sponsorship_edit_wrapper').html();
       }
@@ -433,7 +433,7 @@ function saveElement( id, isNew ) {
 	
 	if( type != '' ) {
 		var url = "/events/" + serverId + "/save_block";
-		var datas = { 
+		var data = { 
 				id		: id,
 				type 	: type,
 				position: $element.parent().children().index($element), //$("#main").find(".element:visible").index( $element ),
@@ -444,7 +444,7 @@ function saveElement( id, isNew ) {
 				//link 	: mioLink
 			};
 
-		$.post(url, datas, function( data, textStatus, jqXHR ) {
+		$.post(url, data, function( response ) {
 
 		});
 
@@ -521,7 +521,7 @@ function removeElementAction( id ) {
 		
 		var url = "/events/destroy_block";
 		var data = { 
-				id		: id,
+				id		: id.substring(2),
 				position: $element.parent().children().index($element), //$("#main").find(".element:visible").index( $element ),
 		};
 		

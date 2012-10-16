@@ -297,12 +297,21 @@ class EventsController < ApplicationController
   end
 
   private
-  def fix_positions
+  def fix
 
+    
     blocks = Block.all(:conditions => "section_id IS NULL ")
     blocks.each do |block|
       block.delete
     end    
+
+    #fix empty dates
+    events = Event.all(:conditions => "date_start IS NULL OR date_end IS NULL")
+    events.each do |event|
+      event.date_start = Date.today + 10.days;
+      event.date_end = Date.today + 12.days;
+      event.save
+    end 
 
     sections = Section.all
     sections.each do |section|

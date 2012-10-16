@@ -286,9 +286,7 @@ var updateWorkspace = function(response) {
             closePopover(container);
             $(caller).closest('.add_content-bar').before( response );
             updateWorkspace();
-        }).error(function(a, b, c) {
-          alert("err");
-        });        
+        });      
 
       });
 
