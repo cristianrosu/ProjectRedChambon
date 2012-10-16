@@ -41,6 +41,8 @@ match "home" => "home#index"
 match "events" => "events#index"
 match "admin" => "admin#index"
 
+get 'tags/:tag', to: 'events#index', as: :tag
+
 #post 'events/:id/upload' => 'events#upload'
 #post 'events/:id' => 'events#update'
 

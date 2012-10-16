@@ -5,8 +5,10 @@ class Event < ActiveRecord::Base
   belongs_to :event_type
   has_many :sections, :order => 'position ASC'
 
-  attr_accessible :date_end, :date_start, :description, :industry_id, :location, :rating, :title, :user_id, :image, :latitude, :longitude
+  attr_accessible :date_end, :date_start, :description, :industry_id, :location, :rating, :title, :user_id, :image, :latitude, :longitude, :tag_list
   
+  acts_as_taggable
+
   mount_uploader :image, ImageUploader
   # before_create :init
 

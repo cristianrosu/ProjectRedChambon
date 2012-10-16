@@ -148,8 +148,10 @@
 									</li>
 									
 								</ol>
-				</div>	
-			</div>		
+				</div>
+
+			</div>	
+			<p>Tags: <%= raw event.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>	
 		</div>
 	</article>	
     </section>

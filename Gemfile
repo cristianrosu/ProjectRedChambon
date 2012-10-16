@@ -32,6 +32,9 @@ end
 
 gem 'jquery-rails'
 
+#The gem used for tagging system
+gem 'acts-as-taggable-on'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
