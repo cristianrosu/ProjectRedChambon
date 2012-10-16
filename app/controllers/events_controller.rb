@@ -280,4 +280,16 @@ class EventsController < ApplicationController
     render json: {'error' => 0} 
   end
 
+  def destroy_block
+    @block = Block.find(params[:id]);
+    if @block.nil?
+      render json: { "error" => 1, "description" => "Could not delete block" } and return
+    else
+      @block.delete
+      
+      render json: { "error" => 0 } and return
+    end
+
+  end
+
 end
