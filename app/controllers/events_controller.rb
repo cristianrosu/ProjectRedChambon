@@ -282,17 +282,18 @@ class EventsController < ApplicationController
 
   def destroy_block
     @block = Block.find(params[:id]);
-    if @block.nil?
-      render json: { "error" => 1, "description" => "Could not delete block" } and return
-    else
-      @block.delete
-      @blocks = Block.select("id, position").where("section_id = ? AND position > ?", @block.section_id, @block.position)
-      
-      @blocks.each do |bl|
-        bl.decrement!(:position)
-      end
-      render json: { "error" => 0 } and return
+    
+    @block.delete
+    @blocks = Block.select("id, position").where("section_id = ? AND position > ?", @block.section_id, @block.position)
+    
+    @blocks.each do |bl|
+      bl.decrement!(:position)
     end
+    render json: { "error" => 0 } and return
+
+  rescue
+    render json: { "error" => 1, "description" => "Could not delete block" } and return
+
   end
 
   private
