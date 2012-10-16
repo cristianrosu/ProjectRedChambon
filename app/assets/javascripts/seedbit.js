@@ -549,6 +549,18 @@ function hideSaving(){
 
 }
 
+function showError( error ) {
+
+	//$("div#saving-status").stop(true,true).fadeOut(400);
+	//$("div#loading-status").stop(true,true).fadeOut(400);
+	// $("div#error-status").addClass('now-error');
+	// $("div#error-status span").html( error );
+	// $("div#error-status").stop(true,true).fadeIn(500).delay(1200).fadeOut(400);
+
+	$("div.notification span").html( error );
+	$("div.notification").stop(true,true).fadeIn(500).delay(5500).fadeOut(400);	
+}
+
 
 /* 	Initialize my event 
 		Usually called at document.ready, 

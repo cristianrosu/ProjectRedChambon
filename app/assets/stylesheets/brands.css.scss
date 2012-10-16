@@ -1,3 +1,152 @@
 // Place all the styles related to the Brands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.subnav2 {
+	/*box-shadow: inset 0 1px white, 0 1px 3px rgba(34, 25, 25, 0.4);
+	-moz-box-shadow: inset 0 1px #fff, 0 1px 3px rgba(34,25,25,0.4);
+	-webkit-box-shadow: inset 0 1px white, 0 1px 3px rgba(34, 25, 25, 0.4);*/
+
+	height: 45px;
+
+	border:1px 0px 1px 0px solid #d4d4d4; // initial era border: 1px solid #D4D4D4;
+		
+		border-radius: 0px;
+		-webkit-border-radius: 0px;
+		-moz-border-radius: 0px;
+
+		//min-height:50px;
+		//height:50px; 
+		background-color:#fefefe;
+		background-image:none;
+}
+
+	
+
+
+.subnav2 .nav > li > a {
+  margin: 0px;
+  border:0px;
+  padding-top:12px;
+  padding-bottom:12px;
+  font-family: 'helvetica neue', arial, sans-serif;
+  font-size: 14px;  
+  height: 20px;
+  line-height: 20px;
+  color:#211922;
+}
+
+.subnav2 .nav > li > a:hover {
+  color:#554747;
+  font-size: 14px;
+  margin: 0;
+  padding-top:12px;
+  padding-bottom: 12px;
+  border:0px;
+  height: 21px;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;	
+  background-color: #E1DFDF;
+}
+
+.subnav2 .nav > .active > a,
+.subnav2 .nav > .active > a:hover {
+  padding-left: 13px;
+  border-right:1px solid #CDC5C5;
+  border-left:1px solid #CDC5C5;
+  border-top: 1px solid #F3F3F2;
+  height:20px;
+  background: #e0dcdb;
+  background: -moz-linear-gradient(top, #E0DCDB 0%, #F4F1F1 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E0DCDB), color-stop(100%,#F4F1F1));
+  background: -ms-linear-gradient(top, #E0DCDB 0%,#F4F1F1 100%);
+  background: linear-gradient(top, #E0DCDB 0%,#F4F1F1 100%);
+  text-shadow: white 0 1px 0;
+    -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;	
+}
+.subnav2 .nav > .active > a .caret,
+.subnav2 .nav > .active > a:hover .caret {
+  border-top-color: #777;
+}
+.subnav2 .nav > li:first-child > a,
+.subnav2 .nav > li:first-child > a:hover {
+  /*border-left: 0;*/
+  padding-left: 12px;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
+.subnav2 .nav > li:last-child > a {
+  border-right: 0;
+}
+.subnav2 .dropdown-menu {
+  -webkit-border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
+}
+
+
+
+.sponsorship-timeline {
+    //padding-top: 70px;
+    margin-bottom: -50px;
+    clear: both;
+    background: url('timeline-blue.png') repeat-y 40% top;
+}
+
+.sponsorship-timeline article {
+    position: relative;
+    margin: 25px;
+    padding-left: 40%;
+    clear: right;
+    text-align: left;
+    
+}
+
+.sponsorship-timeline article aside {
+	position: absolute;
+	width: 300px;
+	margin-right: 50px;
+	padding:0 20px 20px 20px;
+	top: 0;
+	right: 60%;
+	text-align: right;
+}
+
+.sponsorship-timeline article .link{
+	width:40px;height:20px;
+	position:absolute;
+	background-image: url("/assets/timeline-item-bg-flipped.png");
+	background-repeat:no-repeat;
+	margin-top:10px;margin-left:-34px;
+}
+
+.sponsorship-timeline .year {
+	background: white;
+	-webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95),inset 0 0 8px rgba(0, 0, 0, 0.12),1px 0 0 rgba(0, 0, 0, 0.25),-1px 0 0 rgba(0, 0, 0, 0.25),0 1px 0 rgba(0, 0, 0, 0.2),0 -1px 0 rgba(0, 0, 0, 0.25),0 2px 2px rgba(0, 0, 0, 0.09);
+	-moz-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95),inset 0 0 8px rgba(0, 0, 0, 0.12),1px 0 0 rgba(0, 0, 0, 0.25),-1px 0 0 rgba(0, 0, 0, 0.25),0 1px 0 rgba(0, 0, 0, 0.2),0 -1px 0 rgba(0, 0, 0, 0.25),0 2px 2px rgba(0, 0, 0, 0.09);
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95),inset 0 0 8px rgba(0, 0, 0, 0.12),1px 0 0 rgba(0, 0, 0, 0.25),-1px 0 0 rgba(0, 0, 0, 0.25),0 1px 0 rgba(0, 0, 0, 0.2),0 -1px 0 rgba(0, 0, 0, 0.25),0 2px 2px rgba(0, 0, 0, 0.09);
+	padding: 6px 12px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	font-weight: 700;
+	text-shadow: 0 1px 1px white;
+	//position: relative;
+	z-index: 1;
+	margin-bottom: 140px;
+	position:absolute;
+	left:40%;
+	margin-left:-20px;
+	margin-top:-39px;
+}
+
+
+

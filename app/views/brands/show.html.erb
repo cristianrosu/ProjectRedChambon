@@ -3,10 +3,7 @@
     <div class="top-bar clearfix" style="-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);">
-      <div class="right-menu" style="right:150px;top:15px">
-        <a href="#" class="btn btn-green">New Event</a>
-        <a href="#" class="btn btn-orange">Follow</a>
-      </div>
+
       <a class="profile-image" style="display: block;
                       float: left;
                       margin-right: 20px;">
@@ -17,11 +14,11 @@ box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);">
         <ul class="stats">
           <li class="stat" style="padding-right:10px">
           <div class="value">12</div>
-          <div class="descriptor">Events sponsored</div>
+          <div class="descriptor">Events </div>
           </li>
           <li class="stat" style="width:150px;padding-right:10px;padding-left:20px">
           <div class="value">25</div>
-          <div class="descriptor">Campaigns sponsored</div>
+          <div class="descriptor">Campaigns</div>
           </li>
           <li class="stat" style="padding-right:10px;padding-left:20px">
           <div class="value">3078</div>
@@ -42,306 +39,64 @@ box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);">
                     </canvas>
                 </div>
     </div>
+  </div>
+</div>
+
+<!-- de aici bara meniu -->
+
+<div class="navbar event-menu" style="margin-bottom:20px;">
+  <div class="navbar-inner lite" >
+    <div class="container">
+        <div class="row">
+          <div class="span10 offset1">
+              <ul class="nav" style="margin-top:5px;">
+                <li><%= link_to "Details" %></li>
+                <li><%= link_to "Events" %></li>
+                <li><%= link_to "Campaigns" %></li>       
+                <li><%= link_to "Followers" %></li>
+                <li><%= link_to "Active sponsorships" %></li>
+
+              </ul>
+
+              <ul class="nav pull-right" style="margin-top:5px;">
+                <!-- <li style="margin-right:5px;" >
+                     <input onclick="fillModal(2)" class="btn btn-green" type="button" data-toggle="modal" href="#modalSeed" value="Recommend Event">
+                </li> -->
+                <li>
+                     <input class="btn btn-orange" type="button" data-toggle="modal" href="#modalVolunteer" value="Follow" >
+                </li>
+                <li><a data-toggle="modal" href="#modalMore">More +</a></li>
+              </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
 
     <center>
     <h1>Sponsored by Cosmote</h1>
       <h1 style="margin-bottom:50px;"><small>Timeline of all past events and campaigns sponsored by Cosmote</small></h1>
     </center>
-  </div>
-</div>
 
 <!-- de aici in jos timeline -->
 
+<div id="wrapper">
+    <div class="sponsorship-timeline" style="padding-top:39px;margin-bottom:40px;padding-bottom:50px;">
+      <span class="year">2012</span>
 
-<section id="timeline" class="view active">
-<div class="timeline-container">
-  <span class="event year">2012</span>
-  <br>
-  <div class="line"></div>
-  <div class="event_right event_container">
-    <!--  <span class="date left">fwefewpifuhwpber</span>
-        <span class="date left">sdfsdf</span> -->
-        <span class="bullet left"></span>
-
-        <div class="event tag right">
-          
-          <div class="" style="background:white">
-            <div style="position:absolute; top:30px; left:7px; width:20px; height:24px; background-image: url(<%= asset_path 'white-arrow-left.png' %>);">
-            </div>
-
-            <section class="event-timeline" style="background:none;padding-bottom:0;padding-top:0;margin-bottom:0px;">
-            <article id="" class="post event-section" style="padding-left:0;padding-top:5px;margin-bottom:0;margin-top:0;">
-
-              <h2 class="pad3 introduction" style="background:white;padding:10px;margin-bottom:0;">Young Fest Festival 2012</h2>
-            <div class="article-content">
-              
-                 <div style="position: relative;  
-                    height: 180px;
-                     ">
-                  <div id="carousel1"  class="carousel slide" style="top:0;width:100%;">
-                                      <div class="carousel-inner">
-                                        <div class="item" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                        <div class="item active" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('http://pcdn.500px.net/2909150/8f83a21caccca769b108b524443f04c30268cf2d/4.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                        <div class="item" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('http://pcdn.500px.net/121484/905a2f3d980aae640ef9443d77a71f6f323d65ae/4.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                      </div>
-                                      <a class="left carousel-control" style="top:90px" href="#carousel1" data-slide="prev">‹</a>
-                                      <a class="right carousel-control" style="top:90px" href="#carousel1" data-slide="next">›</a>
-                    </div>
-
-              </div>
-              <div class="presenter clearfix">
-                        <div class="stats">
-                          <div class="stat">
-                            <div class="value">2500</div>
-                            <div class="descriptor">People attending </div>
-                          </div>
-                          <div class="stat">
-                            <div class="value">13</div>
-                            <div class="descriptor">Concerts</div>
-                          </div>
-                          <div class="stat">
-                            <div class="value">120</div>
-                            <div class="descriptor">Volunteers</div>
-                          </div>
-                        </div>
-              </div>  
-            </div>
-          </article>  
-            </section>
-          </div>
-        </div> 
-
-  </div>
-
-  <div class="event_left event_container">
-    <!--  <span class="date left">fwefewpifuhwpber</span>
-        <span class="date left">sdfsdf</span> -->
-        
-      <div class="event tag left">
-        <div style="position:absolute; top:32px; right:-18px; width:20px; height:24px; background-image: url(<%= asset_path 'white-arrow-right.png' %>);background-repeat:no-repeat">
-            </div>
-        <section class="event-timeline" style="background:none;padding-bottom:0;padding-top:0;margin-bottom:0px;">
-            <article id="" class="post event-section" style="padding-left:0;padding-top:5px;margin-bottom:0;margin-top:0;">
-
-              <h2 class="pad3 introduction" style="background:white;padding:10px;margin-bottom:0;">Exclusive arts exhibition week</h2>
-            <div class="article-content">
-              
-                 <div style="position: relative;  
-                    height: 180px;
-                     ">
-                  <div id="carousel2"  class="carousel slide" style="top:0;width:100%;">
-                                      <div class="carousel-inner">
-                                        <div class="item" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('http://media.mike.nmspace.net/tourism/ltbt/Harris-25-07-08-178.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                        <div class="item active" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('http://www.homesqu.com/wp-content/uploads/2011/04/Queensland-Art-Gallery-Interior-Exhibition.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                        <div class="item" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('http://4.bp.blogspot.com/-0G9UBgpNm4Q/ToAbkJYqR4I/AAAAAAAABNQ/HkuaHuydX3Q/s1600/art-exhibition.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                      </div>
-                                      <a class="left carousel-control" style="top:90px" href="#carousel2" data-slide="prev">‹</a>
-                                      <a class="right carousel-control" style="top:90px" href="#carousel2" data-slide="next">›</a>
-                    </div>
-
-              </div>
-              <div class="presenter clearfix">
-                        <div class="stats">
-                          <div class="stat">
-                            <div class="value">>500</div>
-                            <div class="descriptor">People attending</div>
-                          </div>
-                          <div class="stat">
-                            <div class="value">10</div>
-                            <div class="descriptor">Galleries</div>
-                          </div>
-                          <div class="stat">
-                            <div class="value">15</div>
-                            <div class="descriptor">Artists</div>
-                          </div>
-                        </div>
-              </div>  
-            </div>
-          </article>  
-            </section>
-            <!-- PANA AICI 1 -->
+        <%= render partial: 'events/event_thumbnail.html'%>
 
 
-      </div>
-      <span class="bullet"></span> 
-  </div>
-
-  <div class="event_right event_container" style="top:500px">
-    <!--  <span class="date left">fwefewpifuhwpber</span>
-        <span class="date left">sdfsdf</span> -->
-        <span class="bullet left"></span>
-
-        <div class="event tag right">
-          
-          <div class="" style="background:white">
-            <div style="position:absolute; top:30px; left:7px; width:20px; height:24px; background-image: url(<%= asset_path 'white-arrow-left.png' %>);">
-            </div>
-
-            <section class="event-timeline" style="background:none;padding-bottom:0;padding-top:0;margin-bottom:0px;">
-            <article id="" class="post event-section" style="padding-left:0;padding-top:5px;margin-bottom:0;margin-top:0;">
-
-              <h2 class="pad3 introduction" style="background:white;padding:10px;margin-bottom:0;">Mobile network annual conference</h2>
-            <div class="article-content">
-              
-                 <div style="position: relative;  
-                    height: 180px;
-                     ">
-                  <div id="carousel112"  class="carousel slide" style="top:0;width:100%;">
-                                      <div class="carousel-inner">
-                                        <div class="item" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('http://www.gatechcenter.com/sites/gatechcenter.com/files/Amphitheater-conference.JPG');
-                                            background-position: center center;">
-                                        </div>
-                                        <div class="item active" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('http://www.wired.com/images_blogs/business/2012/03/6939522593_7a7c3e70d5_o.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                        <div class="item" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('https://www.apple.com/retail/learn/images/free.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                      </div>
-                                      <a class="left carousel-control" style="top:90px" href="#carousel112" data-slide="prev">‹</a>
-                                      <a class="right carousel-control" style="top:90px" href="#carousel112" data-slide="next">›</a>
-                    </div>
-
-              </div>
-              <div class="presenter clearfix">
-                        <div class="stats">
-                          <div class="stat">
-                            <div class="value">15%</div>
-                            <div class="descriptor">Media & bloggers </div>
-                          </div>
-                          <div class="stat">
-                            <div class="value">20</div>
-                            <div class="descriptor">Speakers</div>
-                          </div>
-                          <div class="stat">
-                            <div class="value">10</div>
-                            <div class="descriptor">Workshops</div>
-                          </div>
-                        </div>
-              </div>  
-            </div>
-          </article>  
-            </section>
-          </div>
-        </div> 
-
-  </div>
-
-  <div class="event_left event_container" style="top:590px">
-    <!--  <span class="date left">fwefewpifuhwpber</span>
-        <span class="date left">sdfsdf</span> -->
-        
-      <div class="event tag left">
-        <div style="position:absolute; top:32px; right:-18px; width:20px; height:24px; background-image: url(<%= asset_path 'white-arrow-right.png' %>);background-repeat:no-repeat">
-            </div>
-        <section class="event-timeline" style="background:none;padding-bottom:0;padding-top:0;margin-bottom:0px;">
-            <article id="" class="post event-section" style="padding-left:0;padding-top:5px;margin-bottom:0;margin-top:0;">
-
-              <h2 class="pad3 introduction" style="background:white;padding:10px;margin-bottom:0;">Hack the copycats hackathon</h2>
-            <div class="article-content">
-              
-                 <div style="position: relative;  
-                    height: 180px;
-                     ">
-                  <div id="carousel322"  class="carousel slide" style="top:0;width:100%;">
-                                      <div class="carousel-inner">
-                                        <div class="item" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('http://www.augustahackathon.com/sites/default/files/images/20122506081633.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                        <div class="item active" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('http://foursquare.wpengine.netdna-cdn.com/wp-content/uploads/2011/08/hackathon.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                        <div class="item" style=" background-size: cover;
-                                                      height:180px;
-                                            background-repeat: no-repeat;
-                                            background-image: url('https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-ash3/531593_405246856206027_1145543767_n.jpg');
-                                            background-position: center center;">
-                                        </div>
-                                      </div>
-                                      <a class="left carousel-control" style="top:90px" href="#carousel322" data-slide="prev">‹</a>
-                                      <a class="right carousel-control" style="top:90px" href="#carousel322" data-slide="next">›</a>
-                    </div>
-
-              </div>
-              <div class="presenter clearfix">
-                        <div class="stats">
-                          <div class="stat">
-                            <div class="value">23</div>
-                            <div class="descriptor">Teams</div>
-                          </div>
-                          <div class="stat">
-                            <div class="value">3000$</div>
-                            <div class="descriptor">Prizes</div>
-                          </div>
-                          <div class="stat">
-                            <div class="value">15</div>
-                            <div class="descriptor">Sponsors</div>
-                          </div>
-                        </div>
-              </div>  
-            </div>
-          </article>  
-            </section>
-            <!-- PANA AICI 1 -->
+        <%= render partial: 'events/event_thumbnail.html'%>
 
 
-      </div>
-      <span class="bullet"></span> 
-  </div>
+        <%= render partial: 'events/event_thumbnail.html'%>
 
-  
+
+        <%= render partial: 'events/event_thumbnail.html'%>
+
+    </div>
 </div>
-
-
-</div>
-
-</section>
-
 
 <script type="text/javascript">
 

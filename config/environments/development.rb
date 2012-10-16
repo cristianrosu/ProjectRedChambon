@@ -2,7 +2,7 @@ ProjectRedChambon::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
 
-  config.serve_static_assets = false #prevent loading files from /public/assets
+  config.serve_static_assets = true #prevent loading files from /public/assets
   # explanation here: http://stackoverflow.com/questions/8170039/ruby-on-rails-3-1-assets-pipeline-assets-rendered-twice
 
   # In the development environment your application's code is reloaded on
