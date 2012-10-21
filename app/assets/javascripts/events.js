@@ -77,14 +77,22 @@ var donutInit = function() {
 }
 
 var getElementId = function(element){
-  if (!element.id){
-    element.id = "gen-" + generatedId;
+  //generatedId ++;
+  var ret;
+  if (typeof element === "undefined") {
     generatedId ++;
-  } 
-  return element.id;
+    return "gen-" + generatedId;
+  }
+  else {
+    if (!element.id){
+      generatedId ++;
+      element.id = "gen-" + generatedId;
+    }
+    return element.id;
+  }
 }
 
-$(document).mouseup(function (e) {
+$(document).mousedown(function (e) {
   var container = $(".popover");
   if (container.exists && !container.is(e.target) && container.has(e.target).length === 0) {
     closePopover(container);
@@ -92,7 +100,7 @@ $(document).mouseup(function (e) {
 });
 
 var closePopover = function(container) {
-  var callerSelector = $(container).attr("data-caller-id");
+  var callerSelector = ($(container).attr("id") || '').substring(8);
   $(".btn-close", container).unbind("click");
   $(".btn-save", container).unbind("click");
   $(".square", container).unbind("click");
@@ -114,7 +122,7 @@ $(document).ready(function() {
       $(this).popover('show');
       var container = $(".popover");
 
-      $(container).attr("data-caller-id", this.id);
+      $(container).attr("id", "popover_" + this.id);
 
       $(".square", container).bind("click", function() {
           $(this).siblings(".selected").removeClass("selected");
@@ -188,80 +196,12 @@ var updateWorkspace = function(response) {
       }
   });
 
-  //event handlers
-  $("#event_title").unbind("keyup change")
-    .bind("keyup change", function() {
-      $("#_event_title").html(this.value);
-  });
-
-  $("#event_description").unbind("keyup change")
-    .bind("keyup change", function() {
-      $("#_event_description").html(this.value);
-  });
-
-  $(".btn-event-save").unbind("click")
-    .bind("click", function() {
-      $(".form-events").submit();
-  });
-
-  // $(".btn-save_section").unbind("click")
-  //   .bind("click", function() {
-  //     var modalPopup = $("#new_section_modal"),
-  //       form = $("#new_section", modalPopup),
-  //       url = "/events/create_section",
-  //       button = this;
-
-  //     var data = {
-  //       section : {
-  //         name      : $("#section_name", form).val(),
-  //         type_id   : $(".markerfilter .selected", form).data("type"),
-  //         position  : $("#event-content > article[id]").index() + 1,
-  //         event_id  : $("#event-content").attr("data-event-id")
-  //       }
-  //     };
-
-  //     $(button).html("Saving...").addClass("disabled");
-
-  //     $.post(url, data, function(response) {
-  //         $(modalPopup).modal('hide');
-  //         resetModal();
-
-  //         updateWorkspace(response);
-  //     }, "json");
-  // });
-
-  $("#new_sponsorship .btn-save").unbind("click")
-    .bind("click", function() {
-      var modalPopup = $("#new_sponsorship"),
-        form = $("#new_section", modalPopup),
-        url = "/events/create_section",
-        button = this;
-
-      var data = {
-        sponsorship : {
-          name      : "",//$("#section_name", form).val(),
-          type_id   : 3, //$(".markerfilter .selected", form).data("type"),
-          position  : 0, //$("#event-content > article[id]").index() + 1,
-          section_id : $("#event-content").attr("data-event-id")
-        }
-      };
-
-      $(button).html("Saving...").addClass("disabled");
-
-      $.post(url, data, function(response) {
-          $(modalPopup).modal('hide');
-          resetModal();
-
-          updateWorkspace(response);
-      }, "json");
-  });
-
-    //popover for adding a sponsorship
-  $(".add_content-media").popover({
-      placement : 'bottom', //placement of the popover. also can use top, bottom, left or right
+  //popover for adding a sponsorship
+  $(".add_content-other").popover({
+      placement : 'bottom', 
       title     : '',
       trigger   : 'manual',
-      html      : 'true', //needed to show html of course
+      html      : 'true', 
       content   : function(){
           return $('#new_custom_block_wrapper').html();
       }
@@ -269,7 +209,7 @@ var updateWorkspace = function(response) {
       $(this).popover('show');
       var container = $(".popover");
       var caller = this;
-      $(container).attr("data-caller-id", getElementId(this));
+      $(container).attr("id", "popover_" + getElementId(this));
       var sectionId = ($(this).closest('article').attr('id') || '').substring(3)
 
       $(".square", container).bind("click", function() {
@@ -286,36 +226,14 @@ var updateWorkspace = function(response) {
             closePopover(container);
             $(caller).closest('.add_content-bar').before( response );
             updateWorkspace();
-        });      
+            saveBlock( $(response).attr("id") );
+        });    
 
       });
 
       $(".btn-close", container).bind("click", function() {
         closePopover(container);
       });
-
-      // $(".btn-save", container).bind("click", function() {
-      //   var url = "/events/create_section";
-      //   var data = {
-      //     section : {
-      //       name      : $("#section_name", container).val(),
-      //       type_id   : $(".square.selected", container).data("type"),
-      //       position  : $("#event-content > article[id]").index() + 1,
-      //       event_id  : $("#event-content").attr("data-event-id")
-      //     }
-      //   };
-      //   if (data.section.name && data.section.type_id) {
-      //     $(this).html("Saving...").addClass("disabled");
-      //     $(this).unbind("click");
-
-      //     $.post(url, data, function(response) {
-      //         closePopover(container);
-      //         $("#event-content > article.post[id]").last().after(response.new_section);
-      //         $("#event-content > article.post.hide").fadeIn().removeClass("hide");
-      //         updateWorkspace();
-      //     }, "json");
-      //   }
-      // });
 
       e.preventDefault();
   });
@@ -326,12 +244,56 @@ var updateWorkspace = function(response) {
   });
 
   //initialize fileuploader and date fields
-  $("#event_image").fileupload({
+  // $("#event_image").fileupload({
+  //   dataType: 'json',
+  //   done: function(e, data) {
+  //     updateWorkspace(data.result);
+  //   }
+  // });
+
+  $("#event_images").fileupload({
     dataType: 'json',
+    add: function(e, data) {
+      //console.log(data);
+      //data.context = 
+      data.contextId = getElementId();
+      $("#event-pictures").append('<div id="' + data.contextId + '" style="height:150px; width:260px; border:1px solid black"></div>'); 
+      data.submit();
+    },
+    progress: function(e, data) {
+      progress = parseInt(data.loaded / data.total * 100, 10)
+      $("#" + data.contextId).html(progress + "%");
+    },
     done: function(e, data) {
-      updateWorkspace(data.result);
+      //updateWorkspace(data.result);
+      $("#" + data.contextId).html('<img src="' + data.result.image.url + '">');
+      console.log(data);
     }
   });
+
+  $(".event-picture-preview").live("click", function() {
+    $("#event_image").val( $("img", this).attr("src") );
+    $(".form-events").submit();
+  });
+
+
+
+  //event handlers
+  $("#event_title").unbind("keyup change")
+    .bind("keyup change", function() {
+      $("#_event_title").html(this.value);
+  });
+
+  $("#event_description").unbind("keyup change")
+    .bind("keyup change", function() {
+      $("#_event_description").html(this.value);
+  });
+
+  $(".btn-event-save").unbind("click")
+    .bind("click", function() {
+      $(".form-events").submit();
+  });
+
   $("#event_date_start").datepicker({
     dateFormat: 'yy-mm-dd'
   });

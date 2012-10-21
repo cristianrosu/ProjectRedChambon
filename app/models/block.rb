@@ -29,6 +29,9 @@ class Block < ActiveRecord::Base
               description: "I need a space on 28-29 Sept, big enougth for 500 people or the equivalent in money."
             }
           ].to_json
+      when 5
+        cont = ""
+        _details = "{}"
 	  end	
     self.content = cont if self.content.nil?
     self.details = _details if self.details.nil?

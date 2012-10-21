@@ -36,24 +36,14 @@
 						 ">
 					<div id="carousel-header"  class="carousel slide" style="top:0;width:100%;">
 							                <div class="carousel-inner">
-							                  <div class="item" style=" background-size: cover;
-							                  							height:280px;
-																		background-repeat: no-repeat;
-																		background-image: url('https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-snc7/388916_310429785645322_588000448_n.jpg');
-																		background-position: center center;">
-							                  </div>
-							                  <div class="item" style=" background-size: cover;
-							                  							height:280px;
-																		background-repeat: no-repeat;
-																		background-image: url('http://foursquare.wpengine.netdna-cdn.com/wp-content/uploads/2011/08/hackathon.jpg');
-																		background-position: center center;">
-							                  </div>
-							                  <div class="item active" style=" background-size: cover;
-							                  							height:280px;
-																		background-repeat: no-repeat;
-																		background-image: url('https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash4/384725_289494067758952_221838737_n.jpg');
-																		background-position: center center;">
-							                  </div>
+							                	<% event.pictures.each_with_index do |picture, i| %>
+								                  <div class="item <%= i==0? "active" : "" %>" style=" background-size: cover;
+								                  							height:280px;
+																			background-repeat: no-repeat;
+																			background-image: url('<%= picture.image_url().to_s %>');
+																			background-position: center center;">
+								                  </div>
+								                <% end %>
 							                </div>
 							                <a class="left carousel-control" style="top:140px" href="#carousel-header" data-slide="prev">‹</a>
 							                <a class="right carousel-control" style="top:140px" href="#carousel-header" data-slide="next">›</a>

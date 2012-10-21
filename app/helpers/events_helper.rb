@@ -1,6 +1,7 @@
 module EventsHelper
 
-	def block_content(block)
+	#la asta trebuie renuntat. se va renda tot in event_block
+	def block_content(block) 
 		t = ""
 		case block.type_id
 		  when 1  #header
@@ -9,8 +10,10 @@ module EventsHelper
 		  	t = "<p>#{block.content}</p>"
 		  when 3
 		  	t = ""
-		  when 4 
+		  when 4  #sponsorship
 		  	t = render( partial: "event_block_sponsorship", locals: { sponsorships: block.details, block_id: block.id }, formats: [:html] )
+		  when 5  
+		  	t = "#{block.content}"
 	  end	
 	 	return t.html_safe
 	end
@@ -26,6 +29,8 @@ module EventsHelper
 		  	t = "image"
 		  when 4
 		  	t = "sponsorship"
+		  when 5
+		  	t = "media"
 	  end	
 	  return t
 	end
@@ -40,6 +45,8 @@ module EventsHelper
 				return 3
 			when "sponsorship"
 				return 4
+			when "media"
+				return 5
 		end
 		return 0
 	end

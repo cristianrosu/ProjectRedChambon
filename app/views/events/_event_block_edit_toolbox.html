@@ -7,10 +7,12 @@
 		<div class="position-down" title="Move Down">Down</div>
 	</div>
 							
-	<% if block.type_id == 1 || block.type_id == 2 %>
-		<div class="element-toolbar">
+	
+		<div class="element-toolbar <%= block.type_id==4 ? "one_tool" : "" %>">
 			<ul>
-				<li class="toggle tool-<%= data_toggle_value(block, :align) %>" title="Alignment" <%= data_toggle_decode(block, :align) %> ><span class="title">Alignment</span></li>
+				<% if block.type_id == 1 || block.type_id == 2 %>
+					<li class="toggle tool-<%= data_toggle_value(block, :align) %>" title="Alignment" <%= data_toggle_decode(block, :align) %> ><span class="title">Alignment</span></li>
+				<% end %>
 				<li class="tool-remove" title="Remove" onclick="removeElement( 'bk<%= block.id %>', true );"><span>Remove</span></li>
 				<% if block.type_id == 1 %>
 					<li class="toggle tool-<%= data_toggle_value(block, :size) %>" title="Size" <%= data_toggle_decode(block, :size) %> ><span class="title">Size</span></li>
@@ -33,8 +35,11 @@
 					<li class="tool-text-undo" title="Undo" onclick="$('#bk<%= block.id %>-body').execCommand('undo'); saveRedactor('bk<%= block.id %>', 'text');"><span>Undo</span></li>
 					<li class="tool-text-redo" title="Redo" onclick="$('#bk<%= block.id %>-body').execCommand('redo'); saveRedactor('bk<%= block.id %>', 'text');"><span>Redo</span></li>
 				<% end %>
+				
+				<% if block.type_id == 5 %>
+					<li class="tool-edit" title="Edit" onclick="editBlock('bk<%= block.id %>')"><span>Edit</span></li>
+				<% end %>
 			</ul>
 		</div>
-	<% end %>
 	
 </div>

@@ -8,11 +8,11 @@ gem 'rails', '3.2.7'
 gem 'pg'
 gem 'devise'
 gem 'omniauth-facebook'
+gem "koala"
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
-gem 'hirb'
 gem 'will_paginate'
-gem 'paperclip'
+#gem 'paperclip'
 
 gem "rmagick"
 gem "carrierwave"
@@ -28,6 +28,8 @@ group :assets do
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
+
+	gem 'hirb'
 end
 
 gem 'jquery-rails'

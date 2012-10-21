@@ -43,5 +43,9 @@ def update_with_password(params, *options)
   end
 end
 
+def facebook
+  @facebook ||= Koala::Facebook::API.new(oauth_token)
+end
+
 
 end

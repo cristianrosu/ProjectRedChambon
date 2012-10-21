@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show    
-    @event = Event.find(params[:id], :include => [{:sections => :blocks}, :sections, :industry])
+    @event = Event.find(params[:id], :include => [:blocks, :sections, :pictures, :industry])
 
     @event.sections.each do |section|
       section.blocks.each do |block|
@@ -64,7 +64,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
 
-    @event = Event.find(params[:id], :include => [{:sections => :blocks}, :sections, :industry])
+    @event = Event.find(params[:id], :include => [:blocks, :sections, :pictures, :industry])
 
     @event.sections.each do |section|
       section.blocks.each do |block|

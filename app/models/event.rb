@@ -1,15 +1,20 @@
 class Event < ActiveRecord::Base
 
+  attr_accessible :date_end, :date_start, :description, :industry_id, :location, :rating, :title, :user_id, :image, :latitude, :longitude, :tag_list, :pictures
+
   belongs_to :user
   belongs_to :industry
   belongs_to :event_type
-  has_many :sections, :order => 'position ASC'
+  has_many :sections, :order => 'position ASC', :dependent => :destroy
+  has_many :blocks, :through => :sections
+  has_many :pictures, :as => :imageable, :dependent => :destroy
 
-  attr_accessible :date_end, :date_start, :description, :industry_id, :location, :rating, :title, :user_id, :image, :latitude, :longitude, :tag_list
+  accepts_nested_attributes_for :pictures
+  
   
   acts_as_taggable
 
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
   # before_create :init
 
   #validate :date_validation

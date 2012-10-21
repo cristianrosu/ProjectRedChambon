@@ -8,13 +8,29 @@
     <%= f.input :latitude %>
     <%= f.input :longitude %>
     <%= f.input :tag_list %>
+    <%= f.hidden_field :image %>
+
     <div id="map_canvas" style="display:none"></div>
-    <div class="control-group">
+<!--     <div class="control-group">
         <span class="file-wrapper controls">
           <input id="event_image" type="file" name="event[image]" >
-    	  <span class="btn btn-large btn-blue">Choose event photo</span>
-    	</span>
-    </div>
+        <span class="btn btn-large btn-blue">Choose event photo</span>
+      </span>
+    </div> -->
+
+    <!-- %= f.fields_for :pictures do |picture| %>
+      < %= picture.input :id %>
+      < %= picture.input :imageable_id %>
+      < %= picture.input :imageable_type %>
+      < %= picture.file_field :name %>
+    < % end % -->
+
+    <!--div class="control-group">
+        <span class="file-wrapper controls">
+          <input id="event_images" multiple="multiple" type="file" name="event[pictures]" >
+        <span class="btn btn-large btn-blue">Choose event photos</span>
+      </span>
+    </div-->
     <%= f.association :industry, collection: Industry.all(order: 'name'), as: :select, prompt: "Choose event industry"  %>
    <!--  <div class="control-group"> -->
         <%= f.button :submit, class:"btn btn-large btn-blue btn-event-save", style: "width:100%" %>
@@ -86,3 +102,32 @@
 
 <% end %>
 
+
+<div id="event-pictures">
+  <% @event.pictures.each do |picture| %>
+    <div class="event-picture-preview" style="height: 50px; width: 75px; float:left; margin:5px;">
+      <img src="<%= picture.image_url(:thumb).to_s %>" />
+    </div>
+  <% end %>
+</div>
+
+<!-- Picture uploading progress -->
+<div id="picture-uploading" style="height: 50px; width: 75px; float:left; margin:5px; border:1px solid black; display:none">
+  <div class="progress" style="width: 25%; height: 5px;"></div>
+</div>
+
+<br />
+<br />
+
+<%= simple_form_for(@event.pictures.new, :html => {:class => 'form-picturess', :multipart => true}) do |picture| %>
+  <%= picture.hidden_field :id %>
+  <%= picture.hidden_field :imageable_id %>
+  <%= picture.hidden_field :imageable_type %>
+  <div class="control-group">
+    <span class="file-wrapper controls">
+      <input id="event_images" multiple="multiple" type="file" name="picture[image]" >
+      <span class="btn btn-large btn-blue">Choose event photos</span>
+    </span>
+  </div>
+
+<% end %>

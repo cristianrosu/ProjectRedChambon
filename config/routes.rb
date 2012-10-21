@@ -28,6 +28,8 @@ ProjectRedChambon::Application.routes.draw do
 
  resources :sponsorships
 
+ resources :pictures, only: [:create, :destroy]
+
 get "home/index"
 get "home/contact"
 get "home/about"

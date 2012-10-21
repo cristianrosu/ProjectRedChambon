@@ -27,19 +27,32 @@ toggles['column']	= 	[ 'column-one', 'column-two' ];
 toggles['style']	= 	[ 'style-bullet', 'style-number' ];
 
 
+
+function initializeMedia( id ) {
+	var $element = $( "#"+id ),
+			$eleBody = $( "#"+id+"-body" ),
+			$eleContent = $( "#"+id+"-content" ),
+			$eleAddContent = $(".media_add", $eleBody);
+
+			if ($eleContent.children().length == 0) {
+				$eleAddContent.show();
+				$(".btn-save", $element).click(function() {
+					setMedia(id);
+				});
+			}
+}
+
 function initializeSponsorship( id ) {
 	var $element		= $( '#'+id ),
 			$eleBody		= $('#'+id+'-body');
-
 			$eleBody.wrap('<div id="' + id + '_body" />');
-
 			$eleEditable = $("#" + id + "_body");
 			//$eleEditable.html(function () { return $eleBody.html(); });
 
 
-  //popover for editing a sponsorship
+  //Popover for editing a sponsorship
   $(".badge-sponsor", $eleBody).popover({
-      placement : 'left', //placement of the popover. also can use top, bottom, left or right
+      placement : 'left',
       title     : '',
       trigger   : 'manual',
       html      : 'true', 
@@ -49,56 +62,65 @@ function initializeSponsorship( id ) {
     }).unbind("click").bind("click", function(e) {
       $(this).popover('show');
       var sponsorship = this;
-      var container = $(".popover");
+      var popover = $(".popover");
 
-      $(container).attr("data-caller-id", getElementId(this));
-      var sectionId = ($(this).closest('article').attr('id') || '').substring(3)
-      var values = $(this).attr("data-values");
-      var values_id = $(this).attr("data-id");
+      //$(popover).attr("data-caller-id", getElementId(this));
+      $(popover).attr("id", "popover_" + getElementId(sponsorship));
+      var sectionId = ($(sponsorship).closest('article').attr('id') || '').substring(3)
+      var values = $(sponsorship).attr("data-values");
+      var values_id = $(sponsorship).attr("data-id");
 
-      //TARANISM
-      $("#sponsorship_title", container).val(window[values][values_id].title);
-      $("#sponsorship_count", container).val(window[values][values_id].count);
-      $("#sponsorship_value", container).val(window[values][values_id].value);
-      $("#sponsorship_description", container).val(window[values][values_id].description);
+      //Fill edit box with data 
+      $("#sponsorship_title", popover).val(window[values][values_id].title);
+      $("#sponsorship_count", popover).val(window[values][values_id].count);
+      $("#sponsorship_value", popover).val(window[values][values_id].value);
+      $("#sponsorship_description", popover).val(window[values][values_id].description);
 
-      $('[id^="sponsorship_"]', container).bind("keyup change", function() {
-      	$("#" + this.id, sponsorship).text($(this).val());
+      //Bind to textbox changes, for live preview
+      $('[id^="sponsorship_"]', popover).bind("keyup change", function() {
+      	$("#" + this.id, sponsorship).text( $(this).val() );
       	if (this.id == "sponsorship_count" || this.id == "sponsorship_value"){	
-      		$("#sponsorship_count_value", sponsorship).text($("#sponsorship_count", container).val() + " x " + $("#sponsorship_value", container).val() + "$")
+      		$("#sponsorship_count_value", sponsorship).text($("#sponsorship_count", popover).val() + " x " + $("#sponsorship_value", popover).val() + "$")
       	}
       });
 
-      $(".square", container).bind("click", function() {
-        $(this).siblings(".selected").removeClass("selected");
-        $(this).addClass("selected");   
+      // $(".square", popover).bind("click", function() {
+      //   $(this).siblings(".selected").removeClass("selected");
+      //   $(this).addClass("selected");   
 
+      // });
+
+      $(".btn-save", popover).bind("click", function() {
+
+				window[values][values_id].title = $("#sponsorship_title", popover).val();
+				window[values][values_id].count = $("#sponsorship_count", popover).val();
+				window[values][values_id].value = $("#sponsorship_value", popover).val();
+				window[values][values_id].description = $("#sponsorship_description", popover).val();      	
+
+      	saveBlock( id );
+        closePopover(popover);
       });
 
-      $(".btn-save", container).bind("click", function() {
-      	window[values][values_id].title = $("#sponsorship_title", container).val();
-      	window[values][values_id].count = $("#sponsorship_count", container).val();
-      	window[values][values_id].value = $("#sponsorship_value", container).val();
-      	window[values][values_id].description = $("#sponsorship_description", container).val();
-      	//$('[id^="sponsorship_"]', container).unbind("keyup change");
-
-        var url = "/events/" + id.substring(2) + "/save_block";
-        var data = {
-            details : window[values] ? JSON.stringify( window[values] ) : ''
-        };
-
-        $.post(url, data, function(response) {
-            closePopover(container);
-        }, "json"); 
-
-        closePopover(container);
-      });
-
-      $(".btn-close", container).bind("click", function() {
+      $(".btn-close", popover).bind("click", function() {
       	//restore div
-        closePopover(container);
+        closePopover(popover);
       });
     });
+
+}
+
+function saveBlock( id ) {
+	var $element = $( "#" + id );
+	var values = "sponsorships_data_" + id.substring(2);
+	var url = "/events/" + id.substring(2) + "/save_block";
+	var data = {
+			position: $element.parent().children().index($element),
+	    details : window[values] ? JSON.stringify( window[values] ) : ''
+	};
+
+	$.post(url, data, function(response) {
+
+	}, "json"); 
 
 }
 
@@ -424,8 +446,6 @@ function saveElement( id, isNew ) {
 		value					= $element.data('value') || '',
 		type				= $element.data('type') || '',
 		serverId	= id.substring(2) || '',
-		// mioImages			= $element.data('images') || '',
-		// mioLink				= $element.data('link') || '',
 		toggles			= getToggles( id );
 	
 	showSaving();
@@ -439,7 +459,7 @@ function saveElement( id, isNew ) {
 				position: $element.parent().children().index($element), //$("#main").find(".element:visible").index( $element ),
 				isNew 	: isNew || false,
 				content	: value,
-				details : toggles!='' ? JSON.stringify( toggles ) : ''
+				details : toggles!='' ? JSON.stringify( toggles ) : '{}'
 				//images 	: ( mioImages!='' ) ? JSON.stringify( {"images":mioImages} ) : '',
 				//link 	: mioLink
 			};
@@ -538,6 +558,16 @@ function removeElementAction( id ) {
 		});
 		
 	});
+}
+
+function editBlock(id) {
+	var $element=$('#'+id); 
+	if( !$element.hasClass('defaultState') ) { 
+		$element.find('.media_add,.media-target').slideToggle(); 
+	} 
+	else { 
+		//showError('Please provide your media element with a link to embed.'); 
+	}
 }
 
 function showSaving(){
@@ -833,8 +863,8 @@ function initializeAdditor() {
 			target.closest(".layout").find(".blankcanvas").slideUp();
 			target.closest('.add_content-bar').before( data );
 			initializeAdditor();
-			//saveElement( $(data).attr('id'), true ); // save after addition
-			saveRedactor($(data).attr('id'), type);
+			saveElement( $(data).attr('id'), true ); // save after addition
+			//saveRedactor($(data).attr('id'), type);
 		});
 
 		// $.ajax({
@@ -883,4 +913,93 @@ function initializeAdditor() {
 	    });
 	});
 
+}
+
+
+function rawurlencode (str) {
+    str = (str + '').toString();
+ 	return encodeURIComponent(str).replace(/!/g, '%21').replace(/'/g, '%27').replace(/\(/g, '%28').
+    replace(/\)/g, '%29').replace(/\*/g, '%2A');
+}
+
+//Called when embedding URL
+var mediaEmbedService = "http://noembed.com/embed?url=";
+var mediaEmbedOptions = "&callback=?&maxwidth=600&maxheight=3000&nowrap=on"; //&maxwidth=600
+function setMedia( id ) {
+
+	// get info from noembed
+	// media_add should roll up (upon edit it should roll down)
+	// media-target will hold the 
+	
+	var $element		= $('#'+id),
+		$mediaTarget 	= $element.find('.media-target'),
+		$mediaAdd		= $element.find('.media_add'),
+		$mediaLink		= $element.find('.media-link'),
+		value = {
+			id : id,
+			type : 'media',
+			value : $mediaTarget.html(),
+			link: $mediaLink.val()
+		};
+		
+	$element.data( value );
+
+	if( $mediaLink.val() != "" ) {
+	
+		var t = /.+\.([^?]+)(\?|$)/
+		var suffix = $mediaLink.val().match(t);
+		if( suffix[1] == 'jpg' || suffix[1] == 'jpeg' || suffix[1] == 'png' || suffix[1] == 'gif' ) {
+			
+			value.value = '<div class="mediaIMG"><img src="' + suffix[0] + '" /></div>';
+			value.link =  suffix[0];
+			
+			$mediaTarget.html( '<div class="media-none"><span>Loading Media...</span></div>' );
+			$mediaAdd.slideUp();
+			$mediaTarget.html( value.value ).fadeIn('slow');
+				
+			$element.data( value );
+			saveElement( id );
+			
+		} else {
+
+			$mediaTarget.html( '<div class="media-none"><span>Loading Media...</span></div>' );
+			$mediaAdd.slideUp();
+			var embedURL = mediaEmbedService + rawurlencode( $mediaLink.val() ) + mediaEmbedOptions;
+			$.ajax({
+				url: embedURL,
+				dataType: 'json',
+				success: function( data, textStatus, jqXHR ) {
+				
+					if( data.html != undefined && data.html != '' ) {
+						$mediaTarget.html( data.html ).fadeIn('slow');
+						value.value = data.html;
+						value.link = data.url;
+					} else {
+						//$mediaTarget.html( '<div class="media-none"><span>Media content not found. Please try something else.</span></div>' );
+						//$('#'+element+'-value').html( '' );
+						showError( 'Media content not found. Please try something else.' );
+						$mediaTarget.html("");
+						$mediaAdd.slideDown();
+						value.value = '';
+						value.link = '';
+					}
+					
+					// save it
+					$element.data( value );
+					saveElement( id );
+				},
+				error: function(){
+					showError( 'Media content not found. Please try something else.' );
+					$mediaTarget.html("");
+					$mediaAdd.slideDown();
+					value.value = '';
+					value.link = '';
+					$element.data( value );
+				}
+			});
+			
+		}
+
+	}
+	
 }

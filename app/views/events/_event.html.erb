@@ -1,7 +1,7 @@
 <!-- <li class="span4" style="style:none"> -->
     <div class="thumbnail thumbnail-first">	 
 			
-           <img style="width:460px;" src="<%= event.image_url(:thumb).to_s %>">
+           <img style="width:460px;" src="<%= event.image.to_s %>"> <!--%= event.image_url(:thumb).to_s %-->
                 <div class="mask">
                     <h4> <i class="icon icon-tag"></i> <%= get_industry_name(event.industry) %></h4>
                     <p id="_event_description"> <%= event.description.to_s %></p> 

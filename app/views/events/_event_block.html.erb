@@ -2,7 +2,7 @@
 
 <% if edit_mode %>
 
-	<%= render partial: "event_block_edit_toolbox.html", locals: { block: block } %>
+	<%= render partial: "event_block_edit_toolbox", locals: { block: block }, formats: [:html] %>
 
 	<% if block.type_id < 3 %>
 		<textarea id="bk<%= block.id %>-body" class="<%= add_class_data_toggle(block) %>" style="display: none;" >
@@ -10,10 +10,18 @@
 		</textarea>
 	<% end %>
 
-
 	<% if block.type_id == 4 %>
 		<div id="bk<%= block.id %>-body" class="<%= add_class_data_toggle(block) %>">
 			<%= block_content(block) %>
+		</div>
+	<% end %>
+
+	<% if block.type_id == 5 %>
+		<div id="bk<%= block.id %>-body" class="meda_holder">
+			<%= render partial: "event_block_embed_add", formats: [:html] %>
+			<div id="bk<%= block.id %>-content" class="media-target">
+				<%= block_content(block) %>
+			</div>
 		</div>
 	<% end %>
 

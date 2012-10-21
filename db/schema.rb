@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016161126) do
+ActiveRecord::Schema.define(:version => 20121018175517) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "section_id"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(:version => 20121016161126) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.string   "name"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "image"
   end
 
   create_table "sections", :force => true do |t|

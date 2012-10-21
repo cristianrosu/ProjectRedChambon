@@ -1,6 +1,6 @@
 class Section < ActiveRecord::Base
 
-  has_many :blocks, :order => 'position ASC'
+  has_many :blocks, :order => 'position ASC', :dependent => :destroy
   belongs_to :event
 
   attr_accessible :event_id, :name, :position, :type_id
