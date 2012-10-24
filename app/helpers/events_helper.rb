@@ -13,7 +13,9 @@ module EventsHelper
 		  when 4  #sponsorship
 		  	t = render( partial: "event_block_sponsorship", locals: { sponsorships: block.details, block_id: block.id }, formats: [:html] )
 		  when 5  
-		  	t = "#{block.content}"
+		  	t = "#{block.content}"		  
+		  when 6
+		  	t = "#{current_user.to_json}"
 	  end	
 	 	return t.html_safe
 	end
@@ -191,6 +193,14 @@ module EventsHelper
         symbolize_keys_deep! h[ks] if h[ks].kind_of? Hash
     end
 	end
+
+	# def image_url(url)
+	# 	if url.blank?
+	# 		url = "no_image.jpg"
+	# 	end
+	# 	return File.join("/assets", url)
+		
+	# end
 
 end
 # "geometry": { "type": "Point", "coordinates": [-77.03, 38.90]},

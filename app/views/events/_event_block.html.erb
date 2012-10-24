@@ -25,6 +25,15 @@
 		</div>
 	<% end %>
 
+	<% if block.type_id == 6 %>
+		<div id="bk<%= block.id %>-body" class="">
+			<!--%= render partial: "event_block_embed_add", formats: [:html] %-->
+			<div id="bk<%= block.id %>-content" class="">
+				<%= render partial: "event_block_participants", formats: [:html], locals: { friends: get_fb_friends(current_user)} %>
+			</div>
+		</div>
+	<% end %>
+
 	<script type="text/javascript">
 		$(document).ready( function() {
 			initialize<%= block_type(block.type_id).capitalize %>( "bk<%= block.id %>" );

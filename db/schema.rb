@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121018175517) do
+ActiveRecord::Schema.define(:version => 20121021221156) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "section_id"
@@ -135,6 +135,8 @@ ActiveRecord::Schema.define(:version => 20121018175517) do
     t.datetime "updated_at",                             :null => false
     t.string   "provider"
     t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

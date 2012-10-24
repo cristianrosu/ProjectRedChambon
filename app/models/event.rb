@@ -10,12 +10,10 @@ class Event < ActiveRecord::Base
   has_many :pictures, :as => :imageable, :dependent => :destroy
 
   accepts_nested_attributes_for :pictures
-  
-  
+  before_create :init
   acts_as_taggable
 
   # mount_uploader :image, ImageUploader
-  # before_create :init
 
   #validate :date_validation
   #validates :title, :presence => true
@@ -28,6 +26,13 @@ class Event < ActiveRecord::Base
       errors.add( :date_end, "can't be in the past")
     end
     #if !date_start.blank? and !date_end.blank?
+  end
+
+    
+
+  private
+  def init
+    self.image = "/assets/no_event_image.jpg" if self.image.blank?
   end
 
   # private

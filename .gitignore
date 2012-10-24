@@ -15,3 +15,5 @@
 /tmp
 database.yml
 /public/uploads
+
+devise.rb

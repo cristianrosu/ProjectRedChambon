@@ -256,8 +256,8 @@ var updateWorkspace = function(response) {
     add: function(e, data) {
       //console.log(data);
       //data.context = 
-      data.contextId = getElementId();
-      $("#event-pictures").append('<div id="' + data.contextId + '" style="height:150px; width:260px; border:1px solid black"></div>'); 
+      data.contextId = getElementId();  //<div id="' + data.contextId + '" style="height:150px; width:260px; border:1px solid black"></div>'); 
+      $("#event-pictures").append('<div id="' + data.contextId + '" class="event-picture-preview" style="height: 50px; width: 75px; float:left; margin:5px; cursor:pointer"></div> ');
       data.submit();
     },
     progress: function(e, data) {
@@ -266,7 +266,7 @@ var updateWorkspace = function(response) {
     },
     done: function(e, data) {
       //updateWorkspace(data.result);
-      $("#" + data.contextId).html('<img src="' + data.result.image.url + '">');
+      $("#" + data.contextId).html('<img src="' + data.result.image.url + '" />');
       console.log(data);
     }
   });

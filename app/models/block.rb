@@ -31,6 +31,10 @@ class Block < ActiveRecord::Base
           ].to_json
       when 5
         cont = ""
+        _details = "{}"      
+
+      when 6
+        cont = ""
         _details = "{}"
 	  end	
     self.content = cont if self.content.nil?
@@ -63,4 +67,5 @@ class BlockType
   IMAGE=3
   SPONSORSHIP=4
   BADGE=5
+  FRIENDS=6
 end

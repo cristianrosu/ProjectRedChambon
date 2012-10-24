@@ -1,0 +1,7 @@
+<% friends.each do |friend| %>
+	<div style="display:inline">
+		<!--a href=""-->
+			<img src="<%= "https://graph.facebook.com/#{friend['id']}/picture" %>" style="height:50px; width: 50px; margin:2px 0px 3px 0px" alt="<%= friend['name'] %>" title="<%= friend['name'] %>" data-rating="<%= Random.rand(100) %>" data-campaigns="<%= Random.rand(25) %>" />
+		<!--/a-->
+	</div>
+<% end %>

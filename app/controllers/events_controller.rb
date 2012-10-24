@@ -131,8 +131,9 @@ class EventsController < ApplicationController
     @section_basic = Section.new(name: "Details", type_id: 1, position: 1)
     @section_details = Section.new(name: "People", type_id: 2, position: 2)
     @section_sponsorships = Section.new(name: "Sponsorships", type_id: 3, position: 3)
+    @section_participants = Section.new(name: "Participants", type_id: 2, position: 4)
 
-    @event.sections << @section_basic << @section_details << @section_sponsorships
+    @event.sections << @section_basic << @section_details << @section_sponsorships << @section_participants
 
 
     @block1 = Block.new(type_id: 1, position: 0)
@@ -144,6 +145,9 @@ class EventsController < ApplicationController
     @block3 = Block.new(type_id: 1, position: 0)
     @block33 = Block.new(type_id: 2, position: 1)
     @section_sponsorships.blocks << @block3 << @block33
+    @block4 = Block.new(type_id: 1, content: "Some of participants", position: 0)
+    @block44 = Block.new(type_id: 6, position: 1)
+    @section_participants.blocks << @block4 << @block44
 
     respond_to do |format|
       if @event.save

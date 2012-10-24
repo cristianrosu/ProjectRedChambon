@@ -105,7 +105,7 @@
 
 <div id="event-pictures">
   <% @event.pictures.each do |picture| %>
-    <div class="event-picture-preview" style="height: 50px; width: 75px; float:left; margin:5px;">
+    <div class="event-picture-preview" style="height: 50px; width: 75px; float:left; margin:5px; cursor:pointer">
       <img src="<%= picture.image_url(:thumb).to_s %>" />
     </div>
   <% end %>
