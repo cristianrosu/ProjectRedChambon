@@ -29,7 +29,7 @@
 		<div id="bk<%= block.id %>-body" class="">
 			<!--%= render partial: "event_block_embed_add", formats: [:html] %-->
 			<div id="bk<%= block.id %>-content" class="">
-				<%= render partial: "event_block_participants", formats: [:html], locals: { friends: get_fb_friends(current_user)} %>
+				<%= block_content(block) %>
 			</div>
 		</div>
 	<% end %>

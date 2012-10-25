@@ -15,7 +15,7 @@ module EventsHelper
 		  when 5  
 		  	t = "#{block.content}"		  
 		  when 6
-		  	t = "#{current_user.to_json}"
+		  	t = render( partial: "event_block_participants", formats: [:html], locals: { friends: get_fb_friends(current_user)} )
 	  end	
 	 	return t.html_safe
 	end
@@ -33,6 +33,8 @@ module EventsHelper
 		  	t = "sponsorship"
 		  when 5
 		  	t = "media"
+		  when 6
+		  	t = "participants"
 	  end	
 	  return t
 	end
@@ -49,6 +51,8 @@ module EventsHelper
 				return 4
 			when "media"
 				return 5
+			when "participants"
+				return 6
 		end
 		return 0
 	end

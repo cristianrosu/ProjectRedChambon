@@ -27,6 +27,10 @@ toggles['column']	= 	[ 'column-one', 'column-two' ];
 toggles['style']	= 	[ 'style-bullet', 'style-number' ];
 
 
+function initializeParticipants( id ) {
+	
+	
+}
 
 function initializeMedia( id ) {
 	var $element = $( "#"+id ),
