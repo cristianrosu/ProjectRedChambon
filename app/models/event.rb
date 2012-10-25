@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
 
-  attr_accessible :date_end, :date_start, :description, :industry_id, :location, :rating, :title, :user_id, :image, :latitude, :longitude, :tag_list, :pictures
+  attr_accessible :date_end, :date_start, :description, :industry_id, :location, :rating, :title, :user_id, :image, :latitude, :longitude, :tag_list, :pictures, :image_url
 
   belongs_to :user
   belongs_to :industry
@@ -28,12 +28,16 @@ class Event < ActiveRecord::Base
     #if !date_start.blank? and !date_end.blank?
   end
 
+  def image_url
+    return self.image
+  end
     
 
   private
   def init
     self.image = "/assets/no_event_image.jpg" if self.image.blank?
   end
+
 
   # private
   # def init
