@@ -30,7 +30,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show    
     @event = Event.find(params[:id], :include => [:blocks, :sections, :pictures, :industry])
-
+    Rails.logger.debug("My object: #{@event.inspect}")
     @event.sections.each do |section|
       section.blocks.each do |block|
         block.details =  ActiveSupport::JSON.decode(block.details)

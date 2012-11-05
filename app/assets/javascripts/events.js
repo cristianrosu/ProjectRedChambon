@@ -114,7 +114,7 @@ $(document).ready(function() {
       placement : 'right', //placement of the popover. also can use top, bottom, left or right
       title     : '',
       trigger   : 'manual',
-      html      : 'true', //needed to show html of course
+      html      : 'true', 
       content   : function(){
           return $('#new_section_wrapper').html();
       }
@@ -158,6 +158,20 @@ $(document).ready(function() {
 
       e.preventDefault();
   });
+
+  //popover for editing an event section
+  $("article[id] aside").popover({
+      placement : 'right', //placement of the popover. also can use top, bottom, left or right
+      title     : '',
+      trigger   : 'manual',
+      html      : 'true', 
+      content   : function(){
+          return $('#new_section_wrapper').html();
+      }
+  }).unbind("click").bind("click", function(e) {
+
+    
+  })
 
 
 

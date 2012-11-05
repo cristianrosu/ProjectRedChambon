@@ -8,6 +8,7 @@ gem 'rails', '3.2.7'
 gem 'pg'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'omniauth-eventbrite' #, '~> 0.0.3'
 gem "koala"
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
