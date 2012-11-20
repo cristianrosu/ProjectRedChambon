@@ -172,6 +172,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   koala
+  less-rails
   omniauth-facebook
   pg
   rails (= 3.2.7)
